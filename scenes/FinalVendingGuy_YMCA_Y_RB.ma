@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: FinalVendingGuy_YMCA_Y_RB.ma
-//Last modified: Mon, Jan 12, 2015 01:57:20 PM
+//Last modified: Mon, Jan 12, 2015 03:10:34 PM
 //Codeset: 1252
 file -rdi 1 -ns "VendingGuy3" -dr 1 -rfn "VendingGuy3RN" -op "v=0;" "/Users/Samantha/Desktop/VendingMachineGuy/VendingGuy2FootFix_angela6.ma";
 file -rdi 1 -ns "faceRig" -rfn "faceRigRN" -op "v=0;" "/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma";
@@ -23,13 +23,13 @@ fileInfo "osv" "Microsoft Windows 7 Enterprise Edition, 64-bit Windows 7 Service
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 766.99127682069047 -124.95957506230559 455.14760811853353 ;
-	setAttr ".r" -type "double3" 20.661647271487325 -671.39999999994757 0 ;
+	setAttr ".t" -type "double3" 87.802186496210709 240.68837353953447 -175.04398881271044 ;
+	setAttr ".r" -type "double3" -108.33835272629727 -1107.7999999992298 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".bnm" -type "string" "Vending_2IK_Rig_Shaders";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 852.45001643857449;
+	setAttr ".coi" 158.67429307248361;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -184,7 +184,7 @@ createNode scaleConstraint -n "group1_scaleConstraint1" -p "BodyRig_grp";
 	setAttr -k on ".w0";
 createNode transform -n "SuperMover_Offset";
 createNode transform -n "SuperMover" -p "SuperMover_Offset";
-	setAttr ".r" -type "double3" -24.797075080977731 0 -21.600003046925309 ;
+	setAttr ".t" -type "double3" 0 -3.5527136788005009e-015 -5.5879186862823076 ;
 	setAttr ".s" -type "double3" 40 40 40 ;
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
@@ -255,6 +255,19 @@ createNode scaleConstraint -n "group2_scaleConstraint1" -p "Body2_grp";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
+createNode transform -n "camera1";
+	setAttr ".t" -type "double3" 114.21711237137544 274.61432039780919 -231.54945437428054 ;
+	setAttr ".r" -type "double3" -120.00000000000068 -23.6000000000002 0 ;
+createNode camera -n "cameraShape1" -p "camera1";
+	setAttr -k off ".v";
+	setAttr ".rnd" no;
+	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
+	setAttr ".ff" 0;
+	setAttr ".coi" 271.08506334070142;
+	setAttr ".ow" 30;
+	setAttr ".imn" -type "string" "camera1";
+	setAttr ".den" -type "string" "camera1_depth";
+	setAttr ".man" -type "string" "camera1_mask";
 createNode fosterParent -n "faceRigRNfosterParent1";
 createNode scaleConstraint -n "controls_grp_scaleConstraint1" -p "faceRigRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "head_controlW0" -dv 1 -min 0 -at "double";
@@ -303,7 +316,7 @@ createNode parentConstraint -n "skeleton_grp_parentConstraint1" -p "faceRigRNfos
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" -3.3304967104555243 -2.0514410850235896 4.5106968896074114e-016 ;
 	setAttr ".tg[0].tor" -type "double3" 61.113418233089689 89.999999999999986 0 ;
-	setAttr ".lr" -type "double3" -57.535064028427236 -24.314530617339059 -39.360516654023655 ;
+	setAttr ".lr" -type "double3" -69.829182491008368 -27.307407492798141 -33.989086312662252 ;
 	setAttr ".rst" -type "double3" 2.9582283945787943e-031 -1.7763568394002505e-015 
 		2.7755575615628914e-017 ;
 	setAttr ".rsrr" -type "double3" -1.9083328088781104e-014 -1.2722218725854062e-014 
@@ -57556,7 +57569,7 @@ createNode reference -n "VendingGuy3RN";
 lockNode -l 1 ;
 createNode reference -n "faceRigRN";
 	setAttr ".fn[0]" -type "string" "C:/Users/10343101/Documents/vending/scenes/faceRig.ma";
-	setAttr -s 26 ".phl";
+	setAttr -s 29 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -57583,6 +57596,9 @@ createNode reference -n "faceRigRN";
 	setAttr ".phl[24]" 0;
 	setAttr ".phl[25]" 0;
 	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"faceRigRN"
 		"faceRig:Head02RN" 0
@@ -57662,7 +57678,7 @@ createNode reference -n "faceRigRN";
 		"faceRigRN.placeHolderList[2]" ""
 		5 4 "faceRigRN" "faceRig:Head02:Full_Body:Eyebrow_blinnSG.surfaceShader" 
 		"faceRigRN.placeHolderList[3]" ""
-		"faceRigRN" 164
+		"faceRigRN" 169
 		0 "|faceRigRNfosterParent1|skeleton_grp_parentConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
 		"-s -r "
 		0 "|faceRigRNfosterParent1|skeleton_grp_scaleConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
@@ -57674,9 +57690,13 @@ createNode reference -n "faceRigRN";
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01" 
 		"rotate" " -type \"double3\" 0 0 24.646523742814054"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01" 
+		"rotateZ" " -av"
+		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01" 
 		"segmentScaleCompensate" " 1"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02" 
 		"rotate" " -type \"double3\" 0 -6.8399997253722233 18.00000008207498"
+		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02" 
+		"rotateZ" " -av"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02" 
 		"segmentScaleCompensate" " 1"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control" 
@@ -57690,7 +57710,7 @@ createNode reference -n "faceRigRN";
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control|faceRig:lowerJaw_offset|faceRig:lowerJaw_control" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control|faceRig:lowerJaw_offset|faceRig:lowerJaw_control" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" -4.5836623610465859 0 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control|faceRig:lowerJaw_offset|faceRig:lowerJaw_control|faceRig:lowerLip_grp|faceRig:lowerLip_loc01|faceRig:lowerLip_offset01|faceRig:lowerLip_control01" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control|faceRig:lowerJaw_offset|faceRig:lowerJaw_control|faceRig:lowerLip_grp|faceRig:lowerLip_loc01|faceRig:lowerLip_offset01|faceRig:lowerLip_control01" 
@@ -57886,9 +57906,9 @@ createNode reference -n "faceRigRN";
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:R_upperLidSync_offset|faceRig:R_upperLidSync_control" 
 		"translateY" " 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:L_lowerLidSync_offset|faceRig:L_lowerLidSync_control" 
-		"translateY" " 0"
+		"translateY" " 0.20000000000000004"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:R_lowerLidSync_offset|faceRig:R_lowerLidSync_control" 
-		"translateY" " 0"
+		"translateY" " 0.20000000000000004"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:pupils_offset|faceRig:pupils_control" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:pupils_offset|faceRig:pupils_control|faceRig:L_pupil_offset|faceRig:L_pupil_control" 
@@ -57900,21 +57920,21 @@ createNode reference -n "faceRigRN";
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:pupils_offset|faceRig:pupils_control|faceRig:R_pupil_offset|faceRig:R_pupil_control" 
 		"scalePupil" " -k 1 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:L_eyeBrowsSync_offset|faceRig:L_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.30000000000000004 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:upperJaw_grp|faceRig:R_eyeBrowsSync_offset|faceRig:R_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.30000000000000004 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:lowerJaw_grp|faceRig:jawSync_offset|faceRig:jawSync_control" 
 		"translateX" " -av 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:lowerJaw_grp|faceRig:jawSync_offset|faceRig:jawSync_control" 
 		"translateY" " -av 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:L_lipsSync_offset|faceRig:L_lipsSync_control" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 1 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:R_lipsSync_offset|faceRig:R_lipsSync_control" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 1 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:L_cheekSync_offset|faceRig:L_cheekSync_control" 
 		"translateX" " 0"
 		2 "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp|faceRig:R_cheekSync_offset|faceRig:R_cheekSync_control" 
-		"translateX" " 0"
+		"translateX" " 1"
 		2 "|faceRig:Head02RNfosterParent1|faceRig:EyebrowsShapeDeformed" "uvSet[0].uvSetName" 
 		" -type \"string\" \"map1\""
 		2 "faceRig:Controls" "displayType" " 0"
@@ -57968,21 +57988,27 @@ createNode reference -n "faceRigRN";
 		"faceRigRN.placeHolderList[17]" ""
 		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp.scaleZ" 
 		"faceRigRN.placeHolderList[18]" ""
-		5 3 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control.scale" 
+		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01.rotateZ" 
 		"faceRigRN.placeHolderList[19]" ""
-		5 3 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control.parentMatrix" 
+		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02.rotateY" 
 		"faceRigRN.placeHolderList[20]" ""
-		5 3 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.parentInverseMatrix" 
+		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02.rotateZ" 
 		"faceRigRN.placeHolderList[21]" ""
-		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.scaleX" 
+		5 3 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control.scale" 
 		"faceRigRN.placeHolderList[22]" ""
-		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.scaleY" 
+		5 3 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp|faceRig:shoulder_offset|faceRig:shoulder_control|faceRig:neck_offset01|faceRig:neck_control01|faceRig:neck_offset02|faceRig:neck_control02|faceRig:headBase_offset|faceRig:headBase_control|faceRig:head_offset|faceRig:head_control.parentMatrix" 
 		"faceRigRN.placeHolderList[23]" ""
-		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.scaleZ" 
+		5 3 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.parentInverseMatrix" 
 		"faceRigRN.placeHolderList[24]" ""
+		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.scaleX" 
+		"faceRigRN.placeHolderList[25]" ""
+		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.scaleY" 
+		"faceRigRN.placeHolderList[26]" ""
+		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp.scaleZ" 
+		"faceRigRN.placeHolderList[27]" ""
 		5 3 "faceRigRN" "|faceRig:Head02RNfosterParent1|faceRig:Body_MeshShapeDeformed.instObjGroups" 
-		"faceRigRN.placeHolderList[25]" "faceRig:mia_material_x1SG.dsm"
-		5 3 "faceRigRN" "faceRig:file1.message" "faceRigRN.placeHolderList[26]" 
+		"faceRigRN.placeHolderList[28]" "faceRig:mia_material_x1SG.dsm"
+		5 3 "faceRigRN" "faceRig:file1.message" "faceRigRN.placeHolderList[29]" 
 		":initialMaterialInfo.t";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -58161,27 +58187,34 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n"
 		+ "                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1.165\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 1\n                -transitionFrames 5\n"
-		+ "                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"largeIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1.165\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n"
-		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 1\n                -transitionFrames 5\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"largeIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n"
-		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n"
-		+ "                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 1\n                -transitionFrames 1\n"
+		+ "                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n"
+		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 1\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n"
+		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n"
+		+ "                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n"
 		+ "                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n"
-		+ "\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n"
-		+ "                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n"
-		+ "\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n"
-		+ "                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n"
+		+ "                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n"
+		+ "            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n"
+		+ "                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
+		+ "                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n"
+		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n"
+		+ "                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
+		+ "                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n"
+		+ "\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 1 -size 20 -divisions 20 -displayAxes no -displayGridLines no -displayDivisionLines no -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold no -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 15 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
 createNode mentalrayOptions -s -n "miContourPreset";
 createNode lambert -n "howard_face_Lambert";
@@ -58542,7 +58575,7 @@ createNode hyperLayout -n "hyperLayout1";
 	setAttr ".anf" yes;
 createNode reference -n "VendingGuy2IKRN";
 	setAttr ".fn[0]" -type "string" "C:/Users/10343101/Documents/vending/scenes/VendingGuy2IK.ma";
-	setAttr -s 101 ".phl";
+	setAttr -s 123 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -58644,13 +58677,35 @@ createNode reference -n "VendingGuy2IKRN";
 	setAttr ".phl[99]" 0;
 	setAttr ".phl[100]" 0;
 	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"VendingGuy2IKRN"
 		"VendingGuy2IKRN" 0
 		"VendingGuy2IK:Dude_UV_sRN" 1
 		3 "|VendingGuy2IK:Dude_UV_s:bodyMesh_group|VendingGuy2IK:Dude_UV_s:Body_Mesh|VendingGuy2IK:Dude_UV_s:Body_MeshShape.instObjGroups" 
 		"VendingGuy2IK:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na"
-		"VendingGuy2IKRN" 138
+		"VendingGuy2IKRN" 177
 		0 "|VendingGuy2IK:root_jnt" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:nurbsCube2" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:nurbsCube3" "|Body2_grp" "-s -r "
@@ -58662,6 +58717,12 @@ createNode reference -n "VendingGuy2IKRN";
 		0 "|VendingGuy2IK:knee_r_anim" "|Body2_grp" "-s -r "
 		2 "|Body2_grp|VendingGuy2IK:root_jnt" "translate" " -type \"double3\" 0 2.7103026732793039 -0.040850000836390905"
 		
+		2 "|Body2_grp|VendingGuy2IK:root_jnt" "translateY" " -av"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt" "translateZ" " -av"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt" "rotate" 
+		" -type \"double3\" 0 0 11.459155902616466"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt" "rotateZ" 
+		" -av"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt" 
 		"rotate" " -type \"double3\" 0 16.920000490007506 23.458132095225036"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt" 
@@ -58673,11 +58734,15 @@ createNode reference -n "VendingGuy2IKRN";
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt" 
-		"rotate" " -type \"double3\" 0 0 19.156141045968116"
+		"rotate" " -type \"double3\" 0 0 47.804030802509281"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt" 
+		"rotateZ" " -av"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt" 
-		"rotate" " -type \"double3\" 0 0 28.496449927737"
+		"rotate" " -type \"double3\" 0 0 2.1403913517191309"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt" 
+		"rotateZ" " -av"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt" 
@@ -58689,17 +58754,29 @@ createNode reference -n "VendingGuy2IKRN";
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt" 
 		"rotateZ" " -av"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt" 
-		"rotate" " -type \"double3\" 0 0 26.943138265195945"
+		"rotate" " -type \"double3\" 0 0 45.277787709382288"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt" 
+		"rotateZ" " -av"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt" 
-		"rotate" " -type \"double3\" 0 0 29.079891027358087"
+		"rotate" " -type \"double3\" 0 0 2.7238324513402179"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt" 
+		"rotateZ" " -av"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt" 
+		"segmentScaleCompensate" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt" "rotate" " -type \"double3\" 0 -15.506112507385753 11.269782624331738"
 		
-		2 "|Body2_grp|VendingGuy2IK:Left_foot_Anim" "translate" " -type \"double3\" -0.16148166220061 0.83609984192526055 0"
+		2 "|Body2_grp|VendingGuy2IK:Left_foot_Anim" "translate" " -type \"double3\" -0.16148166220061 0.83609984192526055 0.021365870480115148"
 		
+		2 "|Body2_grp|VendingGuy2IK:Left_foot_Anim" "translateX" " -av"
+		2 "|Body2_grp|VendingGuy2IK:Left_foot_Anim" "translateY" " -av"
 		2 "|Body2_grp|VendingGuy2IK:Left_foot_Anim" "rotate" " -type \"double3\" 55.581774839312978 0 0"
 		
-		2 "|Body2_grp|VendingGuy2IK:Right_foot_Anim" "translate" " -type \"double3\" -0.46276685745530105 1.2852940668076962 0"
+		2 "|Body2_grp|VendingGuy2IK:Right_foot_Anim" "translate" " -type \"double3\" -0.46276685745530105 1.2852940668076962 0.005575108890495911"
 		
+		2 "|Body2_grp|VendingGuy2IK:Right_foot_Anim" "translateY" " -av"
+		2 "|Body2_grp|VendingGuy2IK:Right_foot_Anim" "translateX" " -av"
 		2 "|Body2_grp|VendingGuy2IK:Right_foot_Anim" "rotate" " -type \"double3\" 65.125293252494728 0 0"
 		
 		2 "|Body2_grp|VendingGuy2IK:knee_l_anim" "translate" " -type \"double3\" 0.27435731072186409 1.4749820541668133 0.4024960088621129"
@@ -58708,6 +58785,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "|Body2_grp|VendingGuy2IK:knee_r_anim" "translate" " -type \"double3\" -0.51037401949455896 1.4762946843798677 0.40248218342887387"
 		
+		2 "|Body2_grp|VendingGuy2IK:knee_r_anim" "translateX" " -av"
+		2 "|Body2_grp|VendingGuy2IK:knee_r_anim" "translateY" " -av"
+		2 "|Body2_grp|VendingGuy2IK:knee_r_anim" "translateZ" " -av"
 		2 "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed" 
 		"instObjGroups.objectGroups" " -s 8"
 		2 "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed" 
@@ -58719,203 +58799,247 @@ createNode reference -n "VendingGuy2IKRN";
 		""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt.message" "VendingGuy2IKRN.placeHolderList[2]" 
 		""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt.message" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt.translateY" 
 		"VendingGuy2IKRN.placeHolderList[3]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt.message" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt.translateZ" 
 		"VendingGuy2IKRN.placeHolderList[4]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[5]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.translate" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[6]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[7]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt.rotateY" 
 		"VendingGuy2IKRN.placeHolderList[8]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.inverseScale" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[9]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[10]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotate" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt.rotateY" 
 		"VendingGuy2IKRN.placeHolderList[11]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.segmentScaleCompensate" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[12]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotatePivot" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.translate" 
 		"VendingGuy2IKRN.placeHolderList[13]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotatePivotTranslate" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
 		"VendingGuy2IKRN.placeHolderList[14]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotateOrder" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
 		"VendingGuy2IKRN.placeHolderList[15]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.inverseScale" 
 		"VendingGuy2IKRN.placeHolderList[16]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[17]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.jointOrient" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotate" 
 		"VendingGuy2IKRN.placeHolderList[18]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.segmentScaleCompensate" 
 		"VendingGuy2IKRN.placeHolderList[19]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotatePivot" 
 		"VendingGuy2IKRN.placeHolderList[20]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotatePivotTranslate" 
 		"VendingGuy2IKRN.placeHolderList[21]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotateOrder" 
 		"VendingGuy2IKRN.placeHolderList[22]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
 		"VendingGuy2IKRN.placeHolderList[23]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
 		"VendingGuy2IKRN.placeHolderList[24]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.jointOrient" 
 		"VendingGuy2IKRN.placeHolderList[25]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[26]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left|VendingGuy2IK:joint50.message" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[27]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[28]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left.message" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[29]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[30]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[31]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left|VendingGuy2IK:joint51.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[32]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[33]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[34]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[35]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left|VendingGuy2IK:joint50.message" 
 		"VendingGuy2IKRN.placeHolderList[36]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left|VendingGuy2IK:joint52.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[37]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[38]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[39]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[40]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left|VendingGuy2IK:joint51.message" 
 		"VendingGuy2IKRN.placeHolderList[41]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left|VendingGuy2IK:joint53.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[42]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[43]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[44]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[45]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:thumbLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left|VendingGuy2IK:joint52.message" 
 		"VendingGuy2IKRN.placeHolderList[46]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[47]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[48]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[49]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[50]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left|VendingGuy2IK:joint53.message" 
 		"VendingGuy2IKRN.placeHolderList[51]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[52]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[53]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[54]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left|VendingGuy2IK:joint50.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:thumbLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[55]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[56]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left.message" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[57]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[58]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left.message" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[59]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left|VendingGuy2IK:joint51.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[60]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[61]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[62]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[63]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[64]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left|VendingGuy2IK:joint52.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[65]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left|VendingGuy2IK:pinkyLast_left|VendingGuy2IK:joint50.message" 
 		"VendingGuy2IKRN.placeHolderList[66]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[67]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[68]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[69]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left|VendingGuy2IK:joint53.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[70]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left|VendingGuy2IK:joint51.message" 
 		"VendingGuy2IKRN.placeHolderList[71]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[72]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[73]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:thumbLast_left.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[74]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[75]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left|VendingGuy2IK:joint52.message" 
 		"VendingGuy2IKRN.placeHolderList[76]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[77]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt|VendingGuy2IK:ankle_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[78]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt|VendingGuy2IK:ankle_left_jnt|VendingGuy2IK:foot_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[79]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt|VendingGuy2IK:ankle_left_jnt|VendingGuy2IK:foot_left_jnt|VendingGuy2IK:toe_left_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[80]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:joint49.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:indexLast_left|VendingGuy2IK:joint53.message" 
 		"VendingGuy2IKRN.placeHolderList[81]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left.message" 
 		"VendingGuy2IKRN.placeHolderList[82]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left.message" 
 		"VendingGuy2IKRN.placeHolderList[83]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt|VendingGuy2IK:ankle_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left.message" 
 		"VendingGuy2IKRN.placeHolderList[84]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt|VendingGuy2IK:ankle_right_jnt|VendingGuy2IK:foot_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:thumbLast_left.message" 
 		"VendingGuy2IKRN.placeHolderList[85]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt|VendingGuy2IK:ankle_right_jnt|VendingGuy2IK:foot_right_jnt|VendingGuy2IK:toe_right_jnt.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[86]" ""
-		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2]" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt.rotateY" 
 		"VendingGuy2IKRN.placeHolderList[87]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt.rotateZ" 
 		"VendingGuy2IKRN.placeHolderList[88]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[89]" ""
-		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3]" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[90]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt|VendingGuy2IK:ankle_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[91]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt|VendingGuy2IK:ankle_left_jnt|VendingGuy2IK:foot_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[92]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.inMesh" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_left_jnt|VendingGuy2IK:knee_left_jnt|VendingGuy2IK:ankle_left_jnt|VendingGuy2IK:foot_left_jnt|VendingGuy2IK:toe_left_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[93]" ""
-		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0]" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:joint49.message" 
 		"VendingGuy2IKRN.placeHolderList[94]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[95]" ""
-		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.message" 
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt.message" 
 		"VendingGuy2IKRN.placeHolderList[96]" ""
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt|VendingGuy2IK:ankle_right_jnt.message" 
+		"VendingGuy2IKRN.placeHolderList[97]" ""
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt|VendingGuy2IK:ankle_right_jnt|VendingGuy2IK:foot_right_jnt.message" 
+		"VendingGuy2IKRN.placeHolderList[98]" ""
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:hips_jnt|VendingGuy2IK:hip_right_jnt|VendingGuy2IK:knee_right_jnt|VendingGuy2IK:ankle_right_jnt|VendingGuy2IK:foot_right_jnt|VendingGuy2IK:toe_right_jnt.message" 
+		"VendingGuy2IKRN.placeHolderList[99]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:Left_foot_Anim.translateX" 
+		"VendingGuy2IKRN.placeHolderList[100]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:Left_foot_Anim.translateY" 
+		"VendingGuy2IKRN.placeHolderList[101]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:Left_foot_Anim.rotateX" 
+		"VendingGuy2IKRN.placeHolderList[102]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:Right_foot_Anim.translateY" 
+		"VendingGuy2IKRN.placeHolderList[103]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:Right_foot_Anim.translateX" 
+		"VendingGuy2IKRN.placeHolderList[104]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:Right_foot_Anim.rotateX" 
+		"VendingGuy2IKRN.placeHolderList[105]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:knee_r_anim.translateX" 
+		"VendingGuy2IKRN.placeHolderList[106]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:knee_r_anim.translateY" 
+		"VendingGuy2IKRN.placeHolderList[107]" ""
+		5 4 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:knee_r_anim.translateZ" 
+		"VendingGuy2IKRN.placeHolderList[108]" ""
+		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2]" 
+		"VendingGuy2IKRN.placeHolderList[109]" ""
+		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		"VendingGuy2IKRN.placeHolderList[110]" ""
+		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		"VendingGuy2IKRN.placeHolderList[111]" ""
+		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3]" 
+		"VendingGuy2IKRN.placeHolderList[112]" ""
+		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
+		"VendingGuy2IKRN.placeHolderList[113]" ""
+		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
+		"VendingGuy2IKRN.placeHolderList[114]" ""
+		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.inMesh" 
+		"VendingGuy2IKRN.placeHolderList[115]" ""
+		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0]" 
+		"VendingGuy2IKRN.placeHolderList[116]" ""
+		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		"VendingGuy2IKRN.placeHolderList[117]" ""
+		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.message" 
+		"VendingGuy2IKRN.placeHolderList[118]" ""
 		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1.outputGeometry[0]" 
-		"VendingGuy2IKRN.placeHolderList[97]" "VendingGuy2IK:Body_MeshShapeDeformed.i"
-		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1.message" "VendingGuy2IKRN.placeHolderList[98]" 
+		"VendingGuy2IKRN.placeHolderList[119]" "VendingGuy2IK:Body_MeshShapeDeformed.i"
+		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1.message" "VendingGuy2IKRN.placeHolderList[120]" 
 		""
-		5 3 "VendingGuy2IKRN" "VendingGuy2IK:tweak1.message" "VendingGuy2IKRN.placeHolderList[99]" 
+		5 3 "VendingGuy2IKRN" "VendingGuy2IK:tweak1.message" "VendingGuy2IKRN.placeHolderList[121]" 
 		""
-		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1Set.message" "VendingGuy2IKRN.placeHolderList[100]" 
+		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1Set.message" "VendingGuy2IKRN.placeHolderList[122]" 
 		""
-		5 3 "VendingGuy2IKRN" "VendingGuy2IK:tweakSet1.message" "VendingGuy2IKRN.placeHolderList[101]" 
+		5 3 "VendingGuy2IKRN" "VendingGuy2IK:tweakSet1.message" "VendingGuy2IKRN.placeHolderList[123]" 
 		""
 		"VendingGuy2IK:Dude_UV_sRN" 24
 		2 "VendingGuy2IK:Dude_UV_s:ZBrushTexture" "binMembership" " -type \"string\" \"Vending_2IK_Rig_Shaders\""
@@ -58986,6 +59110,118 @@ createNode groupId -n "groupId7";
 createNode groupParts -n "groupParts5";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 23 "f[0:394]" "f[400]" "f[1265:1335]" "f[1345:1354]" "f[1371:1373]" "f[1549:1571]" "f[1613:1614]" "f[2720:2877]" "f[2920:3039]" "f[3073:3105]" "f[3131:3276]" "f[3296:3690]" "f[3696]" "f[4561:4631]" "f[4641:4650]" "f[4667:4669]" "f[4845:4867]" "f[4909:4910]" "f[6016:6173]" "f[6216:6335]" "f[6369:6401]" "f[6427:6572]" "f[6592:6963]";
+createNode animCurveTL -n "Left_foot_Anim_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -0.16148166220061;
+createNode animCurveTL -n "Left_foot_Anim_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0.83609984192526055 15 0.88234602227842662;
+createNode animCurveTA -n "Left_foot_Anim_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 55.581774839312978;
+createNode animCurveTL -n "Right_foot_Anim_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 -0.46276685745530105 15 -0.39990632823800076;
+createNode animCurveTL -n "Right_foot_Anim_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1.2852940668076962 15 1.3107101080724615;
+createNode animCurveTA -n "Right_foot_Anim_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 65.125293252494728;
+createNode animCurveTL -n "knee_r_anim_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -0.51037401949455896;
+createNode animCurveTL -n "knee_r_anim_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1.4762946843798677 15 1.4551643724907826;
+createNode animCurveTL -n "knee_r_anim_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.40248218342887387;
+createNode animCurveTA -n "hips_jnt_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -15.506112507385753;
+createNode animCurveTA -n "hips_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 11.269782624331738;
+createNode animCurveTL -n "root_jnt_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 2.7103026732793039;
+createNode animCurveTL -n "root_jnt_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -0.040850000836390905;
+createNode animCurveTA -n "backBottom_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 11.459155902616466 15 17.188733853924699;
+createNode animCurveTA -n "backMid_jnt_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 16.920000490007506;
+createNode animCurveTA -n "backMid_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 23.458132095225036;
+createNode animCurveTA -n "backUp_jnt_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 12.891244362389916;
+createNode animCurveTA -n "backUp_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 12.982480975608881;
+createNode animCurveTA -n "shoulder_left_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 2.1403913517191309;
+createNode animCurveTA -n "clav_left_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 47.804030802509281 15 58.117271114864103;
+createNode animCurveTA -n "shoulder_right_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 2.7238324513402179;
+createNode animCurveTA -n "clav_right_jnt_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 45.277787709382288 15 52.153281250952169;
+createNode animCurveTA -n "neck_control01_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 24.646523742814054 15 30.376101694122283;
+createNode animCurveTA -n "neck_control02_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -6.8399997253722233;
+createNode animCurveTA -n "neck_control02_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 18.00000008207498 15 20;
+createNode animCurveTA -n "SuperMover_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 -24.797075080977731 15 -24.797075080977731;
+createNode animCurveTA -n "SuperMover_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 -21.600003046925309 15 -21.600003046925309;
+createNode animCurveTL -n "SuperMover_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 -5.5879186862823076 15 -12.64101701387294;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -59221,122 +59457,148 @@ connectAttr "faceRigRN.phl[15]" "skeleton_grp_parentConstraint1.crt";
 connectAttr "skeleton_grp_scaleConstraint1.csx" "faceRigRN.phl[16]";
 connectAttr "skeleton_grp_scaleConstraint1.csy" "faceRigRN.phl[17]";
 connectAttr "skeleton_grp_scaleConstraint1.csz" "faceRigRN.phl[18]";
-connectAttr "faceRigRN.phl[19]" "controls_grp_scaleConstraint1.tg[0].ts";
-connectAttr "faceRigRN.phl[20]" "controls_grp_scaleConstraint1.tg[0].tpm";
-connectAttr "faceRigRN.phl[21]" "controls_grp_scaleConstraint1.cpim";
-connectAttr "controls_grp_scaleConstraint1.csx" "faceRigRN.phl[22]";
-connectAttr "controls_grp_scaleConstraint1.csy" "faceRigRN.phl[23]";
-connectAttr "controls_grp_scaleConstraint1.csz" "faceRigRN.phl[24]";
-connectAttr "faceRigRN.phl[25]" "howard_face_lambertSG.dsm" -na;
-connectAttr "faceRigRN.phl[26]" ":initialMaterialInfo.t" -na;
+connectAttr "neck_control01_rotateZ.o" "faceRigRN.phl[19]";
+connectAttr "neck_control02_rotateY.o" "faceRigRN.phl[20]";
+connectAttr "neck_control02_rotateZ.o" "faceRigRN.phl[21]";
+connectAttr "faceRigRN.phl[22]" "controls_grp_scaleConstraint1.tg[0].ts";
+connectAttr "faceRigRN.phl[23]" "controls_grp_scaleConstraint1.tg[0].tpm";
+connectAttr "faceRigRN.phl[24]" "controls_grp_scaleConstraint1.cpim";
+connectAttr "controls_grp_scaleConstraint1.csx" "faceRigRN.phl[25]";
+connectAttr "controls_grp_scaleConstraint1.csy" "faceRigRN.phl[26]";
+connectAttr "controls_grp_scaleConstraint1.csz" "faceRigRN.phl[27]";
+connectAttr "faceRigRN.phl[28]" "howard_face_lambertSG.dsm" -na;
+connectAttr "faceRigRN.phl[29]" ":initialMaterialInfo.t" -na;
 connectAttr "VendingGuy2IKRN.phl[2]" "hyperLayout1.hyp[29].dn";
-connectAttr "VendingGuy2IKRN.phl[3]" "hyperLayout1.hyp[6].dn";
-connectAttr "VendingGuy2IKRN.phl[4]" "hyperLayout1.hyp[69].dn";
-connectAttr "VendingGuy2IKRN.phl[5]" "hyperLayout1.hyp[27].dn";
-connectAttr "VendingGuy2IKRN.phl[6]" "skeleton_grp_parentConstraint1.tg[0].tt";
-connectAttr "VendingGuy2IKRN.phl[7]" "skeleton_grp_scaleConstraint1.tg[0].ts";
-connectAttr "VendingGuy2IKRN.phl[8]" "skeleton_grp_parentConstraint1.tg[0].ts";
-connectAttr "VendingGuy2IKRN.phl[9]" "skeleton_grp_parentConstraint1.tg[0].tis";
-connectAttr "VendingGuy2IKRN.phl[10]" "hyperLayout1.hyp[49].dn";
-connectAttr "VendingGuy2IKRN.phl[11]" "skeleton_grp_parentConstraint1.tg[0].tr";
-connectAttr "VendingGuy2IKRN.phl[12]" "skeleton_grp_parentConstraint1.tg[0].tsc"
+connectAttr "root_jnt_translateY.o" "VendingGuy2IKRN.phl[3]";
+connectAttr "root_jnt_translateZ.o" "VendingGuy2IKRN.phl[4]";
+connectAttr "VendingGuy2IKRN.phl[5]" "hyperLayout1.hyp[6].dn";
+connectAttr "backBottom_jnt_rotateZ.o" "VendingGuy2IKRN.phl[6]";
+connectAttr "VendingGuy2IKRN.phl[7]" "hyperLayout1.hyp[69].dn";
+connectAttr "backMid_jnt_rotateY.o" "VendingGuy2IKRN.phl[8]";
+connectAttr "backMid_jnt_rotateZ.o" "VendingGuy2IKRN.phl[9]";
+connectAttr "VendingGuy2IKRN.phl[10]" "hyperLayout1.hyp[27].dn";
+connectAttr "backUp_jnt_rotateY.o" "VendingGuy2IKRN.phl[11]";
+connectAttr "backUp_jnt_rotateZ.o" "VendingGuy2IKRN.phl[12]";
+connectAttr "VendingGuy2IKRN.phl[13]" "skeleton_grp_parentConstraint1.tg[0].tt";
+connectAttr "VendingGuy2IKRN.phl[14]" "skeleton_grp_scaleConstraint1.tg[0].ts";
+connectAttr "VendingGuy2IKRN.phl[15]" "skeleton_grp_parentConstraint1.tg[0].ts";
+connectAttr "VendingGuy2IKRN.phl[16]" "skeleton_grp_parentConstraint1.tg[0].tis"
 		;
-connectAttr "VendingGuy2IKRN.phl[13]" "skeleton_grp_parentConstraint1.tg[0].trp"
+connectAttr "VendingGuy2IKRN.phl[17]" "hyperLayout1.hyp[49].dn";
+connectAttr "VendingGuy2IKRN.phl[18]" "skeleton_grp_parentConstraint1.tg[0].tr";
+connectAttr "VendingGuy2IKRN.phl[19]" "skeleton_grp_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "VendingGuy2IKRN.phl[14]" "skeleton_grp_parentConstraint1.tg[0].trt"
+connectAttr "VendingGuy2IKRN.phl[20]" "skeleton_grp_parentConstraint1.tg[0].trp"
 		;
-connectAttr "VendingGuy2IKRN.phl[15]" "skeleton_grp_parentConstraint1.tg[0].tro"
+connectAttr "VendingGuy2IKRN.phl[21]" "skeleton_grp_parentConstraint1.tg[0].trt"
 		;
-connectAttr "VendingGuy2IKRN.phl[16]" "skeleton_grp_scaleConstraint1.tg[0].tpm";
-connectAttr "VendingGuy2IKRN.phl[17]" "skeleton_grp_parentConstraint1.tg[0].tpm"
+connectAttr "VendingGuy2IKRN.phl[22]" "skeleton_grp_parentConstraint1.tg[0].tro"
 		;
-connectAttr "VendingGuy2IKRN.phl[18]" "skeleton_grp_parentConstraint1.tg[0].tjo"
+connectAttr "VendingGuy2IKRN.phl[23]" "skeleton_grp_scaleConstraint1.tg[0].tpm";
+connectAttr "VendingGuy2IKRN.phl[24]" "skeleton_grp_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "VendingGuy2IKRN.phl[19]" "hyperLayout1.hyp[12].dn";
-connectAttr "VendingGuy2IKRN.phl[20]" "hyperLayout1.hyp[67].dn";
-connectAttr "VendingGuy2IKRN.phl[21]" "hyperLayout1.hyp[9].dn";
-connectAttr "VendingGuy2IKRN.phl[22]" "hyperLayout1.hyp[71].dn";
-connectAttr "VendingGuy2IKRN.phl[23]" "hyperLayout1.hyp[52].dn";
-connectAttr "VendingGuy2IKRN.phl[24]" "hyperLayout1.hyp[65].dn";
-connectAttr "VendingGuy2IKRN.phl[25]" "hyperLayout1.hyp[45].dn";
-connectAttr "VendingGuy2IKRN.phl[26]" "hyperLayout1.hyp[25].dn";
-connectAttr "VendingGuy2IKRN.phl[27]" "hyperLayout1.hyp[5].dn";
-connectAttr "VendingGuy2IKRN.phl[28]" "hyperLayout1.hyp[66].dn";
-connectAttr "VendingGuy2IKRN.phl[29]" "hyperLayout1.hyp[46].dn";
-connectAttr "VendingGuy2IKRN.phl[30]" "hyperLayout1.hyp[26].dn";
-connectAttr "VendingGuy2IKRN.phl[31]" "hyperLayout1.hyp[8].dn";
-connectAttr "VendingGuy2IKRN.phl[32]" "hyperLayout1.hyp[68].dn";
-connectAttr "VendingGuy2IKRN.phl[33]" "hyperLayout1.hyp[48].dn";
-connectAttr "VendingGuy2IKRN.phl[34]" "hyperLayout1.hyp[28].dn";
-connectAttr "VendingGuy2IKRN.phl[35]" "hyperLayout1.hyp[11].dn";
-connectAttr "VendingGuy2IKRN.phl[36]" "hyperLayout1.hyp[70].dn";
-connectAttr "VendingGuy2IKRN.phl[37]" "hyperLayout1.hyp[51].dn";
-connectAttr "VendingGuy2IKRN.phl[38]" "hyperLayout1.hyp[31].dn";
-connectAttr "VendingGuy2IKRN.phl[39]" "hyperLayout1.hyp[33].dn";
-connectAttr "VendingGuy2IKRN.phl[40]" "hyperLayout1.hyp[15].dn";
-connectAttr "VendingGuy2IKRN.phl[41]" "hyperLayout1.hyp[76].dn";
-connectAttr "VendingGuy2IKRN.phl[42]" "hyperLayout1.hyp[47].dn";
-connectAttr "VendingGuy2IKRN.phl[43]" "hyperLayout1.hyp[55].dn";
-connectAttr "VendingGuy2IKRN.phl[44]" "hyperLayout1.hyp[35].dn";
-connectAttr "VendingGuy2IKRN.phl[45]" "hyperLayout1.hyp[17].dn";
-connectAttr "VendingGuy2IKRN.phl[46]" "hyperLayout1.hyp[78].dn";
-connectAttr "VendingGuy2IKRN.phl[47]" "hyperLayout1.hyp[57].dn";
-connectAttr "VendingGuy2IKRN.phl[48]" "hyperLayout1.hyp[38].dn";
-connectAttr "VendingGuy2IKRN.phl[49]" "hyperLayout1.hyp[19].dn";
-connectAttr "VendingGuy2IKRN.phl[50]" "hyperLayout1.hyp[80].dn";
-connectAttr "VendingGuy2IKRN.phl[51]" "hyperLayout1.hyp[60].dn";
-connectAttr "VendingGuy2IKRN.phl[52]" "hyperLayout1.hyp[40].dn";
-connectAttr "VendingGuy2IKRN.phl[53]" "hyperLayout1.hyp[21].dn";
-connectAttr "VendingGuy2IKRN.phl[54]" "hyperLayout1.hyp[2].dn";
-connectAttr "VendingGuy2IKRN.phl[55]" "hyperLayout1.hyp[50].dn";
-connectAttr "VendingGuy2IKRN.phl[56]" "hyperLayout1.hyp[30].dn";
-connectAttr "VendingGuy2IKRN.phl[57]" "hyperLayout1.hyp[13].dn";
-connectAttr "VendingGuy2IKRN.phl[58]" "hyperLayout1.hyp[73].dn";
-connectAttr "VendingGuy2IKRN.phl[59]" "hyperLayout1.hyp[53].dn";
-connectAttr "VendingGuy2IKRN.phl[60]" "hyperLayout1.hyp[32].dn";
-connectAttr "VendingGuy2IKRN.phl[61]" "hyperLayout1.hyp[14].dn";
-connectAttr "VendingGuy2IKRN.phl[62]" "hyperLayout1.hyp[75].dn";
-connectAttr "VendingGuy2IKRN.phl[63]" "hyperLayout1.hyp[54].dn";
-connectAttr "VendingGuy2IKRN.phl[64]" "hyperLayout1.hyp[34].dn";
-connectAttr "VendingGuy2IKRN.phl[65]" "hyperLayout1.hyp[16].dn";
-connectAttr "VendingGuy2IKRN.phl[66]" "hyperLayout1.hyp[77].dn";
-connectAttr "VendingGuy2IKRN.phl[67]" "hyperLayout1.hyp[56].dn";
-connectAttr "VendingGuy2IKRN.phl[68]" "hyperLayout1.hyp[36].dn";
-connectAttr "VendingGuy2IKRN.phl[69]" "hyperLayout1.hyp[18].dn";
-connectAttr "VendingGuy2IKRN.phl[70]" "hyperLayout1.hyp[79].dn";
-connectAttr "VendingGuy2IKRN.phl[71]" "hyperLayout1.hyp[59].dn";
-connectAttr "VendingGuy2IKRN.phl[72]" "hyperLayout1.hyp[39].dn";
-connectAttr "VendingGuy2IKRN.phl[73]" "hyperLayout1.hyp[20].dn";
-connectAttr "VendingGuy2IKRN.phl[74]" "hyperLayout1.hyp[1].dn";
-connectAttr "VendingGuy2IKRN.phl[75]" "hyperLayout1.hyp[61].dn";
-connectAttr "VendingGuy2IKRN.phl[76]" "hyperLayout1.hyp[42].dn";
-connectAttr "VendingGuy2IKRN.phl[77]" "hyperLayout1.hyp[22].dn";
-connectAttr "VendingGuy2IKRN.phl[78]" "hyperLayout1.hyp[3].dn";
-connectAttr "VendingGuy2IKRN.phl[79]" "hyperLayout1.hyp[63].dn";
-connectAttr "VendingGuy2IKRN.phl[80]" "hyperLayout1.hyp[43].dn";
-connectAttr "VendingGuy2IKRN.phl[81]" "hyperLayout1.hyp[23].dn";
-connectAttr "VendingGuy2IKRN.phl[82]" "hyperLayout1.hyp[4].dn";
-connectAttr "VendingGuy2IKRN.phl[83]" "hyperLayout1.hyp[64].dn";
-connectAttr "VendingGuy2IKRN.phl[84]" "hyperLayout1.hyp[44].dn";
-connectAttr "VendingGuy2IKRN.phl[85]" "hyperLayout1.hyp[24].dn";
-connectAttr "VendingGuy2IKRN.phl[86]" "hyperLayout1.hyp[41].dn";
-connectAttr "VendingGuy2IKRN.phl[87]" "howard_body_lambertSG.dsm" -na;
-connectAttr "groupId5.id" "VendingGuy2IKRN.phl[88]";
-connectAttr "howard_body_lambertSG.mwc" "VendingGuy2IKRN.phl[89]";
-connectAttr "VendingGuy2IKRN.phl[90]" "howard_head_transparency_surfaceShaderSG.dsm"
+connectAttr "VendingGuy2IKRN.phl[25]" "skeleton_grp_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "VendingGuy2IKRN.phl[26]" "hyperLayout1.hyp[12].dn";
+connectAttr "clav_left_jnt_rotateZ.o" "VendingGuy2IKRN.phl[27]";
+connectAttr "VendingGuy2IKRN.phl[28]" "hyperLayout1.hyp[67].dn";
+connectAttr "shoulder_left_jnt_rotateZ.o" "VendingGuy2IKRN.phl[29]";
+connectAttr "VendingGuy2IKRN.phl[30]" "hyperLayout1.hyp[9].dn";
+connectAttr "VendingGuy2IKRN.phl[31]" "hyperLayout1.hyp[71].dn";
+connectAttr "VendingGuy2IKRN.phl[32]" "hyperLayout1.hyp[52].dn";
+connectAttr "VendingGuy2IKRN.phl[33]" "hyperLayout1.hyp[65].dn";
+connectAttr "VendingGuy2IKRN.phl[34]" "hyperLayout1.hyp[45].dn";
+connectAttr "VendingGuy2IKRN.phl[35]" "hyperLayout1.hyp[25].dn";
+connectAttr "VendingGuy2IKRN.phl[36]" "hyperLayout1.hyp[5].dn";
+connectAttr "VendingGuy2IKRN.phl[37]" "hyperLayout1.hyp[66].dn";
+connectAttr "VendingGuy2IKRN.phl[38]" "hyperLayout1.hyp[46].dn";
+connectAttr "VendingGuy2IKRN.phl[39]" "hyperLayout1.hyp[26].dn";
+connectAttr "VendingGuy2IKRN.phl[40]" "hyperLayout1.hyp[8].dn";
+connectAttr "VendingGuy2IKRN.phl[41]" "hyperLayout1.hyp[68].dn";
+connectAttr "VendingGuy2IKRN.phl[42]" "hyperLayout1.hyp[48].dn";
+connectAttr "VendingGuy2IKRN.phl[43]" "hyperLayout1.hyp[28].dn";
+connectAttr "VendingGuy2IKRN.phl[44]" "hyperLayout1.hyp[11].dn";
+connectAttr "VendingGuy2IKRN.phl[45]" "hyperLayout1.hyp[70].dn";
+connectAttr "VendingGuy2IKRN.phl[46]" "hyperLayout1.hyp[51].dn";
+connectAttr "VendingGuy2IKRN.phl[47]" "hyperLayout1.hyp[31].dn";
+connectAttr "VendingGuy2IKRN.phl[48]" "hyperLayout1.hyp[33].dn";
+connectAttr "VendingGuy2IKRN.phl[49]" "hyperLayout1.hyp[15].dn";
+connectAttr "VendingGuy2IKRN.phl[50]" "hyperLayout1.hyp[76].dn";
+connectAttr "VendingGuy2IKRN.phl[51]" "hyperLayout1.hyp[47].dn";
+connectAttr "VendingGuy2IKRN.phl[52]" "hyperLayout1.hyp[55].dn";
+connectAttr "VendingGuy2IKRN.phl[53]" "hyperLayout1.hyp[35].dn";
+connectAttr "VendingGuy2IKRN.phl[54]" "hyperLayout1.hyp[17].dn";
+connectAttr "VendingGuy2IKRN.phl[55]" "hyperLayout1.hyp[78].dn";
+connectAttr "VendingGuy2IKRN.phl[56]" "hyperLayout1.hyp[57].dn";
+connectAttr "clav_right_jnt_rotateZ.o" "VendingGuy2IKRN.phl[57]";
+connectAttr "VendingGuy2IKRN.phl[58]" "hyperLayout1.hyp[38].dn";
+connectAttr "shoulder_right_jnt_rotateZ.o" "VendingGuy2IKRN.phl[59]";
+connectAttr "VendingGuy2IKRN.phl[60]" "hyperLayout1.hyp[19].dn";
+connectAttr "VendingGuy2IKRN.phl[61]" "hyperLayout1.hyp[80].dn";
+connectAttr "VendingGuy2IKRN.phl[62]" "hyperLayout1.hyp[60].dn";
+connectAttr "VendingGuy2IKRN.phl[63]" "hyperLayout1.hyp[40].dn";
+connectAttr "VendingGuy2IKRN.phl[64]" "hyperLayout1.hyp[21].dn";
+connectAttr "VendingGuy2IKRN.phl[65]" "hyperLayout1.hyp[2].dn";
+connectAttr "VendingGuy2IKRN.phl[66]" "hyperLayout1.hyp[50].dn";
+connectAttr "VendingGuy2IKRN.phl[67]" "hyperLayout1.hyp[30].dn";
+connectAttr "VendingGuy2IKRN.phl[68]" "hyperLayout1.hyp[13].dn";
+connectAttr "VendingGuy2IKRN.phl[69]" "hyperLayout1.hyp[73].dn";
+connectAttr "VendingGuy2IKRN.phl[70]" "hyperLayout1.hyp[53].dn";
+connectAttr "VendingGuy2IKRN.phl[71]" "hyperLayout1.hyp[32].dn";
+connectAttr "VendingGuy2IKRN.phl[72]" "hyperLayout1.hyp[14].dn";
+connectAttr "VendingGuy2IKRN.phl[73]" "hyperLayout1.hyp[75].dn";
+connectAttr "VendingGuy2IKRN.phl[74]" "hyperLayout1.hyp[54].dn";
+connectAttr "VendingGuy2IKRN.phl[75]" "hyperLayout1.hyp[34].dn";
+connectAttr "VendingGuy2IKRN.phl[76]" "hyperLayout1.hyp[16].dn";
+connectAttr "VendingGuy2IKRN.phl[77]" "hyperLayout1.hyp[77].dn";
+connectAttr "VendingGuy2IKRN.phl[78]" "hyperLayout1.hyp[56].dn";
+connectAttr "VendingGuy2IKRN.phl[79]" "hyperLayout1.hyp[36].dn";
+connectAttr "VendingGuy2IKRN.phl[80]" "hyperLayout1.hyp[18].dn";
+connectAttr "VendingGuy2IKRN.phl[81]" "hyperLayout1.hyp[79].dn";
+connectAttr "VendingGuy2IKRN.phl[82]" "hyperLayout1.hyp[59].dn";
+connectAttr "VendingGuy2IKRN.phl[83]" "hyperLayout1.hyp[39].dn";
+connectAttr "VendingGuy2IKRN.phl[84]" "hyperLayout1.hyp[20].dn";
+connectAttr "VendingGuy2IKRN.phl[85]" "hyperLayout1.hyp[1].dn";
+connectAttr "VendingGuy2IKRN.phl[86]" "hyperLayout1.hyp[61].dn";
+connectAttr "hips_jnt_rotateY.o" "VendingGuy2IKRN.phl[87]";
+connectAttr "hips_jnt_rotateZ.o" "VendingGuy2IKRN.phl[88]";
+connectAttr "VendingGuy2IKRN.phl[89]" "hyperLayout1.hyp[42].dn";
+connectAttr "VendingGuy2IKRN.phl[90]" "hyperLayout1.hyp[22].dn";
+connectAttr "VendingGuy2IKRN.phl[91]" "hyperLayout1.hyp[3].dn";
+connectAttr "VendingGuy2IKRN.phl[92]" "hyperLayout1.hyp[63].dn";
+connectAttr "VendingGuy2IKRN.phl[93]" "hyperLayout1.hyp[43].dn";
+connectAttr "VendingGuy2IKRN.phl[94]" "hyperLayout1.hyp[23].dn";
+connectAttr "VendingGuy2IKRN.phl[95]" "hyperLayout1.hyp[4].dn";
+connectAttr "VendingGuy2IKRN.phl[96]" "hyperLayout1.hyp[64].dn";
+connectAttr "VendingGuy2IKRN.phl[97]" "hyperLayout1.hyp[44].dn";
+connectAttr "VendingGuy2IKRN.phl[98]" "hyperLayout1.hyp[24].dn";
+connectAttr "VendingGuy2IKRN.phl[99]" "hyperLayout1.hyp[41].dn";
+connectAttr "Left_foot_Anim_translateX.o" "VendingGuy2IKRN.phl[100]";
+connectAttr "Left_foot_Anim_translateY.o" "VendingGuy2IKRN.phl[101]";
+connectAttr "Left_foot_Anim_rotateX.o" "VendingGuy2IKRN.phl[102]";
+connectAttr "Right_foot_Anim_translateY.o" "VendingGuy2IKRN.phl[103]";
+connectAttr "Right_foot_Anim_translateX.o" "VendingGuy2IKRN.phl[104]";
+connectAttr "Right_foot_Anim_rotateX.o" "VendingGuy2IKRN.phl[105]";
+connectAttr "knee_r_anim_translateX.o" "VendingGuy2IKRN.phl[106]";
+connectAttr "knee_r_anim_translateY.o" "VendingGuy2IKRN.phl[107]";
+connectAttr "knee_r_anim_translateZ.o" "VendingGuy2IKRN.phl[108]";
+connectAttr "VendingGuy2IKRN.phl[109]" "howard_body_lambertSG.dsm" -na;
+connectAttr "groupId5.id" "VendingGuy2IKRN.phl[110]";
+connectAttr "howard_body_lambertSG.mwc" "VendingGuy2IKRN.phl[111]";
+connectAttr "VendingGuy2IKRN.phl[112]" "howard_head_transparency_surfaceShaderSG.dsm"
 		 -na;
-connectAttr "groupId7.id" "VendingGuy2IKRN.phl[91]";
-connectAttr "howard_head_transparency_surfaceShaderSG.mwc" "VendingGuy2IKRN.phl[92]"
+connectAttr "groupId7.id" "VendingGuy2IKRN.phl[113]";
+connectAttr "howard_head_transparency_surfaceShaderSG.mwc" "VendingGuy2IKRN.phl[114]"
 		;
-connectAttr "groupParts5.og" "VendingGuy2IKRN.phl[93]";
-connectAttr "VendingGuy2IKRN.phl[94]" "howard_body_lambertSG.dsm" -na;
-connectAttr "groupId6.id" "VendingGuy2IKRN.phl[95]";
-connectAttr "VendingGuy2IKRN.phl[96]" "hyperLayout1.hyp[37].dn";
-connectAttr "VendingGuy2IKRN.phl[97]" "groupParts4.ig";
-connectAttr "VendingGuy2IKRN.phl[98]" "hyperLayout1.hyp[10].dn";
-connectAttr "VendingGuy2IKRN.phl[99]" "hyperLayout1.hyp[0].dn";
-connectAttr "VendingGuy2IKRN.phl[100]" "hyperLayout1.hyp[72].dn";
-connectAttr "VendingGuy2IKRN.phl[101]" "hyperLayout1.hyp[7].dn";
+connectAttr "groupParts5.og" "VendingGuy2IKRN.phl[115]";
+connectAttr "VendingGuy2IKRN.phl[116]" "howard_body_lambertSG.dsm" -na;
+connectAttr "groupId6.id" "VendingGuy2IKRN.phl[117]";
+connectAttr "VendingGuy2IKRN.phl[118]" "hyperLayout1.hyp[37].dn";
+connectAttr "VendingGuy2IKRN.phl[119]" "groupParts4.ig";
+connectAttr "VendingGuy2IKRN.phl[120]" "hyperLayout1.hyp[10].dn";
+connectAttr "VendingGuy2IKRN.phl[121]" "hyperLayout1.hyp[0].dn";
+connectAttr "VendingGuy2IKRN.phl[122]" "hyperLayout1.hyp[72].dn";
+connectAttr "VendingGuy2IKRN.phl[123]" "hyperLayout1.hyp[7].dn";
 connectAttr "VendingGuy2IKRN.phl[1]" "hyperLayout1.hyp[58].dn";
 connectAttr "group1_parentConstraint1.ctx" "BodyRig_grp.tx";
 connectAttr "group1_parentConstraint1.cty" "BodyRig_grp.ty";
@@ -59363,6 +59625,9 @@ connectAttr "BodyRig_grp.pim" "group1_scaleConstraint1.cpim";
 connectAttr "SuperMover.s" "group1_scaleConstraint1.tg[0].ts";
 connectAttr "SuperMover.pm" "group1_scaleConstraint1.tg[0].tpm";
 connectAttr "group1_scaleConstraint1.w0" "group1_scaleConstraint1.tg[0].tw";
+connectAttr "SuperMover_translateZ.o" "SuperMover.tz";
+connectAttr "SuperMover_rotateX.o" "SuperMover.rx";
+connectAttr "SuperMover_rotateZ.o" "SuperMover.rz";
 connectAttr "group2_parentConstraint1.ctx" "Body2_grp.tx";
 connectAttr "group2_parentConstraint1.cty" "Body2_grp.ty";
 connectAttr "group2_parentConstraint1.ctz" "Body2_grp.tz";
