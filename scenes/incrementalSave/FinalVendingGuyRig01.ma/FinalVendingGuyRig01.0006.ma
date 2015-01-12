@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: FinalVendingGuyRig01.ma
-//Last modified: Mon, Jan 12, 2015 01:05:57 PM
+//Last modified: Mon, Jan 12, 2015 12:44:32 PM
 //Codeset: 1252
 file -rdi 1 -ns "VendingGuy3" -dr 1 -rfn "VendingGuy3RN" -op "v=0;" "/Users/Samantha/Desktop/VendingMachineGuy/VendingGuy2FootFix_angela6.ma";
 file -rdi 1 -ns "faceRig" -rfn "faceRigRN" -op "v=0;" "/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma";
@@ -12,10 +12,9 @@ file -r -ns "VendingGuy3" -dr 1 -rfn "VendingGuy3RN" -op "v=0;" "/Users/Samantha
 file -r -ns "faceRig" -dr 1 -rfn "faceRigRN" -op "v=0;" "/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma";
 file -r -ns "VendingGuy2IK" -dr 1 -rfn "VendingGuy2IKRN" -op "v=0;" "/Users/Samantha/Dropbox/Breakroom_Project/Breakroom_Project/scenes/VendingGuy2IK.ma";
 requires maya "2015";
-requires -nodeType "mentalrayFramebuffer" -nodeType "mentalraySubdivApprox" -nodeType "mentalrayOptions"
-		 -nodeType "mentalrayGlobals" -nodeType "mentalrayItemsList" -nodeType "mia_material_x_passes"
-		 -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.18 ";
-requires "OpenEXRLoader" "2012";
+requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
+		 -nodeType "mentalrayItemsList" -nodeType "mia_material_x_passes" -dataType "byteArray"
+		 "Mayatomr" "2015.0 - 3.12.1.18 ";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -25,13 +24,13 @@ fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 96.564883457661381 191.96803175030564 140.97748210410742 ;
-	setAttr ".r" -type "double3" -5.7383527279031838 -327.80000000003042 -9.3966567232445156e-016 ;
+	setAttr ".t" -type "double3" 58.036980320919518 178.6059732153721 41.895737012437081 ;
+	setAttr ".r" -type "double3" 4.4616472720967471 -312.600000000031 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".bnm" -type "string" "Vending_2IK_Rig_Shaders";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 192.62619830452724;
+	setAttr ".coi" 92.091587679146826;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -311,10 +310,7 @@ createNode scaleConstraint -n "skeleton_grp_scaleConstraint1" -p "faceRigRNfoste
 	setAttr -k on ".w0";
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 	setAttr -s 2 ".opt";
-	setAttr -s 2 ".va";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
-	setAttr ".rvb" 3;
-	setAttr ".ivb" no;
 createNode mentalrayOptions -s -n "miDefaultOptions";
 	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
 		3;
@@ -57668,7 +57664,7 @@ createNode reference -n "faceRigRN";
 		"-na"
 		3 "faceRig:Head02:Full_Body:Eyebrow_blinn.message" "faceRig:Head02:Full_Body:Eyebrow_materialInfo.material" 
 		""
-		"faceRigRN" 182
+		"faceRigRN" 179
 		0 "|faceRigRNfosterParent1|skeleton_grp_scaleConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
 		"-s -r "
 		0 "|faceRigRNfosterParent1|skeleton_grp_parentConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
@@ -57949,9 +57945,6 @@ createNode reference -n "faceRigRN";
 		
 		2 "faceRig:place2dTexture3" "binMembership" " -type \"string\" \"Vending_2IK_Rig_Shaders\""
 		
-		2 "faceRig:mentalraySubdivApprox1" "viewDependent" " 1"
-		2 "faceRig:mentalraySubdivApprox1" "length" " 0.10000000149011612"
-		2 "faceRig:mentalraySubdivApprox1" "approxMethod" " 2"
 		3 "faceRig:file1.message" ":initialMaterialInfo.texture" "-na"
 		3 "faceRig:skinCluster22.outputGeometry[0]" "|faceRig:Head02RNfosterParent1|faceRig:Body_MeshShapeDeformed.inMesh" 
 		""
@@ -58178,10 +58171,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
 		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n"
 		+ "                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
-		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 0\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
+		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 0\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
 		+ "                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
-		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 0\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
+		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 0\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
 		+ "            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n"
 		+ "                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n"
 		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n"
@@ -58214,17 +58207,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n"
 		+ "                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n"
-		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
-		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n"
-		+ "                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n"
-		+ "                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n"
-		+ "                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
-		+ "                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n"
-		+ "                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
-		+ "                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"left3\\\" -ps 1 47 58 -ps 2 53 100 -ps 3 47 42 $gMainPane;\"\n"
-		+ "\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Hypershade\")) \n\t\t\t\t\t\"scriptedPanel\"\n\t\t\t\t\t\"$panelName = `scriptedPanel -unParent  -type \\\"hyperShadePanel\\\" -l (localizedPanelLabel(\\\"Hypershade\\\")) -mbv $menusOkayInPanels `\"\n\t\t\t\t\t\"scriptedPanel -edit -l (localizedPanelLabel(\\\"Hypershade\\\")) -mbv $menusOkayInPanels  $panelName\"\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
+		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"left3\\\" -ps 1 47 58 -ps 2 53 100 -ps 3 47 42 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Hypershade\")) \n\t\t\t\t\t\"scriptedPanel\"\n\t\t\t\t\t\"$panelName = `scriptedPanel -unParent  -type \\\"hyperShadePanel\\\" -l (localizedPanelLabel(\\\"Hypershade\\\")) -mbv $menusOkayInPanels `\"\n\t\t\t\t\t\"scriptedPanel -edit -l (localizedPanelLabel(\\\"Hypershade\\\")) -mbv $menusOkayInPanels  $panelName\"\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Node Editor\")) \n\t\t\t\t\t\"scriptedPanel\"\n\t\t\t\t\t\"$panelName = `scriptedPanel -unParent  -type \\\"nodeEditorPanel\\\" -l (localizedPanelLabel(\\\"Node Editor\\\")) -mbv $menusOkayInPanels `;\\n\\n\\t\\t\\t$editorName = ($panelName+\\\"NodeEditorEd\\\");\\n            nodeEditor -e \\n                -allAttributes 0\\n                -allNodes 0\\n                -autoSizeNodes 1\\n                -createNodeCommand \\\"nodeEdCreateNodeCommand\\\" \\n                -defaultPinnedState 0\\n                -ignoreAssets 1\\n                -additiveGraphingMode 0\\n                -settingsChangedCallback \\\"nodeEdSyncControls\\\" \\n                -traversalDepthLimit -1\\n                -keyPressCommand \\\"nodeEdKeyPressCommand\\\" \\n                -keyReleaseCommand \\\"nodeEdKeyReleaseCommand\\\" \\n                -nodeTitleMode \\\"name\\\" \\n                -gridSnap 0\\n                -gridVisibility 1\\n                -popupMenuScript \\\"nodeEdBuildPanelMenus\\\" \\n                -showNamespace 1\\n                -showShapes 1\\n                -showSGShapes 0\\n                -showTransforms 1\\n                -useAssets 1\\n                -syncedSelection 1\\n                -extendToShapes 1\\n                $editorName;\\n\\t\\t\\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName\"\n"
 		+ "\t\t\t\t\t\"scriptedPanel -edit -l (localizedPanelLabel(\\\"Node Editor\\\")) -mbv $menusOkayInPanels  $panelName;\\n\\n\\t\\t\\t$editorName = ($panelName+\\\"NodeEditorEd\\\");\\n            nodeEditor -e \\n                -allAttributes 0\\n                -allNodes 0\\n                -autoSizeNodes 1\\n                -createNodeCommand \\\"nodeEdCreateNodeCommand\\\" \\n                -defaultPinnedState 0\\n                -ignoreAssets 1\\n                -additiveGraphingMode 0\\n                -settingsChangedCallback \\\"nodeEdSyncControls\\\" \\n                -traversalDepthLimit -1\\n                -keyPressCommand \\\"nodeEdKeyPressCommand\\\" \\n                -keyReleaseCommand \\\"nodeEdKeyReleaseCommand\\\" \\n                -nodeTitleMode \\\"name\\\" \\n                -gridSnap 0\\n                -gridVisibility 1\\n                -popupMenuScript \\\"nodeEdBuildPanelMenus\\\" \\n                -showNamespace 1\\n                -showShapes 1\\n                -showSGShapes 0\\n                -showTransforms 1\\n                -useAssets 1\\n                -syncedSelection 1\\n                -extendToShapes 1\\n                $editorName;\\n\\t\\t\\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
@@ -58329,59 +58315,59 @@ createNode place2dTexture -n "place2dTexture6";
 	setAttr ".wv" no;
 createNode hyperGraphInfo -n "nodeEditorPanel1Info";
 createNode hyperView -n "hyperView1";
-	setAttr ".vl" -type "double2" -123.08464456305025 -376.65226614757324 ;
-	setAttr ".vh" -type "double2" 1018.9947849040067 75.673577692945528 ;
+	setAttr ".vl" -type "double2" -83.224512730360843 -551.69023636938311 ;
+	setAttr ".vh" -type "double2" 1058.8549167366962 -99.364392528864428 ;
 	setAttr ".dag" no;
 createNode hyperLayout -n "hyperLayout1";
 	setAttr ".ihi" 0;
 	setAttr -s 90 ".hyp";
-	setAttr ".hyp[0].x" 241.42857360839844;
-	setAttr ".hyp[0].y" -72.857139587402344;
+	setAttr ".hyp[0].x" -7.6203179359436035;
+	setAttr ".hyp[0].y" 59.256641387939453;
 	setAttr ".hyp[0].nvs" 1920;
-	setAttr ".hyp[1].x" 1.4285714626312256;
+	setAttr ".hyp[1].x" 241.42857360839844;
 	setAttr ".hyp[1].y" -72.857139587402344;
 	setAttr ".hyp[1].nvs" 1920;
-	setAttr ".hyp[2].x" 481.42855834960937;
-	setAttr ".hyp[2].y" -72.857139587402344;
+	setAttr ".hyp[2].x" -138.10725402832031;
+	setAttr ".hyp[2].y" -156.74656677246094;
 	setAttr ".hyp[2].nvs" 1920;
-	setAttr ".hyp[3].x" 451.42117309570312;
-	setAttr ".hyp[3].y" -232.52687072753906;
+	setAttr ".hyp[3].x" 59.035594940185547;
+	setAttr ".hyp[3].y" -151.42857360839844;
 	setAttr ".hyp[3].nvs" 1920;
-	setAttr ".hyp[4].x" 451.42117309570312;
-	setAttr ".hyp[4].y" -311.09829711914062;
+	setAttr ".hyp[4].x" -512.73126220703125;
+	setAttr ".hyp[4].y" -70.839775085449219;
 	setAttr ".hyp[4].nvs" 1920;
-	setAttr ".hyp[5].x" 451.42117309570312;
-	setAttr ".hyp[5].y" -153.9554443359375;
+	setAttr ".hyp[5].x" -411.38372802734375;
+	setAttr ".hyp[5].y" 51.2625732421875;
 	setAttr ".hyp[5].nvs" 1920;
-	setAttr ".hyp[6].x" 254.27830505371094;
-	setAttr ".hyp[6].y" -312.1558837890625;
+	setAttr ".hyp[6].x" -518.2835693359375;
+	setAttr ".hyp[6].y" -245.11787414550781;
 	setAttr ".hyp[6].nvs" 1920;
-	setAttr ".hyp[7].x" 254.27830505371094;
-	setAttr ".hyp[7].y" -169.29875183105469;
+	setAttr ".hyp[7].x" -245.007080078125;
+	setAttr ".hyp[7].y" -266.084228515625;
 	setAttr ".hyp[7].nvs" 1920;
-	setAttr ".hyp[8].x" 254.27830505371094;
-	setAttr ".hyp[8].y" -240.72732543945313;
+	setAttr ".hyp[8].x" -13.355518341064453;
+	setAttr ".hyp[8].y" -319.31875610351562;
 	setAttr ".hyp[8].nvs" 1920;
-	setAttr ".hyp[9].x" 57.135456085205078;
-	setAttr ".hyp[9].y" 75.673576354980469;
+	setAttr ".hyp[9].x" 250.87205505371094;
+	setAttr ".hyp[9].y" -318.56777954101562;
 	setAttr ".hyp[9].nvs" 1920;
-	setAttr ".hyp[10].x" 254.27830505371094;
-	setAttr ".hyp[10].y" -1.4285714626312256;
+	setAttr ".hyp[10].x" 37.180088043212891;
+	setAttr ".hyp[10].y" -452.4227294921875;
 	setAttr ".hyp[10].nvs" 1920;
-	setAttr ".hyp[11].x" 254.27830505371094;
-	setAttr ".hyp[11].y" 70;
+	setAttr ".hyp[11].x" 312.94100952148437;
+	setAttr ".hyp[11].y" -423.78939819335937;
 	setAttr ".hyp[11].nvs" 1920;
-	setAttr ".hyp[12].x" 57.135456085205078;
-	setAttr ".hyp[12].y" -151.42857360839844;
+	setAttr ".hyp[12].x" 688.9014892578125;
+	setAttr ".hyp[12].y" -224.46078491210937;
 	setAttr ".hyp[12].nvs" 1920;
-	setAttr ".hyp[13].x" 57.135456085205078;
-	setAttr ".hyp[13].y" -308.57144165039063;
+	setAttr ".hyp[13].x" 644.2669677734375;
+	setAttr ".hyp[13].y" -396.18145751953125;
 	setAttr ".hyp[13].nvs" 1920;
-	setAttr ".hyp[14].x" 57.135456085205078;
-	setAttr ".hyp[14].y" -230;
+	setAttr ".hyp[14].x" 477.8416748046875;
+	setAttr ".hyp[14].y" -130.6513671875;
 	setAttr ".hyp[14].nvs" 1920;
-	setAttr ".hyp[15].x" 451.42117309570312;
-	setAttr ".hyp[15].y" -1.4285714626312256;
+	setAttr ".hyp[15].x" 294.13845825195312;
+	setAttr ".hyp[15].y" -247.13920593261719;
 	setAttr ".hyp[15].nvs" 1920;
 	setAttr ".hyp[16].nvs" 1920;
 	setAttr ".hyp[17].nvs" 1920;
@@ -58460,7 +58446,7 @@ createNode hyperLayout -n "hyperLayout1";
 	setAttr ".anf" yes;
 createNode reference -n "VendingGuy2IKRN";
 	setAttr ".fn[0]" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/VendingGuy2IK.ma";
-	setAttr -s 30 ".phl";
+	setAttr -s 28 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -58489,15 +58475,13 @@ createNode reference -n "VendingGuy2IKRN";
 	setAttr ".phl[26]" 0;
 	setAttr ".phl[27]" 0;
 	setAttr ".phl[28]" 0;
-	setAttr ".phl[29]" 0;
-	setAttr ".phl[30]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"VendingGuy2IKRN"
 		"VendingGuy2IKRN" 0
 		"VendingGuy2IK:Dude_UV_sRN" 1
 		3 "|VendingGuy2IK:Dude_UV_s:bodyMesh_group|VendingGuy2IK:Dude_UV_s:Body_Mesh|VendingGuy2IK:Dude_UV_s:Body_MeshShape.instObjGroups" 
 		"VendingGuy2IK:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na"
-		"VendingGuy2IKRN" 55
+		"VendingGuy2IKRN" 53
 		0 "|VendingGuy2IK:root_jnt" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:nurbsCube2" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:nurbsCube3" "|Body2_grp" "-s -r "
@@ -58507,8 +58491,6 @@ createNode reference -n "VendingGuy2IKRN";
 		0 "|VendingGuy2IK:Right_foot_Anim" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:knee_l_anim" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:knee_r_anim" "|Body2_grp" "-s -r "
-		1 |VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed 
-		"miSubdivApprox" "miva" " -s 0 -ci 1 -at \"message\""
 		2 "|Body2_grp|VendingGuy2IK:root_jnt" "translate" " -type \"double3\" 0 2.7103026732793039 -0.040850000836390905"
 		
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt" 
@@ -58541,66 +58523,62 @@ createNode reference -n "VendingGuy2IKRN";
 		3 "VendingGuy2IK:skinCluster1.outputGeometry[0]" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.inMesh" 
 		""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.translate" 
+		"VendingGuy2IKRN.placeHolderList[1]" ""
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
 		"VendingGuy2IKRN.placeHolderList[2]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
 		"VendingGuy2IKRN.placeHolderList[3]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.scale" 
-		"VendingGuy2IKRN.placeHolderList[4]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.inverseScale" 
-		"VendingGuy2IKRN.placeHolderList[5]" ""
+		"VendingGuy2IKRN.placeHolderList[4]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotate" 
-		"VendingGuy2IKRN.placeHolderList[6]" ""
+		"VendingGuy2IKRN.placeHolderList[5]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.segmentScaleCompensate" 
-		"VendingGuy2IKRN.placeHolderList[7]" ""
+		"VendingGuy2IKRN.placeHolderList[6]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotatePivot" 
-		"VendingGuy2IKRN.placeHolderList[8]" ""
+		"VendingGuy2IKRN.placeHolderList[7]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotatePivotTranslate" 
-		"VendingGuy2IKRN.placeHolderList[9]" ""
+		"VendingGuy2IKRN.placeHolderList[8]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.rotateOrder" 
+		"VendingGuy2IKRN.placeHolderList[9]" ""
+		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
 		"VendingGuy2IKRN.placeHolderList[10]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
 		"VendingGuy2IKRN.placeHolderList[11]" ""
-		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.parentMatrix" 
-		"VendingGuy2IKRN.placeHolderList[12]" ""
 		5 3 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt.jointOrient" 
-		"VendingGuy2IKRN.placeHolderList[13]" ""
+		"VendingGuy2IKRN.placeHolderList[12]" ""
 		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2]" 
-		"VendingGuy2IKRN.placeHolderList[14]" ""
+		"VendingGuy2IKRN.placeHolderList[13]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		"VendingGuy2IKRN.placeHolderList[15]" ""
+		"VendingGuy2IKRN.placeHolderList[14]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		"VendingGuy2IKRN.placeHolderList[16]" ""
+		"VendingGuy2IKRN.placeHolderList[15]" ""
 		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3]" 
-		"VendingGuy2IKRN.placeHolderList[17]" ""
+		"VendingGuy2IKRN.placeHolderList[16]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
-		"VendingGuy2IKRN.placeHolderList[18]" ""
+		"VendingGuy2IKRN.placeHolderList[17]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
-		"VendingGuy2IKRN.placeHolderList[19]" ""
+		"VendingGuy2IKRN.placeHolderList[18]" ""
 		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[4]" 
-		"VendingGuy2IKRN.placeHolderList[20]" ""
+		"VendingGuy2IKRN.placeHolderList[19]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[4].objectGroupId" 
-		"VendingGuy2IKRN.placeHolderList[21]" ""
+		"VendingGuy2IKRN.placeHolderList[20]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[4].objectGrpColor" 
-		"VendingGuy2IKRN.placeHolderList[22]" ""
+		"VendingGuy2IKRN.placeHolderList[21]" ""
 		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[5]" 
-		"VendingGuy2IKRN.placeHolderList[23]" ""
+		"VendingGuy2IKRN.placeHolderList[22]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[5].objectGroupId" 
-		"VendingGuy2IKRN.placeHolderList[24]" ""
+		"VendingGuy2IKRN.placeHolderList[23]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups.objectGroups[5].objectGrpColor" 
-		"VendingGuy2IKRN.placeHolderList[25]" ""
+		"VendingGuy2IKRN.placeHolderList[24]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.inMesh" 
-		"VendingGuy2IKRN.placeHolderList[26]" ""
+		"VendingGuy2IKRN.placeHolderList[25]" ""
 		5 3 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0]" 
-		"VendingGuy2IKRN.placeHolderList[27]" ""
+		"VendingGuy2IKRN.placeHolderList[26]" ""
 		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
-		"VendingGuy2IKRN.placeHolderList[28]" ""
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.miSubdivApprox" 
-		"VendingGuy2IKRN.placeHolderList[29]" ""
+		"VendingGuy2IKRN.placeHolderList[27]" ""
 		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1.outputGeometry[0]" 
-		"VendingGuy2IKRN.placeHolderList[30]" "VendingGuy2IK:Body_MeshShapeDeformed.i"
-		"VendingGuy2IK:Dude_UV_sRN" 25
-		1 |VendingGuy2IK:Dude_UV_s:bodyMesh_group|VendingGuy2IK:Dude_UV_s:Body_Mesh|VendingGuy2IK:Dude_UV_s:Body_MeshShape 
-		"miSubdivApprox" "miva" " -s 0 -ci 1 -at \"message\""
+		"VendingGuy2IKRN.placeHolderList[28]" "VendingGuy2IK:Body_MeshShapeDeformed.i"
+		"VendingGuy2IK:Dude_UV_sRN" 23
 		2 "VendingGuy2IK:Dude_UV_s:ZBrushTexture" "binMembership" " -type \"string\" \"Vending_2IK_Rig_Shaders\""
 		
 		2 "VendingGuy2IK:Dude_UV_s:place2dTexture2" "binMembership" " -type \"string\" \"Vending_2IK_Rig_Shaders\""
@@ -58643,9 +58621,7 @@ createNode reference -n "VendingGuy2IKRN";
 		2 "VendingGuy2IK:Dude_UV_s:Body" "visibility" " 1"
 		2 "VendingGuy2IK:Dude_UV_s:Body" "color" " 9"
 		3 "|VendingGuy2IK:Dude_UV_sRNfosterParent1|VendingGuy2IK:Body_MeshShapeDeformed.instObjGroups" 
-		"VendingGuy2IK:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na"
-		5 4 "VendingGuy2IKRN" "|VendingGuy2IK:Dude_UV_s:bodyMesh_group|VendingGuy2IK:Dude_UV_s:Body_Mesh|VendingGuy2IK:Dude_UV_s:Body_MeshShape.miSubdivApprox" 
-		"VendingGuy2IKRN.placeHolderList[1]" "";
+		"VendingGuy2IK:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode surfaceShader -n "howard_head_transparency_surfaceShader";
@@ -58707,14 +58683,11 @@ createNode materialInfo -n "materialInfo10";
 	setAttr -s 2 ".t";
 createNode file -n "Hair_Diffuse";
 	setAttr ".bnm" -type "string" "Head";
-	setAttr ".dc" -type "float3" 0 0 0 ;
 	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png";
-	setAttr ".cp" 3;
 createNode place2dTexture -n "place2dTexture7";
 	setAttr ".bnm" -type "string" "Head";
 createNode file -n "Face_Diffuse";
 	setAttr ".bnm" -type "string" "Head";
-	setAttr ".dc" -type "float3" 0 0 0 ;
 	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png";
 createNode place2dTexture -n "place2dTexture8";
 	setAttr ".bnm" -type "string" "Head";
@@ -58731,9 +58704,8 @@ createNode groupId -n "groupId11";
 createNode groupParts -n "groupParts8";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 12 "f[395:399]" "f[401:441]" "f[1572:1576]" "f[2878:2907]" "f[2909:2918]" "f[3067:3072]" "f[3691:3695]" "f[3697:3737]" "f[4868:4872]" "f[6174:6203]" "f[6205:6214]" "f[6363:6368]";
-createNode file -n "Collar_Diffuse";
+createNode file -n "file1";
 	setAttr ".bnm" -type "string" "Head";
-	setAttr ".dc" -type "float3" 0 0 0 ;
 	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png";
 	setAttr ".cp" 3;
 createNode place2dTexture -n "place2dTexture9";
@@ -58753,9 +58725,7 @@ createNode groupParts -n "groupParts9";
 	setAttr ".ic" -type "componentList" 46 "f[91]" "f[237:276]" "f[279:340]" "f[442:531]" "f[881:1251]" "f[1334:1335]" "f[1341:1342]" "f[1352:1353]" "f[1357:1367]" "f[1373]" "f[1375:1379]" "f[1382:1476]" "f[1549:1562]" "f[1577:1595]" "f[1613:1614]" "f[1767:2651]" "f[2661:2680]" "f[2690:2719]" "f[2750:2758]" "f[2908]" "f[2919]" "f[3044:3066]" "f[3277:3279]" "f[3387]" "f[3533:3572]" "f[3575:3636]" "f[3738:3827]" "f[4177:4547]" "f[4630:4631]" "f[4637:4638]" "f[4648:4649]" "f[4653:4663]" "f[4669]" "f[4671:4675]" "f[4678:4772]" "f[4845:4858]" "f[4873:4891]" "f[4909:4910]" "f[5063:5947]" "f[5957:5976]" "f[5986:6015]" "f[6046:6054]" "f[6204]" "f[6215]" "f[6340:6362]" "f[6573:6575]";
 createNode file -n "Body_Diffuse";
 	setAttr ".bnm" -type "string" "Head";
-	setAttr ".dc" -type "float3" 0 0 0 ;
 	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png";
-	setAttr ".cp" 3;
 createNode place2dTexture -n "place2dTexture10";
 	setAttr ".bnm" -type "string" "Head";
 createNode mia_material_x_passes -n "Body_Pants_mia_material_x_passes";
@@ -58768,9 +58738,7 @@ createNode materialInfo -n "materialInfo13";
 	setAttr -s 2 ".t";
 createNode file -n "Pants_Diffuse";
 	setAttr ".bnm" -type "string" "Head";
-	setAttr ".dc" -type "float3" 0 0 0 ;
 	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png";
-	setAttr ".cp" 3;
 createNode place2dTexture -n "place2dTexture11";
 	setAttr ".bnm" -type "string" "Head";
 createNode mia_material_x_passes -n "Eyebrow_mia_material_x_passes";
@@ -58783,75 +58751,9 @@ createNode materialInfo -n "materialInfo14";
 	setAttr -s 2 ".t";
 createNode file -n "Eyebrow_Diffuse";
 	setAttr ".bnm" -type "string" "Head";
-	setAttr ".dc" -type "float3" 0 0 0 ;
 	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Diffuse/Eyebrow.png";
-	setAttr ".cp" 3;
 createNode place2dTexture -n "place2dTexture12";
 	setAttr ".bnm" -type "string" "Head";
-createNode file -n "Hair_Displacement";
-	setAttr ".ail" yes;
-	setAttr ".ag" 5;
-	setAttr ".ao" -2.5;
-	setAttr ".dc" -type "float3" 0 0 0 ;
-	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr";
-	setAttr ".cp" 2;
-createNode place2dTexture -n "place2dTexture13";
-createNode bump2d -n "Hair_Displacement_bump2d";
-	setAttr ".vc1" -type "float3" 0 0.00079000031 0 ;
-	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
-createNode file -n "Body_Displacement";
-	setAttr ".ail" yes;
-	setAttr ".ag" 5;
-	setAttr ".ao" -2.5;
-	setAttr ".dc" -type "float3" 0 0 0 ;
-	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Displacement/Howard_DP_u2_v1.exr";
-	setAttr ".cp" 2;
-createNode place2dTexture -n "place2dTexture14";
-createNode bump2d -n "Body_Displacement_bump2d";
-	setAttr ".vc1" -type "float3" 0 0.00029 0 ;
-	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
-createNode file -n "file3";
-	setAttr ".ail" yes;
-	setAttr ".ag" 5;
-	setAttr ".ao" -2.5;
-	setAttr ".dc" -type "float3" 0 0 0 ;
-	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Displacement/Howard_DP_u3_v1.exr";
-	setAttr ".cp" 2;
-createNode place2dTexture -n "place2dTexture15";
-createNode bump2d -n "Pants_Displacement_bump2d";
-	setAttr ".vc1" -type "float3" 0 0.00025000004 0 ;
-	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
-createNode file -n "Collar_Displacement";
-	setAttr ".ail" yes;
-	setAttr ".ag" 5;
-	setAttr ".ao" -2.5;
-	setAttr ".dc" -type "float3" 0 0 0 ;
-	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr";
-	setAttr ".cp" 2;
-createNode place2dTexture -n "place2dTexture16";
-createNode bump2d -n "Collar_Displacement_bump2d";
-	setAttr ".vc1" -type "float3" 0 0.00022000005 0 ;
-	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
-createNode file -n "file4";
-	setAttr ".ail" yes;
-createNode place2dTexture -n "place2dTexture17";
-createNode bump2d -n "bump2d1";
-	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
-createNode file -n "Face_Displacement";
-	setAttr ".ail" yes;
-	setAttr ".ag" 5;
-	setAttr ".ao" -2.5;
-	setAttr ".dc" -type "float3" 0 0 0 ;
-	setAttr ".ftn" -type "string" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr";
-	setAttr ".cp" 2;
-createNode place2dTexture -n "place2dTexture18";
-createNode bump2d -n "Face_Displacement_bump2d";
-	setAttr ".vc1" -type "float3" 0 0.00026000003 0 ;
-	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
-createNode mentalraySubdivApprox -n "BodymentalraySubdivApprox";
-	setAttr ".view" yes;
-	setAttr ".len" 0.10000000149011612;
-	setAttr ".apxm" 2;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -58885,11 +58787,11 @@ select -ne :postProcessList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 46 ".u";
+	setAttr -s 34 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 5 ".r";
 select -ne :defaultTextureList1;
-	setAttr -s 37 ".tx";
+	setAttr -s 31 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -58941,7 +58843,6 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".nds";
 	setAttr -k on ".clip";
 	setAttr -k on ".edm";
-	setAttr ".ren" -type "string" "mentalRay";
 	setAttr -k on ".esr";
 	setAttr -k on ".ors";
 	setAttr -k on ".gama";
@@ -59103,45 +59004,42 @@ connectAttr "groupId9.id" "faceRigRN.phl[30]";
 connectAttr "faceRigRN.phl[31]" "Eyebrow_mia_material_x_passes_SG.dsm" -na;
 connectAttr "faceRigRN.phl[32]" ":initialMaterialInfo.t" -na;
 connectAttr "faceRigRN.phl[33]" "groupParts6.ig";
-connectAttr "VendingGuy2IKRN.phl[2]" "skeleton_grp_parentConstraint1.tg[0].tt";
-connectAttr "VendingGuy2IKRN.phl[3]" "skeleton_grp_scaleConstraint1.tg[0].ts";
-connectAttr "VendingGuy2IKRN.phl[4]" "skeleton_grp_parentConstraint1.tg[0].ts";
-connectAttr "VendingGuy2IKRN.phl[5]" "skeleton_grp_parentConstraint1.tg[0].tis";
-connectAttr "VendingGuy2IKRN.phl[6]" "skeleton_grp_parentConstraint1.tg[0].tr";
-connectAttr "VendingGuy2IKRN.phl[7]" "skeleton_grp_parentConstraint1.tg[0].tsc";
-connectAttr "VendingGuy2IKRN.phl[8]" "skeleton_grp_parentConstraint1.tg[0].trp";
-connectAttr "VendingGuy2IKRN.phl[9]" "skeleton_grp_parentConstraint1.tg[0].trt";
-connectAttr "VendingGuy2IKRN.phl[10]" "skeleton_grp_parentConstraint1.tg[0].tro"
+connectAttr "VendingGuy2IKRN.phl[1]" "skeleton_grp_parentConstraint1.tg[0].tt";
+connectAttr "VendingGuy2IKRN.phl[2]" "skeleton_grp_scaleConstraint1.tg[0].ts";
+connectAttr "VendingGuy2IKRN.phl[3]" "skeleton_grp_parentConstraint1.tg[0].ts";
+connectAttr "VendingGuy2IKRN.phl[4]" "skeleton_grp_parentConstraint1.tg[0].tis";
+connectAttr "VendingGuy2IKRN.phl[5]" "skeleton_grp_parentConstraint1.tg[0].tr";
+connectAttr "VendingGuy2IKRN.phl[6]" "skeleton_grp_parentConstraint1.tg[0].tsc";
+connectAttr "VendingGuy2IKRN.phl[7]" "skeleton_grp_parentConstraint1.tg[0].trp";
+connectAttr "VendingGuy2IKRN.phl[8]" "skeleton_grp_parentConstraint1.tg[0].trt";
+connectAttr "VendingGuy2IKRN.phl[9]" "skeleton_grp_parentConstraint1.tg[0].tro";
+connectAttr "VendingGuy2IKRN.phl[10]" "skeleton_grp_scaleConstraint1.tg[0].tpm";
+connectAttr "VendingGuy2IKRN.phl[11]" "skeleton_grp_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "VendingGuy2IKRN.phl[11]" "skeleton_grp_scaleConstraint1.tg[0].tpm";
-connectAttr "VendingGuy2IKRN.phl[12]" "skeleton_grp_parentConstraint1.tg[0].tpm"
+connectAttr "VendingGuy2IKRN.phl[12]" "skeleton_grp_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "VendingGuy2IKRN.phl[13]" "skeleton_grp_parentConstraint1.tg[0].tjo"
+connectAttr "VendingGuy2IKRN.phl[13]" "Body_Legs_mia_material_x_passes_SG.dsm" -na
 		;
-connectAttr "VendingGuy2IKRN.phl[14]" "Body_Legs_mia_material_x_passes_SG.dsm" -na
-		;
-connectAttr "groupId5.id" "VendingGuy2IKRN.phl[15]";
-connectAttr "Body_Legs_mia_material_x_passes_SG.mwc" "VendingGuy2IKRN.phl[16]";
-connectAttr "VendingGuy2IKRN.phl[17]" "howard_head_transparency_surfaceShaderSG.dsm"
+connectAttr "groupId5.id" "VendingGuy2IKRN.phl[14]";
+connectAttr "Body_Legs_mia_material_x_passes_SG.mwc" "VendingGuy2IKRN.phl[15]";
+connectAttr "VendingGuy2IKRN.phl[16]" "howard_head_transparency_surfaceShaderSG.dsm"
 		 -na;
-connectAttr "groupId7.id" "VendingGuy2IKRN.phl[18]";
-connectAttr "howard_head_transparency_surfaceShaderSG.mwc" "VendingGuy2IKRN.phl[19]"
+connectAttr "groupId7.id" "VendingGuy2IKRN.phl[17]";
+connectAttr "howard_head_transparency_surfaceShaderSG.mwc" "VendingGuy2IKRN.phl[18]"
 		;
-connectAttr "VendingGuy2IKRN.phl[20]" "Body_Collar_mia_material_x_passes_SG.dsm"
+connectAttr "VendingGuy2IKRN.phl[19]" "Body_Collar_mia_material_x_passes_SG.dsm"
 		 -na;
-connectAttr "groupId11.id" "VendingGuy2IKRN.phl[21]";
-connectAttr "Body_Collar_mia_material_x_passes_SG.mwc" "VendingGuy2IKRN.phl[22]"
+connectAttr "groupId11.id" "VendingGuy2IKRN.phl[20]";
+connectAttr "Body_Collar_mia_material_x_passes_SG.mwc" "VendingGuy2IKRN.phl[21]"
 		;
-connectAttr "VendingGuy2IKRN.phl[23]" "Body_Body_mia_material_x_passes_SG.dsm" -na
+connectAttr "VendingGuy2IKRN.phl[22]" "Body_Body_mia_material_x_passes_SG.dsm" -na
 		;
-connectAttr "groupId12.id" "VendingGuy2IKRN.phl[24]";
-connectAttr "Body_Body_mia_material_x_passes_SG.mwc" "VendingGuy2IKRN.phl[25]";
-connectAttr "groupParts9.og" "VendingGuy2IKRN.phl[26]";
-connectAttr "VendingGuy2IKRN.phl[27]" "howard_body_lambertSG.dsm" -na;
-connectAttr "groupId6.id" "VendingGuy2IKRN.phl[28]";
-connectAttr "BodymentalraySubdivApprox.msg" "VendingGuy2IKRN.phl[29]";
-connectAttr "VendingGuy2IKRN.phl[30]" "groupParts4.ig";
-connectAttr "BodymentalraySubdivApprox.msg" "VendingGuy2IKRN.phl[1]";
+connectAttr "groupId12.id" "VendingGuy2IKRN.phl[23]";
+connectAttr "Body_Body_mia_material_x_passes_SG.mwc" "VendingGuy2IKRN.phl[24]";
+connectAttr "groupParts9.og" "VendingGuy2IKRN.phl[25]";
+connectAttr "VendingGuy2IKRN.phl[26]" "howard_body_lambertSG.dsm" -na;
+connectAttr "groupId6.id" "VendingGuy2IKRN.phl[27]";
+connectAttr "VendingGuy2IKRN.phl[28]" "groupParts4.ig";
 connectAttr "group1_parentConstraint1.ctx" "BodyRig_grp.tx";
 connectAttr "group1_parentConstraint1.cty" "BodyRig_grp.ty";
 connectAttr "group1_parentConstraint1.ctz" "BodyRig_grp.tz";
@@ -59201,7 +59099,6 @@ connectAttr "skeleton_grp_scaleConstraint1.w0" "skeleton_grp_scaleConstraint1.tg
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
-connectAttr "BodymentalraySubdivApprox.msg" ":mentalrayItemsList.va" -na;
 connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -59477,22 +59374,22 @@ connectAttr "place2dTexture6.o" "eyebrow_Diffuse.uv";
 connectAttr "place2dTexture6.ofs" "eyebrow_Diffuse.fs";
 connectAttr "hyperView1.msg" "nodeEditorPanel1Info.b[0]";
 connectAttr "hyperLayout1.msg" "hyperView1.hl";
-connectAttr "Body_Displacement.msg" "hyperLayout1.hyp[0].dn";
-connectAttr "place2dTexture14.msg" "hyperLayout1.hyp[1].dn";
-connectAttr "Body_Displacement_bump2d.msg" "hyperLayout1.hyp[2].dn";
-connectAttr "file3.msg" "hyperLayout1.hyp[3].dn";
-connectAttr "place2dTexture15.msg" "hyperLayout1.hyp[4].dn";
-connectAttr "Pants_Displacement_bump2d.msg" "hyperLayout1.hyp[5].dn";
-connectAttr "Collar_Displacement.msg" "hyperLayout1.hyp[6].dn";
-connectAttr "place2dTexture16.msg" "hyperLayout1.hyp[7].dn";
-connectAttr "Collar_Displacement_bump2d.msg" "hyperLayout1.hyp[8].dn";
-connectAttr "file4.msg" "hyperLayout1.hyp[9].dn";
-connectAttr "place2dTexture17.msg" "hyperLayout1.hyp[10].dn";
-connectAttr "bump2d1.msg" "hyperLayout1.hyp[11].dn";
-connectAttr "Face_Displacement.msg" "hyperLayout1.hyp[12].dn";
-connectAttr "place2dTexture18.msg" "hyperLayout1.hyp[13].dn";
-connectAttr "Face_Displacement_bump2d.msg" "hyperLayout1.hyp[14].dn";
-connectAttr "BodymentalraySubdivApprox.msg" "hyperLayout1.hyp[15].dn";
+connectAttr "Collar_mia_material_x_passes.msg" "hyperLayout1.hyp[0].dn";
+connectAttr "Body_Collar_mia_material_x_passes_SG.msg" "hyperLayout1.hyp[1].dn";
+connectAttr "file1.msg" "hyperLayout1.hyp[2].dn";
+connectAttr "place2dTexture9.msg" "hyperLayout1.hyp[3].dn";
+connectAttr "Body_Body_mia_material_x_passes.msg" "hyperLayout1.hyp[4].dn";
+connectAttr "Body_Body_mia_material_x_passes_SG.msg" "hyperLayout1.hyp[5].dn";
+connectAttr "Body_Diffuse.msg" "hyperLayout1.hyp[6].dn";
+connectAttr "place2dTexture10.msg" "hyperLayout1.hyp[7].dn";
+connectAttr "Body_Pants_mia_material_x_passes.msg" "hyperLayout1.hyp[8].dn";
+connectAttr "Body_Legs_mia_material_x_passes_SG.msg" "hyperLayout1.hyp[9].dn";
+connectAttr "Pants_Diffuse.msg" "hyperLayout1.hyp[10].dn";
+connectAttr "place2dTexture11.msg" "hyperLayout1.hyp[11].dn";
+connectAttr "Eyebrow_mia_material_x_passes.msg" "hyperLayout1.hyp[12].dn";
+connectAttr "Eyebrow_mia_material_x_passes_SG.msg" "hyperLayout1.hyp[13].dn";
+connectAttr "Eyebrow_Diffuse.msg" "hyperLayout1.hyp[14].dn";
+connectAttr "place2dTexture12.msg" "hyperLayout1.hyp[15].dn";
 connectAttr "sharedReferenceNode.sr" "VendingGuy2IKRN.sr";
 connectAttr "howard_head_transparency_surfaceShader.oc" "howard_head_transparency_surfaceShaderSG.ss"
 		;
@@ -59510,7 +59407,6 @@ connectAttr "groupParts6.og" "groupParts7.ig";
 connectAttr "groupId10.id" "groupParts7.gi";
 connectAttr "Face_Diffuse.oc" "Face_mia_material_x_passes.S04";
 connectAttr "Face_Diffuse.oa" "Face_mia_material_x_passes.S04A";
-connectAttr "Face_Displacement_bump2d.o" "Face_mia_material_x_passes.S71";
 connectAttr "Face_mia_material_x_passes.msg" "Howard_Face_mia_material_x_passes_SG.mips"
 		;
 connectAttr "Face_mia_material_x_passes.msg" "Howard_Face_mia_material_x_passes_SG.miss"
@@ -59522,7 +59418,6 @@ connectAttr "Face_mia_material_x_passes.msg" "materialInfo9.m";
 connectAttr "Face_mia_material_x_passes.msg" "materialInfo9.t" -na;
 connectAttr "Hair_Diffuse.oc" "Hair_mia_material_x_passes.S04";
 connectAttr "Hair_Diffuse.oa" "Hair_mia_material_x_passes.S04A";
-connectAttr "Hair_Displacement_bump2d.o" "Hair_mia_material_x_passes.S71";
 connectAttr "Hair_mia_material_x_passes.msg" "Howard_Hair_mia_material_x_passes1SG.mips"
 		;
 connectAttr "Hair_mia_material_x_passes.msg" "Howard_Hair_mia_material_x_passes1SG.miss"
@@ -59568,9 +59463,8 @@ connectAttr "place2dTexture8.vt3" "Face_Diffuse.vt3";
 connectAttr "place2dTexture8.vc1" "Face_Diffuse.vc1";
 connectAttr "place2dTexture8.o" "Face_Diffuse.uv";
 connectAttr "place2dTexture8.ofs" "Face_Diffuse.fs";
-connectAttr "Collar_Diffuse.oc" "Collar_mia_material_x_passes.S04";
-connectAttr "Collar_Diffuse.oa" "Collar_mia_material_x_passes.S04A";
-connectAttr "Collar_Displacement_bump2d.o" "Collar_mia_material_x_passes.S71";
+connectAttr "file1.oc" "Collar_mia_material_x_passes.S04";
+connectAttr "file1.oa" "Collar_mia_material_x_passes.S04A";
 connectAttr "Collar_mia_material_x_passes.msg" "Body_Collar_mia_material_x_passes_SG.mips"
 		;
 connectAttr "Collar_mia_material_x_passes.msg" "Body_Collar_mia_material_x_passes_SG.miss"
@@ -59583,27 +59477,26 @@ connectAttr "Collar_mia_material_x_passes.msg" "materialInfo11.m";
 connectAttr "Collar_mia_material_x_passes.msg" "materialInfo11.t" -na;
 connectAttr "groupParts5.og" "groupParts8.ig";
 connectAttr "groupId11.id" "groupParts8.gi";
-connectAttr "place2dTexture9.c" "Collar_Diffuse.c";
-connectAttr "place2dTexture9.tf" "Collar_Diffuse.tf";
-connectAttr "place2dTexture9.rf" "Collar_Diffuse.rf";
-connectAttr "place2dTexture9.mu" "Collar_Diffuse.mu";
-connectAttr "place2dTexture9.mv" "Collar_Diffuse.mv";
-connectAttr "place2dTexture9.s" "Collar_Diffuse.s";
-connectAttr "place2dTexture9.wu" "Collar_Diffuse.wu";
-connectAttr "place2dTexture9.wv" "Collar_Diffuse.wv";
-connectAttr "place2dTexture9.re" "Collar_Diffuse.re";
-connectAttr "place2dTexture9.of" "Collar_Diffuse.of";
-connectAttr "place2dTexture9.r" "Collar_Diffuse.ro";
-connectAttr "place2dTexture9.n" "Collar_Diffuse.n";
-connectAttr "place2dTexture9.vt1" "Collar_Diffuse.vt1";
-connectAttr "place2dTexture9.vt2" "Collar_Diffuse.vt2";
-connectAttr "place2dTexture9.vt3" "Collar_Diffuse.vt3";
-connectAttr "place2dTexture9.vc1" "Collar_Diffuse.vc1";
-connectAttr "place2dTexture9.o" "Collar_Diffuse.uv";
-connectAttr "place2dTexture9.ofs" "Collar_Diffuse.fs";
+connectAttr "place2dTexture9.c" "file1.c";
+connectAttr "place2dTexture9.tf" "file1.tf";
+connectAttr "place2dTexture9.rf" "file1.rf";
+connectAttr "place2dTexture9.mu" "file1.mu";
+connectAttr "place2dTexture9.mv" "file1.mv";
+connectAttr "place2dTexture9.s" "file1.s";
+connectAttr "place2dTexture9.wu" "file1.wu";
+connectAttr "place2dTexture9.wv" "file1.wv";
+connectAttr "place2dTexture9.re" "file1.re";
+connectAttr "place2dTexture9.of" "file1.of";
+connectAttr "place2dTexture9.r" "file1.ro";
+connectAttr "place2dTexture9.n" "file1.n";
+connectAttr "place2dTexture9.vt1" "file1.vt1";
+connectAttr "place2dTexture9.vt2" "file1.vt2";
+connectAttr "place2dTexture9.vt3" "file1.vt3";
+connectAttr "place2dTexture9.vc1" "file1.vc1";
+connectAttr "place2dTexture9.o" "file1.uv";
+connectAttr "place2dTexture9.ofs" "file1.fs";
 connectAttr "Body_Diffuse.oc" "Body_Body_mia_material_x_passes.S04";
 connectAttr "Body_Diffuse.oa" "Body_Body_mia_material_x_passes.S04A";
-connectAttr "Body_Displacement_bump2d.o" "Body_Body_mia_material_x_passes.S71";
 connectAttr "Body_Body_mia_material_x_passes.msg" "Body_Body_mia_material_x_passes_SG.mips"
 		;
 connectAttr "Body_Body_mia_material_x_passes.msg" "Body_Body_mia_material_x_passes_SG.miss"
@@ -59636,8 +59529,6 @@ connectAttr "place2dTexture10.o" "Body_Diffuse.uv";
 connectAttr "place2dTexture10.ofs" "Body_Diffuse.fs";
 connectAttr "Pants_Diffuse.oc" "Body_Pants_mia_material_x_passes.S04";
 connectAttr "Pants_Diffuse.oa" "Body_Pants_mia_material_x_passes.S04A";
-connectAttr "Pants_Displacement_bump2d.o" "Body_Pants_mia_material_x_passes.S71"
-		;
 connectAttr "Body_Pants_mia_material_x_passes.msg" "Body_Legs_mia_material_x_passes_SG.mips"
 		;
 connectAttr "Body_Pants_mia_material_x_passes.msg" "Body_Legs_mia_material_x_passes_SG.miss"
@@ -59694,120 +59585,6 @@ connectAttr "place2dTexture12.vt3" "Eyebrow_Diffuse.vt3";
 connectAttr "place2dTexture12.vc1" "Eyebrow_Diffuse.vc1";
 connectAttr "place2dTexture12.o" "Eyebrow_Diffuse.uv";
 connectAttr "place2dTexture12.ofs" "Eyebrow_Diffuse.fs";
-connectAttr "place2dTexture13.c" "Hair_Displacement.c";
-connectAttr "place2dTexture13.tf" "Hair_Displacement.tf";
-connectAttr "place2dTexture13.rf" "Hair_Displacement.rf";
-connectAttr "place2dTexture13.mu" "Hair_Displacement.mu";
-connectAttr "place2dTexture13.mv" "Hair_Displacement.mv";
-connectAttr "place2dTexture13.s" "Hair_Displacement.s";
-connectAttr "place2dTexture13.wu" "Hair_Displacement.wu";
-connectAttr "place2dTexture13.wv" "Hair_Displacement.wv";
-connectAttr "place2dTexture13.re" "Hair_Displacement.re";
-connectAttr "place2dTexture13.of" "Hair_Displacement.of";
-connectAttr "place2dTexture13.r" "Hair_Displacement.ro";
-connectAttr "place2dTexture13.n" "Hair_Displacement.n";
-connectAttr "place2dTexture13.vt1" "Hair_Displacement.vt1";
-connectAttr "place2dTexture13.vt2" "Hair_Displacement.vt2";
-connectAttr "place2dTexture13.vt3" "Hair_Displacement.vt3";
-connectAttr "place2dTexture13.vc1" "Hair_Displacement.vc1";
-connectAttr "place2dTexture13.o" "Hair_Displacement.uv";
-connectAttr "place2dTexture13.ofs" "Hair_Displacement.fs";
-connectAttr "Hair_Displacement.oa" "Hair_Displacement_bump2d.bv";
-connectAttr "place2dTexture14.c" "Body_Displacement.c";
-connectAttr "place2dTexture14.tf" "Body_Displacement.tf";
-connectAttr "place2dTexture14.rf" "Body_Displacement.rf";
-connectAttr "place2dTexture14.mu" "Body_Displacement.mu";
-connectAttr "place2dTexture14.mv" "Body_Displacement.mv";
-connectAttr "place2dTexture14.s" "Body_Displacement.s";
-connectAttr "place2dTexture14.wu" "Body_Displacement.wu";
-connectAttr "place2dTexture14.wv" "Body_Displacement.wv";
-connectAttr "place2dTexture14.re" "Body_Displacement.re";
-connectAttr "place2dTexture14.of" "Body_Displacement.of";
-connectAttr "place2dTexture14.r" "Body_Displacement.ro";
-connectAttr "place2dTexture14.n" "Body_Displacement.n";
-connectAttr "place2dTexture14.vt1" "Body_Displacement.vt1";
-connectAttr "place2dTexture14.vt2" "Body_Displacement.vt2";
-connectAttr "place2dTexture14.vt3" "Body_Displacement.vt3";
-connectAttr "place2dTexture14.vc1" "Body_Displacement.vc1";
-connectAttr "place2dTexture14.o" "Body_Displacement.uv";
-connectAttr "place2dTexture14.ofs" "Body_Displacement.fs";
-connectAttr "Body_Displacement.oa" "Body_Displacement_bump2d.bv";
-connectAttr "place2dTexture15.c" "file3.c";
-connectAttr "place2dTexture15.tf" "file3.tf";
-connectAttr "place2dTexture15.rf" "file3.rf";
-connectAttr "place2dTexture15.mu" "file3.mu";
-connectAttr "place2dTexture15.mv" "file3.mv";
-connectAttr "place2dTexture15.s" "file3.s";
-connectAttr "place2dTexture15.wu" "file3.wu";
-connectAttr "place2dTexture15.wv" "file3.wv";
-connectAttr "place2dTexture15.re" "file3.re";
-connectAttr "place2dTexture15.of" "file3.of";
-connectAttr "place2dTexture15.r" "file3.ro";
-connectAttr "place2dTexture15.n" "file3.n";
-connectAttr "place2dTexture15.vt1" "file3.vt1";
-connectAttr "place2dTexture15.vt2" "file3.vt2";
-connectAttr "place2dTexture15.vt3" "file3.vt3";
-connectAttr "place2dTexture15.vc1" "file3.vc1";
-connectAttr "place2dTexture15.o" "file3.uv";
-connectAttr "place2dTexture15.ofs" "file3.fs";
-connectAttr "file3.oa" "Pants_Displacement_bump2d.bv";
-connectAttr "place2dTexture16.c" "Collar_Displacement.c";
-connectAttr "place2dTexture16.tf" "Collar_Displacement.tf";
-connectAttr "place2dTexture16.rf" "Collar_Displacement.rf";
-connectAttr "place2dTexture16.mu" "Collar_Displacement.mu";
-connectAttr "place2dTexture16.mv" "Collar_Displacement.mv";
-connectAttr "place2dTexture16.s" "Collar_Displacement.s";
-connectAttr "place2dTexture16.wu" "Collar_Displacement.wu";
-connectAttr "place2dTexture16.wv" "Collar_Displacement.wv";
-connectAttr "place2dTexture16.re" "Collar_Displacement.re";
-connectAttr "place2dTexture16.of" "Collar_Displacement.of";
-connectAttr "place2dTexture16.r" "Collar_Displacement.ro";
-connectAttr "place2dTexture16.n" "Collar_Displacement.n";
-connectAttr "place2dTexture16.vt1" "Collar_Displacement.vt1";
-connectAttr "place2dTexture16.vt2" "Collar_Displacement.vt2";
-connectAttr "place2dTexture16.vt3" "Collar_Displacement.vt3";
-connectAttr "place2dTexture16.vc1" "Collar_Displacement.vc1";
-connectAttr "place2dTexture16.o" "Collar_Displacement.uv";
-connectAttr "place2dTexture16.ofs" "Collar_Displacement.fs";
-connectAttr "Collar_Displacement.oa" "Collar_Displacement_bump2d.bv";
-connectAttr "place2dTexture17.c" "file4.c";
-connectAttr "place2dTexture17.tf" "file4.tf";
-connectAttr "place2dTexture17.rf" "file4.rf";
-connectAttr "place2dTexture17.mu" "file4.mu";
-connectAttr "place2dTexture17.mv" "file4.mv";
-connectAttr "place2dTexture17.s" "file4.s";
-connectAttr "place2dTexture17.wu" "file4.wu";
-connectAttr "place2dTexture17.wv" "file4.wv";
-connectAttr "place2dTexture17.re" "file4.re";
-connectAttr "place2dTexture17.of" "file4.of";
-connectAttr "place2dTexture17.r" "file4.ro";
-connectAttr "place2dTexture17.n" "file4.n";
-connectAttr "place2dTexture17.vt1" "file4.vt1";
-connectAttr "place2dTexture17.vt2" "file4.vt2";
-connectAttr "place2dTexture17.vt3" "file4.vt3";
-connectAttr "place2dTexture17.vc1" "file4.vc1";
-connectAttr "place2dTexture17.o" "file4.uv";
-connectAttr "place2dTexture17.ofs" "file4.fs";
-connectAttr "file4.oa" "bump2d1.bv";
-connectAttr "place2dTexture18.c" "Face_Displacement.c";
-connectAttr "place2dTexture18.tf" "Face_Displacement.tf";
-connectAttr "place2dTexture18.rf" "Face_Displacement.rf";
-connectAttr "place2dTexture18.mu" "Face_Displacement.mu";
-connectAttr "place2dTexture18.mv" "Face_Displacement.mv";
-connectAttr "place2dTexture18.s" "Face_Displacement.s";
-connectAttr "place2dTexture18.wu" "Face_Displacement.wu";
-connectAttr "place2dTexture18.wv" "Face_Displacement.wv";
-connectAttr "place2dTexture18.re" "Face_Displacement.re";
-connectAttr "place2dTexture18.of" "Face_Displacement.of";
-connectAttr "place2dTexture18.r" "Face_Displacement.ro";
-connectAttr "place2dTexture18.n" "Face_Displacement.n";
-connectAttr "place2dTexture18.vt1" "Face_Displacement.vt1";
-connectAttr "place2dTexture18.vt2" "Face_Displacement.vt2";
-connectAttr "place2dTexture18.vt3" "Face_Displacement.vt3";
-connectAttr "place2dTexture18.vc1" "Face_Displacement.vc1";
-connectAttr "place2dTexture18.o" "Face_Displacement.uv";
-connectAttr "place2dTexture18.ofs" "Face_Displacement.fs";
-connectAttr "Face_Displacement.oa" "Face_Displacement_bump2d.bv";
 connectAttr "howard_face_lambertSG.pa" ":renderPartition.st" -na;
 connectAttr "howard_face_mia_material_xSG.pa" ":renderPartition.st" -na;
 connectAttr "howard_body_lambertSG.pa" ":renderPartition.st" -na;
@@ -59846,18 +59623,6 @@ connectAttr "place2dTexture9.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture10.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture11.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture12.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture13.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "Hair_Displacement_bump2d.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture14.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "Body_Displacement_bump2d.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture15.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "Pants_Displacement_bump2d.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture16.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "Collar_Displacement_bump2d.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture17.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "bump2d1.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture18.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "Face_Displacement_bump2d.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "howard_face_u0_v0_Diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "howard_body_u1_v0_Diffuse.msg" ":defaultTextureList1.tx" -na;
@@ -59867,16 +59632,10 @@ connectAttr "howard_body_u2_v0_Diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "eyebrow_Diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Hair_Diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Face_Diffuse.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Collar_Diffuse.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Body_Diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Pants_Diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Eyebrow_Diffuse.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Hair_Displacement.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Body_Displacement.msg" ":defaultTextureList1.tx" -na;
-connectAttr "file3.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Collar_Displacement.msg" ":defaultTextureList1.tx" -na;
-connectAttr "file4.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Face_Displacement.msg" ":defaultTextureList1.tx" -na;
 connectAttr "VendingGuy3RN.phl[18]" ":hyperGraphLayout.hyp[460].dn";
 connectAttr "VendingGuy3RN.phl[16]" ":hyperGraphLayout.hyp[465].dn";
 connectAttr "VendingGuy3RN.phl[17]" ":hyperGraphLayout.hyp[466].dn";
@@ -59884,6 +59643,6 @@ connectAttr "VendingGuy3RN.phl[1]" ":hyperGraphLayout.hyp[476].dn";
 connectAttr "group1_parentConstraint1.msg" ":hyperGraphLayout.hyp[493].dn";
 connectAttr "group1_scaleConstraint1.msg" ":hyperGraphLayout.hyp[494].dn";
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"VendingGuy3RN\" \"\" \"/Users/Samantha/Desktop/VendingMachineGuy/VendingGuy2FootFix_angela6.ma\" 1630181338 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/scenes/VendingGuy2FootFix_angela6.ma\" \"FileRef\"\n1\n\"faceRigRN\" \"\" \"/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma\" 1475994403 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/scenes/faceRig.ma\" \"FileRef\"\n2\n\"VendingGuy2IKRN\" \"\" \"/Users/Samantha/Dropbox/Breakroom_Project/Breakroom_Project/scenes/VendingGuy2IK.ma\" 2693126002 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/scenes/VendingGuy2IK.ma\" \"FileRef\"\n3\n\"howard_face_u0_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n4\n\"howard_body_u1_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n5\n\"howard_body_u0_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n6\n\"howard_body_u1_v0_Diffuse1\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n7\n\"howard_body_u2_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" 3106362775 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" \"sourceImages\"\n8\n\"eyebrow_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" 4205722480 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" \"sourceImages\"\n9\n\"Hair_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n10\n\"Face_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n11\n\"Collar_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n12\n\"Body_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n13\n\"Pants_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" 3106362775 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" \"sourceImages\"\n14\n\"Eyebrow_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" 4205722480 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" \"sourceImages\"\n15\n\"Hair_Displacement\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr\" 1460146834 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr\" \"sourceImages\"\n16\n\"Body_Displacement\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u2_v1.exr\" 3649508721 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u2_v1.exr\" \"sourceImages\"\n17\n\"file3\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u3_v1.exr\" 355276271 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u3_v1.exr\" \"sourceImages\"\n18\n\"Collar_Displacement\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr\" 1460146834 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr\" \"sourceImages\"\n19\n\"Face_Displacement\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr\" 1460146834 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Displacement/Howard_DP_u1_v1.exr\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"VendingGuy3RN\" \"\" \"/Users/Samantha/Desktop/VendingMachineGuy/VendingGuy2FootFix_angela6.ma\" 1630181338 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/scenes/VendingGuy2FootFix_angela6.ma\" \"FileRef\"\n1\n\"faceRigRN\" \"\" \"/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma\" 1475994403 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/scenes/faceRig.ma\" \"FileRef\"\n2\n\"VendingGuy2IKRN\" \"\" \"/Users/Samantha/Dropbox/Breakroom_Project/Breakroom_Project/scenes/VendingGuy2IK.ma\" 2693126002 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/scenes/VendingGuy2IK.ma\" \"FileRef\"\n3\n\"howard_face_u0_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n4\n\"howard_body_u1_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n5\n\"howard_body_u0_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n6\n\"howard_body_u1_v0_Diffuse1\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n7\n\"howard_body_u2_v0_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" 3106362775 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" \"sourceImages\"\n8\n\"eyebrow_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" 4205722480 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" \"sourceImages\"\n9\n\"Hair_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n10\n\"Face_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n11\n\"file1\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" 2074761134 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u0_v0 copy.png\" \"sourceImages\"\n12\n\"Body_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" 2788986411 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u1_v0 copy.png\" \"sourceImages\"\n13\n\"Pants_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" 3106362775 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Howard-TM_u2_v0.png\" \"sourceImages\"\n14\n\"Eyebrow_Diffuse\" \"fileTextureName\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" 4205722480 \"C:/Users/Michael/Documents/maya/projects/Vending_Animation/sourceimages/Howard_Diffuse/Eyebrow.png\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of FinalVendingGuyRig01.ma
