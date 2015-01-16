@@ -1,0 +1,6250 @@
+atomVersion 1.0;
+mayaVersion 2015;
+mayaSceneFile C:/Users/Angela/Desktop/Vendingbackup/2newdodge2.ma;
+timeUnit film;
+linearUnit ft;
+angularUnit deg;
+startTime 1;
+endTime 130;
+dagNode {
+  FinalVendingGuyRig02:Body2_grp 1 11;
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:group2_parentConstraint1 2 0;
+  static int interpType 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static w0 SuperMoverW0 2;
+  { 1 }
+  static target.targetOffsetRotate.torx target[0].targetOffsetRotateX 3;
+  { 0 }
+  static target.targetOffsetRotate.tory target[0].targetOffsetRotateY 4;
+  { 0 }
+  static target.targetOffsetRotate.torz target[0].targetOffsetRotateZ 5;
+  { 0 }
+  static target.targetOffsetTranslate.totx target[0].targetOffsetTranslateX 6;
+  { 0 }
+  static target.targetOffsetTranslate.toty target[0].targetOffsetTranslateY 7;
+  { 0 }
+  static target.targetOffsetTranslate.totz target[0].targetOffsetTranslateZ 8;
+  { -0.016756802 }
+}
+dagNode {
+  FinalVendingGuyRig02:group2_scaleConstraint1 2 0;
+  static nds nodeState 0;
+  { 0 }
+  static offset.ox offsetX 1;
+  { 1 }
+  static offset.oy offsetY 2;
+  { 1 }
+  static offset.oz offsetZ 3;
+  { 1 }
+  static w0 SuperMoverW0 4;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:root_jnt 2 3;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 -0.023825253 auto auto 1 1 0;
+      32 6.6473058e-005 auto auto 1 1 0;
+      48 0.013583157 auto auto 1 1 0;
+      64 0.02670968 auto auto 1 1 0;
+      90 0.023780919 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.0889207 auto auto 1 1 0;
+      24 0.087384463 auto auto 1 1 0;
+      32 0.080229301 auto auto 1 1 0;
+      48 0.08569358 auto auto 1 1 0;
+      64 0.072405072 auto auto 1 1 0;
+      90 0.087233503 auto auto 1 1 0;
+      120 0.10275044 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.00134022 auto auto 1 1 0;
+      24 -0.022397962 auto auto 1 1 0;
+      32 -0.02127096 auto auto 1 1 0;
+      48 0.0061618367 auto auto 1 1 0;
+      64 -0.0093951037 auto auto 1 1 0;
+      90 0.0021459301 auto auto 1 1 0;
+      120 -0.035056586 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 3;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 1.228828 auto auto 1 1 0;
+      24 44.621202 auto auto 1 1 0;
+      32 -39.577278 auto auto 1 1 0;
+      48 -68.016284 auto auto 1 1 0;
+      64 -17.459549 auto auto 1 1 0;
+      95 26.526847 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 4;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 -14.382678 auto auto 1 1 0;
+      32 -2.4180342 auto auto 1 1 0;
+      48 18.775445 auto auto 1 1 0;
+      55 -15.450908 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      95 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 5;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -4.327091 auto auto 1 1 0;
+      24 -0.034301349 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      95 17.740913 auto auto 1 1 0;
+      100 -10.685931 auto auto 1 1 0;
+      120 -22.133137 auto auto 1 1 0;
+    }
+  }
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt 3 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      120 -8.9947611 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      120 19.624763 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 9.9438143 auto auto 1 1 0;
+      32 -13.655821 auto auto 1 1 0;
+      48 -9.8216188 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      95 29.820125 auto auto 1 1 0;
+      120 -6.3593073 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt 4 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -11.549525 auto auto 1 1 0;
+      24 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 -9.1034323 auto auto 1 1 0;
+      32 -16.708018 auto auto 1 1 0;
+      48 -16.16449 auto auto 1 1 0;
+      55 -31.325165 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      95 10.403954 auto auto 1 1 0;
+      120 -25.891078 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt 5 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -13.578423 auto auto 1 1 0;
+      24 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      6 30.782266 auto auto 1 1 0;
+      24 -16.8114 auto auto 1 1 0;
+      29 -41.433014 auto auto 1 1 0;
+      32 0.44882081 auto auto 1 1 0;
+      48 -2.6668302 auto auto 1 1 0;
+      55 -24.907926 auto auto 1 1 0;
+      64 0 auto auto 1 1 0;
+      95 27.130763 auto auto 1 1 0;
+      100 47.957045 auto auto 1 1 0;
+      120 -13.755579 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt 6 3;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -16.106854 auto auto 1 1 0;
+      55 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 1.2110386 auto auto 1 1 0;
+      48 3.1363694 auto auto 1 1 0;
+      55 -24.602704 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:nullLeft 7 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:clav_left_jnt 8 2;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      32 -0.0012835838 auto auto 1 1 0;
+      48 -5.1685531e-005 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.002433182 auto auto 1 1 0;
+      24 0.0039407715 auto auto 1 1 0;
+      32 0.0065497392 auto auto 1 1 0;
+      48 0.0040458257 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 3;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      48 40.638301 auto auto 1 1 0;
+      95 -14.534631 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 4;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      48 -17.589258 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 5;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 26.196686 auto auto 1 1 0;
+      48 18.237997 auto auto 1 1 0;
+      95 30.154849 auto auto 1 1 0;
+      120 83.673181 auto auto 1 1 0;
+    }
+  }
+  static v visibility 6;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:shoulder_left_jnt 9 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 31.725877 auto auto 1 1 0;
+      32 -82.293317 auto auto 1 1 0;
+      48 -50.658956 auto auto 1 1 0;
+      55 0 auto auto 1 1 0;
+      95 -4.1984208 auto auto 1 1 0;
+      120 -5.8341944 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 6.2549979 auto auto 1 1 0;
+      24 36.159909 auto auto 1 1 0;
+      32 -39.623396 auto auto 1 1 0;
+      48 35.822817 auto auto 1 1 0;
+      55 0 auto auto 1 1 0;
+      120 -26.850773 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -74.497289 auto auto 1 1 0;
+      24 7.4668034 auto auto 1 1 0;
+      48 -45.058212 auto auto 1 1 0;
+      55 31.246246 auto auto 1 1 0;
+      95 19.614138 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:elbow_left_jnt 10 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 70.80772 auto auto 1 1 0;
+      24 -13.351612 auto auto 1 1 0;
+      55 0 auto auto 1 1 0;
+      120 -27.705385 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -136.49931 auto auto 1 1 0;
+      24 -3.6126611 auto auto 1 1 0;
+      32 -11.681831 auto auto 1 1 0;
+      34 -43.699551 auto auto 1 1 0;
+      38 -69.986754 auto auto 1 1 0;
+      55 0 auto auto 1 1 0;
+      95 18.874436 auto auto 1 1 0;
+      120 -5.2850706 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -25.513807 auto auto 1 1 0;
+      24 -80.961572 auto auto 1 1 0;
+      29 11.10607 auto auto 1 1 0;
+      32 19.591715 auto auto 1 1 0;
+      48 -23.763018 auto auto 1 1 0;
+      55 11.042078 auto auto 1 1 0;
+      120 11.523232 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt 11 6;
+  anim rotate.rotateZ rotateZ 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 46.335822 auto auto 1 1 0;
+      10 -24.476071 auto auto 1 1 0;
+      24 -47.923129 auto auto 1 1 0;
+      28 8.6615138 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyMid_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyMid_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint50 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:ringMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:ringMid_left|FinalVendingGuyRig02:VendingGuy2IK:ringLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:ringMid_left|FinalVendingGuyRig02:VendingGuy2IK:ringLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint51 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:middleMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:middleMid_left|FinalVendingGuyRig02:VendingGuy2IK:middleLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:middleMid_left|FinalVendingGuyRig02:VendingGuy2IK:middleLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint52 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left|FinalVendingGuyRig02:VendingGuy2IK:indexLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left|FinalVendingGuyRig02:VendingGuy2IK:indexLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint53 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left 12 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left|FinalVendingGuyRig02:VendingGuy2IK:thumbKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left|FinalVendingGuyRig02:VendingGuy2IK:thumbKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_left_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left|FinalVendingGuyRig02:VendingGuy2IK:thumbKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left|FinalVendingGuyRig02:VendingGuy2IK:thumbLast_left 15 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:nullRight 7 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt 8 2;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      24 0 auto auto 1 1 0;
+      32 0.0011960724 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 -0.0041502676 auto auto 1 1 0;
+      32 -0.0067425502 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      24 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 3;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      24 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 4;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 17.576856 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 5;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 43.40988 auto auto 1 1 0;
+      32 24.768476 auto auto 1 1 0;
+      120 83.048788 auto auto 1 1 0;
+    }
+  }
+  static v visibility 6;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt 9 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 5.6568867 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      55 -6.9097014 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -53.828528 auto auto 1 1 0;
+      24 2.5804016 auto auto 1 1 0;
+      32 -60.02198 auto auto 1 1 0;
+      120 -19.665486 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt 10 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 44.147827 auto auto 1 1 0;
+      24 56.475812 auto auto 1 1 0;
+      32 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -122.32271 auto auto 1 1 0;
+      24 14.706845 auto auto 1 1 0;
+      29 17.22614 auto auto 1 1 0;
+      32 -35.997337 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -25.629672 auto auto 1 1 0;
+      24 -40.430721 auto auto 1 1 0;
+      32 39.34653 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt 11 6;
+  anim rotate.rotateZ rotateZ 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 65.346607 auto auto 1 1 0;
+      10 -19.868557 auto auto 1 1 0;
+      24 -66.363773 auto auto 1 1 0;
+      28 17.764873 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 -41.106493 auto auto 1 1 0;
+      28 -79.45113 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      24 -34.353931 auto auto 1 1 0;
+      28 23.205044 auto auto 1 1 0;
+    }
+  }
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyMid_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyMid_left|FinalVendingGuyRig02:VendingGuy2IK:pinkyLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint50 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:ringMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:ringMid_left|FinalVendingGuyRig02:VendingGuy2IK:ringLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:ringMid_left|FinalVendingGuyRig02:VendingGuy2IK:ringLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint51 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:middleMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:middleMid_left|FinalVendingGuyRig02:VendingGuy2IK:middleLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:middleMid_left|FinalVendingGuyRig02:VendingGuy2IK:middleLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint52 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left 12 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left|FinalVendingGuyRig02:VendingGuy2IK:indexLast_left 15 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left|FinalVendingGuyRig02:VendingGuy2IK:indexLast_left|FinalVendingGuyRig02:VendingGuy2IK:joint53 16 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left 12 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left|FinalVendingGuyRig02:VendingGuy2IK:thumbKnuckle_left 13 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left|FinalVendingGuyRig02:VendingGuy2IK:thumbKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left 14 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|FinalVendingGuyRig02:VendingGuy2IK:thumbMeta_left|FinalVendingGuyRig02:VendingGuy2IK:thumbKnuckle_left|FinalVendingGuyRig02:VendingGuy2IK:indexMid_left|FinalVendingGuyRig02:VendingGuy2IK:thumbLast_left 15 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:hips_jnt 3 4;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:hip_left_jnt 4 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:knee_left_jnt 5 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ankle_left_jnt 6 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:foot_left_jnt 7 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:toe_left_jnt 8 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:foot_left_jnt_orientConstraint1 8 0;
+  static int interpType 0;
+  { 1 }
+  static w0 joint55W0 1;
+  { 1 }
+  static nds nodeState 2;
+  { 0 }
+  static offset.ox offsetX 3;
+  { 0.97674324 }
+  static offset.oy offsetY 4;
+  { 178.28994 }
+  static offset.oz offsetZ 5;
+  { 1.4851161 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ankle_left_jnt_orientConstraint1 7 0;
+  static int interpType 0;
+  { 1 }
+  static w0 joint56W0 1;
+  { 1 }
+  static nds nodeState 2;
+  { 0 }
+  static offset.ox offsetX 3;
+  { 4.1252185 }
+  static offset.oy offsetY 4;
+  { 181.5421 }
+  static offset.oz offsetZ 5;
+  { -0.29005668 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:effector1 6 0;
+  static hd hideDisplay 0;
+  { 1 }
+  static rotate.rx rotateX 1;
+  { 0 }
+  static rotate.ry rotateY 2;
+  { 0 }
+  static rotate.rz rotateZ 3;
+  { 0 }
+  static scale.sx scaleX 4;
+  { 1 }
+  static scale.sy scaleY 5;
+  { 1 }
+  static scale.sz scaleZ 6;
+  { 1 }
+  static v visibility 10;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint49 4 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:hip_right_jnt 4 1;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:knee_right_jnt 5 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ankle_right_jnt 6 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:foot_right_jnt 7 2;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:toe_right_jnt 8 0;
+  static v visibility 3;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:foot_right_jnt_orientConstraint1 8 0;
+  static int interpType 0;
+  { 1 }
+  static w0 joint55W0 1;
+  { 1 }
+  static nds nodeState 2;
+  { 0 }
+  static offset.ox offsetX 3;
+  { 176.82943 }
+  static offset.oy offsetY 4;
+  { 2.8122705 }
+  static offset.oz offsetZ 5;
+  { -179.33524 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ankle_right_jnt_orientConstraint1 7 0;
+  static int interpType 0;
+  { 1 }
+  static w0 joint56W0 1;
+  { 1 }
+  static nds nodeState 2;
+  { 0 }
+  static offset.ox offsetX 3;
+  { -179.639 }
+  static offset.oy offsetY 4;
+  { 0.51243352 }
+  static offset.oz offsetZ 5;
+  { 179.08713 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:effector2 6 0;
+  static hd hideDisplay 0;
+  { 1 }
+  static rotate.rx rotateX 1;
+  { 0 }
+  static rotate.ry rotateY 2;
+  { 0 }
+  static rotate.rz rotateZ 3;
+  { 0 }
+  static scale.sx scaleX 4;
+  { 1 }
+  static scale.sy scaleY 5;
+  { 1 }
+  static scale.sz scaleZ 6;
+  { 1 }
+  static v visibility 10;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:nurbsCube2 2 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:nurbsCube3 2 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ikHandle1 2 2;
+  static scale.sx scaleX 9;
+  { 1 }
+  static scale.sy scaleY 10;
+  { 1 }
+  static scale.sz scaleZ 11;
+  { 1 }
+  static v visibility 16;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ikHandle1_pointConstraint1 3 0;
+  static w0 joint57W0 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static offset.ox offsetX 2;
+  { 0 }
+  static offset.oy offsetY 3;
+  { 0 }
+  static offset.oz offsetZ 4;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ikHandle1_poleVectorConstraint1 3 0;
+  static nds nodeState 0;
+  { 0 }
+  static w0 nurbsCircle1W0 1;
+  { 1 }
+  static offset.ox offsetX 2;
+  { 0 }
+  static offset.oy offsetY 3;
+  { 0 }
+  static offset.oz offsetZ 4;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ikHandle2 2 2;
+  static scale.sx scaleX 9;
+  { 1 }
+  static scale.sy scaleY 10;
+  { 1 }
+  static scale.sz scaleZ 11;
+  { 1 }
+  static v visibility 16;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ikHandle2_pointConstraint1 3 0;
+  static w0 joint57W0 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static offset.ox offsetX 2;
+  { 0 }
+  static offset.oy offsetY 3;
+  { 0 }
+  static offset.oz offsetZ 4;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:ikHandle2_poleVectorConstraint1 3 0;
+  static nds nodeState 0;
+  { 0 }
+  static w0 nurbsCircle2W0 1;
+  { 1 }
+  static offset.ox offsetX 2;
+  { 0 }
+  static offset.oy offsetY 3;
+  { 0 }
+  static offset.oz offsetZ 4;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Left_foot_Anim 2 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint54 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint54|FinalVendingGuyRig02:VendingGuy2IK:joint55 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint54|FinalVendingGuyRig02:VendingGuy2IK:joint55|FinalVendingGuyRig02:VendingGuy2IK:joint56 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint54|FinalVendingGuyRig02:VendingGuy2IK:joint55|FinalVendingGuyRig02:VendingGuy2IK:joint56|FinalVendingGuyRig02:VendingGuy2IK:joint57 6 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Right_foot_Anim 2 2;
+  static scale.sx scaleX 3;
+  { -1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:transform1 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { -1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint58 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint58|FinalVendingGuyRig02:VendingGuy2IK:joint55 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint58|FinalVendingGuyRig02:VendingGuy2IK:joint55|FinalVendingGuyRig02:VendingGuy2IK:joint56 6 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:joint58|FinalVendingGuyRig02:VendingGuy2IK:joint55|FinalVendingGuyRig02:VendingGuy2IK:joint56|FinalVendingGuyRig02:VendingGuy2IK:joint57 7 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:knee_l_anim 2 1;
+  static scale.sx scaleX 3;
+  { 0.4910867 }
+  static scale.sy scaleY 4;
+  { 0.4910867 }
+  static scale.sz scaleZ 5;
+  { 0.4910867 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:knee_r_anim 2 1;
+  static scale.sx scaleX 3;
+  { 0.4910867 }
+  static scale.sy scaleY 4;
+  { 0.4910867 }
+  static scale.sz scaleZ 5;
+  { 0.4910867 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:geoGrp 1 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group 2 5;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows 3 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:L_Eye1 3 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:EyeShealth 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:EyeBlackInside 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:EyeIris 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:EyeLense 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:R_Eye 3 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeShealth 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBlackInside 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeIris 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeLense 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh 3 2;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 3;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 4;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 5;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim visibility visibility 6;
+  animData {
+    input time;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 1 spline step 1 1 0;
+    }
+  }
+  anim scale.scaleX scaleX 7;
+  animData {
+    input time;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 1 auto auto 1 1 0;
+    }
+  }
+  anim scale.scaleY scaleY 8;
+  animData {
+    input time;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 1 auto auto 1 1 0;
+    }
+  }
+  anim scale.scaleZ scaleZ 9;
+  animData {
+    input time;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 1 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:mouth_grp 3 3;
+  static scale.sx scaleX 3;
+  { 0.099776413 }
+  static scale.sy scaleY 4;
+  { 0.099776413 }
+  static scale.sz scaleZ 5;
+  { 0.13281668 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:Teeth 4 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:upper_gums_geo 5 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:upper_teeth_geo 5 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:lower_teeth_geo 5 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:lower_gums_geo 5 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:tongue_grp 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:tongue_geo 5 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:uvula_grp 4 3;
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth_model:uvula_geo 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:uvula_grp_scaleConstraint1 5 0;
+  static nds nodeState 0;
+  { 0 }
+  static offset.ox offsetX 1;
+  { 0.099776413 }
+  static offset.oy offsetY 2;
+  { 0.099776413 }
+  static offset.oz offsetZ 3;
+  { 0.13281668 }
+  static w0 upperJaw_control01W0 5;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:uvula_grp_parentConstraint1 5 0;
+  static int interpType 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static target.targetOffsetRotate.torx target[0].targetOffsetRotateX 2;
+  { 90 }
+  static target.targetOffsetRotate.tory target[0].targetOffsetRotateY 3;
+  { -90 }
+  static target.targetOffsetRotate.torz target[0].targetOffsetRotateZ 4;
+  { 0 }
+  static target.targetOffsetTranslate.totx target[0].targetOffsetTranslateX 5;
+  { -0.0032915562 }
+  static target.targetOffsetTranslate.toty target[0].targetOffsetTranslateY 6;
+  { 0.0024706364 }
+  static target.targetOffsetTranslate.totz target[0].targetOffsetTranslateZ 7;
+  { 5.1501078e-006 }
+  static w0 upperJaw_control01W0 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeOffset 1 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeControl 2 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp 3 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc01 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc01|FinalVendingGuyRig02:faceRig:L_upperLid_offset01 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc01|FinalVendingGuyRig02:faceRig:L_upperLid_offset01|FinalVendingGuyRig02:faceRig:L_upperLid_control01 6 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc02 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc02|FinalVendingGuyRig02:faceRig:L_upperLid_offset02 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc02|FinalVendingGuyRig02:faceRig:L_upperLid_offset02|FinalVendingGuyRig02:faceRig:L_upperLid_control02 6 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc03 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc03|FinalVendingGuyRig02:faceRig:L_upperLid_offset03 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_loc_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc03|FinalVendingGuyRig02:faceRig:L_upperLid_offset03|FinalVendingGuyRig02:faceRig:L_upperLid_control03 6 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH 1 5;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:skeleton_grp 2 3;
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:shoulder_offset 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:shoulder_control 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:neck_offset01 5 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:neck_control01 6 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      7 0 auto auto 1 1 0;
+      9 0 auto auto 1 1 0;
+      95 26.968133 auto auto 1 1 0;
+      120 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 16.529546 auto auto 1 1 0;
+      7 0 auto auto 1 1 0;
+      24 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 13.828754 auto auto 1 1 0;
+      7 0 auto auto 1 1 0;
+      9 0 auto auto 1 1 0;
+      24 14.60651 auto auto 1 1 0;
+      32 20.084216 auto auto 1 1 0;
+      48 17.845224 auto auto 1 1 0;
+      95 -30.454444 auto auto 1 1 0;
+      100 32.254061 auto auto 1 1 0;
+      120 15.895432 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:neck_offset02 7 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:neck_control02 8 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 14.369133 auto auto 1 1 0;
+      9 0 auto auto 1 1 0;
+      24 0 auto auto 1 1 0;
+      48 0 auto auto 1 1 0;
+      100 23.528586 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      9 0 auto auto 1 1 0;
+      24 -9.1364699 auto auto 1 1 0;
+      32 -6.0528406 auto auto 1 1 0;
+      48 11.950736 auto auto 1 1 0;
+      100 24.489499 auto auto 1 1 0;
+      120 -11.069812 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:headBase_offset 9 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:headBase_control 10 2;
+  anim rotate.rotateX rotateX 0;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      9 0 auto auto 1 1 0;
+      32 -27.168531 auto auto 1 1 0;
+      48 0 auto auto 1 1 0;
+      120 -26.704664 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 1;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -18.585447 auto auto 1 1 0;
+      9 0 auto auto 1 1 0;
+      24 0 auto auto 1 1 0;
+      32 20.659296 auto auto 1 1 0;
+      48 0 auto auto 1 1 0;
+      120 -34.742341 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 2;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      9 -50.121204 auto auto 1 1 0;
+      15 -11.0315 auto auto 1 1 0;
+      24 -23.896759 auto auto 1 1 0;
+      32 16.12541 auto auto 1 1 0;
+      48 -40.799745 auto auto 1 1 0;
+      120 -7.3735259 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:head_offset 11 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:head_control 12 5;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:headTip_offset 13 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:headTip_control 14 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_offset 13 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_control 14 4;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      9 0.0020359568 auto auto 1 1 0;
+      24 -0.0034926025 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.0010296045 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateX rotateX 3;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateY rotateY 4;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim rotate.rotateZ rotateZ 5;
+  animData {
+    input time;
+    output angular;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_grp 15 9;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_loc04 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_offset04 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_control04 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_loc05 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_offset05 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_control05 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_offset01 15 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_control01 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_control02 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_offset03 19 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_control03 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJawTip_offset 21 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJawTip_control 22 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:tongue_offset01 15 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:tongue_control01 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:tongue_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:tongue_control02 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:tongue_offset03 19 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:tongue_control03 20 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_offset01 13 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_control01 14 8;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:locGrp 15 29;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_loc04 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_offset04 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_control04 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_loc05 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_offset05 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_control05 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekBone_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_loc03 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_control03 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_loc02 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_offset02 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_control02 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_loc01 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_offset01 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_control01 18 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow 16 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_loc01 17 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_offset01 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_control01 19 1;
+  static scale.sx scaleX 0;
+  { 1 }
+  static scale.sy scaleY 1;
+  { 1 }
+  static scale.sz scaleZ 2;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_loc02 17 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_offset02 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_control02 19 1;
+  static scale.sx scaleX 0;
+  { 1 }
+  static scale.sy scaleY 1;
+  { 1 }
+  static scale.sz scaleZ 2;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_loc03 17 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_offset03 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_control03 19 1;
+  static scale.sx scaleX 0;
+  { 1 }
+  static scale.sy scaleY 1;
+  { 1 }
+  static scale.sz scaleZ 2;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyebrow 16 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_loc01 17 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_offset01 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_control01 19 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_loc02 17 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_offset02 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_control02 19 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_loc03 17 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_offset03 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrow_control03 19 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_ear_offset 15 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_ear_control 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_ear_offset 15 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_ear_control 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:nose_offset 15 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:nose_control 16 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_offset02 15 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_control02 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_offset03 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_control03 18 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_offset04 19 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_control04 20 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eye_offset 15 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eye_control 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eye_control|FinalVendingGuyRig02:faceRig:R_pupil_offset 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eye_control|FinalVendingGuyRig02:faceRig:R_pupil_offset|FinalVendingGuyRig02:faceRig:R_pupil_control 18 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eye_control_aimConstraint1 17 0;
+  static nds nodeState 0;
+  { 0 }
+  static offset.ox offsetX 1;
+  { 0 }
+  static offset.oy offsetY 2;
+  { 91.269329 }
+  static offset.oz offsetZ 3;
+  { 2.2040812 }
+  static w0 R_pupil_controlW0 4;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeLidLower_offset 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeLidLower_control 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_grp 18 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_loc03 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_offset03 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_control03 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_loc01 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_offset01 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_control01 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_loc02 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_offset02 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_control02 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeLidUpper_offset 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeLidUpper_control 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_grp 18 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_loc01 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_offset01 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_control01 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_loc03 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_offset03 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_control03 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_loc02 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_offset02 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_control02 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eye_offset 15 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eye_contol 16 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eye_contol|FinalVendingGuyRig02:faceRig:L_pupil_offset 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eye_contol|FinalVendingGuyRig02:faceRig:L_pupil_offset|FinalVendingGuyRig02:faceRig:L_pupil_control 18 0;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eye_contol_aimConstraint1 17 0;
+  static w0 L_pupil_controlW0 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static offset.ox offsetX 2;
+  { 0 }
+  static offset.oy offsetY 3;
+  { 89.567359 }
+  static offset.oz offsetZ 4;
+  { 1.8340387 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeLidUpper_offset 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeLidUpper_control 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp 18 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc01 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc01|FinalVendingGuyRig02:faceRig:L_upperLid_offset01 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc01|FinalVendingGuyRig02:faceRig:L_upperLid_offset01|FinalVendingGuyRig02:faceRig:L_upperLid_control01 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc02 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc02|FinalVendingGuyRig02:faceRig:L_upperLid_offset02 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc02|FinalVendingGuyRig02:faceRig:L_upperLid_offset02|FinalVendingGuyRig02:faceRig:L_upperLid_control02 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc03 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc03|FinalVendingGuyRig02:faceRig:L_upperLid_offset03 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_grp|FinalVendingGuyRig02:faceRig:L_upperLid_loc03|FinalVendingGuyRig02:faceRig:L_upperLid_offset03|FinalVendingGuyRig02:faceRig:L_upperLid_control03 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeLidLower_offset 16 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeLidLower_control 17 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_grp 18 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_loc01 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_offset01 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_control01 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_loc02 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_offset02 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_control02 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_loc03 19 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_offset03 20 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_control03 21 1;
+}
+dagNode {
+  FinalVendingGuyRig02:skeleton_grp_parentConstraint1 3 0;
+  static int interpType 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static w0 shoulders_jntW0 2;
+  { 1 }
+  static target.targetOffsetRotate.torx target[0].targetOffsetRotateX 3;
+  { 61.113418 }
+  static target.targetOffsetRotate.tory target[0].targetOffsetRotateY 4;
+  { 90 }
+  static target.targetOffsetRotate.torz target[0].targetOffsetRotateZ 5;
+  { 0 }
+  static target.targetOffsetTranslate.totx target[0].targetOffsetTranslateX 6;
+  { -0.10926826 }
+  static target.targetOffsetTranslate.toty target[0].targetOffsetTranslateY 7;
+  { -0.067304498 }
+  static target.targetOffsetTranslate.totz target[0].targetOffsetTranslateZ 8;
+  { 1.4798874e-017 }
+}
+dagNode {
+  FinalVendingGuyRig02:skeleton_grp_scaleConstraint1 3 0;
+  static nds nodeState 0;
+  { 0 }
+  static offset.ox offsetX 1;
+  { 1 }
+  static offset.oy offsetY 2;
+  { 1 }
+  static offset.oz offsetZ 3;
+  { 1 }
+  static w0 shoulders_jntW0 4;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:controls_grp 2 9;
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperJaw_grp 3 9;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:noseSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.05 }
+  static scale.sy scaleY 4;
+  { 0.05 }
+  static scale.sz scaleZ 5;
+  { 0.05 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:noseSync_control 5 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLidSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.05 }
+  static scale.sy scaleY 4;
+  { 0.05 }
+  static scale.sz scaleZ 5;
+  { 0.05 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLidSync_control 5 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.028124947 auto auto 1 1 0;
+      9 -0.0040304674 auto auto 1 1 0;
+      14 0.026217272 auto auto 1 1 0;
+      24 0.032808399 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLidSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.05 }
+  static scale.sy scaleY 4;
+  { 0.05 }
+  static scale.sz scaleZ 5;
+  { 0.05 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLidSync_control 5 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.028124947 auto auto 1 1 0;
+      9 -0.0040304674 auto auto 1 1 0;
+      14 0.024329663 auto auto 1 1 0;
+      24 0.032808399 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLidSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.05 }
+  static scale.sy scaleY 4;
+  { 0.05 }
+  static scale.sz scaleZ 5;
+  { 0.05 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLidSync_control 5 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.0097880024 auto auto 1 1 0;
+      24 -0.011377243 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLidSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.05 }
+  static scale.sy scaleY 4;
+  { 0.05 }
+  static scale.sz scaleZ 5;
+  { 0.05 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLidSync_control 5 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.0097880024 auto auto 1 1 0;
+      24 -0.0066866919 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:pupils_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.25 }
+  static scale.sy scaleY 4;
+  { 0.25 }
+  static scale.sz scaleZ 5;
+  { 0.25 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:pupils_control 5 3;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+      32 -0.032808399 auto auto 1 1 0;
+      48 0.013929548 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.032808399 auto auto 1 1 0;
+      24 -0.025680185 auto auto 1 1 0;
+      32 0.031172779 auto auto 1 1 0;
+      48 -0.032808399 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:pupils_control|FinalVendingGuyRig02:faceRig:L_pupil_offset 6 1;
+  static scale.sx scaleX 3;
+  { 0.2 }
+  static scale.sy scaleY 4;
+  { 0.2 }
+  static scale.sz scaleZ 5;
+  { 0.2 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:pupils_control|FinalVendingGuyRig02:faceRig:L_pupil_offset|FinalVendingGuyRig02:faceRig:L_pupil_control 7 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:pupils_control|FinalVendingGuyRig02:faceRig:R_pupil_offset 6 1;
+  static scale.sx scaleX 3;
+  { 0.2 }
+  static scale.sy scaleY 4;
+  { 0.2 }
+  static scale.sz scaleZ 5;
+  { 0.2 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:pupils_control|FinalVendingGuyRig02:faceRig:R_pupil_offset|FinalVendingGuyRig02:faceRig:R_pupil_control 7 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeBrowsSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.1807144 }
+  static scale.sy scaleY 4;
+  { 0.1807144 }
+  static scale.sz scaleZ 5;
+  { 0.1807144 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyeBrowsSync_control 5 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.012779905 auto auto 1 1 0;
+      7 -0.032808399 auto auto 1 1 0;
+      14 0.031384649 auto auto 1 1 0;
+      24 0.032808399 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateX translateX 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.0057133047 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrowsSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.1807144 }
+  static scale.sy scaleY 4;
+  { 0.1807144 }
+  static scale.sz scaleZ 5;
+  { 0.1807144 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyeBrowsSync_control 5 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.032808399 auto auto 1 1 0;
+      7 -0.032808399 auto auto 1 1 0;
+      14 0.017607411 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateX translateX 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLidSync_offset1 4 0;
+  static scale.sx scaleX 3;
+  { 0.05 }
+  static scale.sy scaleY 4;
+  { 0.05 }
+  static scale.sz scaleZ 5;
+  { 0.05 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:controls_grp_parentConstraint1 3 0;
+  static int interpType 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static target.targetOffsetRotate.torx target[0].targetOffsetRotateX 2;
+  { 90 }
+  static target.targetOffsetRotate.tory target[0].targetOffsetRotateY 3;
+  { 90 }
+  static target.targetOffsetRotate.torz target[0].targetOffsetRotateZ 4;
+  { 0 }
+  static target.targetOffsetTranslate.totx target[0].targetOffsetTranslateX 5;
+  { -0.15079123 }
+  static target.targetOffsetTranslate.toty target[0].targetOffsetTranslateY 6;
+  { 0.010582511 }
+  static target.targetOffsetTranslate.totz target[0].targetOffsetTranslateZ 7;
+  { -6.0803072e-018 }
+  static w0 upperJaw_control01W0 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_grp 3 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:jawSync_offset 4 1;
+  static scale.sx scaleX 3;
+  { 0.1 }
+  static scale.sy scaleY 4;
+  { 0.1 }
+  static scale.sz scaleZ 5;
+  { 0.1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:jawSync_control 5 1;
+  anim translate.translateX translateX 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateY translateY 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.023446114 auto auto 1 1 0;
+      24 -0.032808399 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerJaw_grp_parentConstraint1 4 0;
+  static w0 head_controlW0 0;
+  { 1 }
+  static int interpType 1;
+  { 1 }
+  static nds nodeState 2;
+  { 0 }
+  static target.targetOffsetRotate.torx target[0].targetOffsetRotateX 3;
+  { 90 }
+  static target.targetOffsetRotate.tory target[0].targetOffsetRotateY 4;
+  { 90 }
+  static target.targetOffsetRotate.torz target[0].targetOffsetRotateZ 5;
+  { 0 }
+  static target.targetOffsetTranslate.totx target[0].targetOffsetTranslateX 6;
+  { -0.15079123 }
+  static target.targetOffsetTranslate.toty target[0].targetOffsetTranslateY 7;
+  { 0.010582511 }
+  static target.targetOffsetTranslate.totz target[0].targetOffsetTranslateZ 8;
+  { -6.0803072e-018 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lipsSync_offset 3 1;
+  static scale.sx scaleX 0;
+  { 0.093769878 }
+  static scale.sy scaleY 1;
+  { 0.093769878 }
+  static scale.sz scaleZ 2;
+  { 0.093769878 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lipsSync_control 4 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.0092906821 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateX translateX 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.025983783 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lipsSync_offset 3 1;
+  static scale.sx scaleX 0;
+  { 0.093769878 }
+  static scale.sy scaleY 1;
+  { 0.093769878 }
+  static scale.sz scaleZ 2;
+  { 0.093769878 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lipsSync_control 4 1;
+  anim translate.translateY translateY 0;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 -0.011700092 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateX translateX 1;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0.021287638 auto auto 1 1 0;
+    }
+  }
+  anim translate.translateZ translateZ 2;
+  animData {
+    input time;
+    output linear;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      1 0 auto auto 1 1 0;
+    }
+  }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekSync_offset 3 1;
+  static scale.sx scaleX 3;
+  { 0.10101337 }
+  static scale.sy scaleY 4;
+  { 0.10101337 }
+  static scale.sz scaleZ 5;
+  { 0.10101337 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekSync_control 4 1;
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekSync_offset1 3 0;
+  static scale.sx scaleX 3;
+  { 0.10101337 }
+  static scale.sy scaleY 4;
+  { 0.10101337 }
+  static scale.sz scaleZ 5;
+  { 0.10101337 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekSync_offset 3 1;
+  static scale.sx scaleX 3;
+  { 0.10101337 }
+  static scale.sy scaleY 4;
+  { 0.10101337 }
+  static scale.sz scaleZ 5;
+  { 0.10101337 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheekSync_control 4 1;
+}
+dagNode {
+  FinalVendingGuyRig02:controls_grp_scaleConstraint1 3 0;
+  static w0 head_controlW0 0;
+  { 1 }
+  static nds nodeState 1;
+  { 0 }
+  static offset.ox offsetX 2;
+  { 1 }
+  static offset.oy offsetY 3;
+  { 1 }
+  static offset.oz offsetZ 4;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:curvesGrp 2 8;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 0 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:default_curves_group 3 18;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_curve 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyebrow_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_curve 4 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheekBone_curve1 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_curve 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:brow_bS_group 3 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_up 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_up 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_brow_down 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_brow_down 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:eyeBrow_bS_group 3 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyebrow_eyeBrowDown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_eyeBrowDown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_eyebrow_eyeBrowUp 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_eyebrow_eyeBrowUp 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:eyeLids_bS_group 3 16;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_eyeClose 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_eyeClose 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_eyeOpen 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_eyeOpen 4 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_eyeOpen 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_eyeOpen 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_up 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_up 4 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_down 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_down 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLid_down 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_down 4 3;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_up 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLid_up 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLid_eyeClose 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLid_eyeClose 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:nose_bS_group 3 6;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_jawClose 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_jawClose 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_nose_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_nose_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lips_bS_group 3 20;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_jawOpen 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_jawOpen 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:upperLip_jawClose 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:lowerLip_jawClose 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLip_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLip_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLip_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLip_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLip_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLip_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLip_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLip_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLip_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLip_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLip_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLip_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_upperLip_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_lowerLip_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_upperLip_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_lowerLip_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:creases_bS_group 3 12;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_jawOpen 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_jawOpen 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_jawClose 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_jawClose 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_smile 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_crease_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_crease_frown 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:cheeks_grp 3 6;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_puff 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_puff 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_pursed 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_cheek_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_cheek_spread 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_pupilCluster_grp 2 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:R_pupilCluster_loc 3 2;
+  anim scale.scaleX scaleX 0;
+  animData {
+    input unitless;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      -10 0.1 auto auto 1 1 0;
+      0 1 auto auto 1 1 0;
+      10 2.8 auto auto 1 1 0;
+    }
+  }
+  anim scale.scaleY scaleY 1;
+  animData {
+    input unitless;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      -10 0.1 auto auto 1 1 0;
+      0 1 auto auto 1 1 0;
+      10 2.8 auto auto 1 1 0;
+    }
+  }
+  anim scale.scaleZ scaleZ 2;
+  animData {
+    input unitless;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      -10 1 auto auto 1 1 0;
+      0 1 auto auto 1 1 0;
+      10 1 auto auto 1 1 0;
+    }
+  }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_pupilCluster_grp 2 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:faceRig:L_pupilCluster_loc 3 2;
+  anim scale.scaleX scaleX 0;
+  animData {
+    input unitless;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      -10 0.1 auto auto 1 1 0;
+      0 1 auto auto 1 1 0;
+      10 2.8 auto auto 1 1 0;
+    }
+  }
+  anim scale.scaleY scaleY 1;
+  animData {
+    input unitless;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      -10 0.1 auto auto 1 1 0;
+      0 1 auto auto 1 1 0;
+      10 2.8 auto auto 1 1 0;
+    }
+  }
+  anim scale.scaleZ scaleZ 2;
+  animData {
+    input unitless;
+    output unitless;
+    weighted 0;
+    preInfinity constant;
+    postInfinity constant;
+    keys {
+      -10 1 auto auto 1 1 0;
+      0 1 auto auto 1 1 0;
+      10 1 auto auto 1 1 0;
+    }
+  }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:bodyMesh_group 1 5;
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Eyebrows 2 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:L_Eye1 2 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeBall:EyeShealth 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeBall:EyeBlackInside 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeBall:EyeIris 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeBall:EyeLense 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:R_Eye 2 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeShealth 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeBlackInside 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeIris 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:EyeLense 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Body_Mesh 2 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:mouth_grp 2 3;
+  static scale.sx scaleX 3;
+  { 0.099776413 }
+  static scale.sy scaleY 4;
+  { 0.099776413 }
+  static scale.sz scaleZ 5;
+  { 0.13281668 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:Teeth 3 4;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:upper_gums_geo 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:upper_teeth_geo 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:lower_teeth_geo 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:lower_gums_geo 4 2;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:tongue_grp 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:tongue_geo 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:uvula_grp 3 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
+dagNode {
+  FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Mouth_model:uvula_geo 4 1;
+  static scale.sx scaleX 3;
+  { 1 }
+  static scale.sy scaleY 4;
+  { 1 }
+  static scale.sz scaleZ 5;
+  { 1 }
+  static v visibility 9;
+  { 1 }
+}
