@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: VendingGuy2IK_SS_Edit.ma
-//Last modified: Mon, Jan 26, 2015 04:00:21 PM
+//Last modified: Mon, Jan 26, 2015 04:00:04 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Dude_UV_s" -rfn "Dude_UV_sRN" -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
 		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
@@ -1952,15 +1952,15 @@ createNode nurbsCurve -n "root_animShape" -p "root_jnt";
 		;
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.4805365251256259 4.3553370232470376 1.8908459484225366 ;
-	setAttr ".r" -type "double3" 708.26164753425815 3998.600000000034 -1.0174252606656484e-15 ;
+	setAttr ".t" -type "double3" 1.7886534494185278 3.9129103550658693 -0.79176320484878371 ;
+	setAttr ".r" -type "double3" 714.26164753418391 4150.6000000009135 0 ;
 	setAttr ".rp" -type "double3" 0 0 -4.4408920985006262e-16 ;
 	setAttr ".rpt" -type "double3" -4.7426417332257847e-16 1.1061869082198578e-15 -1.9400823973026524e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 2.5443998004246149;
+	setAttr ".coi" 0.7522363106191583;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -2754,7 +2754,7 @@ createNode reference -n "Dude_UV_sRN";
 		2 "|Dude_UV_s:bodyMesh_group|Dude_UV_s:Body_Mesh|Dude_UV_s:Body_MeshShape" 
 		"vertexColorSource" " 2"
 		2 "Dude_UV_s:Body" "displayType" " 2"
-		2 "Dude_UV_s:Body" "visibility" " 1"
+		2 "Dude_UV_s:Body" "visibility" " 0"
 		2 "Dude_UV_s:Mouth" "displayType" " 0"
 		3 "Dude_UV_s:Brows.drawInfo" "|Dude_UV_s:bodyMesh_group|Dude_UV_s:Eyebrows.drawOverride" 
 		""
