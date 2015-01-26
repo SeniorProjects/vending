@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
-//Name: VendingGuy2IK_SS_Edit.ma
-//Last modified: Mon, Jan 26, 2015 07:13:16 AM
+//Name: VendingGuy2IK_SS_Edit.0001.ma
+//Last modified: Mon, Jan 26, 2015 07:12:03 AM
 //Codeset: UTF-8
 file -rdi 1 -ns "Dude_UV_s" -rfn "Dude_UV_sRN" -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
 		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
@@ -441,7 +441,7 @@ createNode joint -n "middleMeta_left" -p "wrist_left_jnt";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
-	setAttr ".ra" -type "double3" 0 -5.90700000000004 0 ;
+	setAttr ".ra" -type "double3" 0 -5.9070000000000382 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.96919640451869071 0.22375662075663907 0.10291406189443376 0
@@ -1951,15 +1951,15 @@ createNode nurbsCurve -n "root_animShape" -p "root_jnt";
 		;
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1.9840602394870386 4.1584540269926649 2.0479772315765805 ;
-	setAttr ".r" -type "double3" 341.06164753511393 5045.7999999998583 3.9961508113960042e-16 ;
+	setAttr ".t" -type "double3" 2.063589528399207 4.4616406300484526 0.20974343568314463 ;
+	setAttr ".r" -type "double3" 293.06164753512127 5031.3999999999214 0 ;
 	setAttr ".rp" -type "double3" 0 0 -4.4408920985006262e-16 ;
 	setAttr ".rpt" -type "double3" -4.7426417332257847e-16 1.1061869082198578e-15 -1.9400823973026524e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 2.8022128962250443;
+	setAttr ".coi" 0.5310886990590421;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -2753,7 +2753,7 @@ createNode reference -n "Dude_UV_sRN";
 		2 "|Dude_UV_s:bodyMesh_group|Dude_UV_s:Body_Mesh|Dude_UV_s:Body_MeshShape" 
 		"vertexColorSource" " 2"
 		2 "Dude_UV_s:Body" "displayType" " 2"
-		2 "Dude_UV_s:Body" "visibility" " 1"
+		2 "Dude_UV_s:Body" "visibility" " 0"
 		2 "Dude_UV_s:Mouth" "displayType" " 0"
 		3 "Dude_UV_s:Brows.drawInfo" "|Dude_UV_s:bodyMesh_group|Dude_UV_s:Eyebrows.drawOverride" 
 		""
@@ -31219,4 +31219,4 @@ connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
 applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Dude_UV_sRN\" \"\" \"/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma\" 3860291015 \"/Users/Samantha/vending/scenes/Dude_UV_s.ma\" \"FileRef\"\n1\n\"Hand_Closed_v3RN\" \"\" \"/Users/Samantha/vending//scenes/Rigs/OBJ_Hands/Hand_Closed_v3.OBJ\" 3402869419 \"/Users/Samantha/vending/scenes/Rigs/OBJ_Hands/Hand_Closed_v3.OBJ\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
-// End of VendingGuy2IK_SS_Edit.ma
+// End of VendingGuy2IK_SS_Edit.0001.ma

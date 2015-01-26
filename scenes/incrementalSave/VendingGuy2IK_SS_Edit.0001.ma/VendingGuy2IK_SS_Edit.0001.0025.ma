@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
-//Name: VendingGuy2IK_SS_Edit.ma
-//Last modified: Mon, Jan 26, 2015 07:13:16 AM
+//Name: VendingGuy2IK_SS_Edit.0001.ma
+//Last modified: Mon, Jan 26, 2015 07:09:45 AM
 //Codeset: UTF-8
 file -rdi 1 -ns "Dude_UV_s" -rfn "Dude_UV_sRN" -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
 		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
@@ -188,9 +188,6 @@ createNode joint -n "wrist_left_jnt" -p "elbow_left_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" 0.99844599576439119 0.021604287323675524 -0.008820113769646162 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -208,9 +205,6 @@ createNode joint -n "pinkyMeta_left" -p "wrist_left_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 0.044428778648125014 -0.0092774760499425828 -0.044444959895283756 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -227,9 +221,6 @@ createNode joint -n "pinkyKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 0.13398073042837844 0.042975984040829918 -0.032902580545808635 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -322,9 +313,6 @@ createNode joint -n "ringMeta_left" -p "wrist_left_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 0.03889787207789653 -0.0081572378098653513 -0.020778133324723849 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -341,9 +329,6 @@ createNode joint -n "ringKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 0.1558129654859548 0.029246496032627078 -0.013503950755971383 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -435,13 +420,10 @@ createNode joint -n "middleMeta_left" -p "wrist_left_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 0.040554834995555136 -0.0081572378098675718 -0.00077006176406621541 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
-	setAttr ".ra" -type "double3" 0 -5.90700000000004 0 ;
+	setAttr ".ra" -type "double3" 0 -5.9070000000000382 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.96919640451869071 0.22375662075663907 0.10291406189443376 0
@@ -454,9 +436,6 @@ createNode joint -n "middleKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jn
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 0.15914025750365157 -0.024529773731725601 -0.003158477991474562 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -547,9 +526,6 @@ createNode joint -n "indexMeta_left" -p "wrist_left_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 0.04330474312604117 -0.008686405753109333 0.020161843123334439 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -566,9 +542,6 @@ createNode joint -n "indexKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 0.14003844990885206 -0.030591836848592457 -0.057953905443251852 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -661,9 +634,6 @@ createNode joint -n "thumbMeta_left" -p "wrist_left_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 0.039556965027036657 -0.021463261573129631 0.04220536760521075 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -682,9 +652,6 @@ createNode joint -n "thumbKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 0.043998339610855586 -0.010631756897762301 0.0041707150757099853 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -907,9 +874,7 @@ createNode joint -n "wrist_right_jnt" -p "elbow_right_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" -1.0233494905104414 -0.029065663581275578 0.0092242391308864635 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
+	setAttr ".r" -type "double3" 1.4057297555441002 1.7491408570074054 76.285230811339503 ;
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -925,9 +890,6 @@ createNode joint -n "pinkyMeta_left" -p "wrist_right_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -0.041190367026652908 0.0038550155316268153 0.038649832590558514 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -945,9 +907,6 @@ createNode joint -n "pinkyKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" -0.13918749874507313 0.03790298500122425 0.019858049971345125 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -965,9 +924,6 @@ createNode joint -n "pinkyMid_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|bac
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.05980371183692252 -0.01508377493229664 0.020417994804470409 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -984,9 +940,6 @@ createNode joint -n "pinkyLast_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|ba
 	setAttr ".uoc" yes;
 	setAttr ".oc" 5;
 	setAttr ".t" -type "double3" -0.048652378816322894 -0.011291848605999188 0.011667634547004146 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1003,9 +956,6 @@ createNode joint -n "joint50" -p "|root_jnt|backBottom_jnt|backMid_jnt|backUp_jn
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".t" -type "double3" -0.059081572433025364 -0.011855341734793523 0.016824685008722362 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1038,9 +988,6 @@ createNode joint -n "ringMeta_left" -p "wrist_right_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -0.040944591788143692 0.00047126158493071557 0.015239281026028478 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1057,9 +1004,6 @@ createNode joint -n "ringKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" -0.15506601547495721 0.03044724345887985 0.0054806989003393439 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1076,9 +1020,6 @@ createNode joint -n "ringMid_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|back
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.082176729059678266 -0.017268417910357731 0.0047876998551211192 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1114,9 +1055,6 @@ createNode joint -n "joint51" -p "|root_jnt|backBottom_jnt|backMid_jnt|backUp_jn
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".t" -type "double3" -0.060501212743498733 -0.018396202679544782 0.0056220732697002673 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1151,9 +1089,6 @@ createNode joint -n "middleMeta_left" -p "wrist_right_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -0.042206797403475216 -0.0010277549263353336 -0.0068365640068642486 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1170,9 +1105,6 @@ createNode joint -n "middleKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jn
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" -0.15612528647111779 0.027256895835862997 -0.014038084229632968 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1189,9 +1121,6 @@ createNode joint -n "middleMid_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|ba
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.084135986146095257 0.015328602116416262 0.0076834865933930073 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1228,9 +1157,6 @@ createNode joint -n "joint52" -p "|root_jnt|backBottom_jnt|backMid_jnt|backUp_jn
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".t" -type "double3" -0.065918182446179863 0.033824889722591012 0.011790444755147844 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1264,9 +1190,6 @@ createNode joint -n "indexMeta_left" -p "wrist_right_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -0.041235546454277738 -0.0018129714749006709 -0.029833030651813669 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1283,9 +1206,6 @@ createNode joint -n "indexKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" -0.15427236253804816 0.030899489525628217 -0.029870319879082344 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1302,9 +1222,6 @@ createNode joint -n "indexMid_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|bac
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.063481342452827286 0.024146860726458302 0.05023285566913134 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1341,9 +1258,6 @@ createNode joint -n "joint53" -p "|root_jnt|backBottom_jnt|backMid_jnt|backUp_jn
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".t" -type "double3" -0.057477761238938108 0.020742649568543658 0.04294413306830358 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1376,9 +1290,6 @@ createNode joint -n "thumbMeta_left" -p "wrist_right_jnt";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -0.039197759965493795 0.019652810276172161 -0.04878841834073136 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1395,9 +1306,6 @@ createNode joint -n "thumbKnuckle_left" -p "|root_jnt|backBottom_jnt|backMid_jnt
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" -0.040637515491909929 0.016019612372294607 0.0053708815788213304 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1414,9 +1322,6 @@ createNode joint -n "indexMid_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|bac
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.070726865180248011 0.043870568320032388 -0.030382185166025089 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1433,9 +1338,6 @@ createNode joint -n "thumbLast_left" -p "|root_jnt|backBottom_jnt|backMid_jnt|ba
 	setAttr ".uoc" yes;
 	setAttr ".oc" 5;
 	setAttr ".t" -type "double3" -0.052489949995540464 0.025971400990254412 -0.0064593639125973823 ;
-	setAttr -l on -k off ".tx";
-	setAttr -l on -k off ".ty";
-	setAttr -l on -k off ".tz";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
@@ -1951,15 +1853,15 @@ createNode nurbsCurve -n "root_animShape" -p "root_jnt";
 		;
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1.9840602394870386 4.1584540269926649 2.0479772315765805 ;
-	setAttr ".r" -type "double3" 341.06164753511393 5045.7999999998583 3.9961508113960042e-16 ;
+	setAttr ".t" -type "double3" -2.2548959127944435 4.074741548641545 1.2797318300522371 ;
+	setAttr ".r" -type "double3" 351.26164753514342 5027.3999999998487 2.0369018685229198e-16 ;
 	setAttr ".rp" -type "double3" 0 0 -4.4408920985006262e-16 ;
 	setAttr ".rpt" -type "double3" -4.7426417332257847e-16 1.1061869082198578e-15 -1.9400823973026524e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 2.8022128962250443;
+	setAttr ".coi" 1.4636862292549822;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -2753,7 +2655,7 @@ createNode reference -n "Dude_UV_sRN";
 		2 "|Dude_UV_s:bodyMesh_group|Dude_UV_s:Body_Mesh|Dude_UV_s:Body_MeshShape" 
 		"vertexColorSource" " 2"
 		2 "Dude_UV_s:Body" "displayType" " 2"
-		2 "Dude_UV_s:Body" "visibility" " 1"
+		2 "Dude_UV_s:Body" "visibility" " 0"
 		2 "Dude_UV_s:Mouth" "displayType" " 0"
 		3 "Dude_UV_s:Brows.drawInfo" "|Dude_UV_s:bodyMesh_group|Dude_UV_s:Eyebrows.drawOverride" 
 		""
@@ -31219,4 +31121,4 @@ connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
 applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Dude_UV_sRN\" \"\" \"/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma\" 3860291015 \"/Users/Samantha/vending/scenes/Dude_UV_s.ma\" \"FileRef\"\n1\n\"Hand_Closed_v3RN\" \"\" \"/Users/Samantha/vending//scenes/Rigs/OBJ_Hands/Hand_Closed_v3.OBJ\" 3402869419 \"/Users/Samantha/vending/scenes/Rigs/OBJ_Hands/Hand_Closed_v3.OBJ\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
-// End of VendingGuy2IK_SS_Edit.ma
+// End of VendingGuy2IK_SS_Edit.0001.ma
