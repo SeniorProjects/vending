@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <Autodesk_Cache_File>
-  <cacheType Type="OneFilePerFrame" Format="mcx"/>
-  <time Range="250-12000"/>
+  <cacheType Type="OneFile" Format="mcx"/>
+  <time Range="250-7750"/>
   <cacheTimePerFrame TimePerFrame="250"/>
   <cacheVersion Version="2.0"/>
-  <extra>C:/Users/10528607/Desktop/Github Stuff/scenes/VFX/DoorSmokeBlastVFX_EndScene_KN.ma</extra>
+  <extra>C:/Users/User/Desktop/Github Stuff/scenes/VFX/DoorSmokeBlastVFX_EndScene_KN.ma</extra>
   <extra>maya 2015</extra>
-  <extra>10528607</extra>
+  <extra>User</extra>
   <extra>Fluid Info for fluidShape2:</extra>
   <extra>fluidShape2.autoResize=1</extra>
-  <extra>fluidShape2.dimensionsW=80</extra>
+  <extra>fluidShape2.dimensionsW=120</extra>
   <extra>fluidShape2.dimensionsH=80</extra>
   <extra>fluidShape2.dimensionsD=80</extra>
   <extra>fluidShape2.coordinateMethod=0</extra>
@@ -22,10 +22,10 @@
   <extra>fluidShape2.colorMethod=0</extra>
   <extra>fluidShape2.fuelMethod=0</extra>
   <extra>fluidShape2.startFrame=1</extra>
-  <extra>fluidShape2.baseResolution=25</extra>
-  <extra>fluidShape2.resolutionW=25</extra>
-  <extra>fluidShape2.resolutionH=25</extra>
-  <extra>fluidShape2.resolutionD=25</extra>
+  <extra>fluidShape2.baseResolution=35</extra>
+  <extra>fluidShape2.resolutionW=35</extra>
+  <extra>fluidShape2.resolutionH=23</extra>
+  <extra>fluidShape2.resolutionD=23</extra>
   <extra>fluidShape2.resizeClosedBoundaries=1</extra>
   <extra>fluidShape2.autoResizeThreshold=0.001000000047</extra>
   <extra>fluidShape2.maxResolution=250</extra>
@@ -53,7 +53,7 @@
   <extra>fluidShape2.boundaryY=2</extra>
   <extra>fluidShape2.boundaryZ=0</extra>
   <extra>fluidShape2.massConversion=1</extra>
-  <extra>fluidShape2.densityScale=0.1734104007</extra>
+  <extra>fluidShape2.densityScale=0.6423357725</extra>
   <extra>fluidShape2.densityDissipation=0.3</extra>
   <extra>fluidShape2.densityDiffusion=0</extra>
   <extra>fluidShape2.conserveMass=1</extra>
@@ -104,7 +104,7 @@
   <extra>fluidShape2.lightColorG=1</extra>
   <extra>fluidShape2.lightColorB=1</extra>
   <extra>fluidShape2.matteOpacity=1</extra>
-  <extra>fluidShape2.quality=0.6999999881</extra>
+  <extra>fluidShape2.quality=1</extra>
   <extra>fluidShape2.renderInterpolator=0</extra>
   <extra>fluidShape2.color[0].color_Position=0</extra>
   <extra>fluidShape2.color[0].color_ColorR=0.3030000031</extra>
@@ -133,9 +133,9 @@
   <extra>fluidShape2.opacity[4].opacity_FloatValue=0.947019875</extra>
   <extra>fluidShape2.opacity[4].opacity_Interp=1</extra>
   <extra>fluidShape2.opacityInputBias=0.150000006</extra>
-  <extra>fluidShape2.transparencyR=0.1704585403</extra>
-  <extra>fluidShape2.transparencyG=0.1704585403</extra>
-  <extra>fluidShape2.transparencyB=0.1704585403</extra>
+  <extra>fluidShape2.transparencyR=0.1134813428</extra>
+  <extra>fluidShape2.transparencyG=0.1134813428</extra>
+  <extra>fluidShape2.transparencyB=0.1134813428</extra>
   <extra>fluidShape2.shadowOpacity=2</extra>
   <extra>fluidShape2.shadowDiffusion=0</extra>
   <extra>fluidShape2.lightBrightness=1</extra>
@@ -287,9 +287,9 @@
   <extra>dustEmitter.fuelEmissionMap=1</extra>
   <extra>dustEmitter.inheritVelocity=200</extra>
   <Channels>
-    <channel0 ChannelName="fluidShape2_density" ChannelType="FloatArray" ChannelInterpretation="density" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="12000"/>
-    <channel1 ChannelName="fluidShape2_velocity" ChannelType="FloatArray" ChannelInterpretation="velocity" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="12000"/>
-    <channel2 ChannelName="fluidShape2_resolution" ChannelType="FloatArray" ChannelInterpretation="resolution" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="12000"/>
-    <channel3 ChannelName="fluidShape2_offset" ChannelType="FloatArray" ChannelInterpretation="offset" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="12000"/>
+    <channel0 ChannelName="fluidShape2_density" ChannelType="FloatArray" ChannelInterpretation="density" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="7750"/>
+    <channel1 ChannelName="fluidShape2_velocity" ChannelType="FloatArray" ChannelInterpretation="velocity" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="7750"/>
+    <channel2 ChannelName="fluidShape2_resolution" ChannelType="FloatArray" ChannelInterpretation="resolution" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="7750"/>
+    <channel3 ChannelName="fluidShape2_offset" ChannelType="FloatArray" ChannelInterpretation="offset" SamplingType="Regular" SamplingRate="250" StartTime="250" EndTime="7750"/>
   </Channels>
 </Autodesk_Cache_File>
