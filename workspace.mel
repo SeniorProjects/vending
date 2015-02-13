@@ -2,7 +2,7 @@
 
 workspace -fr "fluidCache" "cache/nCache/fluid";
 workspace -fr "JT_DC" "data";
-workspace -fr "images" "images";
+workspace -fr "images" "images/LightningEffect";
 workspace -fr "CATIAV4_DC" "data";
 workspace -fr "offlineEdit" "scenes/edits";
 workspace -fr "STEP_DC" "data";
@@ -62,5 +62,6 @@ workspace -fr "illustrator" "data";
 workspace -fr "UG_DC" "data";
 workspace -fr "templates" "assets";
 workspace -fr "animImport" "";
+workspace -fr "OBJexport" "";
 workspace -fr "furAttrMap" "renderData/fur/furAttrMap";
 workspace -fr "IGES_DC" "data";
