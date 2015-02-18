@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: FinalVendingGuyRig01.ma
-//Last modified: Wed, Feb 04, 2015 03:53:20 PM
+//Last modified: Fri, Feb 13, 2015 11:56:32 AM
 //Codeset: 1252
 file -rdi 1 -ns "VendingGuy3" -dr 1 -rfn "VendingGuy3RN" -op "v=0;" "/Users/Samantha/Desktop/VendingMachineGuy/VendingGuy2FootFix_angela6.ma";
 file -rdi 1 -ns "faceRig" -rfn "faceRigRN" -op "v=0;" "/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma";
@@ -25,13 +25,15 @@ fileInfo "osv" "Microsoft Windows 7 Enterprise Edition, 64-bit Windows 7 Service
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 20.928555830936169 63.126459052949734 443.12542538461281 ;
-	setAttr ".r" -type "double3" 725.66164725887336 -1079.4000000000212 1.2424722979911142e-017 ;
+	setAttr ".t" -type "double3" -4.9072918787949149 258.32172447524385 711.55232120538631 ;
+	setAttr ".r" -type "double3" -11.138352747213345 -0.20000000000077342 -5.9014557728098627e-017 ;
+	setAttr ".rp" -type "double3" -1.2434497875801753e-014 0 -7.1054273576010019e-015 ;
+	setAttr ".rpt" -type "double3" 1.2875196207068304e-014 4.8333274496793395e-015 2.0579423279466874e-014 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".bnm" -type "string" "Vending_2IK_Rig_Shaders";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 471.76593767919445;
+	setAttr ".coi" 749.26420388873555;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -271,21 +273,6 @@ createNode scaleConstraint -n "controls_grp_scaleConstraint1" -p "faceRigRNfoste
 	setAttr ".erp" yes;
 	setAttr ".o" -type "double3" 1 0.99999999999999978 0.99999999999999978 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "skeleton_grp_scaleConstraint1" -p "faceRigRNfosterParent1";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "shoulders_jntW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
 createNode parentConstraint -n "skeleton_grp_parentConstraint1" -p "faceRigRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "shoulders_jntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
@@ -308,6 +295,21 @@ createNode parentConstraint -n "skeleton_grp_parentConstraint1" -p "faceRigRNfos
 		2.7755575615628914e-017 ;
 	setAttr ".rsrr" -type "double3" -1.9083328088781104e-014 -1.2722218725854062e-014 
 		2.5444437451708134e-014 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "skeleton_grp_scaleConstraint1" -p "faceRigRNfosterParent1";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "shoulders_jntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
 	setAttr -k on ".w0";
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 	setAttr -s 2 ".opt";
@@ -57662,16 +57664,16 @@ createNode reference -n "faceRigRN";
 		
 		3 "faceRig:Head02:Full_Body:Eyebrow_blinn.message" ":defaultShaderList1.shaders" 
 		"-na"
+		3 "faceRig:Head02:Full_Body:Eyebrow_blinn.message" "faceRig:Head02:Full_Body:Eyebrow_materialInfo.material" 
+		""
 		3 "faceRig:Head02:Full_Body:Eyebrow_blinn.outColor" "faceRig:Head02:Full_Body:Eyebrow_blinnSG.surfaceShader" 
 		""
 		3 "|faceRig:geoGrp|faceRig:Head02:Full_Body:bodyMesh_group|faceRig:Head02:Full_Body:Body_Mesh|faceRig:Head02:Full_Body:Body_MeshShape.instObjGroups" 
 		"faceRig:Head02:Full_Body:Dude1_blinnSG.dagSetMembers" "-na"
-		3 "faceRig:Head02:Full_Body:Eyebrow_blinn.message" "faceRig:Head02:Full_Body:Eyebrow_materialInfo.material" 
-		""
 		"faceRigRN" 182
-		0 "|faceRigRNfosterParent1|skeleton_grp_parentConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
-		"-s -r "
 		0 "|faceRigRNfosterParent1|skeleton_grp_scaleConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
+		"-s -r "
+		0 "|faceRigRNfosterParent1|skeleton_grp_parentConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp" 
 		"-s -r "
 		0 "|faceRigRNfosterParent1|controls_grp_scaleConstraint1" "|faceRig:DO_NOT_TOUCH|faceRig:controls_grp" 
 		"-s -r "
@@ -57952,11 +57954,11 @@ createNode reference -n "faceRigRN";
 		2 "faceRig:mentalraySubdivApprox1" "viewDependent" " 1"
 		2 "faceRig:mentalraySubdivApprox1" "length" " 0.10000000149011612"
 		2 "faceRig:mentalraySubdivApprox1" "approxMethod" " 2"
+		3 "faceRig:file1.message" ":initialMaterialInfo.texture" "-na"
 		3 "faceRig:skinCluster22.outputGeometry[0]" "|faceRig:Head02RNfosterParent1|faceRig:Body_MeshShapeDeformed.inMesh" 
 		""
 		3 "|faceRig:Head02RNfosterParent1|faceRig:Body_MeshShapeDeformed.instObjGroups" 
 		"faceRig:mia_material_x1SG.dagSetMembers" "-na"
-		3 "faceRig:file1.message" ":initialMaterialInfo.texture" "-na"
 		5 3 "faceRigRN" "|faceRig:geoGrp.message" "faceRigRN.placeHolderList[1]" 
 		""
 		5 4 "faceRigRN" "|faceRig:DO_NOT_TOUCH|faceRig:skeleton_grp.translateX" 
@@ -58178,10 +58180,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
 		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n"
 		+ "                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
-		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
+		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
 		+ "                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
-		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
+		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
 		+ "            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n"
 		+ "                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n"
 		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n"
@@ -58216,8 +58218,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n"
 		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
 		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -58490,7 +58492,7 @@ createNode reference -n "VendingGuy2IKRN";
 		"VendingGuy2IK:Dude_UV_sRN" 1
 		3 "|VendingGuy2IK:Dude_UV_s:bodyMesh_group|VendingGuy2IK:Dude_UV_s:Body_Mesh|VendingGuy2IK:Dude_UV_s:Body_MeshShape.instObjGroups" 
 		"VendingGuy2IK:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na"
-		"VendingGuy2IKRN" 4014
+		"VendingGuy2IKRN" 4086
 		0 "|VendingGuy2IK:root_jnt" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:nurbsCube2" "|Body2_grp" "-s -r "
 		0 "|VendingGuy2IK:nurbsCube3" "|Body2_grp" "-s -r "
@@ -58525,6 +58527,8 @@ createNode reference -n "VendingGuy2IKRN";
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left" 
+		"segmentScaleCompensate" " 1"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left" 
 		"lockInfluenceWeights" " 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:pinkyMeta_left|VendingGuy2IK:pinkyKnuckle_left|VendingGuy2IK:pinkyMid_left" 
 		"lockInfluenceWeights" " 0"
@@ -58547,6 +58551,10 @@ createNode reference -n "VendingGuy2IKRN";
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:ringMeta_left|VendingGuy2IK:ringKnuckle_left|VendingGuy2IK:ringMid_left|VendingGuy2IK:ringLast_left|VendingGuy2IK:joint51" 
 		"lockInfluenceWeights" " 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left" 
+		"segmentScaleCompensate" " 1"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left" 
 		"lockInfluenceWeights" " 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left" 
 		"rotate" " -type \"double3\" 0 0 0"
@@ -58560,6 +58568,8 @@ createNode reference -n "VendingGuy2IKRN";
 		"lockInfluenceWeights" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left" 
 		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left" 
+		"segmentScaleCompensate" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left" 
 		"lockInfluenceWeights" " 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:indexMeta_left|VendingGuy2IK:indexKnuckle_left" 
@@ -58582,6 +58592,14 @@ createNode reference -n "VendingGuy2IKRN";
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left" 
 		"lockInfluenceWeights" " 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left" 
+		"rotateX" " 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left" 
+		"rotateY" " 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left" 
+		"rotateZ" " -av 0"
+		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left" 
+		"segmentScaleCompensate" " 1"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left" 
 		"lockInfluenceWeights" " 0"
 		2 "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullLeft|VendingGuy2IK:clav_left_jnt|VendingGuy2IK:shoulder_left_jnt|VendingGuy2IK:elbow_left_jnt|VendingGuy2IK:wrist_left_jnt|VendingGuy2IK:thumbMeta_left|VendingGuy2IK:thumbKnuckle_left|VendingGuy2IK:indexMid_left|VendingGuy2IK:thumbLast_left" 
@@ -58635,7 +58653,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[27].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[28].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[28].w[0:72]" " -s 73 0 0 0 0 1.0000000000727596 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[34].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -58667,7 +58685,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[63].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[64].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[64].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[68].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -58761,7 +58779,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[159].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[160].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[160].w[0:72]" " -s 73 0 0 0 0 0.99999999997089617 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[161].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -58791,7 +58809,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[192].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[193].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[193].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[194].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -58853,7 +58871,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[226].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[227].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[227].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[228].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -58887,7 +58905,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[245].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[246].w[0:72]" " -s 73 0 0 0 0 1.0000000000027285 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[246].w[0:72]" " -s 73 0 0 0 0 0.99999999999181455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[247].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -58957,7 +58975,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[280].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[281].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[281].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[282].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59035,7 +59053,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[338].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[339].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[339].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[340].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59155,7 +59173,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[422].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[423].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[423].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[424].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59167,7 +59185,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[435].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[436].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[436].w[0:72]" " -s 73 0 0 0 0 0.99999999998181011 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[437].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59189,7 +59207,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[446].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[447].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[447].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[448].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59455,7 +59473,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[607].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[608].w[0:72]" " -s 73 0 0 0 0 1.0000000000291038 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[608].w[0:72]" " -s 73 0 0 0 0 0.99999999997089617 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[609].w[0:72]" " -s 73 0 0 0 0 0.99999999997089617 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59463,7 +59481,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[617].w[0:72]" " -s 73 0 0 0 0 0.99999999999818101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[618].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[618].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[619].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59553,7 +59571,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[668].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[669].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[669].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[670].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59571,7 +59589,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[677].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[678].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[678].w[0:72]" " -s 73 0 0 0 0 0.99999999999272404 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[679].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59671,7 +59689,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[727].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[728].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[728].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[729].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59815,7 +59833,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[821].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[822].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[822].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[823].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59835,9 +59853,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[838].w[0:72]" " -s 73 0.99688507414494665 0.002826971994102122 0 0 0.00028795386095114645 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[839].w[0:72]" " -s 73 0.99618718743076351 0.0035177813882611556 0 0 0.00029503118097541761 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[839].w[0:72]" " -s 73 0.99618751732984445 0.0035174548963280883 0 0 0.00029502777382756052 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[842].w[0:72]" " -s 73 1.0000000000509148 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[842].w[0:72]" " -s 73 1.0000000000763465 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[844].w[0:72]" " -s 73 1.0000000000291038 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59869,7 +59887,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[858].w[0:72]" " -s 73 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[859].w[0:72]" " -s 73 1.000000000000008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[859].w[0:72]" " -s 73 1.0000000000000162 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[860].w[0:72]" " -s 73 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -59907,7 +59925,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[891].w[0:72]" " -s 73 0.85680388252557682 0.13967101186605924 0 0 0.0035251056083639974 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[892].w[0:72]" " -s 73 0.99998128464493785 1.8651885214260812e-005 0 0 6.3469848045190693e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[892].w[0:72]" " -s 73 0.9999812252984368 1.8704208097844304e-005 0 0 7.0493465593088288e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[894].w[0:72]" " -s 73 0.86987326129260401 0.12730870051811333 0 0 0.0028180381892828131 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60075,11 +60093,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1476].w[0:72]" " -s 73 0.99996646462070526 5.7471637364796461e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2960662921008916e-005 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1478].w[0:72]" " -s 73 0.99996680157968532 7.4212873205374921e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2456291582674634e-005 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1478].w[0:72]" " -s 73 0.99996679300399272 7.4232043599190309e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2464675571389167e-005 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1479].w[0:72]" " -s 73 0.88753100430844256 0.0019276988127325924 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11054129687882484 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1480].w[0:72]" " -s 73 0.88840512712688269 0.0014600101235831887 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11013486274953407 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1480].w[0:72]" " -s 73 0.88840927272879788 0.0014601296314484056 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11013059763975365 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1482].w[0:72]" " -s 73 0.80742736060184939 0.0046875355671770419 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14395333814577771 0 0 0 0 0 0 0.043931765685195856 0 0 0 0"
 		
@@ -60087,7 +60105,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1484].w[0:72]" " -s 73 0.85605681121843047 0.0032166764216636397 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14072572669828401 0 0 0 0 0 0 7.8566162188022093e-007 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1485].w[0:72]" " -s 73 0.65751644044187518 0.0039254828628154303 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33854962445206838 0 0 0 0 0 0 8.4522432410559505e-006 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1485].w[0:72]" " -s 73 0.6575164335039112 0.0039254828821080907 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33854959915074434 0 0 0 0 0 0 8.4844632363295347e-006 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1486].w[0:72]" " -s 73 0.68531281892384155 0.0028730899655075031 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31181409111065089 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60273,7 +60291,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1666].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1667].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1667].w[0:72]" " -s 73 0 0 0 0 0.99999999998544808 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1668].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60281,11 +60299,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1672].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1673].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1673].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1674].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1675].w[0:72]" " -s 73 0 0 0 0 0.99999999999272404 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1675].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1676].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60383,7 +60401,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1744].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1745].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1745].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1746].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60465,7 +60483,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1799].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1802].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1802].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1822].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60493,7 +60511,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1847].w[0:72]" " -s 73 3.2815780295324828e-009 0 0 9.8936690773084599e-006 0.99999010310755232 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1848].w[0:72]" " -s 73 4.8464476986673298e-009 0 0 4.2975127354710112e-005 0.99995702002619757 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1848].w[0:72]" " -s 73 4.846447707447086e-009 0 0 4.2975127834076557e-005 0.99995702005482201 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1849].w[0:72]" " -s 73 4.9553814385205897e-009 0 0 4.9288085847809526e-005 0.99995070695877075 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60513,7 +60531,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1857].w[0:72]" " -s 73 9.5099936561330426e-010 0 0 1.1825830653096214e-007 0.99999988079069413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[1858].w[0:72]" " -s 73 1.5003377120430887e-009 0 0 3.5600176127108823e-007 0.99999964249790108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[1858].w[0:72]" " -s 73 1.5003377189756588e-009 0 0 3.5600176752393113e-007 0.99999964249789475 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[1859].w[0:72]" " -s 73 1.6844762866808811e-009 0 0 7.7378958935153618e-007 0.99999922452593448 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60745,7 +60763,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2101].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2120].w[0:72]" " -s 73 2.0778120974514035e-007 0 0 0 0.06729254269208125 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.82894285759902442 0.10376439192768466 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2120].w[0:72]" " -s 73 2.0502383770937798e-007 0 0 0 0.067292343696712706 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.82894496638320603 0.10376248489624361 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2121].w[0:72]" " -s 73 0 0 0 0 0.14097427392255568 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85821237022585184 0.0008133558515924929 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60771,7 +60789,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2132].w[0:72]" " -s 73 9.1569650640062475e-009 0 0 7.4486280252849957e-005 0.99992550456278206 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2133].w[0:72]" " -s 73 6.9209079751159712e-009 0 0 4.0137431502819972e-005 0.99995985564758927 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2133].w[0:72]" " -s 73 6.9209080795235187e-009 0 0 4.0137433445087933e-005 0.99995985564564682 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2134].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60779,7 +60797,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2136].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2137].w[0:72]" " -s 73 5.1155084761186142e-008 0 0 3.664254154674429e-006 0.99999628459076062 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2137].w[0:72]" " -s 73 5.1155091698746664e-008 0 0 3.6642337837772915e-006 0.99999628461112455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2138].w[0:72]" " -s 73 2.8629642656596843e-008 0 0 6.7443828243085591e-005 0.99993252754211426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60791,7 +60809,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2158].w[0:72]" " -s 73 0 0 0 0 0.32591368338900889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.67408604260716087 2.7400383015264186e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2159].w[0:72]" " -s 73 1.8845290010407839e-007 0 0 0 0.56871369386750426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43128611767959563 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2159].w[0:72]" " -s 73 1.8835281209263859e-007 0 0 0 0.56871360868397525 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43128620296321257 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2160].w[0:72]" " -s 73 1.6347287965290391e-005 0 0 0 0.98826156152951461 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.011722091182520168 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60805,7 +60823,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2165].w[0:72]" " -s 73 0 0 0 0 0.99999999461950806 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.3804919071783152e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2166].w[0:72]" " -s 73 0 0 0 0 0.9999996148398872 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.8516011284903562e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2166].w[0:72]" " -s 73 0 0 0 0 0.9999996148398661 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.8516013378850312e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2167].w[0:72]" " -s 73 0 0 0 0 0.99999532420942761 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.675732364736286e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -60981,19 +60999,19 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2270].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2271].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027758635197079064 0.99972241364802927 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2271].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00025472165121373291 0.99974527834878635 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2272].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2273].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2274].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99934548137834867 0.00065451862165125151 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2274].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94979958120821828 0.050200418791781672 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2275].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.3642335826537493e-005 0.99998635766417343 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2275].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.3642335826537493e-005 0.90998332233375845 0.090003035330414982 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2276].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99997309709397086 2.690290602913592e-005 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2276].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96995340476629333 0.030046595233706688 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2277].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.8498203608841281e-006 0.99999315017963908 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2277].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.8498203608841281e-006 0.92330506407712898 0.076688086102510253 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2278].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61005,7 +61023,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2282].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0016451705803101145 0.99835482941968989 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2283].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00038689374923706055 0.99961310625076294 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2283].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00038044983785623376 0.99961955016214377 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2284].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61035,7 +61053,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2297].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2298].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2298].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99977418827989761 0.0002258117201024326 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2299].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61173,15 +61191,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2366].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28026341317646092 0.71973658682353903 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2367].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998135810020283 1.8641899649818438e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2367].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11468978895819426 0.88529360878504559 1.6602256618632148e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2368].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99690413651976029 0.0030958634802397251 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2368].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049313664139784177 0.94774302657113407 0.0029433092890816981 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2369].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99704432033125645 0.0029556796687435945 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2369].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049228356368559108 0.94795783964163771 0.0028138039898033059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2370].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99791358039331335 0.0020864196066866098 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2370].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015305207528561071 0.98264019978191752 0.0020545926895213897 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2371].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99598027458510696 0.0040197254148930106 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2371].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028145559235203451 0.96924668225085187 0.0026077585139447556 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2372].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71663251077697721 0.28336748922302291 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61189,7 +61207,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2374].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71028698763085685 0.28971301236550528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2375].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94452875831645677 0.055471241654439403 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2375].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2729272580013959e-005 0.94451606842252367 0.055471202275792518 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2376].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9546764325617576 0.045323567438242396 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61197,113 +61215,113 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2378].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95897094382245296 0.041029056177546978 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2379].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94083388304955029 0.059166116950449751 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2379].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.3238838246325302e-005 0.94081181238974199 0.059164948772011741 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2380].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94200080928171048 0.057999190718289531 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2380].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.9334621367241016e-006 0.94199788489438685 0.057999181643476429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2381].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4185113010559136e-005 0.99998580859183672 6.2951527720357368e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2381].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15818599994622839 0.84181399443207705 5.6216945866282218e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2382].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3581928791020404 0.64180712089795955 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2382].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58391101370608078 0.41608898629391922 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2383].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0091473180742699944 0.99085267135695454 1.0626983103280101e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2383].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12171775296474951 0.87828223699355223 1.0099905906118156e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2384].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3905497272307652 0.6094502727692348 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2384].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41394122981161696 0.58605877018838304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2385].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28414137211199209 0.71585862788800791 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2385].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30421106125390701 0.69578893874609304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2386].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5271947894075413e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998472374404546 4.3080604377863555e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2386].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5023562245721609e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.099806131845905866 0.90017884108003121 3.5118171565961317e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2387].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98967683050057309 0.010323169499427041 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2387].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98979802110654924 0.010201978893450758 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2388].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99431122082378298 0.0056887791743979515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2388].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99431821118273866 0.0056817888154423657 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2389].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999379360431861 6.2064247852366034e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2389].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10697442796985154 0.89301998583479381 5.5862244584425099e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2390].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2954224079415453e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999348300384272 6.1874539165048382e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2390].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.1890397707095198e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.056021688817507409 0.94397367880882121 4.3134696943556114e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2391].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998729101690909 1.2708924883329583e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2391].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049561457580733694 0.95042631694409252 1.2225416966063665e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2392].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.097609693125760066 0.90239030687423993 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2392].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33320388090714187 0.66679611909285808 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2393].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.081527069359700582 0.91847293064029933 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2393].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15708530759843245 0.84291469240156747 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2394].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15845971696698585 0.8415402830330142 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2394].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21223925721253969 0.78776074278746033 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2395].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71855000358589449 0.28144999641410551 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2395].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83564493495541647 0.16435506504458353 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2396].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75271939957145828 0.24728060042854177 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2396].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83184304902345152 0.16815695097654856 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2397].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99648465764729588 0.0035153423527041244 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2397].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0084548496477837628 0.98805928689416134 0.00348586345805492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2398].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.6970140269749498e-009 0 0 0 0 0.99999714461830203 2.8516846839044277e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2398].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.5507400530956619e-009 0 0 0 0.039569226949375723 0.9604279388891499 2.8306107343377534e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2399].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00095113091565808333 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9990421723599473 6.696722504830438e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2399].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00092042656197135163 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.032281703152878531 0.96679138222689898 6.4880564361688278e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2400].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99801376461016378 0.0019862353898362057 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2400].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0069063938765003335 0.99112049961020043 0.0019731065132990869 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2401].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.1342375874467736e-005 0.99992865687694066 7.4711340954805489e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2401].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22684106734810805 0.77315893199043739 6.6138582124847116e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2402].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.023316813697987784 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.97668318589507475 4.0693748636817597e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2402].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02293758396767899 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016265193741874073 0.96079722189664618 3.9380075376476471e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2403].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.9600828041272468e-007 0 0 0 7.9095925281829452e-006 0.99999109439919132 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2403].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.0369300002631048e-007 0 0 0 0.092133570824991115 0.90786552548200894 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2404].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.025884116512053291 0 0 0 0 0.93642625447832262 0.037689629009624026 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2404].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00286304976843378 0 0 0 0 0.78935553344326281 0.20778141678830331 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2405].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0042455021914216528 0.99575449781949221 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2405].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4357870415819044 0.56421295842900954 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2406].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5742914082071932e-006 8.1866816256610347e-008 0 0 0 0.00015207802060597969 0.99984626582116953 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2406].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5115152560326069e-006 7.860231027723357e-008 0 0 0 0.098713385773879156 0.90128502410855449 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2407].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6264561749543982 0.37354382504560174 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2407].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60340510656720903 0.39659489343279097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2408].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.226325555004337e-006 0 0 0 0 0.99818857496227253 0.0018071987121723824 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2408].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.2201147101792896e-006 0 0 0 0 0.9999893378715935 6.4420136962070335e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2409].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9999967679890206 3.2320109794089363e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2409].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998030033609231 1.9699663907696589e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2410].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999154367734255 8.4563226574569626e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2410].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999153432996757 8.4656700324508153e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2411].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0080640140522389367 0.020243529155484684 0 0 0 0.36536377739119064 0.60632867940108581 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2411].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0035033475164650556 0.0087940014372329539 0 0 0 0.71650808085729312 0.27119457018900883 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2412].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02699230710852522 0.0031380539224742867 0 0 0 0.26727566130825742 0.70259397766074294 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2412].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.023352441487796995 0.0027148927408155942 0 0 0 0.33238428828835953 0.64154837748302784 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2413].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037967656557667519 1.4405132830991989e-005 0 0 0 0.94453764790201733 0.01748029040748417 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2413].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03789410629196973 6.2634900261460271e-006 0 0 0 0.94331144147948676 0.018788188738517442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2414].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08016230492839739 0.028977510528506757 0 0 0 0.56382843322637055 0.32703175131672524 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2414].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.053314739440880131 0.019272464668195748 0 0 0 0.69710812789873144 0.23030466799219262 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2415].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11378347100480496 0.025570415685315494 0 0 0 0.51476220254664495 0.3458839107632346 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2415].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095193285139448927 0.021226970738973915 0 0 0 0.53820066273746037 0.34537908138411672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2416].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11600849802232156 0.012360620312392712 0 0 0 0.47254993933672962 0.39908094232855607 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2416].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1024275531947718 0.010913580609623726 0 0 0 0.44958224892616272 0.43707661726944169 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2417].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0038228651403075051 0 0 0 0 0.85284363189886214 0.00014665840655841636 0 0 0 0.14318684455427189 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2418].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14099560749401016 0.018136263798031016 0 0 0 0.62703620458470777 0.21383192412325114 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2418].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12635893302192694 0.016253243891393383 0 0 0 0.66821880159316582 0.18916902149351389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2419].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095883813689559325 7.6456435751235091e-005 0 0 0 0.80790748930084455 0.096132240573845007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2419].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09216143557389829 7.3486074670758747e-005 0 0 0 0.7765392721331803 0.13122580621825064 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2420].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0040170021472648891 0.000208893458338218 0 0 0 0.13818946407147578 0.85758464035202486 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2420].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0038568209147639026 0.00020056366154167109 0 0 0 0.17257904483337483 0.82336357061942345 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2421].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21738199457972951 0 0 0 0 0.73892772351750147 0.00027996528142482308 0 0 0 0.043410316621798936 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2422].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.9729134042354338e-005 0 0 0 0 0 0 0 0 0 0 0.19080162494889102 0 0 0 0 0.77285724690897228 6.7655637172658997e-005 0 0 0 0.036253743370921625 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2422].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.9890686145122813e-005 0 0 0 0 0 0 0 0 0 0 0.19080234809832666 0 0 0 0 0.77285627453658634 6.7664062005017123e-005 0 0 0 0.036253822616936882 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2423].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.4411889418613061e-005 0 0 0 0.050462230648146339 0.94945335746243498 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2423].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.2572994716495095e-005 0 0 0 0.1836334185354449 0.81629400846983857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2424].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.030768254100304385 0.014984879610205146 0 0 0 0.69491242739451398 0.25933443889497643 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2424].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013378332219510111 0.0065155694905907734 0 0 0 0.86271720164942145 0.11738889664047754 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2425].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12150357856716844 0.012571435672672958 0 0 0 0.52773693664973198 0.33818804908132283 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2425].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1174129646698259 0.012141042491631115 0 0 0 0.54543602769374822 0.32500996511569097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2426].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2726726597825445e-007 6.6181939538043077e-009 0 0 0 0.4781021175225974 0.5218977485919426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2426].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2219238008721556e-007 6.3542880793270535e-009 0 0 0 0.53410637410477868 0.46589349734855318 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2427].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08402221086669924 0 0 0 0 0.90124972699734285 0.014703156466742768 0 0 0 2.4905669215244865e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2427].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.084022120406805484 0 0 0 0 0.90125042454865134 0.014703152097066302 0 0 0 2.4302947476833785e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2428].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13292184554003506 0 0 0 0 0.84659872085544541 0.020445318222336799 0 0 0 3.4115382182786647e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2429].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02426999993622303 0.97573000006377697 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2430].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.7695858004063494e-005 0.99998230414199596 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2430].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.7695858004063494e-005 0.99996377560412453 1.8528537871441474e-005 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2431].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02814258405010104 0 0 0 0 0.14455204624828127 0.82730536967251389 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2432].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.053885251716711505 0 0 0 0 0.20474988009435388 0.74136486818893466 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2432].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.051781803908137698 0 0 0 0 0.2358371914466324 0.7123810046452298 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2433].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016942667179944353 0.98305733288917729 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61311,9 +61329,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2435].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.024284799206282799 0.97571520079371721 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2436].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30016927184920478 0 0 0 0 0.126697101078182 0.57313362707261328 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2436].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30016521239226546 0 0 0 0 0.12672398213638422 0.5731108054713504 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2437].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13984385525898332 0 0 0 0 0.073620410779405385 0.78653573396161125 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2437].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13739311644420182 0 0 0 0 0.089848801350704569 0.77275808220509357 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2438].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047396791977592258 0.95260320802240761 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61331,7 +61349,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2445].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0011595695522663505 0 0 0 0 0.11442703810889066 0.88441339233884297 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2446].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.017226580638944666 0.98277341936105533 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2446].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.017226580638944666 0.98277181789502888 1.6014660264573877e-006 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2447].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.023305298154001196 0.97669470184599883 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61343,7 +61361,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2451].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0013309854101368596 0.99866901458986324 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2452].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2452].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998295822438577 1.7041775614107576e-005 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2453].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2264000706968583e-006 0 0 0 0 0.088514944203790566 0.91148382942888062 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61371,9 +61389,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2465].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.075421938296023977 0.92457806170397605 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2466].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99963089366792701 0.00036910633207298815 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2466].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98298799099929379 0.017012009000706207 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2467].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99997598767004092 2.4012329959077761e-005 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2467].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94274673063372327 0.057253269366276748 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2468].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.036170540322978659 0 0 0 0 0.11906776696193067 0.84476169271509072 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61381,9 +61399,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2470].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0011554891612297947 0 0 0 0 0 0 0 0 0 0 0.10094821423185366 0 0 0 0 0.48736914365187001 0 0 0 0 0.22311714453390472 0.18741000842114186 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2471].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.025722132908905068 0 0 0 0 0.34374210576830178 0.6305357613227931 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2471].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.024633392965486434 0 0 0 0 0.32917374236118579 0.6461928646733277 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2472].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015169605015329171 0 0 0 0 0.41729811058652433 0.56753228439814651 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2472].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015169284277931685 0 0 0 0 0.41729381881878574 0.56753689690328257 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2473].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.4344088742851774e-006 0 0 0 0 0.41785215902514006 0 0 0 0 0.26908382773009332 0.31305957883589247 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61393,35 +61411,35 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2476].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.4635352511835641e-005 0 0 0 0 0.93220681878685419 3.3612285910133558e-008 0 0 0 0.067696434780463111 4.2077467884943148e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2477].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.012411494600926892 0 0 0 0 0.90426452843093097 0.00059953879668397199 0 0 0 0.082724438171458262 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2477].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.011316087361007579 0 0 0 0 0.91271139612131136 0.00054662501316179329 0 0 0 0.07542589150451913 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2478].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18704484065130203 0 0 0 0 0.43130813401620005 0.38164702533249784 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2479].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.046681024222037841 0 0 0 0 0.48068636205222909 0.47263261375483689 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2479].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04591089393318748 0 0 0 0 0.48922361574618328 0.46486549034973301 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2480].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095553341892182481 0 0 0 0 0.72957479332364128 0.17487186478417627 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2481].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.056864779241805385 0 0 0 0 0.47257510927567237 0.47056011148252225 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2481].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.056864266864522145 0 0 0 0 0.47256906095079121 0.47056667218468662 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2482].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.041378355189677793 0 0 0 0 0.48857200420938596 0.47004964065914384 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2482].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.040500362559041693 0 0 0 0 0.47820509649778215 0.48129454100138375 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2483].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.6130056713344948e-007 0 0 0 0 0.19583260162892316 0 0 0 0 0.43742253317952967 0.36674430389098006 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2484].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11684716126583372 0 0 0 0 0.56339805107750329 3.6300234375058733e-009 0 0 0 0.16929643542201667 0.15045834860462293 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2485].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0021531505637899348 0 0 0 0 0 0 0 0 0 0 0.23537235010607113 0 0 0 0 0.68821111860580642 1.5086934707955513e-009 0 0 0 0.074263379215638886 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2485].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0021533536158491861 0 0 0 0 0 0 0 0 0 0 0.23537339324294854 0 0 0 0 0.68820977632247593 1.5086934707955513e-009 0 0 0 0.074263475310032787 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2486].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20449871041642523 0 0 0 0 0.5464929512334411 1.0962667382772893e-007 0 0 0 0.19589920700168215 0.053109021721777644 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2487].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.8863696140429173e-006 0 0 0 0 0.41666518288770032 0 0 0 0 0.35494084875848736 0.22839008198419827 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2487].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.8863696140429173e-006 0 0 0 0 0.39691985710135547 0 0 0 0 0.38550950963490338 0.21756674689412717 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2488].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.9458117800516215e-007 0 0 0 0 0.29361334023059099 0.70638616518823105 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2488].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.7359038872716108e-007 0 0 0 0 0.29361291246049648 0.70638661394911484 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2489].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2891663805255183 0 0 0 0 0.64558405178155476 0.065249567692927002 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2490].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0310363696398593e-006 0 0 0 0 0.58698421223947739 0.41301475672415305 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2490].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.8122757462695059e-007 0 0 0 0 0.56261553572653877 0.43738348304588659 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2491].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66632023705664523 0.33367976294335477 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2491].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66631974256331006 0.33368025743668994 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2492].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.1668845712164829e-006 0 0 0 0 0.95388130286411521 0.046114530251313554 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61429,9 +61447,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2494].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.0336684038477042e-005 0.13863831115539108 0 0 0 0 0 0 0 0 0 0 0.21479700803947549 0 0 0 0 0.36949937418109646 0 0 0 0 0.22389190289502367 0.053153067059526653 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2495].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.9488181756383625e-006 0 0 0 0 0.08717530689734132 0 0 0 0 0.65057984343211628 0.26223990085236665 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2495].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.4271819079910923e-006 0 0 0 0 0.087166286958063333 0 0 0 0 0.65060107022511926 0.26222821563490933 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2496].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00058343692963974203 0 0 0 0 0.54960955390226496 0.44980700916809541 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2496].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00054999805371993714 0 0 0 0 0.54928171460609665 0.45016828734018338 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2497].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.2317433925195251e-010 0.063209222828993716 0 0 0 0 0 0 0 0 0 0 2.3566893233728082e-006 0 0 0 0 0.04493780610952957 0 0 0 0 0.8601473842726084 0.031703229876370642 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61441,7 +61459,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2500].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.6023249324907552e-010 2.4557514314304422e-006 0 0 0 0 0 0 0 0 0 0 3.8040039621832828e-006 0 0 0 0 0.069711257208114413 0 0 0 0 0.89438176808021497 0.035900714596044603 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2501].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.88548315571563518 0.11451684428436479 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2501].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.88548081091021991 0.11451918908978016 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2502].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61547,11 +61565,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2553].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2554].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.3148739331294914e-007 0.99997616044629112 0 0 0 2.2908066315569072e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2554].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.042592468033845976 0.95738504120219814 0 0 0 2.2490763955939463e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2555].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.001674510063591556 0.98241527118827021 0 0 0 0.015910218748138225 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2555].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.001620665749529549 0.982494559337169 0 0 0 0.015884774913301453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2556].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0029617074917953844 0.92420955233744095 0 0 0 0.072828740170763517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2556].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.021114859446613572 0.90738295904932953 0 0 0 0.071502181504056794 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2557].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2136961907899184e-009 0.99999965075311303 0 0 0 3.4803319073652819e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61561,83 +61579,83 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2560].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.718032587375018e-007 0.99999982819787814 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2561].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31640305605171859 0.02569379655320192 0 0 0 0.62706884913679894 0.030834298258280633 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2561].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30153732479560075 0.019453688373720173 0 0 0 0.51480375138845447 0.16420523544222462 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2562].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34439507468486169 9.0351776821719346e-006 0 0 0 0.63560949755188767 0.019986392585568554 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2562].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34480014461517922 9.451901956706766e-006 0 0 0 0.61788949325458276 0.037300910228281373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2563].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23786052005440772 0.061428710629947335 0 0 0 0.62830409296604939 0.072406676349595703 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2563].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27430238478197588 0.026898150950760653 0 0 0 0.55296141410239685 0.14583805016486664 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2564].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23006918929506154 0.083271227777004242 0 0 0 0.59065498034281549 0.096004602585118642 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2564].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28714331396099979 0.041139565341044106 0 0 0 0.56987082958221436 0.1018462911157417 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2565].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26605248086337724 0.072255778706127427 0 0 0 0.49095864417551544 0.17073309625497995 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2565].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27670615037642254 0.053257654389490011 0 0 0 0.53938549245606993 0.13065070277801749 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2566].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39658333352017378 0.10737578256639728 0 0 0 0.46791965197151625 0.028121231941912801 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2566].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44350242859156985 0.084115136566111012 0 0 0 0.41043161226431685 0.061950822578002183 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2567].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34241624675584037 0.16602513867741209 0 0 0 0.46177382785797344 0.029784786708774123 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2567].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41385421763188779 0.12336273427556003 0 0 0 0.43648914839832287 0.026293899694229302 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2568].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36719584076288164 0.14486398645875145 0 0 0 0.43811326897487213 0.049826903803494707 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2568].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.37922374798639891 0.14501334962348411 0 0 0 0.42534341754577421 0.050419484844342728 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2569].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32413934420275198 0.052188282127227245 0 0 0 0.57328695176451649 0.050385421905504393 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2569].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32738476585501103 0.042183817817511078 0 0 0 0.58812898289563442 0.042302433431843499 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2570].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46141701487535147 0.065166516591745327 0 0 0 0.44905909819997919 0.024357370332923949 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2570].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47362355409697143 0.063661084304041118 0 0 0 0.43869222901336352 0.024023132585623989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2571].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.37085662987344009 0.013757859236509384 0 0 0 0.61264162955541601 0.00274388132008253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2572].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46051929996292068 5.5879642770162398e-008 0 0 0 0.50074469486285722 5.3804954371611481e-007 0 0 0 0.038735356628153403 0 0 0 0 0 0 0 0 0 0 5.4645986102078753e-008 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2572].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4605188501748364 5.5010940358074479e-008 0 0 0 0.50074475594651302 5.2968504972012651e-007 0 0 0 0.038735755579961353 0 0 0 0 0 0 0 0 0 0 5.3573595249732762e-008 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2573].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40985707189449394 0 0 0 0 0.58501170162376459 5.8413095396303695e-005 0 0 0 0.0050728133863451319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2573].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4088977222836403 0 0 0 0 0.58587023919326764 0.00013414129665758308 0 0 0 0.0050978972264343761 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2574].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33729090427710473 1.9160856561938396e-005 0 0 0 0.59212202409412673 0.070567910772206657 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2574].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29818259171159767 1.9436270615997057e-005 0 0 0 0.57931358170250202 0.12248439031528441 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2575].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43172978849762633 0.10089567542704454 0 0 0 0.42514715072429615 0.042227385351032945 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2575].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44458203698240029 0.098450809316093943 0 0 0 0.41519063496662839 0.041776518734877276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2576].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30016449119583782 0.063895158469676971 0 0 0 0.52167373411348006 0.11426661622100517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2576].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30350282874661011 0.054481629045924525 0 0 0 0.54213607311248779 0.099879469094977566 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2577].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3625101535508472 0 0 0 0 0.63311676506854719 0.0043704154306194566 0 0 0 2.6659499862066727e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2577].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36951414566257051 0 0 0 0 0.6254529984805508 0.0050301767244119088 0 0 0 2.6791324666266969e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2578].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42664763091110297 9.9088781740689608e-005 0 0 0 0.57227937529894668 0.00095680147149564446 0 0 0 1.7103536714014847e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2579].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40613508979907736 0.24890873528397284 0 0 0 0.33262946200970872 0.012326712907241128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2579].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40615263288495623 0.24884429443335837 0 0 0 0.33234696527300106 0.012656107408684432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2580].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40372415917866072 0.29075808499852229 0 0 0 0.29997572392803973 0.005542031894777236 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2580].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40668942259319202 0.29286893923944346 0 0 0 0.29401287452547897 0.006428763641885671 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2581].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.73210193073126406 0.020076334251192981 0 0 0 0.24657621963320064 0.0012455153843423203 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2581].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71512131034504289 0.021345124178557828 0 0 0 0.26219437718572947 0.0013391882906697587 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2582].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04397258737952222 0.829209778588196 0 0 0 0.12680193220258151 1.5701829700446708e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2582].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20186400032852753 0.69137895757048673 0 0 0 0.10673630878790763 2.0733313078015813e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2583].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.2536586415705706e-005 9.273984981949967e-006 0 0 0 0.66192785216181149 0.13570575359067069 0 0 0 0.20228376578845395 8.1788766630737765e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2583].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00011690248014463965 7.6060404725424712e-006 0 0 0 0.65600388476624794 0.15837299859483928 0 0 0 0.18549798879977641 6.1931851919447357e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2584].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0073435803581369139 0.99263925184789548 0 0 0 1.696909023881857e-005 1.9870372879462424e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2584].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23356577890387561 0.76642424818016408 0 0 0 9.8224541009024767e-006 1.5046185942759817e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2585].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17410261642633149 0.75047159042969203 0 0 0 0.075425793143963735 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2585].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11715884996154935 0.8328205929598097 0 0 0 0.050020557078630408 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2586].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58778018580992908 0.030975945732791374 0 0 0 0.36600695521926258 0.015236913208913136 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2586].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58779712296464026 0.030973856873770723 0 0 0 0.36599257069437013 0.01523644943811508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2587].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74526445752977477 5.6772932479971688e-005 0 0 0 0.23812048743197969 0.00024757693589887197 0 0 0 0.015907346939352387 0 0 0 0 0 0 0 0 0 0 0.00040335821325799978 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2587].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74508019824326377 6.3388770371568231e-006 0 0 0 0.2383842167196443 2.5481627596212662e-006 0 0 0 0.016118309901139747 0 0 0 0 0 0 0 0 0 0 0.00040838809413947376 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2588].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.0850695031123384e-005 0 0 0 0 0 3.7726345314563128e-007 0 0 0 0 0.68663601748157399 0 0 0 0 0.31333275454720877 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2588].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.0835738443224265e-005 0 0 0 0 0 4.3121392329537584e-007 0 0 0 0 0.65808246564599171 0 0 0 0 0.34188626738890887 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2589].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.8342412709084452e-007 0 0 0 0 0.70415019504767318 0.056559972052237381 0 0 0 0.23457333177813489 0.0047163176978275182 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2589].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.5115893578444952e-007 0 0 0 0 0.69018670014380334 0.057373911444448748 0 0 0 0.23794410893395052 0.014494828318861619 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2590].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51521856773796559 0.14018219505812263 0 0 0 0.31444779801666106 0.030151439187250655 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2590].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51522035068813476 0.14018183644000481 0 0 0 0.31444621439837267 0.030151598473487702 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72723254883870858 0.00034784247144403524 0 0 0 0.27229599448420078 0.00012361420564652607 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70726097610329242 0.00037333446429296628 0 0 0 0.29223177004894429 0.0001339193834703012 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2592].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68063683222968541 0.00076313144978942121 0 0 0 0.27991202849810598 0.038487998524561522 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00020000929602949005 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2592].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68103507920125606 0.00050046300443180977 0 0 0 0.2795522855769535 0.038709033497632633 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00020313871943744211 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2593].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.538906179367071e-008 0 0 0 0 0.80840251849162204 0.0051583141840827783 0 0 0 0.18201274551708974 0 0 0 0 0.0044010236875796629 2.0117074619834851e-005 0 0 0 0 0 0 0 0 0 5.1856559441219639e-006 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2593].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6713901626506511e-009 0 0 0 0 0.80903549313388079 0.0052319842031347515 0 0 0 0.18155166879064571 3.4627120696123387e-006 0 0 0 0.0041767258293580146 0 0 0 0 0 0 0 0 0 0 6.6365952082798297e-007 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2594].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5070129298628634e-010 0 0 0 0 0.78392543415088856 0.0011023856745484306 0 0 0 0.1784663244265868 0.036493927002952356 0 0 0 1.1457347070184791e-005 0 0 0 0 0 0 0 0 0 0 4.7114725251802477e-007 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2594].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.507393296909945e-010 0 0 0 0 0.78408885429354114 0.0011272177603339913 0 0 0 0.17822452626363056 0.036559401431754963 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2595].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72013982171429181 0.044798503734376383 0 0 0 0.22503015789941372 0.010031516622814287 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2595].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72018916473714345 0.044783314932877599 0 0 0 0.22500026018622796 0.010027260114647116 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2596].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.54152385578849349 0.22683278706015475 0 0 0 0.20215513407253108 0.029488223078820722 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2596].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57525368987148084 0.21014504698293682 0 0 0 0.18728249272247174 0.027318770423110567 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2597].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31214567314434039 0.41917846053033725 0 0 0 0.26488473765680276 0.0037911286685196077 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2597].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34746469460412516 0.39112382790375722 0 0 0 0.25787456691539423 0.0035369105767233586 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2598].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17968491753509452 0.60400191216421562 0 0 0 0.21580324554354216 0.0005099247571478077 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2598].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32544507317634064 0.47347365632227528 0 0 0 0.16916758244329486 0.031913688058089244 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2599].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.4074001524505974e-006 0 0 0 0.052641190144341141 0.8812563073106503 0 0 0 0.065331084766188735 0.00076501037866737035 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2599].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.2363776888952645e-006 0 0 0 0.47616037877029266 0.48544160707013528 0 0 0 0.037816498848599167 0.00057927893328400175 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2600].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61705,7 +61723,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2632].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.3634198809699372e-005 0.99998636580119049 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2634].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.5739953399885284e-007 0.99999904260410399 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61713,89 +61731,89 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2636].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028643353794210385 0.97135664620578954 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2637].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2637].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.043685857283170204 0.9563141427168298 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2638].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2638].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0049441456627357062 0 0 0 0 0.12227109468700147 0.8727847596502627 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2639].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00031815552693714721 0.99968184447306285 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2639].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.031719871277697154 0.96828012872230285 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2640].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2640].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4446972956272397e-006 0 0 0 0 3.5727153189547411e-005 0.99996282814951487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2641].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2641].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.4651842162646994e-006 0 0 0 0 0.047503531305850499 0.95249000350993329 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2642].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.9521664569739484e-007 0.99999980478335426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2642].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.3924605072719584e-006 0 0 0 0 7.3158691614656584e-005 0.99992544884787804 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2643].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0052770886033970408 0 0 0 0 0.010316932178127319 0.98440597921847561 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2643].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0088496693980462098 0 0 0 0 0.26661664491080217 0.72453368569115151 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2644].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.050657074650896909 0 0 0 0 0.89968637661638429 0.0024635184327024 0 0 0 0.047192420967886665 6.0933212985586021e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2644].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.092859451383449781 0 0 0 0 0.86552304083128373 0.0020655052314744789 0 0 0 0.039550801994299833 1.2005594922319843e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2645].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0027813970932503906 0.99721471969853293 0 0 0 3.8382631320665876e-006 4.4945084603997222e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2645].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23991293008900449 0.76008481412267037 0 0 0 2.2217551389799834e-006 3.4033186204762814e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2646].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.2073270299792438e-006 0 0 0 0 0.11165321873974481 0.88834257393322524 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2646].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.1127366704558468e-006 0 0 0 0 0.13822266061528221 0.86177022664804726 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2647].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.007155028732478641 0.016927604370222137 0 0 0 0.85971837134332063 0.1161989955539787 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2647].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0060822428641841659 0.014386834371420488 0 0 0 0.76875966630418613 0.21077125646020922 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2648].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.4885233572065865e-007 1.0622718078697894e-006 0 0 0 0.90264789773462173 0.057856727006688528 0 0 0 0.039374978113321746 0.00011888605760428281 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2648].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.8148212487957238e-007 9.0283078468378548e-007 0 0 0 0.86113754210177029 0.10118961323960987 0 0 0 0.03755814714339846 0.00011341323869163497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2649].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.6653310601745128e-006 2.2043262339377904e-006 0 0 0 0.95960895809863611 0.00033624867173391105 0 0 0 0.040048923586887844 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2649].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.3595309409686194e-006 1.5530300295834056e-006 0 0 0 0.95960391548031598 0.00033624867173391105 0 0 0 0.040048923301531432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2650].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03457813564555999 0.020805449366084409 0 0 0 0.9446059367357561 1.3665902164420693e-006 0 0 0 9.1116623831559353e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2650].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.088316453080422838 0.014660220025815034 0 0 0 0.89699847151837975 1.8435869466044842e-005 0 0 0 6.4195059164123771e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2651].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.026548757483545897 0 0 0 0 0.83753598538809781 0.00087557454412982177 0 0 0 0.13503968257695051 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2651].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047161671958569448 0 0 0 0 0.8114481499568833 0.0008185116592154 0 0 0 0.14057166641805588 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2652].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.038198412211244405 1.0810106963494278e-005 0 0 0 0.9038135307927021 0.05796319438109334 0 0 0 1.4052507996657903e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2652].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.093882978344787288 8.8658878828120022e-006 0 0 0 0.85595762317800184 0.050137644535749273 0 0 0 1.2888053578852708e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2653].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.01860019206533059 0 0 0 0.42947484360082488 0.55192496433384453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2653].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.017421934014391571 0 0 0 0.46331060543663494 0.51926746054897344 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2654].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5626458580146001 0.40235068398599599 0 0 0 0.035001202971778993 2.2550276248885886e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2654].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57894560275010476 0.39160530981122765 0 0 0 0.029446983624274871 2.103814392663775e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2655].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.058211421901948446 0 0 0 0 0.86275481825238876 0.00014482540074837975 0 0 0 0.078888852780138422 8.16647760220625e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2655].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.094206345729216684 0 0 0 0 0.83708019797241651 0.00012604003010710095 0 0 0 0.068587329056373436 8.7211886288737793e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2656].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.021301612037889054 0.014862728278768715 0 0 0 0.96144603496268455 0.0023718619293348541 0 0 0 1.776279132292008e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2656].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05328596333349625 0.01389231693083072 0 0 0 0.89884436631638942 0.033959591760211315 0 0 0 1.776165907235528e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2657].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5022237818084891e-008 0 0 0 0 0.96884398335651933 0.00030544559715954891 0 0 0 0.030843615290559175 6.9407335241985745e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2657].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5022237818084888e-008 0 0 0 0 0.96883061594068887 0.00031939775438459962 0 0 0 0.030843032311050213 6.93897163837454e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2658].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12567491693295807 0 0 0 0 0.093082124913825143 0.78124295815321676 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2658].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15832794771454614 0 0 0 0 0.089693502849523016 0.75197854943593079 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2659].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00012023133267895468 0.016794668008422158 0 0 0 0.12914650100355335 0.85393859965534558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2659].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00016709510490646044 0.0058732126878539284 0 0 0 0.45291450736807914 0.54104518483916053 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2660].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10979120728521298 0.051082767816633942 0 0 0 0.35647413846687576 0.48265188643127732 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2660].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13467370363345932 0.042266649135974638 0 0 0 0.42362373513312013 0.39943591209744583 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2661].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14550503852926822 0.05001767475927868 0 0 0 0.63325190576589452 0.17122538094555856 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2661].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1568222045196741 0.047007448839785998 0 0 0 0.63525044536067754 0.16091990127986242 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2662].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14983168308034842 0.084689925612067327 0 0 0 0.75834566647050039 0.0071327248370838718 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2662].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13931445715749824 0.072820912951153269 0 0 0 0.78173089679377261 0.0061337330975758855 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2663].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12858607269601377 0.016440307949011235 0 0 0 0.70337356455132849 0.15160005480364658 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2663].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20723237417013302 0.013483582653052164 0 0 0 0.6227533370533499 0.15653070612346487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2664].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15428537451356775 0.01106001369055344 0 0 0 0.36112279306769546 0.4735318187281834 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2664].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15980641732266523 0.026826356618277796 0 0 0 0.39094118940929462 0.4224260366497623 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2665].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20096735412774031 0 0 0 0 0.30956490762549915 0.4894677382467606 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2665].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22546580521228271 0 0 0 0 0.31933022928596255 0.45520396550175468 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2666].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24989088702590889 0.088896535607908472 0 0 0 0.5188646209638641 0.14234795640231859 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2666].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24184578780359198 0.086034444722560666 0 0 0 0.53435491568161864 0.13776485179222875 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2667].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35215079046312192 0.00031629383116877621 0 0 0 0.61029534859333412 0.037237395688932147 0 0 0 1.714234429931447e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2667].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30051444139810707 0.00021452573492095284 0 0 0 0.66749636645702282 0.031774646157791672 0 0 0 2.0252157511402751e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2668].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16332616522778889 0.073627014616574935 0 0 0 0.43869924030435037 0.32434757985128582 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2668].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18722755592721541 0.066309473986074965 0 0 0 0.45434927203966091 0.29211369804704868 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2669].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29865528490127508 0.054408439514569501 0 0 0 0.63843424983017494 0.0085020257539803797 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2669].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27379373323854983 0.045663585122037158 0 0 0 0.67340664351064106 0.0071360381287718672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2670].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1794465170196439 0.093270687966936688 0 0 0 0.72726706180449585 1.517686966942402e-005 0 0 0 5.5633925408985184e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2670].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16063247833231481 0.063260680136417405 0 0 0 0.77609382539144844 1.2950413276946812e-005 0 0 0 6.5726542454607992e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2671].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.090384737121763037 7.3749254056631667e-006 0 0 0 0.076147344778960013 0.8334605431738713 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2671].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095837114060551232 1.7933703802126112e-005 0 0 0 0.21236800809853304 0.69177694413711355 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2672].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.061832488161370401 0 0 0 0 0 0 0 0 0 0 0.33486754583614514 0 0 0 0 0.5740376526422214 9.7922810710205564e-010 0 0 0 0.029262312381034973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2672].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.062338803768554767 0 0 0 0 0 0 0 0 0 0 0.33746861872431549 0 0 0 0 0.57069064857449814 2.2517523366738512e-009 0 0 0 0.029501926680879247 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2673].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.0225290612822243e-008 0 0 0 0 0.34976791709190391 0 0 0 0 0.45430435910810363 0 0 0 0 0.16046136347839177 0.035466340096310098 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2673].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.9986726909623826e-008 0 0 0 0 0.34976743384324049 0 0 0 0 0.45430063567728712 0 0 0 0 0.16047018361074575 0.035461726881999771 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2674].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.6800301148146452e-007 0 0 0 0 0.013563141115993615 0 0 0 0 0.2277299784550583 0 0 0 0 0.46407936167133695 0.29462725075459967 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2674].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.648418311498053e-007 0 0 0 0 0.012173341332677324 0 0 0 0 0.20375946800808398 0 0 0 0 0.52049038015741755 0.26357654565999006 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2675].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.2387362147355991e-007 0.29505839809362772 0 0 0 0 0 9.8885422335813449e-008 0 0 0 0 0.37489080521353335 0 0 0 0 0.32912558851071039 0 0 0 0 0.00092448542308470329 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2675].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.2387362147355991e-007 0.29560019918021169 0 0 0 0 0 9.8347736691058233e-008 0 0 0 0 0.37374238887531608 0 0 0 0 0.32973057371339815 0 0 0 0 0.00092611600971593915 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2676].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.091699920607443877 0 0 0 0 0 0 0 0 0 0 0.50766625372061891 0 0 0 0 0.40063370363915501 1.3855036253632458e-009 0 0 0 1.2064727852201956e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2676].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.091364302766997141 0 0 0 0 0 0 0 0 0 0 0.50945778385715046 0 0 0 0 0.39917778894601202 3.185990070398001e-009 0 0 0 1.2124385024882404e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2677].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00052853543018619256 0 0 0 0 0.64394847572033009 0 0 0 0 0.25552390395436525 0 0 0 0 0.076244945806772019 0.02045571728646103 0 0 0 0 0 0 0 0 0 0.0032984218018855095 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2677].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4105915455730513e-006 0 0 0 0 0 0.00049230761753879906 0 0 0 0 0.64834508205176722 0 0 0 0 0.25203865899142996 0 0 0 0 0.075480337011745835 0.020334791637390409 0 0 0 0 0 0 0 0 0 0.0033074120985820679 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2678].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.1219742111516735e-005 0 0 0 0 0.81760906445271719 7.819101087524496e-006 0 0 0 0.14203965498999335 0 0 0 0 0.033726176783369852 0.0064356679328181794 0 0 0 0 0 0 0 0 0 0.00014039699790235267 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2678].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5489632742382296e-005 0 0 0 0 0.82423269678658562 0 0 0 0 0.13766966331206329 0 0 0 0 0.032142491285927666 0.0059089591229727631 0 0 0 0 0 0 0 0 0 2.0699859708386623e-005 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2679].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0010503062660448088 0.38874603781086281 0 0 0 0 0 0 0 0 0 0 0.18291657050250196 0 0 0 0 0.34823993505898038 0 0 0 0 0.079027170472310074 1.9979889299929842e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61805,11 +61823,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2682].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013510076658354136 0.70018433381698364 0 0 0 0 0 4.9462989682352537e-007 0 0 0 0 5.0366689287940248e-005 0 0 0 0 0.18715326074009481 0 0 0 0 0.099101467465382662 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.034151309753023086 0 0 0 0 0 0 0 0 0 0 6.6156200399821124e-007 0 0 0 0 0.096578948545608057 0 0 0 0 0.6816206290015222 0.18764845113784268 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.031019386033056359 0 0 0 0 0 0 0 0 0 0 6.3090315113786865e-007 0 0 0 0 0.08772171307271466 0 0 0 0 0.71081911512938212 0.17043915486169572 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.023081575085340002 0.59878482191217197 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18297143183544012 0 0 0 0 0.19516217116704801 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12427729153782829 0 0 0 0 0 0 0 0 0 0 0.03164284306532935 0 0 0 0 0.13064857690243267 0 0 0 0 0.57136538214172561 0.14206590635268407 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11982503258261074 0 0 0 0 0 0 0 0 0 0 0.030509109849153268 0 0 0 0 0.12596048789199596 0 0 0 0 0.58674063336131599 0.13696473631492415 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.058864340025378929 0.80926441037207131 0 0 0 0 0 0 0 0 0 0 4.8651002537984439e-006 0 0 0 0 0.1272559469440275 0 0 0 0 0.0046104375582684577 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61845,21 +61863,21 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2702].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2703].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0002633912521945977 0 0 0 0 0.30794566229204806 0 0 0 0 0.20997180880775596 0 0 0 0 0.44215016031132814 0.039668941984743251 0 0 0 0 0 0 0 0 0 3.535193007600988e-008 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2703].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00026028402954321434 0 0 0 0 0.30430969849934841 0 0 0 0 0.20749305032459806 0 0 0 0 0.44873571395874023 0.03920125318777009 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2704].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.7134559022041932e-008 0.11299819583126451 0 0 0 0 0 0.016018469386836289 0 0 0 0 0.71324313243444859 0 0 0 0 0.15774010521289158 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2704].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.7134559022041932e-008 0.11673915945195412 0 0 0 0 0 0.018303779192066001 0 0 0 0 0.70199124889006648 0 0 0 0 0.16296571533135432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2705].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027720226902864728 0.39502338801513626 0 0 0 0 0 0.00025983850989619685 0 0 0 0 0.36235789458061507 0 0 0 0 0.24208167662532382 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2705].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027720226902864728 0.39287554443169542 0 0 0 0 0 0.00025846968771722165 0 0 0 0 0.36582330390298523 0 0 0 0 0.24076547970857343 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2706].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.6120684428020478e-006 0 0 0 0 0 0.034807607051321653 0 0 0 0 0.93291091734474763 0 0 0 0 0.020480247626475764 0 0 0 0 0.011791941315558073 4.0206439696206082e-006 0 0 0 0 0 0 0 0 0 6.5394948452595869e-007 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2706].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.4589570043829676e-006 0 0 0 0 0 0.014323935578862671 0 0 0 0 0.98383406670568341 0 0 0 0 0.0011513795576785395 0 0 0 0 0.0006819471937434137 3.6227707974865375e-006 0 0 0 0 0 0 0 0 0 5.8923623018418333e-007 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2707].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.2782298888858028e-007 0 0 0 0 0.89528104370354444 3.2986194640806165e-007 0 0 0 0.10471465271373334 0 0 0 0 3.2078907577289613e-006 5.3800702918219515e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2708].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00016637653278012547 4.7489084452394778e-006 0 0 0 0.99892669754760255 3.4624299729949666e-008 0 0 0 0.00090214238687242622 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2708].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.034163808114837622 3.3457830831256577e-006 0 0 0 0.96496120389129203 3.4624299729949666e-008 0 0 0 0.00087160758648763032 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2709].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.036204446642449241 0 0 0 0 0.96131376085648768 0 0 0 0 0.0024815107847944895 0 0 0 0 2.8171626860000862e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2709].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015153756828277409 0 0 0 0 0.9845530922100848 0 0 0 0 0.00029313621527627645 0 0 0 0 1.474636161702197e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2710].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.009504227935172296 0 0 0 0 0 0.027793360438990243 0 0 0 0 0.76204040115896898 0 0 0 0 0.083434349443962524 0 0 0 0 0.11722738172631686 2.403878814731626e-007 0 0 0 0 0 0 0 0 0 3.8908707515373634e-008 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2710].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0095042285016749099 0 0 0 0 0 0.02779336193108185 0 0 0 0 0.76204053910477265 0 0 0 0 0.083434260305550789 0 0 0 0 0.11722734071841416 2.3162281301250172e-007 0 0 0 0 0 0 0 0 0 3.7815692599279794e-008 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2711].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51975832113590692 0 0 0 0 0 3.7890936929661194e-008 0 0 0 0 0.073780724772170347 0 0 0 0 0.32811166887007326 0 0 0 0 0.078349029421483418 2.1790942923401516e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -61867,15 +61885,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2713].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36383307626454492 3.4707843337219871e-007 0 0 0 0 0.0011113329630891657 0 0 0 0 0.3436828493239909 0 0 0 0 0.16865831509836368 0 0 0 0 0.1227140792715779 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2714].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12706414382452255 0 0 0 0 0 0.0066644744743107661 0 0 0 0 0.49725904528600329 0 0 0 0 0.12527855063658094 0 0 0 0 0.2301149366844138 0.013618849094168705 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2714].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12705930782484659 0 0 0 0 0 0.0066644744743107644 0 0 0 0 0.49725805762995368 0 0 0 0 0.12527177016002275 0 0 0 0 0.23013722735881054 0.013609162552055585 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2715].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14814507845920558 0.0002669668843319494 0 0 0 0 0.086413844698327344 0 0 0 0 0.66520015725018866 0 0 0 0 0.094638429776653155 0 0 0 0 0.0053336130982627921 1.9098330305680369e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2716].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.096315563947678026 0.90065550873438283 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0030277908727032949 0 0 0 0 1.1364452357829148e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2717].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.065186210520764454 0.0049323604696778879 0 0 0 0 0.30210984809849162 0 0 0 0 0.51607003536363638 0 0 0 0 0.11170154554742955 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2717].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.062766355802044815 0.0047564989840543645 0 0 0 0 0.32800897439540383 0 0 0 0 0.49691323097067508 0 0 0 0 0.10755493984782193 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2718].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00304295653111376 0.6838443659511857 2.8506138248311642e-006 0 0 0 0 0.0027381899818326293 0 0 0 0 0.15572225151460978 0 0 0 0 0.15464938540743339 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2718].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00304295653111376 0.68381124075871957 2.7534307842108494e-006 0 0 0 0 0.0027728855551478115 0 0 0 0 0.15572258491172705 0 0 0 0 0.15464757881250762 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2719].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39460861508152068 0.010794380520983863 0 0 0 0 0.10380108565187968 0 0 0 0 0.42667091578234406 0 0 0 0 0.064125002963271643 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62025,7 +62043,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2800].w[0:72]" " -s 73 0.22879541237226586 0.72868457162617017 0 0 0.042520016001563979 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2801].w[0:72]" " -s 73 0.21303426103627954 0.72709407460397757 0.01385882997226098 0 0.046012834387482028 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2801].w[0:72]" " -s 73 0.21303425997249076 0.72709407546538563 0.013858830042443017 0 0.046012834519680731 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2803].w[0:72]" " -s 73 0.25967024741388162 0.70219059629628466 0 0 0.038139141687624958 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4602208775087134e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62175,7 +62193,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2876].w[0:72]" " -s 73 9.0592569229018419e-006 0 0 0 0.99998896907703261 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.9716660444903234e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2878].w[0:72]" " -s 73 3.9434109401698654e-005 1.4342792759489429e-006 0 9.8216194080551709e-006 0.99993673190998078 8.2070960606779104e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.3709858728782789e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2878].w[0:72]" " -s 73 3.9665449124025494e-005 1.4519691918527587e-006 0 1.1274945845877114e-005 0.99993467432176075 4.2741074577208696e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.6592066198587207e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2893].w[0:72]" " -s 73 0.029787944734204656 0.15695925991071627 0.13329000075081507 6.6351561364136506e-005 0.67989644304289998 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62193,7 +62211,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2906].w[0:72]" " -s 73 8.8315456000012024e-008 0 0 0 0.72512649721645639 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27487339924580734 1.5222280163056495e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2907].w[0:72]" " -s 73 0.00029060151097267404 0.00011188178313234399 0 0.0007919766968570211 0.99096156133115831 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00784397867787953 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2907].w[0:72]" " -s 73 0.00029060141600903899 0.00011188171014487043 0 0.0007919753950004231 0.99096156688077297 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0078439745980727234 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2908].w[0:72]" " -s 73 0.00055385756058966631 0.00028979600564622078 0 0.0043931570161362442 0.97487817047661807 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.019885018941009802 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62257,15 +62275,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2968].w[0:72]" " -s 73 0.038580894410830791 0.37333198096422704 0.15217713736315891 5.8535053854536618e-009 0.43590998140827786 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2969].w[0:72]" " -s 73 0.034983742129941667 0.25002443604493241 0.15278858825551306 0 0.56220323356961288 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2969].w[0:72]" " -s 73 0.034983742171801002 0.25002444043752109 0.15278859774578996 0 0.56220321964488784 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2970].w[0:72]" " -s 73 0.036420663478245588 0.23590131030675879 0.087408229550738639 0 0.64026979666425698 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2971].w[0:72]" " -s 73 0.036795193005335569 0.22769103192547016 0.075124582724904132 0 0.66038919234429005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2971].w[0:72]" " -s 73 0.036778203258635504 0.22819655418364843 0.075776043102138091 0 0.65924919945557792 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2973].w[0:72]" " -s 73 0.044671419073515205 0.54977518642234657 0.12456855071961868 0.030076810411190438 0.25090803337332912 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2974].w[0:72]" " -s 73 0.033262179303854174 0.26018156951938132 0.25755954321955915 -3.3440436039945238e-010 0.4489967082916097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2974].w[0:72]" " -s 73 0.033262144399376532 0.26018090774429781 0.25755931279194844 0 0.44899763505755597 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2975].w[0:72]" " -s 73 0.037474323506097404 0.40680672705849974 0.15405586050425352 0.14132052250451602 0.26034256642663334 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62313,7 +62331,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2997].w[0:72]" " -s 73 0.16767910107592698 0.78632994193374417 0 0 0.04528147731354415 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00070947967678459999 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[2998].w[0:72]" " -s 73 0.03172035546847049 0.26974593747237213 0.086686773671270895 0.35216686312849577 0.23938790924078829 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.020292161025878386 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[2998].w[0:72]" " -s 73 0.03172031495551942 0.26974509063918678 0.086686076192117087 0.35216798413576422 0.23938826409532477 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.020292269960259901 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[2999].w[0:72]" " -s 73 0.038587651329620949 0.41217619182558857 0.20732280798338473 0.15373288229907844 0.18818046656232745 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62335,7 +62353,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3008].w[0:72]" " -s 73 0.99970865230822781 0.00024680486674597224 0 0 4.4542825026339341e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3009].w[0:72]" " -s 73 0.33610978252648366 0.64157586886981399 0 0 0.022314348603702416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3009].w[0:72]" " -s 73 0.33610975174612567 0.64157589785484215 0 0 0.022314350399032245 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3010].w[0:72]" " -s 73 0.94239336252212524 0.056905071975409061 0 0 0.00070156550246564691 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62377,9 +62395,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3029].w[0:72]" " -s 73 0 0 0 0 0.18233057049903756 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81762747639594524 4.1953105017192021e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3030].w[0:72]" " -s 73 0 0 0 0 4.3141489252156819e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.76361623974766279 0.23634061876308501 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3030].w[0:72]" " -s 73 0 0 0 0 4.3128341188805837e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.76361622498285053 0.23634064667596061 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3031].w[0:72]" " -s 73 0 0 0 0 0.0053636970953650758 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93946362426295282 0.055172678641682148 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3031].w[0:72]" " -s 73 0 0 0 0 0.0053636802221010207 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93946298716014609 0.05517333262502884 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3032].w[0:72]" " -s 73 0 0 0 0 0.056584752826905199 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93956690590509195 0.00384834126072691 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62471,7 +62489,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3115].w[0:72]" " -s 73 0 0 0 0 0.99999946416051311 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.3582493495152605e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3116].w[0:72]" " -s 73 0 0 0 0 0.99998868026144716 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1319738552836744e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3116].w[0:72]" " -s 73 0 0 0 0 0.99998868249860284 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1317501397103524e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3117].w[0:72]" " -s 73 0 0 0 0 0.99733218154869974 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0026678184513002634 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62499,7 +62517,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3150].w[0:72]" " -s 73 0.0010367590002715588 0.00048512783783831589 0 0.044464057731000997 0.91707223653793335 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03694181889295578 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3151].w[0:72]" " -s 73 0 0 0 0 0.99426366063284843 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0057363393671515323 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3151].w[0:72]" " -s 73 0 0 0 0 0.99426367260770054 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0057363273922992706 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3152].w[0:72]" " -s 73 0 0 0 0 0.98964386060833931 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.01035613939166069 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62679,105 +62697,105 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3251].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3252].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99210524782080056 0 0 0 0 0.0078947521791995073 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3252].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.4179709804827158e-005 0.99207106811099566 0 0 0 0 0.0078947521791995073 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3253].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3253].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.038678187889141784 0.96132181211085821 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3254].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3254].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10253761527420628 0.89746238472579365 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3255].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3255].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013714734124933516 0.98628526587506649 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3256].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3257].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.97144937305076362 0 0 0 0 0.028550626949236393 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3257].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.030054051131555664 0.94225217488969215 0 0 0 0 0.027693773978752164 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3258].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3259].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3260].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3260].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5734924030397224e-008 0.99999998426507597 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3261].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3261].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.048865018596218217 0.95113498140378183 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3262].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3622250425008724 0.032562632998171866 0 0 0 0.28523439168930054 0.31997793281165515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3262].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36731162435869014 0.061002743688851585 0 0 0 0.31224679946899414 0.25943883248346411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3263].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46146536947416888 0.044073868617862284 0 0 0 0.31075575768526953 0.18370500422269934 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3263].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40679106817709998 0.055064174314304132 0 0 0 0.42207345403964186 0.1160713034689541 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3264].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2351174952741365 0.37645334081965304 0 0 0 0.28348104044504158 0.10494812346116883 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3264].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40328807468163819 0.2099665411952322 0 0 0 0.32821254115801685 0.058532842965112783 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3265].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47330843972193026 0.17148706933059699 0 0 0 0.34971813666589918 0.0054863542815735905 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3265].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46252936236365538 0.14366063630035797 0 0 0 0.38977917981674343 0.0040308215192432738 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3266].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26875236916313849 0.44667899428005631 0 0 0 0.16559418105060134 0.11897445550620384 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3266].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51868145028128299 0.21798687506155459 0 0 0 0.20526625046214819 0.058065424195014093 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3267].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.175638462359649e-006 0 0 0 0 0.16465435365993286 0.82138031338273387 0 0 0 0 0.013962157318870905 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3267].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.7893225569662002e-006 3.3556142838685204e-006 0 0 0 0.75740586530844534 0.23941524523495664 0 0 0 0 0.0031737445197571558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3268].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22068186226442837 0.38860982278647893 0 0 0 0.2278991639700117 0.16280915097908097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3268].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40174824433535156 0.21654031214248182 0 0 0 0.29562632243844739 0.086085121083719185 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3269].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2277143295058798 0.52572609484836563 0 0 0 0.058054641685104651 0.18850493396064982 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3269].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45013314378472652 0.33258903838801113 0 0 0 0.098037994299036493 0.11923982352822581 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3270].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38161165873930603 0.017004429578526492 0 0 0 0.27659151117887282 0.32479240050329455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3270].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38477523557637322 0.054772388325353895 0 0 0 0.30775232621417564 0.25270004988409722 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3271].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23496139067634114 0.42201609233479681 0 0 0 0.18817041600192161 0.15485210100149233 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3271].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39748017776709338 0.24635812275405711 0 0 0 0.2657077833660309 0.090453916127370568 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3272].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21127929070965309 0.63643719592981174 0 0 0 0.0070128826432576405 0.14527063071727753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3272].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48010915517807007 0.33713858350070991 0 0 0 0.10579834508644533 0.076953916234774752 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3273].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62858834518554596 8.8257380892541298e-006 0 0 0 0.37119944340830241 0.00020338567533841975 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3273].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47345252758172662 0.00029714043346560276 0 0 0 0.52607371445938933 0.00017661753269447889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3274].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93972536332306722 0 0 0 0 0.060274517478591284 1.19198341584589e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3274].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86407474164825293 1.4531983790757738e-007 0 0 0 0.1359250093789017 1.0365300755507572e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3275].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0042261613117717993 0.9068274021753463 0 0 0 3.376189052909132e-006 0.088943060323828982 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3275].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17074975666213446 0.755141009838731 0 0 0 5.0934149716618427e-005 0.074058299349417947 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3276].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0012790505246573353 0.99872094947534262 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3276].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28153655079674067 0.71846344920325933 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3277].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999919367134404 0 0 0 0 8.0633593194449872e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3277].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24296562269358352 0.75703357097776047 0 0 0 0 8.0633593194449872e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3278].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4544480192849038 0.015683187847833725 0 0 0 0.33136883587992838 0.19849995698733405 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3278].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42346448179978136 0.04790519763498613 0 0 0 0.3744302943187392 0.15420002624649332 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3279].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.37790187064985431 0.27248306959594804 0 0 0 0.23688341268247237 0.11273164707172524 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3279].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4640705104288898 0.20000182023952093 0 0 0 0.25318293975400469 0.082744729577584539 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3280].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2372675112788209 0.60276670913590902 0 0 0 0.087254263460636139 0.072711516124633946 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3280].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51851546764373779 0.30214854124704965 0 0 0 0.14288792887230842 0.036448062236904097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3281].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.59236798798355783 0.09139637917802497 0 0 0 0.26206215289147489 0.054173479946942341 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3281].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57795001320450212 0.10502103492393709 0 0 0 0.27671514242558432 0.040313809445976567 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3282].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34141179601470201 0.65712934826791025 0 0 0 0.0014587438926894061 1.1182469838984208e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3282].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.79083388590567238 0.19136947562189685 0 0 0 0.01779658241812488 5.6054305889451187e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3283].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74472866637245949 0.054754668250680379 0 0 0 0.20048953327193761 2.7132104922441121e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3283].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72795314950233836 0.035264681028450373 0 0 0 0.2367590190288846 2.3150440326648506e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3284].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99522742164495226 8.7754474729779454e-005 0 0 0 0.0046848124985612678 1.138175675293756e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3284].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99955677158140954 5.7573993923123471e-005 0 0 0 0.00038564834840749599 6.076259789907984e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3285].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42202360556357127 0 0 0 0 0.38479454487035708 0.19318184955151974 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3285].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40577323495313211 0 0 0 0 0.59282268568036411 0.0014040793519518413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3286].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.8258952063254378e-006 0 0 0 0 0.82615741655188257 0 0 0 0 0.1738397575529112 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3286].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.4502745665539814e-006 0 0 0 0 0.69869992712679563 0 0 0 0 0.30129562259863785 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3287].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64561444890109343 0.0086501593851963134 0 0 0 0.34458160566369128 0.001153786050019005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3287].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46669878414723553 0.054027389635554653 0 0 0 0.47849077812232188 0.00078304809488791941 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3288].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91734044703138107 0.00047853434884253978 0 0 0 0.082172880579441721 8.1380403346709151e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3288].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.88203263079997096 0.022584491465944219 0 0 0 0.095381027872324609 1.8498617601748365e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3289].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.055825911865135129 0.94417408813486492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3289].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.67239490238820387 0.32760509761179613 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3290].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21867591190021188 0.63496646806466972 0 0 0 0.044708240465716642 0.10164937956940182 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3290].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5549133632944161 0.27487140822929956 0 0 0 0.12621205054783846 0.044003177928445866 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3291].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28766163086676427 0.36411460803656448 0 0 0 0.22831206274818291 0.11991169836304029 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3291].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42185141640144169 0.22501044037643783 0 0 0 0.27896347377499908 0.074174669461673379 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3292].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42169081928144775 0.010018527523443952 0 0 0 0.29438280052565813 0.27390785266945006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3292].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40221013599406896 0.030894543812933661 0 0 0 0.33110623763534741 0.23578908255764988 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3293].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58941392768186551 0 0 0 0 0.39962016482958673 0.010965907488547583 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3293].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43920255843769379 1.7671938596739257e-007 0 0 0 0.54980369801533036 0.010993566827589901 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3294].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.7385241500805868e-010 0 0 0 0 0.90447310676634984 0 0 0 0 0.095526893059797835 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3294].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.7271209978294887e-010 0 0 0 0 0.79833898768233413 0 0 0 0 0.20166101204495385 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3295].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91085684302045478 0.087308647752253415 0 0 0 0.001834250486929609 2.5874036219776519e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3295].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.92289786010840635 0.076694219168870842 0 0 0 0.00040778259170369297 1.381310190487721e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3296].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71027968018083099 0.039364216891432269 0 0 0 0.2501592329243284 0.00019687000340831026 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3296].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6797449120750032 0.041724013150040234 0 0 0 0.2784194461393763 0.0001116286355802124 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3297].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0002026751395426231 0.99024967482348902 0 0 0 0 0.009547650046063446 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3297].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62922092358656145 0.36724059190352931 0 0 0 0 0.0035384845190042711 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3298].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94097723056322957 0 0 0 0 0.059022769436770428 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3298].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.042265792310292483 0.90120596688111632 0 0 0 0 0.056528240808591243 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3299].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3299].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.094364744567339898 0.9056352554326601 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3300].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3300].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4629140876681852 0.5370859123318148 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3301].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3301].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049828689337290261 0.95017131066270977 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3302].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62797,39 +62815,39 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3310].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3311].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3311].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.065079049372351427 0.93492095062764857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3312].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3312].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.46066445589608e-005 0.99998539335544101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3313].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3314].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00060146430041640997 0.99939853572141146 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3314].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3851384620334713 0.61486153798835663 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3315].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.5161820832304573e-005 0.99992483817916766 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3316].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3316].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00011584607897742581 0.99988415392102248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3317].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00059015897568315268 0.99940984102431685 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3317].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.075819548132478126 0.92418045186752185 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3318].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3318].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99694214856233365 0.0030578514376663479 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3319].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3319].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99957765558851508 0.00042234441148488762 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3320].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3321].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3322].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3322].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998194105725791 1.8058942742153828e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3323].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3323].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70078470120641123 0.29921529879358877 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3324].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3324].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98678141722894253 0.013218582771057521 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3325].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99937975405786572 0.00062024594213427018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3325].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99936303155760542 0.0006369684423946319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3326].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3326].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80575091153955936 0.19424908846044062 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3327].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3327].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999746827601599 2.5317239840096558e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3328].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62849,43 +62867,43 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3336].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3337].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3337].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.4073819528022094e-006 0.99999759261804722 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3338].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3338].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02132618223384225 0.82178498991321303 0.15688882785294472 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3339].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3340].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3340].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00017184779472749923 0.99981049956432799 1.7652640944554321e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3341].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3342].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3342].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013695973988365313 0.82468669401309436 0.16161733199854023 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3343].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3343].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98299777634510577 0.01700222365489424 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3344].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99996447563171387 3.5524368286132813e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3344].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48610349130790098 0.51389650869209902 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3345].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99990614107637332 9.3858923626797042e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3345].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.84471141747766776 0.15528858252233238 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3346].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99991214275360107 8.7857246398925781e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3346].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95972261545469184 0.040277384545308159 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3347].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99995338916778564 4.6610832214355469e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3347].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98318488269050719 0.016815117309492811 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3348].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9999592249187117 4.0775081288302317e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3348].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85090496340239541 0.14909503659760454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3349].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99981159658636898 0.0001884034281829372 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3349].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00014404899685033923 0.50371422524933218 0.49614172576836935 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3350].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3350].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028666681423981332 0.97132073045672696 1.2588119291751458e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3351].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999818101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3351].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016936460024756975 0.98304984111399818 1.3698859425803801e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3352].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3352].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999840675318108 1.5932468189582042e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3353].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3354].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3355].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3355].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17688257310403974 0.82311742689596012 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3356].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62893,9 +62911,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3358].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3359].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00085121393203735352 0.99914878606796265 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3359].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17142709411918666 0.82857290588081334 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3360].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00010669231274441918 0.99989330768725559 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3360].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5377852806194706e-008 0.18582014590611806 0.81417983871602917 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3361].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62905,25 +62923,25 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3364].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3365].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3365].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016821188836732004 0.983178811163268 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3366].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999909051 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3367].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3367].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.7123009301475854e-007 0.99999972876990695 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3368].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3368].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.6748592965554847e-007 0.99999973251407037 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3369].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3369].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.012778980226926674 0.98722101977307331 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3370].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3370].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.029811374712364998 0.97018862528763494 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3371].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3372].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3372].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00034949707937521906 0.99965050292062474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3373].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3373].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.036827629267428712 0.96317237073257123 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3374].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3374].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016023517508240895 0.98397648249175906 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3375].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -62931,91 +62949,91 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3377].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3378].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3378].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037125563065444615 0.96287443693455532 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3379].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.061494801365716056 0 0 0 0 0.15660879462361416 0.78189640403249772 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3379].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.034698778657292463 0.017402830812852488 0 0 0 0.43967215145062832 0.50822623910105469 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3380].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.040521697649354489 0 0 0 0 0.94453831037281144 0.01485191152237449 0 0 0 8.8080455459556284e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3380].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06658770502505576 1.5293772479620564e-005 0 0 0 0.90985686803084287 0.023341224983134349 0 0 0 0.00019890818848741082 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3381].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.7072303337834855e-007 0 0 0 0 0 0.99999922927696661 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3381].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.5982215100271443e-007 0 0 0 0 0.11101194528803754 0.88898729488981143 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3382].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.018467722709644807 0 0 0 0 0 0.98153227729035519 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3382].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.018206520612023262 0 0 0 0 0.014187781362750007 0.96760569802522678 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3383].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16719365065671485 0.01979510196917289 0 0 0 0.054558709211980215 0.75845253816213209 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3383].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12816862208886029 0.015174609073758177 0 0 0 0.16341427925177479 0.69324248958560675 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3384].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35677732240442206 0.073570900505137649 0 0 0 0.10193364787255117 0.46771812921788924 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3384].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27474536951017281 0.055952721751030596 0 0 0 0.28866544920881826 0.38063645952997843 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3385].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31906575951952215 0.07813808498620152 0 0 0 0.12826985057928478 0.47452630491499154 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3385].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2723051049803672 0.066237214727243421 0 0 0 0.25920218639194903 0.40225549390044035 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3386].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58960811361398879 0.067851544510460535 0 0 0 0.14326530602127122 0.19927503585427955 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3386].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.508114815414211 0.092687037692459256 0 0 0 0.17969377958476582 0.21950436730856404 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3387].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58259209398461942 0.11184368865138307 0 0 0 0.096856424582833084 0.20870779278116436 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3387].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46743602474679707 0.1005312784689202 0 0 0 0.16076258625857562 0.2712701105257071 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3388].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4770613965963193 0 0 0 0 0.52293070292854249 7.9004751383038377e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3388].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51027095291715641 0.0015941001507339986 0 0 0 0.4878447981515468 0.00029014878056274937 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3389].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45359314315935534 0.13635941685504063 0 0 0 0.30859736448015135 0.10145007550545268 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3389].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.497123618487195 0.12549624144710114 0 0 0 0.28401106792179986 0.093369072143903983 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3390].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27661968017435612 0.11411959572066444 0 0 0 0.042909340089290253 0.56635138401568919 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3390].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20344101098832995 0.096956055896430193 0 0 0 0.32424564132902295 0.37535729178621696 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3391].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45373002690793079 0.02685508454314588 0 0 0 0.073897801828589973 0.4455170867203333 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3391].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26756446354450131 0.015283536474047928 0 0 0 0.39948384136402343 0.31766815861742725 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3392].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14571451240545247 0 0 0 0 0.17890364523108548 0.67538184236346199 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3392].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.093350399383099136 0 0 0 0 0.72834601441596369 0.17830358620093723 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3393].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10962291767088828 0 0 0 0 0 0.89037708232911172 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3393].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.082872496034120918 0 0 0 0 0.24401380106906245 0.67311370289681671 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3394].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.651444883090042 0.10077611569184153 0 0 0 0.078570162937818488 0.16920883828029806 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3394].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47045652525146869 0.079968356620108955 0 0 0 0.1792119493997533 0.27036316872866906 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3395].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62060117510401591 0.065091595130602545 0 0 0 0.25137856391489105 0.062928665850490353 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3395].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48940771236578007 0.06315342381144122 0 0 0 0.26047101668921685 0.18696784713356196 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3396].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5962065028930984 0.13524113179428801 0 0 0 0.075006401189890215 0.19354596412272335 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3396].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43813073126911661 0.11003812092091543 0 0 0 0.23261105398024118 0.21922009382972663 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3397].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15975825356907419 0.028818302808951726 0 0 0 0.80238038538553857 0.0090394158568324282 0 0 0 3.6423796031405891e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3397].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13040448424000564 0.023523008547457452 0 0 0 0.83869313876440776 0.00737844479856884 0 0 0 9.236495602949945e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3398].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44663920001893676 5.0305751965279649e-005 0 0 0 0.53920373199084848 0.014106762238249569 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3398].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44662246926531701 4.7805513974806923e-005 0 0 0 0.53918741931580283 0.014142305904905186 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3399].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037832660767768395 0 0 0 0 0.83159108335704701 0.13056056370330738 0 0 0 1.5692171877139276e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3399].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.046471218629598986 1.2019335714397042e-005 0 0 0 0.78822499954482972 0.16527354801967367 0 0 0 1.8214470183307509e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3400].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48938589144686157 7.5346399919240525e-006 0 0 0 0.51060096887512163 5.6050380248838869e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3400].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46870090654436503 0.086907892289409261 0 0 0 0.44351862150267779 0.00087257966354796219 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3401].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70600714109355001 0.085977219045162201 0 0 0 0.054991664157381645 0.15302397570390616 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3401].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4755878694235639 0.072188712734396421 0 0 0 0.22511422404015977 0.22710919380187988 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3402].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38044812903301894 0.04476119851186719 0 0 0 0.057103828008485437 0.51768684444662838 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3402].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25357963540289652 0.026349215660993273 0 0 0 0.3714846521720393 0.34858649676407083 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3403].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.082444286098856623 6.4412797756458352e-005 0 0 0 0.011533972021775057 0.90595732908161175 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3403].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03671050551279912 5.1916005755224086e-005 0 0 0 0.60762101899616527 0.35561655948528037 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3404].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047625525718039657 0 0 0 0 0.95233355321136459 0 0 0 0 4.0921070595782932e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3404].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.074707384105660746 0 0 0 0 0.92520623009455027 0 0 0 0 8.6385799788958457e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3405].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.50001092362260557 0 0 0 0 0.49998907634829054 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3405].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.52416174471251664 0 0 0 0 0.47583825525837953 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3406].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.481714963779586 0.066177514962413933 0 0 0 0.42539443042621955 0.026713090831780636 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3406].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44906848032580265 0.061209585218246113 0 0 0 0.39363153145965069 0.096090402996300575 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3407].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19215947426903135 0.015692754036140087 0 0 0 0.79198387787424962 0.00016307978311448575 0 0 0 8.1403746452880025e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3407].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.083242005036695696 0.0018111112139830138 0 0 0 0.78154831561861171 0.13339856813070947 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3408].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3408].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.073745105418117143 0.92625489458188281 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3409].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016297396090250604 0 0 0 0 0 0.9837026039097494 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3409].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.010517616425207928 0 0 0 0 0.12316929356011386 0.86631309001467827 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3410].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.065940611273571315 0 0 0 0 0.035586748075670853 0.89847264065075794 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3410].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.061288917735219113 0 0 0 0 0.1035965465274552 0.83511453573732564 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3411].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00033965108551950869 0 0 0 0 0.017865322567960206 0.9817895789529022 0 0 0 0 5.4473936180929806e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3411].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00019029346732625947 0.0072536183065049307 0 0 0 0.44242228849351473 0.55013178122177142 0 0 0 0 2.018510882679102e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3412].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3412].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.075902848257347069 0.92409715174265283 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3413].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037698509994591664 0 0 0 0 0.0093889989719467479 0.95291249103346154 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3413].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03583561186190598 0 0 0 0 0.058339718211448247 0.90582466992664579 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3414].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.4191138408430346e-008 0 0 0 0 1.2724225291618483e-006 0.99999870338633245 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3414].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.3553366388535366e-008 5.1662806890839796e-007 0 0 0 0.26809767334936402 0.73190179646920073 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3415].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.79614125268379565 2.5852380799085196e-005 0 0 0 0.20383289493540532 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3416].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.075002476591211578 0 0 0 0 0.92499752340878838 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3416].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11794902429799936 0 0 0 0 0.88205097570200064 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3417].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00022153044986663803 0.20881931680010077 1.936427398569162e-007 0 0 0 0 0.31106296969115999 0 0 0 0 0.37632025705950767 0 0 0 0 0.10357573235662514 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3417].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00022153044986663803 0.21887470620004124 3.1437784143858889e-007 0 0 0 0 0.26973311182576409 0 0 0 0 0.40260706658128242 0 0 0 0 0.10856327056520421 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3418].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.560231624504183e-008 6.183813948394291e-005 0.0001822634787453377 0 0 0 0 0.75147143049715037 0 0 0 0 0.24819518404990729 5.8546115071917501e-005 0 0 0 3.0672117325007139e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3418].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.560231624504183e-008 6.4815864829506249e-005 0.00029590367840997509 0 0 0 0 0.61805761659447633 0 0 0 0 0.38154902407222674 4.2509937655185592e-007 0 0 0 3.2149088364610978e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3419].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027719102940240275 0.55721939371316098 0.0017568001760087419 0 0 0 0 0.28171125559295396 0 0 0 0 0.12866588907701881 0 0 0 0 0.030369470411455209 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3419].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027719102940240275 0.53821889059650896 0.0016969453421641074 0 0 0 0 0.30160853381856578 0 0 0 0 0.1288645379616116 0 0 0 0 0.029333901251747271 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3420].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027666391934585977 0.52249165699495559 0.17211830787663707 0 0 0 0 0.29471332298673758 0 0 0 0 0.010400048222323962 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3420].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027666391934585977 0.50485944015917972 0.16631178861267254 0 0 0 0 0.31836786911723608 0 0 0 0 0.010184238191565775 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3421].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10170457892917557 0 0 0 0 0.88620421887204759 0 0 0 0 0.012091202198776907 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63023,7 +63041,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3423].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3722643416723776 0 0 0 0 0.62773555570105999 1.0262656235989811e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3424].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.6340699745102525e-005 0 0 0 0 0.79148486380183758 3.1155115850435272e-005 0 0 0 0.20842764038256689 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3424].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.6340699745102525e-005 0 0 0 0 0.79147534025409727 2.0065190368548343e-005 0 0 0 0.20844825385578913 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3425].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62672626755367855 0.054073691581671489 0 0 0 0 0.10681479164841408 0 0 0 0 0.21238524921623594 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63105,15 +63123,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3464].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0000000000291038 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3465].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.52551059881412387 0 0 0 0 0.47448940118587607 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3465].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53241640253074263 0 0 0 0 0.46758359746925743 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3466].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19106768506107841 0 0 0 0 0.80893231493892159 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3466].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26403050315896692 0 0 0 0 0.73596949684103308 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3467].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00022125218423665614 0.24930980627255309 0.64391009614956229 0 0 0 0 0.10655717818629409 0 0 0 0 1.6672219057602534e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3467].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00022125218423665614 0.24007266685940779 0.62008568118118701 0 0 0 0 0.13961876716411692 0 0 0 0 1.6326256036017196e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3468].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83797819402883778 0 0 0 0 0.16202180597116214 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3469].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0035636516204846699 0.74003472635476308 0.20263711728424247 0 0 0 0 0.05376450474050979 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3469].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0035636516204846699 0.74003319202774276 0.20263315380132135 0 0 0 0 0.053770002550451251 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3470].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0015433966389580139 0.94734815536125749 0.051108447692380113 0 0 0 0 3.0740438584961704e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63199,109 +63217,109 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3511].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3512].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3512].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.026824200561294472 0.97317579943870569 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3513].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3514].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3514].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2710928894689274 0.7289071105310726 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3515].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3516].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99933045160191059 0.00066954839808942986 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3516].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66653723758511063 0.33346276241488937 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3517].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3517].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86737764484228919 0.13262235515771081 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3518].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3519].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00059998035430908203 0.99940001964569092 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3519].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10566453799355013 0.89433546200644987 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3520].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48300387971311515 0.32986281275325602 0 0 0 0.18713288789057031 4.1964305855196811e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3520].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5431907324741404 0.20270831060240019 0 0 0 0.20026353859362223 0.053837418329837246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3521].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53083521639363429 0.28164013992612347 0 0 0 0.18117749371262787 0.006347149967614478 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3521].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51270371333858822 0.2196000387529333 0 0 0 0.20328238953283673 0.06441385837564173 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3522].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81457883757496452 0.10938619636802362 0 0 0 0.075955434576114422 7.9531480897430257e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3522].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.65406213113603184 0.10620444814710917 0 0 0 0.13453081258285474 0.10520260813400426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3523].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.73044204711914063 0.17042495633552179 0 0 0 0.098932234250819193 0.00020076229451839519 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3523].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56032100468695034 0.18281891388022303 0 0 0 0.19459284129596488 0.062267240136861801 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3524].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71114157518799059 0.22381596085035635 0 0 0 0.065042463961653141 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3524].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81930301469468769 0.13556323074623428 0 0 0 0.045130305169377292 3.4493897007479494e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3525].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57848182262640047 0.37998420913045128 0 0 0 0.041533968243148291 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3525].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64715266445855346 0.32527183632744644 0 0 0 0.027564539902296063 1.0959311704077102e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3526].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85079610347747803 0.10016626343773211 0 0 0 0.049037633084789874 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3526].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6477325663025848 0.11732974499220573 0 0 0 0.15327414720940943 0.081663541495800018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3527].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.8028727309373811 0.05331005996822185 0 0 0 0.14381720909439705 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3527].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80275683408629528 0.05344672879870388 0 0 0 0.14379643711500081 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3528].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.50994646301634383 0.33877467335352163 0 0 0 0.15122663884327736 5.2224786857158322e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3528].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80231224750295838 0.13981329293320832 0 0 0 0.057826396234566563 4.8063329266625599e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3529].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41883667528564783 0.5265197133591113 0 0 0 0.054522209823377472 0.00012140153186345796 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3529].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.50781086442893741 0.37829203426508295 0 0 0 0.045987260759485706 0.067909840546493849 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3530].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30272273292744689 0.68790401699651149 0 0 0 0.0093732426610368125 7.4168236998975235e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3530].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35307012047556818 0.6382334418521679 0 0 0 0.0086964307928221012 6.8812607720195637e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3531].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.094951546631442812 0.90443398123182861 0 0 0 0.00061447213277095322 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3531].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30493229333825989 0.69459574139874813 0 0 0 0.00047196525905752557 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3532].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049470639241152414 0.95044262753330189 0 0 0 8.6733225545732384e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3532].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.065119132577975886 0.93479574210582816 0 0 0 8.5125316195923146e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3533].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1743978305687261 0.8160846201778682 0 0 0 0.0095175492534057202 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3533].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15799376583577365 0.83338389290486248 0 0 0 0.0086223412593638832 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3534].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33063899089337556 0.66906639868065843 0 0 0 0.00029461042596600628 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3534].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57431874910352509 0.42549400115088448 0 0 0 0.00018724974559043781 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3535].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17093220841214535 0.82906779158785471 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3535].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31596865732928547 0.68403134267071464 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3536].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85341449804085445 0 0 0 0 0.14658550195914558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3536].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.89233918113615107 4.2098066128083395e-007 0 0 0 0.10766032095680828 7.6926379316769896e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3537].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.77055724566572248 0.22871092108105873 0 0 0 0.00073183325321876322 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3537].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86068948550584812 0.13887682263850851 0 0 0 0.0004336918556433435 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3538].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23868261597984178 0.70568987565340102 0 0 0 0.055627508366757138 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3538].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2984117401791907 0.66811729822591126 0 0 0 0.033391776677246535 7.9184917651441074e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3539].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14951336130109774 0.85048662784252171 0 0 0 1.0856380535570378e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3539].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2228316462173886 0.77716834594573625 0 0 0 7.836875118631187e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3540].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6975681673958789 0.19833674100903695 0 0 0 0.10409509159508412 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3540].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85465395477416217 0.10137306179703864 0 0 0 0.043972983428799205 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3541].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45948333088804499 0.53842262889624304 0 0 0 0.0020940402157120152 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3541].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6294437585839362 0.36912064451502036 0 0 0 0.0014355969010434423 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3542].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35490144298434217 0.64509842132122663 0 0 0 1.3569443116401464e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3542].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60467477761099897 0.39532514136019359 0 0 0 8.1028807489971759e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3543].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35175205897787598 0.64823794875540153 0 0 0 9.9922667225095592e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3543].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.52619029865995304 0.47380250984882283 0 0 0 7.1914912240462904e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3544].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.071915860492589009 0.92807755826979965 0 0 0 6.5812328746256001e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3544].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22097227262467498 0.77902171651670682 0 0 0 6.0108542234931688e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3545].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24394858986118173 0.7502880721219698 0 0 0 0.0057633380168485033 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3545].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27448945282445614 0.71998004655965109 0 0 0 0.0055305006158927524 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3546].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.136840445480818 0.85387070772581564 0 0 0 0.0092888468224701769 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3546].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13684194105368133 0.85386963629637036 0 0 0 0.0092884226790521298 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3547].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.019092377394615587 0.98090762260538455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3547].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.029573969119323789 0.97042603088067625 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3548].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25198439207712742 0.7307190153357217 0 0 0 0.017296590761798573 1.82535246343385e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3548].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4766365258794219 0.51118810048590979 0 0 0 0.01216036063659709 1.5012998071230178e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3549].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35056009758877782 0.60874671308242811 0 0 0 0.040691239074171492 1.9502546224028926e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3549].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41165917079933778 0.53644279237846493 0 0 0 0.035857754481894377 0.016040282340303001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3550].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17885375883292057 0.79025137550772229 0 0 0 0.030894716774036525 1.4888532063537831e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3550].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18044379894244691 0.79689760449333369 0 0 0 0.022575437979093813 8.3158585125531204e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3551].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.067625479187574444 0.91320448085712647 0 0 0 0.019170039955299121 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3551].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.098940996998344508 0.87798231935128324 0 0 0 0.023076683650372229 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3552].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22000545386388431 0.77999454038790861 0 0 0 5.7472975104573619e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3552].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42988390137824367 0.57011609420705212 0 0 0 4.4137947540483706e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3553].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.046565992203805709 0.95189537338717012 0.0015386344090241094 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3553].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.046560625982275859 0.95189747018079762 0.0015419038369264922 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3554].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.022841825947961025 0.92824831708127431 0.048909856970764581 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3554].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.022841331444334236 0.92824851030327382 0.048910158252391936 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3555].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.041040659389295471 0.95895130466631029 0 0 0 8.0359443941792782e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3555].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13461970059584558 0.86537258810988504 0 0 0 7.7112942692871108e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3556].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18221628038618293 0.81778371961381702 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3556].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17237039114504091 0.82762960885495906 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3557].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11162184411886478 0.88837565197496215 0 0 0 2.503935276863268e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3558].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.031338475326055715 0.96866152467394429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3558].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.092968394323079906 0.90703160567692009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3559].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.090336251484720076 0.90963823073368799 2.5517781591849543e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3559].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10644839179948244 0.89352609041892561 2.5517781591849543e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3560].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047953524740729572 0.95204632300049319 1.5225877723146949e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3560].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047953524740729572 0.95204276103160612 3.7142276641832462e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3561].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86112712092684018 0.13729412335306285 0 0 0 0.0015787557200968878 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3561].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86113004823528116 0.13729412335306285 0 0 0 0.0015758284116560086 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3562].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81190111075847315 0.18809244525219201 0 0 0 6.4439893348507702e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3562].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85543413501186416 0.14456091450030292 0 0 0 4.9504878328847634e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3563].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96948887485106416 2.1613107284862853e-005 0 0 0 0.030489512041650877 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3563].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96952665475575517 2.1613107284862853e-005 0 0 0 0.030451732136959883 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3564].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63309,7 +63327,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3566].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3567].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3567].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.071109175958928739 0.92889082404107126 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3568].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63319,13 +63337,13 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3571].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3572].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00010351611271896817 0.0050834114150696596 0.9948130724722114 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3572].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.4035361198725043e-005 0.0021333258192600827 0.99780263881954123 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3573].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.4841640652276032e-006 0.99999451583593479 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3573].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.014622755661546598 0.21079786056043831 0.77457938377801516 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3574].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3575].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.020296310982619e-006 0.99999597970368903 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3575].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4266771576620929e-006 0.99999857332284237 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3576].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63333,15 +63351,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3578].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3579].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3579].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80290517375120829 0.19709482624879171 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3580].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3580].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999823232111162 1.7676788883579092e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3581].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3582].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3583].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3583].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80847569885971948 0.19152430114028049 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3584].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63349,25 +63367,25 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3586].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3587].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99993033309070922 6.9666909290899866e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3587].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58937586506275152 0.41062413493724859 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3588].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99996462016133592 3.5379838664084673e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3588].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9781386486569974 0.021861351343002586 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3589].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99994117021560669 5.8829784393310547e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3589].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47698719209537299 0.52301280790462701 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3590].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30778509681208827 0.69221490318791179 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3592].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999998544808 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3592].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00025587034630104866 0.99974412963914705 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3593].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3593].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22438359423291854 0.77561640576708146 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3594].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3594].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00018468527358430983 0.9998153147264156 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3595].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00011463070437045531 0.99988536929562954 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3595].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00010408181310594955 0.99989591818689405 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3596].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3596].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5823204392065088e-005 0.00016681815357668222 0.99980735864203141 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3597].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63383,79 +63401,79 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3603].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3604].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.084063110792040596 1.509320020969291e-007 0.91593673827595734 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3604].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.051989850434561412 0.26027679181121349 0.68773335775422517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3605].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0096990954459722292 0.98938363006621333 0.00091727448781440989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3605].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.057836670319285841 0.46039239835264095 0.48177093132807314 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3606].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016274338632658925 0.11936248512452263 0.86436317624281844 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3606].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0101154916331969 0.12176882074948404 0.86811568761731905 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3607].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.69206127628526204 0.30793872371473796 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3607].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66258340704622043 0.33741659295377957 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3608].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1324817593539987 0.86751823516847693 0 0 0 5.4747958659069219e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3608].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30150697403585486 0.69849302175689698 0 0 0 4.2045196422244544e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3609].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.019827869453022357 0.98017212729633618 0 0 0 3.2506414771501591e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3609].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11643023109435136 0.88356976570857981 0 0 0 3.1970688267931667e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3610].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.005425342394419364 0.99457465760558061 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3610].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.057487062235040298 0.9425129377649597 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3611].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.072770791284647529 0.92722903069635598 0 0 0 1.7801899650001862e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3611].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18360460763201136 0.81639525565341764 0 0 0 1.3671457088189081e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3612].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.060242077606274314 0.93975792239372569 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3612].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19840846524037969 0.80159153475962031 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3613].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.026426773488701458 0.97357278523042523 4.4128087337133197e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3613].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.067205629698568511 0.93279392902055813 4.4128087337133197e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3614].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99821195103008808 0.0017880489699118526 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3614].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9602105819660568 0.039789418033943279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3615].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.079100155180865e-005 0.99997920899844817 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3615].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2189454276544902e-005 0.97917899618705528 0.020788814358668219 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3616].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.022746019195980599 0.97724744031700939 6.5404870099828455e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3616].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.033833277793768178 0.9661291467275136 3.7575478718234702e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3617].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.4482551949946887e-006 0 0.99999555177390886 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3617].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.029340074650644449 0.16891506209583829 0.80174486328262107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3618].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.4769259150020291e-006 0.13867972407870544 0.86131279899537949 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3618].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.6473643717513769e-006 0.12592075313642681 0.87407459949920141 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3619].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016560757431287189 0.98343924256871273 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3620].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.1296423241349345e-006 0.99999087035767587 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3621].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.060768076458149273 0.93923192354912666 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3621].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10277653317164184 0.89722346683563414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3622].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.5141682353205291e-007 0.99999932270520064 1.2587797576883701e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3622].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.5141682353205291e-007 0.99999637789347029 3.0706897061259849e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3623].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3623].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999897789177261 1.0221082274347907e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3624].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.01617901075713446 0.98382098924286554 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3624].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.045922712802098031 0.95407601364699612 1.2735509058607922e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3625].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015400980701002709 0.9306482385863557 0.053950780712641609 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3625].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037255536335466743 0.51636010597846249 0.44638435768607077 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3626].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5879680431546761e-005 0.90531290842033829 0.094671211899230084 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3626].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.6041309012919957e-005 0.86750258676376224 0.13246137192722482 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3627].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3627].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015703849333613545 0.11240503389238132 0.8718911167740051 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3628].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.084810510499314873 0.91518948950068513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3628].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13866381791204674 0.86133618208795326 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3629].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.9477333326753962e-005 0.99994052266667321 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3629].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.4003931366847643e-005 0.99994599606863321 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3630].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.2219974493304309e-007 0.15273180966875829 0.8409265335270264 0 0 0 0 0.0063412346044703152 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3630].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.2219974493304309e-007 0.15272804290871547 0.8409168032094998 0 0 0 0 0.0063547316820398436 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3631].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.012091656368642734 0.9879083428175478 0 0 0 0 8.1380943390413352e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3632].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0044176064801831885 0.98666288031125504 0 0 0 0 0.0089195132085617152 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81289101672591524 0.10580476253427855 0 0 0 0.081304220739806254 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91204844808841301 0.049733770261439589 0 0 0 0.038217781650147407 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3634].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028824475492150819 0.97117552450784927 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3635].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.97067776761927993 0.00059249602204675665 0 0 0 0.028729736358673208 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3636].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.007298056357596232 0.99267700579904394 1.4101712833013136e-005 0 0 0 1.0836130526867841e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3636].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.007298056357596232 0.99269022155218056 6.6285423220212115e-006 0 0 0 5.0935479012262633e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3637].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99992062654581393 3.1137214766381609e-007 0 0 0 7.9062082038415527e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3638].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999333161166737 6.5934743830227051e-006 0 0 0 7.4913949620740795e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3639].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99850003455550485 0.0014860349871579034 0 0 0 1.3930457337218157e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3639].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99850171865603299 0.0014843509442179069 0 0 0 1.3930399749072108e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3640].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.90309006190529539 0.083475390074184183 0 0 0 0.013434548020520468 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3640].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.90310859457114445 0.083456858048559693 0 0 0 0.01343454738029584 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3641].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63535,27 +63553,27 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3679].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3680].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3680].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85228408621749974 0.14771591378250026 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3681].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3682].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99901763405068778 0.00098236592020839453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62414550895773935 0.37585449101315682 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95666962154312163 0.043330378456878371 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99948770296509415 0.00051229703490581315 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80387459440517384 0.19612540559482611 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999998544808 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22402608013991543 0.77597391984553266 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3687].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3687].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00022320224500634207 0.99977679775499362 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3688].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3689].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3689].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00021714128455707765 0.99978285871544292 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3690].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3690].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00027097117943935086 0.99972902882056069 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3691].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63817,19 +63835,19 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3820].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3821].w[0:72]" " -s 73 0 0 0 0 2.2349004196150039e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17634289454274343 0.82363475645306039 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3821].w[0:72]" " -s 73 0 0 0 0 2.2343435158503479e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17634096767101368 0.8236366888938278 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3822].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3823].w[0:72]" " -s 73 7.2311802949078092e-008 0 0 0 0.016547737019963749 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68895707145895713 0.29449511920927607 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3823].w[0:72]" " -s 73 6.7838588140683918e-008 0 0 0 0.016547375978454095 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68895411086997183 0.29449844531298597 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3824].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.038081547674701649 0.96191845232529838 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3825].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1173804963931999e-005 0.99998882619503604 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3826].w[0:72]" " -s 73 0 0 0 0 0.00079863334834025105 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4435904238962064 0.55561094275545342 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3826].w[0:72]" " -s 73 0 0 0 0 0.0007987595518487953 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44359277957860338 0.55560846086954785 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3827].w[0:72]" " -s 73 2.2749725310493172e-007 0 0 0 2.3302578248205501e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19806611330464982 0.80191035661984877 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3827].w[0:72]" " -s 73 2.2617688579179611e-007 0 0 0 2.319477454360915e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19806536125957394 0.80191121778899666 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3828].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63841,13 +63859,13 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3832].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3833].w[0:72]" " -s 73 0 0 0 0 3.7903548529005793e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21489119540033974 0.78510880421567564 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3833].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21489118302813637 0.78510881701122082 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3834].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.0917521056905572e-005 0.99996908247894312 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3835].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.030005670610054914 0.96999432938994512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3835].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03000601387759122 0.96999398612240872 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3836].w[0:72]" " -s 73 0.00022333313995722619 0 0 0 0.017104463698405681 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53845489427986726 0.44421730888176986 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3836].w[0:72]" " -s 73 0.0002233092058653718 0 0 0 0.017102630652914286 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53842030356700554 0.44425375657421479 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3837].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63861,7 +63879,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3842].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3843].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23786376890990057 0.76213623109009943 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3843].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23786286170277532 0.76213713829699736 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3844].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.033692507735833432 0.96630749226416657 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63893,7 +63911,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3858].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3859].w[0:72]" " -s 73 0 0 0 0 1.0450038910094203e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15900410521096667 0.84099588433899441 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3859].w[0:72]" " -s 73 0 0 0 0 1.0449981604759371e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15900323327320959 0.84099675627680881 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3860].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999272404 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63903,11 +63921,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3863].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.6630245070186547e-005 0.99993336975492975 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3864].w[0:72]" " -s 73 0 0 0 0 6.1077233163400024e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29287995194474181 0.70711998697802503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3864].w[0:72]" " -s 73 0 0 0 0 6.5369583444832354e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29288822949354365 0.70711170513687294 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3865].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12461418506181865 0.87538581493818146 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3865].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12461904557411412 0.87538095442588582 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3866].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44605894907268312 0.55394105082706124 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3866].w[0:72]" " -s 73 0 0 0 0 -1.7992945268484675e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4460501287606588 0.55394987142618124 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3867].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63927,23 +63945,23 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3875].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.032702347915716246 0.96729765208428375 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3876].w[0:72]" " -s 73 0 0 0 0 1.6434418650539873e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23023717836308896 0.76976280520249241 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3876].w[0:72]" " -s 73 0 0 0 0 1.6434394941325919e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23023686292118831 0.76976312062986485 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3877].w[0:72]" " -s 73 0 0 0 0 5.6701458382799772e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30722701650188833 0.69276731335227326 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3877].w[0:72]" " -s 73 0 0 0 0 5.6698137135625438e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30722639520451434 0.69276793498177214 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3878].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30537180836924621 0.69462819163075373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3879].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10703470713681007 0.89296529289229376 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3880].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19125328918752654 0.8087467108124734 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3880].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19125314919979811 0.80874685080020181 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3881].w[0:72]" " -s 73 0 0 0 0 1.2234349013100715e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61144956752673818 0.38854920903836054 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3882].w[0:72]" " -s 73 0 0 0 0 0.00023793333427572083 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74554289901420034 0.25421916765152403 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3883].w[0:72]" " -s 73 0 0 0 0 0.0019204767447807631 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58898698925326431 0.40909253400195494 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3883].w[0:72]" " -s 73 0 0 0 0 0.0019203823740121576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58897315510098835 0.40910646252499949 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3884].w[0:72]" " -s 73 0 0 0 0 3.4270696202500949e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94398326803746335 0.056016731619829646 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3884].w[0:72]" " -s 73 0 0 0 0 3.3553700128822807e-010 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94398528184466135 0.05601471781980169 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3885].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -63985,7 +64003,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3904].w[0:72]" " -s 73 0.38551872820013589 0.60254509623446617 0 0 0.011936175579040349 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3905].w[0:72]" " -s 73 0.8117926425917108 0.18653011554420065 0 0 0.0016772418640884623 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3905].w[0:72]" " -s 73 0.81179262345302394 0.18653013451907532 0 0 0.0016772420279006826 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3906].w[0:72]" " -s 73 0.96161298090303027 0.037867884205863955 0 0 0.00051913489110574874 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64093,7 +64111,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3962].w[0:72]" " -s 73 0.02982025034725666 0.13865773613548776 0.076492797031150847 0.38312812157262205 0.37190109491348267 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3963].w[0:72]" " -s 73 0.025720477463093031 0.077851229856540735 5.093077751941796e-010 0.36957382154712365 0.52685447062393487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3963].w[0:72]" " -s 73 0.02572047741640749 0.07785123031600559 5.0731692833719443e-010 0.36957382292528945 0.52685446883498055 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3964].w[0:72]" " -s 73 0.020392436915912238 0.045509475813369477 0 0.30208436731247412 0.63190528197404117 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00010843798420314345 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64115,19 +64133,19 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3974].w[0:72]" " -s 73 0.067740637099144671 0.44401740230496689 0.31481943364958637 0.046065733467784038 0.12735679347851803 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3975].w[0:72]" " -s 73 0.11152704376948892 0.5704817460261099 0.24727537598072466 0.00052745883116504843 0.070188375392511423 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3975].w[0:72]" " -s 73 0.11152704413767707 0.57048174709471133 0.24727537472010624 0.00052745873244729538 0.070188375315058033 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3976].w[0:72]" " -s 73 0.036587754842706079 0.20711829895286576 0.10666123615810889 0.34249033888648017 0.30714237115983911 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3977].w[0:72]" " -s 73 0.046404983857670112 0.31442088160258186 0.25627507483760892 0.17523175550648643 0.20766730418928614 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3978].w[0:72]" " -s 73 0.036091714338802608 0.1888819496163533 0.096880648235645087 0.36121862630928486 0.3152695097392072 0.0016575517607067115 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3978].w[0:72]" " -s 73 0.036091980590651385 0.18889170920081441 0.096885799630197167 0.36120870037361774 0.31526514396854938 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0016566662361696719 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3980].w[0:72]" " -s 73 0.18823392199345496 0.65185974395720125 0.12542444628208196 1.3052319449048792e-006 0.034480190202495049 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.9233282187707655e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3982].w[0:72]" " -s 73 0.096353901243436429 0.52593081385445184 0.29983153411785662 0.0046567571820683917 0.073226993602186818 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3982].w[0:72]" " -s 73 0.096357568527806678 0.52594145750309795 0.29981897791197387 0.004655773918286879 0.073226222138834701 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3984].w[0:72]" " -s 73 0.026117830730100208 0.073948387240711178 1.2081427162510009e-006 0.35788177401258131 0.54205079987389115 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3984].w[0:72]" " -s 73 0.02611771958260127 0.073949481120464247 1.2034029695158061e-006 0.35788505510725305 0.54204654078671199 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3986].w[0:72]" " -s 73 0.96119583088067595 0.038280780965417982 0 0 0.00052338815390608759 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64139,11 +64157,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3990].w[0:72]" " -s 73 0.5638669579691804 0.4303121213239498 0 0 0.0058209207141458174 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3991].w[0:72]" " -s 73 0.3284051037500173 0.6114167105158933 0.045231189840850131 0 0.014946995893239301 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3991].w[0:72]" " -s 73 0.32840510392057193 0.61141671069164827 0.04523118949867444 0 0.014946995889105554 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3992].w[0:72]" " -s 73 0.54381767613867227 0.40979041123521942 0.040085379663744855 0 0.0063065329623633723 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3992].w[0:72]" " -s 73 0.54382508362137427 0.40979804457788627 0.040070518374392169 0 0.0063063534263472021 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[3993].w[0:72]" " -s 73 0.33279492159017149 0.54381826244769216 0.10731377248324547 0 0.016073043478890752 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[3993].w[0:72]" " -s 73 0.33279453661504754 0.54383152855038885 0.10730114067079252 0 0.01607279416377104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[3994].w[0:72]" " -s 73 0.76132470092130911 0.23665708963414814 0 0 0.0020182094445427437 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64191,9 +64209,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4017].w[0:72]" " -s 73 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4018].w[0:72]" " -s 73 0.99944241248353205 0.0005488805643198251 0 0 8.7069521481808876e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4018].w[0:72]" " -s 73 0.99944241252882149 0.0005488805178594197 0 0 8.7069533191334183e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4019].w[0:72]" " -s 73 0.99997243053178397 2.5926940682128494e-005 0 0 1.6425275340829572e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4019].w[0:72]" " -s 73 0.99997243053366047 2.5926938756888826e-005 0 0 1.6425275826052252e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4020].w[0:72]" " -s 73 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64217,13 +64235,13 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4032].w[0:72]" " -s 73 0.99999916553497314 7.3179381343546623e-007 0 0 1.0267121346111102e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4033].w[0:72]" " -s 73 0.99999999994769895 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4033].w[0:72]" " -s 73 0.99999999994773503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4036].w[0:72]" " -s 73 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4040].w[0:72]" " -s 73 0.99745021074378915 0.0025391738232182215 0 0 1.0615432992543934e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4040].w[0:72]" " -s 73 0.99745035919741099 0.0025390215313487821 0 0 1.061927124037344e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4042].w[0:72]" " -s 73 0.99999988103738258 1.1896261734128246e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4042].w[0:72]" " -s 73 0.99999988111949312 1.1888050675101456e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4044].w[0:72]" " -s 73 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64233,9 +64251,13 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4047].w[0:72]" " -s 73 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4352].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4352].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95037618651986122 0.049623813480138779 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4353].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4353].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.90993689745664597 0.090063102543354034 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[4354].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96997896395623684 0.030021036043763161 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[4355].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.92323388159275055 0.076766118407249451 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4356].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75161413848400116 0.24838586151599884 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64252,6 +64274,8 @@ createNode reference -n "VendingGuy2IKRN";
 		2 "VendingGuy2IK:skinCluster1" "wl[4362].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96859918907284737 0.031400810927152634 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4363].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9615907184779644 0.038409281522035599 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[4384].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99979437647562008 0.00020562352437991649 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4409].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75724534690380096 0.24275465309619904 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64317,7 +64341,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4538].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028161298184070035 0 0 0 0 0.14438735351118143 0.82745134830474854 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4539].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.053830129325074083 0 0 0 0 0.20432066917419434 0.74184920150073164 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4539].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.051724922677735166 0 0 0 0 0.23543836176395416 0.71283671555831063 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4540].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016941411420702934 0.98305858857929707 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64327,7 +64351,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4543].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30047441083384124 0 0 0 0 0.12667941492604642 0.5728461742401123 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4544].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13993658713264556 0 0 0 0 0.073362866125868856 0.7867005467414856 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4544].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13748345165422052 0 0 0 0 0.089607127010822296 0.77290942133495721 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4545].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047397881746292114 0.95260211825370789 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64419,15 +64443,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4590].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28045940399169922 0.71954059600830078 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998227088690328 1.7729113096720539e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11474508047103882 0.88523922474437344 1.5694784587757193e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4592].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99690644955262542 0.0030935504473745823 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4592].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049315843731164932 0.94774316687189764 0.0029409893969373825 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4593].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99711800902150571 0.0028819909784942865 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4593].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049315843731164932 0.94794429310707085 0.0027398631617642352 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4594].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99792051711119711 0.002079482888802886 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4594].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015307066030800343 0.98264528186228561 0.0020476521069140606 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4595].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99597619567066431 0.0040238043293356895 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4595].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028121181515305807 0.96926862001419067 0.0026101984705035209 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4596].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71666213870048523 0.28333786129951477 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64447,39 +64471,43 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4604].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9419960044324398 0.058003995567560196 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4605].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4185905456542969e-005 0.99998581409454346 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4605].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15822659432888031 0.84177340567111969 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4606].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35754966735839844 0.64245033264160156 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4606].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58346748352050781 0.41653251647949219 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4607].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0091651855036616325 0.99083481449633837 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4607].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12181881070137024 0.87818118929862976 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4608].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39048302173614502 0.60951697826385498 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4608].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41370981931686401 0.58629018068313599 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4609].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28415146470069885 0.71584853529930115 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4609].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30421838164329529 0.69578161835670471 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4610].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4610].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.099966108798980713 0.90003389120101929 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4611].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99003869295120239 0.0099613070487976074 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4612].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99432772397994995 0.0056722760200500488 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4613].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9999945666891108 5.4333108892024029e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4613].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10698043555021286 0.89301471239686336 4.8520529237958138e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4614].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999820128516603 1.7987148339670966e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4614].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.056060397634375814 0.94393813610076904 1.4662648551410301e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4615].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999084337468958 9.1566253104247153e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4615].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049598008394241333 0.95039328913082721 8.7024749314153493e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4616].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.097339972853660583 0.90266002714633942 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4616].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33309644460678101 0.66690355539321899 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4617].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.081651344895362854 0.91834865510463715 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4617].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1571727991104126 0.8428272008895874 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4618].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15850532054901123 0.84149467945098877 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4618].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21227194368839264 0.78772805631160736 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4619].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71825551986694336 0.28174448013305664 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4619].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83547575771808624 0.16452424228191376 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4620].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75249004364013672 0.24750995635986328 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4620].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83167636394500732 0.16832363605499268 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4621].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99647888843901455 0.003521111560985446 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4621].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0083856098353862762 0.98812280527136553 0.0034915848932481541 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[4622].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98334449343383312 0.016655506566166878 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[4623].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94276811555027962 0.057231884449720383 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4624].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03618746886053395 0 0 0 0 0.11916094273328781 0.84465158840617827 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64487,7 +64515,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4626].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.0011555185705447622 0 0 0 0 0 0 0 0 0 0 0.10094749253177114 0 0 0 0 0.48736687952751073 0 0 0 0 0.22311790701192755 0.18741220235824585 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4627].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.025716302007277852 0 0 0 0 0.34410828351974487 0.63017541447297731 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4627].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.024624862420714023 0 0 0 0 0.32950379635080085 0.64587134122848511 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4628].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015169561103253779 0 0 0 0 0.41736739873886108 0.56746304015788518 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64499,17 +64527,17 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4632].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93237312883138657 0 0 0 0 0.067626871168613434 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.012419295924651146 0 0 0 0 0.90423274042725987 0.0005999156406007257 0 0 0 0.082748048007488251 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.011323200159557126 0 0 0 0 0.91268491744995117 0.00054696859778399765 0 0 0 0.075444913792707707 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4634].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18687960189754427 0 0 0 0 0.43142125010490417 0.3816991479975515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4635].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.046685645370634611 0 0 0 0 0.48067688941955566 0.4726374652098097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4635].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.045915437426589656 0 0 0 0 0.48924455046653748 0.46484001210687281 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4636].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095435836261386534 0 0 0 0 0.72962576811922109 0.1749383956193924 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4637].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.056890600259697575 0 0 0 0 0.47258785367012024 0.47052154607018215 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4638].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.041409612696867631 0 0 0 0 0.48881712555885315 0.46977326174427919 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4638].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.040531733226892096 0 0 0 0 0.4784542534827026 0.48101401329040527 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4639].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19583083057631151 0 0 0 0 0.43742382526397705 0.36674534415971149 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64519,13 +64547,13 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4642].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20439643027143856 0 0 0 0 0.54647901028750023 0 0 0 0 0.19598285002395641 0.053141709417104721 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4643].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41666367135675236 0 0 0 0 0.35494351387023926 0.22839281477300835 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4643].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39691788457734029 0 0 0 0 0.38551288843154907 0.21756922699111059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4644].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29361060261726379 0.70638939738273621 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4645].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28932031197734775 0 0 0 0 0.64551727520040569 0.065162412822246552 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4646].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58703440427780151 0.41296559572219849 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4646].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56263375282287598 0.43736624717712402 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4647].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66632184386253357 0.33367815613746643 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64537,7 +64565,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4651].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.087081494047218586 0 0 0 0 0.65073031187057495 0.26218819408220645 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4652].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00058148861181802497 0 0 0 0 0.54960900545120239 0.4498095059369796 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4652].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00054805960617827049 0 0 0 0 0.5492810359958572 0.45017090439796448 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4653].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.06320839464325885 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.044934246940346867 0 0 0 0 0.86015436311610127 0.031702995300292969 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64549,63 +64577,63 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4657].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.88567507266998291 0.11432492733001709 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4658].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.7051377521635231e-009 0 0 0 0 0.99999999629486225 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4658].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.5585423595508018e-009 0 0 0 0.039565436542034149 0.9604345598994235 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4659].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.00095176475588232279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99904183066803198 6.4045760856434749e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4659].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.00092103994060181303 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.032281942665576935 0.96679081956989366 6.1978239276494094e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4660].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99809902580454946 0.0019009741954505444 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4660].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.006921455729752779 0.99119072758353388 0.0018878166867133312 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4661].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.1346759796142578e-005 0.99992865324020386 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4661].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22684940695762634 0.77315059304237366 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4662].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.023318234831094742 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.97668176516890526 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4662].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.022938982955881457 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016264175996184349 0.96079684104793417 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4663].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.8351415545039345e-007 0 0 0 0 0.99999901648584455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4663].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.9298366958128961e-007 0 0 0 0.092047974467277527 0.90795113254905291 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4664].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.025934113202390415 0 0 0 0 0.93695032596588135 0.037115560831728241 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4664].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0028685799171110781 0 0 0 0 0.78957952351077587 0.20755189657211304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4665].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0042476654052734375 0.99575233459472656 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4665].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43614545464515686 0.56385454535484314 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4666].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4666].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.098613545298576355 0.90138645470142365 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4667].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62647765874862671 0.37352234125137329 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4667].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60342288017272949 0.39657711982727051 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4668].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99819749593734741 0.0018025040626525879 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4668].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4669].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4669].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998352700276882 1.6472997231176123e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4670].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4671].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0080635775580869783 0.020243922248482704 0 0 0 0.36536602856177447 0.60632647163165587 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4671].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0035028902586163426 0.0087941410037383067 0 0 0 0.71651691198348999 0.27118605675415536 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4672].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.026993983165121877 0.0031382441520690918 0 0 0 0.26728902027443113 0.70257875240837786 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4672].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.023353890816964654 0.0027150573087374335 0 0 0 0.3323935866355896 0.64153746523870836 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4673].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037966189875197676 0 0 0 0 0.94478744268417358 0.017246367440628737 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4673].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037910396228720555 0 0 0 0 0.94339901954383676 0.018690584227442741 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4674].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.080163924077819707 0.028978297486901283 0 0 0 0.56383746463681339 0.32702031379846558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4674].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.053315651768000967 0.019272968924791526 0 0 0 0.69711923599243164 0.23029214331477585 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4675].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11366537587445201 0.025517961010336876 0 0 0 0.51471134323167078 0.34610531988354037 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4675].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095013209893448594 0.021205480714259491 0 0 0 0.53817707300186157 0.34560423639043036 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4676].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11600849802232156 0.012360620312392712 0 0 0 0.47254993933672962 0.39908094232855607 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4676].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1024275531947718 0.010913580609623726 0 0 0 0.44958224892616272 0.43707661726944169 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4677].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.003819849178003851 0 0 0 0 0.85284377676131928 0.00014618386463957164 0 0 0 0.14319019019603729 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4678].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14109776023797713 0.018153753131628036 0 0 0 0.6272550018663634 0.21349348476403138 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4678].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12643847900057695 0.016267678028649594 0 0 0 0.66846293210983276 0.18883091086094073 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4679].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095858717298809071 7.6521821029018611e-005 0 0 0 0.80786882400239857 0.096195936877763316 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4679].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.092134570334710453 7.3548919706083218e-005 0 0 0 0.77648281850307554 0.13130906224250793 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4680].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0040210742204267918 0.00020910521561745554 0 0 0 0.13818017208708244 0.85758964847687325 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4680].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0038607306106917404 0.00020076697482692113 0 0 0 0.17254593968391418 0.82339256273056716 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4681].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21738245284436031 0 0 0 0 0.73892659296616703 0.00027941618459748774 0 0 0 0.043411538004875183 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4682].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19073125107108194 0 0 0 0 0.77294162435629921 6.7678279503217512e-005 0 0 0 0.036259446293115616 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.4416991739999503e-005 0 0 0 0.050465316822578377 0.94945026618568162 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.2577378530181883e-005 0 0 0 0.18363901972770691 0.81628840289376292 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.030787583759285898 0.014994293618936356 0 0 0 0.69503521919250488 0.25918290342927286 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013386736940775787 0.0065196627919497947 0 0 0 0.86283035021434551 0.11726325005292892 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12135047532402722 0.012527470476925373 0 0 0 0.52770634481475742 0.33841570938429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11725756161725519 0.012104943449410399 0 0 0 0.54539477825164795 0.32524271668168647 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47811287641525269 0.52188712358474731 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53411781787872314 0.46588218212127686 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4687].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.083974894697759678 0 0 0 0 0.90131348371505737 0.014711621587182947 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64621,17 +64649,17 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4693].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98820111621171236 0.01179888378828764 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4694].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.061833527490824845 0 0 0 0 0 0 0 0 0 0 0.33486628532409668 0 0 0 0 0.57403746821084756 0 0 0 0 0.029262718974230949 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4694].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.062339851608563118 0 0 0 0 0 0 0 0 0 0 0.33746741806350294 0 0 0 0 0.57069039344787598 0 0 0 0 0.029502336880057996 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4695].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34982069616783579 0 0 0 0 0.45435649671456096 0 0 0 0 0.16039500208129692 0.035427805036306381 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4696].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013167263938423423 0 0 0 0 0.22768340421865169 0 0 0 0 0.46418835619595222 0.29496097564697266 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4696].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.011779352285136687 0 0 0 0 0.20368415490969477 0 0 0 0 0.52066624164581299 0.26387025115935558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4697].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.29497395948185878 0 0 0 0 0 0 0 0 0 0 0.37499032968102547 0 0 0 0 0.32914930582046509 0 0 0 0 0.00088640501665059328 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4697].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.29551705369142794 0 0 0 0 0 0 0 0 0 0 0.37383958697319031 0 0 0 0 0.32975532230540799 0 0 0 0 0.00088803702997380886 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4698].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.091733955686605001 0 0 0 0 0 0 0 0 0 0 0.50760639374920125 0 0 0 0 0.40065965056419373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4698].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.091398213279204554 0 0 0 0 0 0 0 0 0 0 0.50940853357315063 0 0 0 0 0.39919325314764481 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4699].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00047078992643414066 0 0 0 0 0.63765253506358455 0 0 0 0 0.25973905043559448 0 0 0 0 0.077771670920507158 0.02095729298889637 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0034086606649833475 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4699].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00045787710877326013 0 0 0 0 0.6475909948348999 0 0 0 0 0.25261493241741872 0 0 0 0 0.075638550924960704 0.020382476732565265 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0033151679813821339 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4700].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.2807504195990589e-005 0 0 0 0 0.82536905775451697 0 0 0 0 0.13690788579760255 0 0 0 0 0.031878777841148738 0.0058214711025357246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64643,11 +64671,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4704].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.013513475656509399 0.70021534607732627 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18714613570844796 0 0 0 0 0.09912504255771637 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4705].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.034149969471617039 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.096577348446447039 0 0 0 0 0.68162423671412287 0.18764844536781311 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4705].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.031018045405864902 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.087720153945662765 0 0 0 0 0.71082276105880737 0.17043903958966494 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4706].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.023035658523440361 0.59858422962948643 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18305104175582562 0 0 0 0 0.19532907009124756 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4707].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.12436625162853368 0 0 0 0 0 0 0 0 0 0 0.031664532910587809 0 0 0 0 0.13062757507427283 0 0 0 0 0.57135488286974467 0.14198675751686096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4707].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.11991169113751884 0 0 0 0 0 0 0 0 0 0 0.030530370101763699 0 0 0 0 0.12594874599207972 0 0 0 0 0.58670812845230103 0.13690106431633672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4708].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.058886181563138962 0.80929554085796429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12724474240476538 0 0 0 0 0.0045735351741313934 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64657,11 +64685,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4719].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00017821788787841797 0.99982178211212158 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4723].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4723].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04259921982884407 0.95740078017115593 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4724].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0014883097651038966 0.98265922069549561 0 0 0 0.015852469539400497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4725].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0029626095163769297 0.92417794466018677 0 0 0 0.0728594458234363 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4725].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.021125035360455513 0.90734275518100216 0 0 0 0.071532209458542342 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4726].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64669,67 +64697,67 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4728].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.6648694821151489e-005 0.9750664234161377 0 0 0 0.024846927889041154 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4730].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31638628063232072 0.025714563205838203 0 0 0 0.62709703574365283 0.030802120418188309 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4730].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30154018566574248 0.019469411545969748 0 0 0 0.51475155353546143 0.16423884925282636 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4731].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34426146745681763 0 0 0 0 0.63574580017497428 0.019992732368208095 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4731].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34467243008149695 0 0 0 0 0.6180148573981421 0.037312712520360947 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4732].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23785992167332895 0.061427410691976547 0 0 0 0.62830623061157509 0.072406437023119483 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4732].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27430103616143298 0.026897091765640521 0 0 0 0.55296188592910767 0.14583998614381882 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4733].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23006918929506154 0.083271227777004242 0 0 0 0.59065498034281549 0.096004602585118642 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4733].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28714331396099979 0.041139565341044106 0 0 0 0.56987082958221436 0.1018462911157417 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4734].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26605312575763396 0.072255976498126984 0 0 0 0.49095854365533553 0.17073235408890358 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4734].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27670691929144203 0.053257790032612308 0 0 0 0.53938549757003784 0.13064979310590782 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4735].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39658456500016642 0.10737181454896927 0 0 0 0.46792211808377093 0.028121502367093345 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4735].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44350366408145997 0.084111295062620842 0 0 0 0.41043257713317871 0.061952463722740492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4736].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.34241601111036335 0.16602534055709839 0 0 0 0.46177405297464141 0.029784595357896893 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4736].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.41385454852807713 0.12336252784510329 0 0 0 0.43648925423622131 0.02629366939059825 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4737].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36712523028500693 0.14485672116279602 0 0 0 0.43816885944984096 0.049849189102356146 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4737].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.37915756826481961 0.14500833010484868 0 0 0 0.42539134621620178 0.050442755414129875 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4738].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3241248726960711 0.052226237952709198 0 0 0 0.57324538374584044 0.050403505605379303 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4738].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32737562221927624 0.042211995186343748 0 0 0 0.5880964994430542 0.042315883151325777 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4739].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46142485382426202 0.065202169120311737 0 0 0 0.44900216600553777 0.024370811049888527 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4739].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47364105462763489 0.063695545269883858 0 0 0 0.43862709135197092 0.024036308750510216 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4740].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3708571932923046 0.01376786082983017 0 0 0 0.6126325029410592 0.0027424429368059847 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4741].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46050034380254773 0 0 0 0 0.50073942997755971 0 0 0 0 0.038760226219892502 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4742].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40985877790561226 0 0 0 0 0.58500996819653117 5.8257877539440861e-005 0 0 0 0.0050729960203170776 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4742].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40889914074047456 0 0 0 0 0.58586881347713426 0.00013396501890383661 0 0 0 0.0050980807634873147 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4743].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33715865015983582 0 0 0 0 0.59219462290914471 0.070646726931019435 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4743].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29799767800349136 0 0 0 0 0.57938618741255854 0.12261613458395004 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4744].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43173067454544178 0.10089054703712463 0 0 0 0.4251503558702906 0.042228422547142992 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4744].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44458337009673027 0.098445596874635305 0 0 0 0.41519350420621237 0.041777528822422028 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4745].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30016449119583782 0.063895158469676971 0 0 0 0.52167373411348006 0.11426661622100517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4745].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30350282874661011 0.054481629045924525 0 0 0 0.54213607311248779 0.099879469094977566 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4746].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36261856555938721 0 0 0 0 0.6330137003858014 0.0043677340548114079 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4746].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36963009933211571 0 0 0 0 0.62534178228847015 0.0050281183794140816 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4747].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42667152341722792 9.9145632702857256e-005 0 0 0 0.57227468521876723 0.00095464573130202963 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4748].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40619246396165076 0.24873572587966919 0 0 0 0.33274605800649371 0.012325752152186365 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4748].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40615649286667177 0.24871369864574891 0 0 0 0.33247352119742352 0.012656287290155888 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4749].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40374731612676734 0.2907257080078125 0 0 0 0.29998442382872942 0.0055425520366907026 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4749].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40669781958166401 0.29285027248574658 0 0 0 0.29402577877044678 0.0064261291621427194 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4750].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.73214531546542194 0.020019710612885055 0 0 0 0.24659484624862671 0.0012401276730662854 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4750].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71516001224517822 0.021289208123194563 0 0 0 0.26223201251047568 0.0013187671211515289 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4751].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.043958577823764923 0.82917994260787964 0 0 0 0.12684588963131843 1.5589937037006821e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4751].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20181763172149658 0.69139302664716118 0 0 0 0.1067763423133421 1.2999318000088332e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4752].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66255667175803556 0.13489869236946106 0 0 0 0.20254463587250343 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4752].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6562151733827758 0.15802395604131933 0 0 0 0.18576087057590485 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4753].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0073341131210327148 0.99266588687896729 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4753].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23349955677986145 0.76650044322013855 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4754].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17427441157897836 0.7502405047416687 0 0 0 0.075485083679352943 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4754].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1172739714384079 0.83267146560993066 0 0 0 0.050054562951661434 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4755].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58799061830476396 0.03087582066655159 0 0 0 0.36591652604648028 0.01521703498220415 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4756].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74500718231894791 0 0 0 0 0.23845013289859257 0 0 0 0 0.016133790835738182 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00040889394672131665 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4757].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68669041991233826 0 0 0 0 0.31330958008766174 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4757].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.65812712907791138 0 0 0 0 0.34187287092208862 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4758].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70415119769804335 0.056556267306779942 0 0 0 0.23457597196102142 0.004716563034155288 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4758].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6901875058731175 0.057369194996679106 0 0 0 0.2379477168104073 0.014495582319796085 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4759].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5153038282958452 0.14011453092098236 0 0 0 0.31441988194010112 0.030161758843071224 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4760].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72736187326994517 0.00034796457509324823 0 0 0 0.27216917276382446 0.00012098939113709274 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4760].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70738130807876587 0.00037346551643354563 0 0 0 0.29211537018184491 0.00012985622295570088 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4761].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68085396739734771 0.00043228556751273572 0 0 0 0.27975444323482007 0.038755615305881355 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00020368849443818133 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64739,27 +64767,27 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4764].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72041682608574276 0.044435564428567886 0 0 0 0.2251503226261336 0.0099972868595557401 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4765].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.54152342038634516 0.22682924568653107 0 0 0 0.20215851499797746 0.029488818929146364 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4765].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57525360584259033 0.21014138666796525 0 0 0 0.18728568505279916 0.027319322436645234 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4766].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.31213982991052958 0.41905739903450012 0 0 0 0.26500933610848815 0.0037934349464822182 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4766].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3474980890750885 0.39095706753684878 0 0 0 0.2580057811832539 0.00353906220480883 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4767].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17969361354000646 0.60398739576339722 0 0 0 0.21580904144704011 0.00050994924955619862 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4767].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32545324671866294 0.47345936060068278 0 0 0 0.16917150821567503 0.031915884464979172 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4768].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.052612147245423235 0.88126653432846069 0 0 0 0.065356016107782591 0.00076530231833348266 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4768].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47616927987809338 0.48542028992371861 0 0 0 0.037830930203199387 0.00057949999498863307 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4769].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00026339080746898546 0 0 0 0 0.30794197150340091 0 0 0 0 0.20996970949431618 0 0 0 0 0.44215576466970941 0.039669163525104523 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4769].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00026028402954321434 0 0 0 0 0.30430969849934841 0 0 0 0 0.20749305032459806 0 0 0 0 0.44873571395874023 0.03920125318777009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4770].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.11290750223911751 0 0 0 0 0 0.016004633158445358 0 0 0 0 0.71336966493579668 0 0 0 0 0.15771819966664052 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4770].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.1166498345491387 0 0 0 0 0 0.018293371906587513 0 0 0 0 0.70211100578308105 0 0 0 0 0.16294578776119276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4771].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00027720740763470531 0.39502861770681513 0 0 0 0 0 0.00025954664252639899 0 0 0 0 0.36235138773918152 0 0 0 0 0.2420832405038422 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4771].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00027720740763470531 0.39288066493489748 0 0 0 0 0 0.00025813536773447936 0 0 0 0 0.36581707000732422 0 0 0 0 0.24076692228240906 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4772].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0348176048956799 0 0 0 0 0.93305057287216187 0 0 0 0 0.02040374608075287 0 0 0 0 0.011728076151405364 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4772].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.014320078305900097 0 0 0 0 0.98399799018051015 0 0 0 0 0.0010680285506545555 0 0 0 0 0.00061390296293520319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4773].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.2575013878912066e-007 0 0 0 0 0.89529292807228322 0 0 0 0 0.10470684617757797 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4774].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00015853607333006194 0 0 0 0 0.99894315004348755 0 0 0 0 0.00089831388318238929 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4774].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03415495902299881 0 0 0 0 0.96497727139490663 0 0 0 0 0.00086776958209460429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4775].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.036204479956119952 0 0 0 0 0.96131443977355957 0 0 0 0 0.0024810802703204788 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4775].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015153776854276657 0 0 0 0 0.98455310554432873 0 0 0 0 0.00029311760139465561 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4776].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.0095043367036740014 0 0 0 0 0 0.027793673130677612 0 0 0 0 0.76204183438502271 0 0 0 0 0.083432333238435089 0 0 0 0 0.11722782254219055 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64775,7 +64803,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4782].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.096322514116764069 0.90068136295303702 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0029961229301989079 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4783].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.065209957860863949 0.0047390944498216132 0 0 0 0 0.30207341730480625 0 0 0 0 0.51623529195785522 0 0 0 0 0.11174223842665297 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4783].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.062789221588936392 0.004563168897849146 0 0 0 0 0.32798197865486145 0 0 0 0 0.49707150873999356 0 0 0 0 0.10759412211835954 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4784].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.0030477861873805523 0.6840653836182552 0 0 0 0 0 0.0022510999331325911 0 0 0 0 0.15576936304569244 0 0 0 0 0.15486636721553929 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64789,87 +64817,89 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4800].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028613077476620674 0.97138692252337933 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4801].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4801].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.043748382478952408 0.95625161752104759 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4802].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4802].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0049445121549069881 0 0 0 0 0.12227706367322028 0.87277842417187268 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4803].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00015914440155029297 0.99984085559844971 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4803].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.031568024307489395 0.9684319756925106 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4804].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4805].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4805].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047409985214471817 0.95259001478552818 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4807].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0051607689939548894 0 0 0 0 0.010229746333498723 0.98460948467254639 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4807].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0087245870381593704 0 0 0 0 0.266714723605953 0.72456068935588758 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4808].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.050673692669323624 0 0 0 0 0.8997429706673028 0.0024556287098675966 0 0 0 0.047127707953506001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4808].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.092889913862478024 0 0 0 0 0.86557382345199585 0.0020570951052296589 0 0 0 0.039479167580296473 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4809].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.002778470516204834 0.99722152948379517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4809].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23989905416965485 0.76010094583034515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4810].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11180442571640015 0.88819557428359985 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4810].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13818319141864777 0.86181680858135223 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4811].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0071521904319524765 0.016926658626340498 0 0 0 0.85973228403319102 0.11618886690851608 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4811].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0060786868784896021 0.014386062377329678 0 0 0 0.76876920461654663 0.21076604612763408 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4812].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.90301661423532475 0.057482019066810608 0 0 0 0.039382345026683863 0.00011902167118083167 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4812].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86144700965417087 0.1008700355887413 0 0 0 0.037569412147675729 0.0001135426094121122 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4813].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6049912760977192e-009 0 0 0 0 0.95960511115748603 0.000336330293390879 0 0 0 0.040058556944131851 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4814].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.034583947128167029 0.020807903774889478 0 0 0 0.94459903240203857 0 0 0 0 9.1166949049218002e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4814].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08833477646112442 0.014659944121500325 0 0 0 0.89699885636585963 0 0 0 0 6.4230515156556246e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4815].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02636221166020843 0 0 0 0 0.83774420136971295 0.00078609120100736618 0 0 0 0.13510749576907122 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4815].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.046990837026292517 0 0 0 0 0.81154739856719971 0.00081830092764728862 0 0 0 0.1406434634788605 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4816].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03814158646098971 0 0 0 0 0.90396216081746217 0.05789625272154808 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4816].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.093814907721207874 0 0 0 0 0.85612493753433228 0.050060154744459837 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4817].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.018628707155585289 0 0 0 0.42996184935890558 0.55140944348550913 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4817].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.017448642771972511 0 0 0 0.46380904316902161 0.51874231405900584 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4818].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56307160885142038 0.40209293365478516 0 0 0 0.034835457493794478 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4818].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57941222190856934 0.3912915191336041 0 0 0 0.029296258957826563 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4819].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.058231469036239547 0 0 0 0 0.86280127445741728 0.00014405188267119229 0 0 0 0.078823204623671983 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4819].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.094238788971491197 0 0 0 0 0.83712458610534668 0.0001252067689547221 0 0 0 0.068511418154207415 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4820].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02130835530124419 0.014868831136280554 0 0 0 0.96144872903823853 0.0023740845242367289 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4820].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.053302064538002014 0.013900036510801822 0 0 0 0.89880450685100599 0.03399339210019018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4821].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.5037455729281614e-008 0 0 0 0 0.96903686886063756 0.00025654109776951373 0 0 0 0.03070657500413719 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4822].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12558067009372151 0 0 0 0 0.092775322496891022 0.78164400740938744 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4822].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15825706720352173 0 0 0 0 0.089308378004454972 0.75243455479202326 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4823].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016796615055640094 0 0 0 0.12874636418477739 0.85445702075958252 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4823].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0058625299287776026 0 0 0 0.4528355598449707 0.54130191022625174 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4824].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10977887362241745 0.051122670227536297 0 0 0 0.35668012218622058 0.48241833396382566 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4824].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13465528190135956 0.042299664989918641 0 0 0 0.42388487972886718 0.39916017337985454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4825].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14550563904295585 0.050017656185639296 0 0 0 0.63325655460357666 0.17122015016782818 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4825].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1568225771188736 0.04700752797194719 0 0 0 0.6352539981605817 0.16091589674859752 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4826].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14983188911416276 0.084691576926723591 0 0 0 0.75835162401199341 0.0071249099471202238 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4826].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13931362330913544 0.072822142349218327 0 0 0 0.78173787295811137 0.00612636138353485 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4827].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12858867645263672 0.016440385648095076 0 0 0 0.7033924165702311 0.15157852132903718 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4827].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20723797380924225 0.013483549829657483 0 0 0 0.62276098321676987 0.15651749314433042 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4828].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15386287318346453 0.011014765991117555 0 0 0 0.36119994521141052 0.47392241561400739 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4828].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15945937209942437 0.02678475236952875 0 0 0 0.39091679453849792 0.42283908099254891 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4829].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20097111978211579 0 0 0 0 0.30957573652267456 0.4894531436952097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4829].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22546916236854442 0 0 0 0 0.31934171915054321 0.45518911848091231 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4830].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24989154229624788 0.088896651173656929 0 0 0 0.51886522769927979 0.14234657883081545 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4830].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24184620124652892 0.08603459401758845 0 0 0 0.5343555212020874 0.13776368353379523 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4831].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35276015185845738 0 0 0 0 0.60987323522567749 0.037366612915865134 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4831].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.30101001416709905 0 0 0 0 0.66710507869720459 0.031884907135696389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4832].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16332766815859143 0.073629946259351736 0 0 0 0.43871301412582397 0.32432937145623286 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4832].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18722870945930481 0.06631211426276494 0 0 0 0.45436380705110757 0.29209536922682267 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4833].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29865672645444757 0.054407361627217633 0 0 0 0.63843804597854614 0.0084978659397886066 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4833].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27379465103149414 0.045662319545571851 0 0 0 0.67341104841167421 0.0071319810112597535 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4834].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17940821914129584 0.093329522329041056 0 0 0 0.72726225852966309 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4834].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16060806810855865 0.063300584439079294 0 0 0 0.77609134745236208 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[4835].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.090244326398788904 0 0 0 0 0.075749662115157629 0.83400601148605347 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[4835].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.095679755763560179 0 0 0 0 0.21215362846851349 0.69216661576792637 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[4891].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0001691880461294204 0.99983081195387058 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5200].w[0:72]" " -s 73 0.017057096585631371 0.043153700315743129 0 0.32488624482473788 0.45245176553726196 0.16245119273662567 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5331].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.0013209115713834763 0.9977210447541438 0.00095804367447271943 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5376].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.015683867037296295 0.98353695537662134 0.00077917758608236909 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5395].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00022176592028699815 0.20904127622976759 0 0 0 0 0 0.31059460327790117 0 0 0 0 0.37645652890205383 0 0 0 0 0.10368582566999043 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5395].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00022176592028699815 0.21910735376206328 0 0 0 0 0 0.26936269058689588 0 0 0 0 0.40262952446937561 0 0 0 0 0.10867866526137825 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5396].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.00018237263239088874 0 0 0 0 0.7517018493982488 0 0 0 0 0.24811577796936035 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5396].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.00029608088870713799 0 0 0 0 0.61822522204975416 0 0 0 0 0.3814786970615387 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5397].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00027720740763470531 0.55727641865742206 0.0016349434614321878 0 0 0 0 0.2816748189083525 0 0 0 0 0.12874364852905273 0 0 0 0 0.030392963036105829 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5397].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00027720740763470531 0.53827383926517713 0.0015791934926778202 0 0 0 0 0.30157826210059963 0 0 0 0 0.12893490493297577 0 0 0 0 0.029356592800934962 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5398].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00027667038375511765 0.52250386530861148 0.17211786507028051 0 0 0 0 0.29470130801200867 0 0 0 0 0.010400291225344268 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5398].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00027667038375511765 0.50487123648609733 0.16630950530491243 0 0 0 0 0.31835811167317274 0 0 0 0 0.010184476152062416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5399].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.10170599141000664 0 0 0 0 0.88620553470374197 0 0 0 0 0.01208847388625145 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64889,95 +64919,103 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5408].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99209943227469921 0 0 0 0 0.0079005677253007889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5410].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5409].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.038686871528625488 0.96131312847137451 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5410].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10261905193328857 0.89738094806671143 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5411].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013718885369598866 0.98628111463040113 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5412].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5413].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.97142944298684597 0 0 0 0 0.02857055701315403 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5413].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.030011704191565514 0.9422751899009475 0 0 0 0 0.027713105907486987 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5418].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3622250425008724 0.032562632998171866 0 0 0 0.28523439168930054 0.31997793281165515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5417].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.048880957067012787 0.95111904293298721 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5419].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46184474229812622 0.044110348914222268 0 0 0 0.31051533380154406 0.1835295749861075 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5418].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36731162435869014 0.061002743688851585 0 0 0 0.31224679946899414 0.25943883248346411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5420].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23501369048010154 0.37637881051981892 0 0 0 0.28366246819496155 0.10494503080511793 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5419].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40706020682872396 0.055104839054408127 0 0 0 0.42198830842971802 0.11584664568714996 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5421].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47334611005994331 0.17168672650944203 0 0 0 0.34954899549484253 0.0054181679357720638 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5420].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40308542880924531 0.20996667446691064 0 0 0 0.32840326428413391 0.058544632439710163 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5422].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26871179672587897 0.44668355267516946 0 0 0 0.16557303504366516 0.11903161555528641 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5421].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46265110187425945 0.14379247262218878 0 0 0 0.38959774374961853 0.0039586817539332174 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5423].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16470508496551142 0.82132727713050024 0 0 0 0 0.013967637903988361 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5422].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51864778995513916 0.2180050839180025 0 0 0 0.20525343276695032 0.05809369335990805 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5424].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22068136873018224 0.38860729496965529 0 0 0 0.22790223360061646 0.16280910269954602 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5423].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75752963135850315 0.23929537832736969 0 0 0 0 0.0031749903141272051 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5425].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22776775325253926 0.52564300145048937 0 0 0 0.057983906961934131 0.18860533833503723 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5424].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40174782803146625 0.21653813278767911 0 0 0 0.29562941193580627 0.086084627245048367 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5426].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38184713222325672 0.0170234350448344 0 0 0 0.27653971314430237 0.32458971958760652 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5425].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45018488168716431 0.33252039218146989 0 0 0 0.097983480861047828 0.11931124527031794 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5427].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23478192041335957 0.42251846617728117 0 0 0 0.18805743753910065 0.15464217587025861 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5426].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38498790367866098 0.054835384914292844 0 0 0 0.30772319436073303 0.25245351704631314 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5428].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21127929070965309 0.63643719592981174 0 0 0 0.0070128826432576405 0.14527063071727753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5427].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.39749512499686646 0.24659714985735032 0 0 0 0.26565292477607727 0.090254800369705956 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5429].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62860916567797498 0 0 0 0 0.37119215726852417 0.00019867705350089953 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5428].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48010915517807007 0.33713858350070991 0 0 0 0.10579834508644533 0.076953916234774752 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5430].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93991966545581818 0 0 0 0 0.060080334544181824 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5429].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.47348402463256734 0.00024221576262633664 0 0 0 0.52610099315643311 0.00017276644837323332 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5431].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0041277064165093705 0.90691657828483796 0 0 0 0 0.088955715298652649 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5430].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86432324349880219 0 0 0 0 0.13567675650119781 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5432].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.001279145828448236 0.99872085417155176 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5431].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1705511063337326 0.75535885208648013 0 0 0 0 0.074090041579787214 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5433].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5432].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28155049681663513 0.71844950318336487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5434].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45445611417869242 0.01568209455113127 0 0 0 0.33136793971061707 0.19849385155955929 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5433].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24319380521774292 0.75680619478225708 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5435].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.37790347637657934 0.27248409519308653 0 0 0 0.23688226938247681 0.11273015904785735 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5434].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4234708237044077 0.04790549773964544 0 0 0 0.37443029880523682 0.1541933797507101 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5436].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2372675112788209 0.60276670913590902 0 0 0 0.087254263460636139 0.072711516124633946 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5435].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46407239554167068 0.20000331668448013 0 0 0 0.25318035483360291 0.082743932940246262 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5437].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5923720219726657 0.091395423311132679 0 0 0 0.26206153631210327 0.054171018404098312 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5436].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51851546764373779 0.30214854124704965 0 0 0 0.14288792887230842 0.036448062236904097 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5438].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3414205900418309 0.65712075391535485 0 0 0 0.0014586560428142548 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5437].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.57795319123310451 0.10502075546780253 0 0 0 0.27671414613723755 0.040311907161855454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5439].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74501427551705746 0.054794822726655888 0 0 0 0.20019090175628662 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5438].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.79083788493694851 0.19136518700001645 0 0 0 0.017796928063035011 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5440].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99563556397333741 0 0 0 0 0.0043644360266625881 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5439].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72826450277777277 0.035290144787115237 0 0 0 0.236445352435112 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5441].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42157024905388696 0 0 0 0 0.38501805067062378 0.19341170027548923 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5440].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5442].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.82609854638576508 0 0 0 0 0.17390145361423492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5441].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4054559427007961 0 0 0 0 0.59313970804214478 0.0014043492570591164 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5443].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64562602447026762 0.008639199940745329 0 0 0 0.34458127617835999 0.0011534994106270537 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5442].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.69862285256385803 0 0 0 0 0.30137714743614197 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5444].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91777921468019485 0 0 0 0 0.082220785319805145 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5443].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46669904922355643 0.05402135600980474 0 0 0 0.47849676012992859 0.00078283463671023677 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5445].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.055828087031841278 0.94417191296815872 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5444].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.88210521294411215 0.022458154422678615 0 0 0 0.095436632633209229 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5446].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21867558371361265 0.63496775751248025 0 0 0 0.044707365334033966 0.10164929343987314 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5445].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.67241048812866211 0.32758951187133789 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5447].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28750130200927504 0.36455095202556026 0 0 0 0.22823578119277954 0.11971196477238522 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5446].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55491399765014648 0.27487164483708942 0 0 0 0.12621132247078914 0.044003035041974947 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5448].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42200514447203658 0.0099706303411262655 0 0 0 0.29425674676895142 0.27376747841788568 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5447].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42187995878598444 0.22525139486200102 0 0 0 0.278900146484375 0.073968499867639537 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5449].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58926813241996867 0 0 0 0 0.39975401759147644 0.010977849988554837 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5448].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.40246851296695935 0.030879476408156151 0 0 0 0.33100992441177368 0.23564208621311078 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5450].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.90447139739990234 0 0 0 0 0.095528602600097656 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5449].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43904396079757746 0 0 0 0 0.54995048046112061 0.011005558741301949 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5451].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91114763098325735 0.087382450839279577 0 0 0 0.0014699181774631143 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5450].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.79833580553531647 0 0 0 0 0.20166419446468353 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5452].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.71054504126570683 0.039380832190925912 0 0 0 0.24989764392375946 0.00017648261960778305 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5451].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9232514500617981 0.076748549938201904 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5453].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00020304206767001248 0.99023311328134622 0 0 0 0 0.0095638446509838104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5452].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68001973628997803 0.041744131059855333 0 0 0 0.27814191571437918 9.4216935787494363e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5454].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94097501412034035 0 0 0 0 0.059024985879659653 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5453].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62952905893325806 0.36692709498884069 0 0 0 0 0.0035438460779012556 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5455].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5454].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.042263835668563843 0.90120580075533374 0 0 0 0 0.05653036357610243 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5456].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5455].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.094370186328887939 0.90562981367111206 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5458].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.52566143870353699 0 0 0 0 0.47433856129646301 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5456].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46331796050071716 0.53668203949928284 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5459].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.19106954336166382 0 0 0 0 0.80893045663833618 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5457].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.049813032150268555 0.95018696784973145 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5460].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00022133628954179585 0.24937077355073176 0.64417610384905366 0 0 0 0 0.10623178631067276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5458].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.5325542688369751 0 0 0 0 0.4674457311630249 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5459].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.26403284072875977 0 0 0 0 0.73596715927124023 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5460].w[0:72]" " -s 73 0 0 0 0 0 0 0 0.00022133628954179585 0.24013109830735177 0.62030811838162203 0 0 0 0 0.13933944702148438 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5461].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.83815327286720276 0 0 0 0 0.16184672713279724 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -64997,75 +65035,139 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5470].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.29116381473567254 0.70508894997920923 0 0 0 0 0.0037472352851182222 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5513].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.061467084359669077 0 0 0 0 0.1560153067111969 0.78251760892913402 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5472].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.021323102977648951 0.82149809274397734 0.15717880427837372 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5514].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.040586071199984239 0 0 0 0 0.94474416971206665 0.014669759087949107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5474].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00017186733020935208 0.99982813266979065 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5516].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.018480889499187469 0 0 0 0 0 0.98151911050081253 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5476].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.013700430879318852 0.82446263205078829 0.16183693706989288 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5517].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.16720100338072277 0.019796706736087799 0 0 0 0.054560936658954166 0.75844135322423523 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5477].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9832307118922472 0.0167692881077528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5518].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.35678724226554642 0.07357141375541687 0 0 0 0.10193754417414393 0.46770379980489279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5478].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.48612076044082642 0.51387923955917358 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5519].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.31906943060030168 0.078139878809452057 0 0 0 0.12827253070545408 0.47451815988479218 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5479].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.84469734132289886 0.15530265867710114 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5520].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.58961319923400879 0.067848758023279915 0 0 0 0.14326831605741422 0.1992697266852971 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5480].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95980694144964218 0.040193058550357819 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5521].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.58270984888076782 0.11185924961004948 0 0 0 0.096858267087713654 0.20857263442146906 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5481].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9832307118922472 0.0167692881077528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5522].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.47728562355041504 0 0 0 0 0.52271437644958496 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5482].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85093966126441956 0.14906033873558044 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5523].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.45358221346942285 0.13636492192745209 0 0 0 0.3086106492507083 0.10144221535241676 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5483].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00014413271594395247 0.50363781179737699 0.49621805548667908 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5524].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.27662538369247353 0.11412349343299866 0 0 0 0.042910805641836802 0.56634031723269096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5484].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.028667977079749107 0.97133202292025089 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5525].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.45349663496017456 0.026794540687880501 0 0 0 0.07391900735448545 0.44578981699745945 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5485].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016936657950282097 0.9830633420497179 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5526].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.14571689069271088 0 0 0 0 0.17890992134119763 0.67537318796609147 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5489].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17700916528701782 0.82299083471298218 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5527].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.10962860286235809 0 0 0 0 0 0.89037139713764191 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5493].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17084819078445435 0.82915180921554565 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5528].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.65122896432876587 0.10078199682185769 0 0 0 0.078607678518555296 0.16938136033082116 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5494].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18579311668872833 0.81420688331127167 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5529].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.62060683965682983 0.065092599094736317 0 0 0 0.25138167463933203 0.062918886609101832 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5499].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016835834830999374 0.98316416516900063 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5530].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.59639013082921277 0.13529856503009796 0 0 0 0.074975393430173579 0.19333591071051573 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5503].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.012779731303453445 0.98722026869654655 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5531].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.15986227985686091 0.028838470578193665 0 0 0 0.80225350769876091 0.0090457418661845784 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5504].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.029790036380290985 0.97020996361970901 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5506].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00034951622365042567 0.99965048377634957 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5507].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.036828894168138504 0.9631711058318615 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5508].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.01601390540599823 0.98398609459400177 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5512].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.037128452211618423 0.96287154778838158 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5513].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.034641278018454721 0.017409458756446838 0 0 0 0.43938540726313519 0.50856385596196318 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5514].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.066721208393573761 1.534332923113265e-005 0 0 0 0.91013867474675503 0.023124773530440075 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5515].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11101818084716797 0.88898181915283203 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5516].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.018219501174324939 0 0 0 0 0.014143709093332291 0.96763678973234279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5517].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.12817361926166429 0.015175839262449611 0 0 0 0.16341638565063477 0.69323415582525139 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5518].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.27475337826087537 0.055952738146893548 0 0 0 0.28866878464852069 0.38062509894371033 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5519].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.27230926029256308 0.066238911242449613 0 0 0 0.25920438766479492 0.40224744080019237 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5520].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.5081212965536811 0.092687028617227413 0 0 0 0.17969353222903195 0.21949814260005951 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5521].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.46754503989470148 0.10055310381231625 0 0 0 0.16067929469515815 0.2712225615978241 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5522].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.51054787635803223 0.0015175811646884307 0 0 0 0.48765723276912409 0.00027730970815528674 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5523].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.49712273478507996 0.1254988777827527 0 0 0 0.28401945020271158 0.093358937229455749 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5524].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.20344512881055704 0.096959367394447327 0 0 0 0.324248381366254 0.37534712242874169 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5525].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.26736427100236038 0.015226291279417326 0 0 0 0.39965826851351038 0.31775116920471191 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5526].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.093352527864892759 0 0 0 0 0.72835053359655588 0.17829693853855133 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5527].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.082876903760616086 0 0 0 0 0.24402116239070892 0.673101933848675 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5528].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.47027999717261726 0.079934314444751631 0 0 0 0.17922113226080491 0.27056455612182617 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5529].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.48941365878648851 0.06315455709263805 0 0 0 0.26046581193573864 0.18696597218513489 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5530].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.43823637271144744 0.11008287966251373 0 0 0 0.23260629014241718 0.21907445748362162 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5531].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.1304879680256841 0.023539470537304888 0 0 0 0.83858895301818848 0.007383608418822552 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5532].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.44651174545288086 0 0 0 0 0.53938365283613043 0.014104601710988695 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5533].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.037823556265768277 0 0 0 0 0.83204144239425659 0.13013500133997513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5533].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.046488270163536072 0 0 0 0 0.78844811449909358 0.16506361533737035 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5534].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.4893878698348999 0 0 0 0 0.5106121301651001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5534].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.46869933605194092 0.086905759884349218 0 0 0 0.44352743487801932 0.0008674691856905769 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5535].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.70600714109355001 0.085977219045162201 0 0 0 0.054991664157381645 0.15302397570390616 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5535].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.4755878694235639 0.072188712734396421 0 0 0 0.22511422404015977 0.22710919380187988 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5536].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.38045433163642883 0.044762129654629459 0 0 0 0.057104776508511555 0.51767876220043019 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5536].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.25358414953038322 0.026349763789333666 0 0 0 0.37147973600088546 0.34858635067939758 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5537].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.082281216536666868 0 0 0 0 0.011508244089782238 0.90621053937355089 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5537].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.036579874758670999 0 0 0 0 0.60781115531449492 0.35560896992683411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5538].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.047645252197980881 0 0 0 0 0.95235474780201912 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5538].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.074738316237926483 0 0 0 0 0.92526168376207352 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5539].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.49993157386779785 0 0 0 0 0.50006842613220215 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5539].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.52409535646438599 0 0 0 0 0.47590464353561401 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5540].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.48210436232709253 0.066242821514606476 0 0 0 0.42490545137105717 0.026747364787243856 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5540].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.4495483934879303 0.061285571011783738 0 0 0 0.39310785105300822 0.096058184447277775 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5541].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.19227386112004427 0.015704117715358734 0 0 0 0.79202202116459697 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5541].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.08328641951084137 0.0018124227037838224 0 0 0 0.78147882415709358 0.13342233362828124 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5543].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.016300143674015999 0 0 0 0 0 0.983699856325984 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5542].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.073748283088207245 0.92625171691179276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5544].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.0660124272108078 0 0 0 0 0.035652496422527713 0.89833507636666454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5543].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.010519389593877359 0 0 0 0 0.12317724525928497 0.8663033651468377 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5545].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.00034020113525912166 0 0 0 0 0.017894138822308992 0.98176566004243193 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5544].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.061354144823902092 0 0 0 0 0.10370336472988129 0.8349424904462166 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5547].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.037701018154621124 0 0 0 0 0.0093900276808146152 0.95290895416456423 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5545].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.00019060163908432334 0.0072653652168810368 0 0 0 0.44249841422432878 0.55004561891970594 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5548].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5546].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.076003491878509521 0.92399650812149048 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5547].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.035837938858066014 0 0 0 0 0.058343213051557541 0.90581884809037649 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5548].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26808527112007141 0.73191472887992859 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5549].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.7960917204618454 0 0 0 0 0.2039082795381546 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5550].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.074737042188644409 0 0 0 0 0.92526295781135559 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5550].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.1176973432302475 0 0 0 0 0.8823026567697525 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5560].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.065080806612968445 0.93491919338703156 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5563].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38495707511901855 0.61504292488098145 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5566].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.075395263731479645 0.92460473626852036 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5567].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99693893920630217 0.003061060793697834 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5572].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70061495900154114 0.29938504099845886 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5573].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98677048925310373 0.013229510746896267 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5575].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80554245412349701 0.19445754587650299 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5587].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.15252508131817755 0.84117252796857778 0 0 0 0 0.0063023907132446766 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -65073,7 +65175,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5589].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.0044148728044923046 0.9866587700528805 0 0 0 0 0.0089263571426272392 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5590].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.81288569178402548 0.10580835733592392 0 0 0 0.081305950880050659 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5590].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.91204649209976196 0.049735460006162642 0 0 0 0.038218047894075402 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5591].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0.028824865818023682 0.97117513418197632 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -65089,171 +65191,215 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5597].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.90312889754369252 0.083430834114551544 0 0 0 0.013440268341755919 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5598].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.48300096556378252 0.32986524701118469 0 0 0 0.18713378742503284 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5598].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.54319288121314002 0.20270652467373279 0 0 0 0.20026392806555415 0.05383666604757309 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5599].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.53083562408985241 0.28163924813270569 0 0 0 0.18117795517453944 0.0063471726029024882 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5599].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.5127037314956594 0.21959946045292897 0 0 0 0.20328296251231862 0.064413845539093018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5600].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.81459808349609375 0.1094049110753836 0 0 0 0.07599700542852264 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5600].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.65415867082196932 0.10619911121348612 0 0 0 0.13447996994914074 0.10516224801540375 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5601].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.73044204711914063 0.17042495633552179 0 0 0 0.098932234250819193 0.00020076229451839519 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5601].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.56032100468695034 0.18281891388022303 0 0 0 0.19459284129596488 0.062267240136861801 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5602].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.71114104986190796 0.22381633549531352 0 0 0 0.065042614642778537 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5602].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.81931215524673462 0.13556008915097043 0 0 0 0.045127755602294962 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5603].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.57883495092391968 0.37964823228210176 0 0 0 0.041516816793978568 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5603].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.6475522518157959 0.32490663863830604 0 0 0 0.027541109545898047 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5604].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.85079610347747803 0.10016626343773211 0 0 0 0.049037633084789874 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5604].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.6477325663025848 0.11732974499220573 0 0 0 0.15327414720940943 0.081663541495800018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5605].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.80281425144801533 0.053298827260732651 0 0 0 0.143886921291252 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5605].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.80269827170182184 0.053435593843460083 0 0 0 0.1438661344547181 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5606].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.50966650247573853 0.33911042616961556 0 0 0 0.15122307135464591 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5606].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.8023834913522504 0.13988399505615234 0 0 0 0.057732513591597263 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5607].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.41870435335216849 0.52691483497619629 0 0 0 0.054259165563544744 0.00012164610809043533 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5607].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.50770987732427819 0.37865297004646054 0 0 0 0.045692789869671187 0.067944362759590149 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5608].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.30272898077964783 0.68789758372699272 0 0 0 0.0093734280760122569 7.4173471561749481e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5608].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.35307836532592773 0.63822504748670239 0 0 0 0.0086965803056234369 6.8817464299364102e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5609].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.09494473785161972 0.90444111063959842 0 0 0 0.0006141515087818392 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5609].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.30493798851966858 0.69459035698485416 0 0 0 0.00047165449547720685 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5610].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.049491766840219498 0.95042363690250731 0 0 0 8.4596257273228276e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5610].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.065156750380992889 0.93476004756215381 0 0 0 8.3202056853321591e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5611].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.17440304193854483 0.81607937812805176 0 0 0 0.0095175799334034084 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5611].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.15799669577787562 0.8333810567855835 0 0 0 0.0086222474365408915 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5612].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.33092859387397766 0.66877616056149936 0 0 0 0.00029524556452298578 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5612].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.57474875450134277 0.42506359206900562 0 0 0 0.000187653429651581 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5613].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.17094318568706512 0.82905681431293488 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5613].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.31598290801048279 0.68401709198951721 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5614].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.85364139080047607 0 0 0 0 0.14635860919952393 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5614].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.89257276058197021 0 0 0 0 0.10742723941802979 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5615].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.77057099698155496 0.22869779169559479 0 0 0 0.00073121132285027446 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5615].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.86070040757500976 0.13886633515357971 0 0 0 0.00043325727141047275 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5616].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.23808170819816696 0.70628410577774048 0 0 0 0.055634186024092556 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5616].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.29806572198867798 0.6686587435185265 0 0 0 0.033275534492795571 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5617].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.14927887916564941 0.85072112083435059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5617].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.22246283292770386 0.77753716707229614 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5618].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.69757652282714844 0.1983304812196337 0 0 0 0.10409299595321783 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5618].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.85465627908706665 0.101371349329743 0 0 0 0.04397237158319036 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5619].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.45949205756187439 0.53841377785556044 0 0 0 0.0020941645825651388 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5619].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.62944740056991577 0.36911691630912297 0 0 0 0.0014356831209612821 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5620].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.3548285961151123 0.6451714038848877 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5620].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.60466849803924561 0.39533150196075439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5621].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.35175672460376367 0.64823365211486816 0 0 0 9.6232813681784961e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5621].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.52619924861433343 0.47379380464553833 0 0 0 6.9467401282376722e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5622].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.071745865046977997 0.928254134953022 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5622].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.22080624103546143 0.77919375896453857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5623].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.24395351111888885 0.75028269085197208 0 0 0 0.0057637980291390415 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5623].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.27449759840965271 0.7199714595465444 0 0 0 0.0055309420438028811 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5624].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.13692671227496112 0.85377633571624756 0 0 0 0.0092969520087913329 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5625].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.019130472093820572 0.98086952790617943 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5625].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.029625542461872101 0.9703744575381279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5626].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.25174796581268311 0.73105222621447918 0 0 0 0.017199807972837759 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5626].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.47651535314279636 0.51137197017669678 0 0 0 0.012112676680506885 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5627].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.35056915879249573 0.60873604815937532 0 0 0 0.040692842693182588 1.9503549463043392e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5627].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.41167221869729098 0.53642751831129087 0 0 0 0.035859155515660594 0.016041107475757599 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5628].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.17855984073458472 0.79057407379150391 0 0 0 0.030866085473911373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5628].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.18004276002236164 0.79741013050079346 0 0 0 0.022547109476844913 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5629].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.067670471966266632 0.9131369129361504 0 0 0 0.019192615097582969 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5629].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.098940029740333557 0.87795610375482558 0 0 0 0.023103866504840816 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5630].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.22001482546329498 0.77998517453670502 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5630].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.42989709973335266 0.57010290026664734 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5631].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.046597648411989212 0.95262671701927037 0.00077563456874041304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5632].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.022842353209853172 0.92831326520919955 0.048844381580947276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.040735810995101929 0.95926418900489807 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5633].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.13436433672904968 0.86563566327095032 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5634].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.18229182064533234 0.81770817935466766 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5634].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.1724361777305603 0.8275638222694397 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5635].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.11173244565725327 0.88826755434274673 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5636].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.03121788427233696 0.96878211572766304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5636].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.092904910445213318 0.90709508955478668 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5637].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.090397924184799194 0.90960207581520081 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5637].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.10652852058410645 0.89347147941589355 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5638].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.047968942672014236 0.95203105732798576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5639].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.86110138893127441 0.13733772593818994 0 0 0 0.0015608851305356389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5640].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.81192808467802624 0.18806548416614532 0 0 0 6.4311558284873156e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5640].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.85544842481613159 0.14454663221455974 0 0 0 4.9429693086777517e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5641].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.96961849927902222 0 0 0 0 0.030381500720977783 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5644].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.0050543290562927723 0.99494567094370723 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5644].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.0017936229705810547 0.99820637702941895 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5676].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.084069922566413879 0 0.91593007743358612 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5645].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.014639855362474918 0.21104241698905402 0.77431772764847107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5677].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.0097080003470182419 0.99029199965298176 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5651].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.80293834209442139 0.19706165790557861 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5678].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.016275176778435707 0.11936837211633367 0.86435645110523063 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5655].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.80804489552974701 0.19195510447025299 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5679].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.69211047887802124 0.30788952112197876 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5659].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.58939924836158752 0.41060075163841248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5680].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.13248732686042786 0.86751267313957214 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5660].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.9781732689589262 0.021826731041073799 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5681].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.019827762618660927 0.98017223738133907 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5661].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.47701525688171387 0.52298474311828613 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5682].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.005425118375569582 0.99457488162443042 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5663].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.30779236555099487 0.69220763444900513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.072619646787643433 0.92738035321235657 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5665].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.22438943386077881 0.77561056613922119 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.060245804488658905 0.93975419551134109 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5676].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.051993314176797867 0.2602870304333082 0.68771965538989399 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.026363881304860115 0.97363611869513988 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5677].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.057873684912919998 0.46070498250430841 0.48142133258277153 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.99837547540664673 0.0016245245933532715 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5678].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.010116012591792135 0.12177499959998032 0.86810898780822754 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5688].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.022747177630662918 0.97725282236933708 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5679].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.66263112425804138 0.33736887574195862 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5690].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.13883800804615021 0.86116199195384979 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5680].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.30151727795600891 0.69848272204399109 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5681].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.1164364293217659 0.8835635706782341 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5682].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.057491224259138107 0.94250877574086189 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5683].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.18328362703323364 0.81671637296676636 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5684].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.19841602444648743 0.80158397555351257 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5685].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.067185774445533752 0.93281422555446625 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5686].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.96037105843424797 0.039628941565752029 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5687].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.97919181920588017 0.020808180794119835 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5688].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.033833902329206467 0.96616609767079353 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5689].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.029346255585551262 0.16888907483891991 0.80176466957552883 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5690].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.12606143951416016 0.87393856048583984 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5691].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.016560707241296768 0.98343929275870323 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5693].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.060774318873882294 0.93922568112611771 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5693].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.10276408493518829 0.89723591506481171 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5696].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.016180001199245453 0.98381999880075455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5696].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.045925524085760117 0.95407447591423988 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5697].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.015418589115142822 0.93161534535893153 0.052966065525925643 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5697].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.037298131734132767 0.5167919296888005 0.44590993857706673 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5698].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.90528208017349243 0.094717919826507568 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5698].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.86779510974884033 0.13220489025115967 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5700].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.084780313074588776 0.91521968692541122 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5699].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0.015704572200775146 0.11241020803192336 0.87188521976730149 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5700].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0.13867086172103882 0.86132913827896118 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5712].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.026751009747385979 0.97324899025261402 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5714].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27110138535499573 0.72889861464500427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5716].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.66679710149765015 0.33320289850234985 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5717].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86724314093589783 0.13275685906410217 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5719].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10520733147859573 0.89479266852140427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5723].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.070981241762638092 0.92901875823736191 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5726].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.85218158364295959 0.14781841635704041 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5729].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.62455061078071594 0.37544938921928406 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5730].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.9566127173602581 0.043387282639741898 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5731].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.80426923930644989 0.19573076069355011 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		
+		2 "VendingGuy2IK:skinCluster1" "wl[5732].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0.22403453290462494 0.77596546709537506 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5759].w[0:72]" " -s 73 0.98181543995777076 0.0013209645213613243 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.016863595520867913 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5760].w[0:72]" " -s 73 0.47234184950960312 0.0031155878729255304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2732026785509824 0 0 0 0 0 0 0.25133988406648877 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5760].w[0:72]" " -s 73 0.47234211767926182 0.0031155914365653676 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27320134961211595 0 0 0 0 0 0 0.25134094127205681 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5761].w[0:72]" " -s 73 0.61550427599486479 0.0045752487349916566 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.23706086030252119 0 0 0 0 0 0 0.14285961496762234 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5762].w[0:72]" " -s 73 0.40627459501144653 0.0026195371735196079 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.033296280020993135 0 0 0 0 0 0 0.55780958779404066 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5762].w[0:72]" " -s 73 0.40627518923139599 0.0026195513681145184 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.033296653433099135 0 0 0 0 0 0 0.55780860596739035 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5763].w[0:72]" " -s 73 0.7593222821750949 0.0080810413887831261 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1817828629006617 0 0 0 0 0 0 0.050813813535460328 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5764].w[0:72]" " -s 73 0.572341071927705 0.0059243640398055838 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15069594096652747 0 0 0 0 0 0 0.27103862306596188 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5765].w[0:72]" " -s 73 0.39145023437249454 0.0018716815160464172 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19345201380278904 0 0 0 0 0 0 0.41322607030866998 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5765].w[0:72]" " -s 73 0.39144370742103202 0.0018716456913635195 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19344749005215178 0 0 0 0 0 0 0.41323715683545259 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5766].w[0:72]" " -s 73 0.43301889913231095 0.0019051458357849387 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.49163879827551471 0 0 0 0 0 0 0.073437156756389427 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5766].w[0:72]" " -s 73 0.43301892640968775 0.0019051463208579762 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.49163868653476372 0 0 0 0 0 0 0.073437240734690643 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5767].w[0:72]" " -s 73 0.4564524836380992 0.0016307645764963483 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.54187436714992099 0 0 0 0 0 0 4.2384635483442282e-005 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5770].w[0:72]" " -s 73 0.27226738404714973 2.1031201371053068e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72771158475147912 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5771].w[0:72]" " -s 73 0.13935646868608842 9.1258080004131049e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86063440550591119 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5771].w[0:72]" " -s 73 0.1393565701758917 9.1268653947605605e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86063430295871346 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5772].w[0:72]" " -s 73 0.038592289755972321 1.2603553774578132e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96140769764047396 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5772].w[0:72]" " -s 73 0.038592322248071027 1.2603851712300826e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9614076651480773 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5773].w[0:72]" " -s 73 3.3204890991746355e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99996679510900821 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5774].w[0:72]" " -s 73 0.00073751611640036734 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99926248388359973 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5774].w[0:72]" " -s 73 0.00073757075366207697 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99926242924633801 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5775].w[0:72]" " -s 73 0.12855203395896775 1.8294442622366566e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00023275243570004708 0 0 0 0 0 0 0.8711969191627098 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5775].w[0:72]" " -s 73 0.1285528248734869 1.8300231322068479e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00023282608287164821 0 0 0 0 0 0 0.87119604881231938 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5776].w[0:72]" " -s 73 0.0056400156046033448 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99435998439539663 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5776].w[0:72]" " -s 73 0.0056452820486997384 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99435471795130026 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5777].w[0:72]" " -s 73 0.0046067933260009689 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.995393206673999 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5777].w[0:72]" " -s 73 0.004607992328000755 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99539200767199931 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5778].w[0:72]" " -s 73 0.72937283089228511 0.010877973076741664 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16699370537984914 0 0 0 0 0 0 0.092755490651123887 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5779].w[0:72]" " -s 73 0.55658583980683185 0.0080102204899011268 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.092938595331016935 0 0 0 0 0 0 0.34246534437225007 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5779].w[0:72]" " -s 73 0.55658583621938906 0.008010221196173558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.092938577484524984 0 0 0 0 0 0 0.34246536509991249 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5780].w[0:72]" " -s 73 0.93164567112811925 0.005756863932491447 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.052669906896498239 0 0 0 0 0 0 0.0099275580428910479 0 0 0 0"
 		
@@ -65321,19 +65467,19 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5812].w[0:72]" " -s 73 0.083965713764863725 1.2714521755994593e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91603301478296073 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5813].w[0:72]" " -s 73 0.24565508437900621 0.00052514796539380407 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7538197676556001 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5813].w[0:72]" " -s 73 0.24565160298567557 0.00052513545768834234 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75382326155663593 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5814].w[0:72]" " -s 73 0.0074945892266147177 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99250541077338528 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5815].w[0:72]" " -s 73 0.18499889526484067 0.00015118020753830476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81484992452762106 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5815].w[0:72]" " -s 73 0.18499630019779775 0.0001511774509802551 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.81485252235122207 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5816].w[0:72]" " -s 73 0.069650032985134891 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93034996701486516 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5816].w[0:72]" " -s 73 0.069649515249782204 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93035048475021787 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5817].w[0:72]" " -s 73 0.30943063306643781 0.0011119095279467431 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68945745740561548 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5817].w[0:72]" " -s 73 0.30942943031992559 0.0011119002077633834 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68945866947231094 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5818].w[0:72]" " -s 73 0.36369250321083302 0.0014491063939284286 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15052477783693485 0 0 0 0 0 0 0.48433361255830371 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5819].w[0:72]" " -s 73 0.40146172085046317 0.001453390860171004 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44161229164190502 0 0 0 0 0 0 0.15547259664746083 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5819].w[0:72]" " -s 73 0.40146173212583847 0.0014533910215305459 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44161230966840204 0 0 0 0 0 0 0.15547256718422897 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5820].w[0:72]" " -s 73 0.42251293978847287 0.0013020243621846691 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56203512542498679 0 0 0 0 0 0 0.014149910424355724 0 0 0 0"
 		
@@ -65363,11 +65509,11 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5835].w[0:72]" " -s 73 0.99959457058026302 4.2879852370550112e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00034690291712068105 0 0 0 0 0 0 1.5646650245836141e-005 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5836].w[0:72]" " -s 73 0.41626747009991089 0.0053061461543131069 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00021800119873280354 0 0 0 0 0 0 0.57820838254704332 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5836].w[0:72]" " -s 73 0.41626758075887177 0.0053061487006748308 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00021804235213702166 0 0 0 0 0 0 0.5782082281883163 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5837].w[0:72]" " -s 73 0.72053381002877714 0.013843236543147059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19568289289034504 0 0 0 0 0 0 0.069940060559558509 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5837].w[0:72]" " -s 73 0.72053382495067553 0.013843237323980894 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.19568291604502913 0 0 0 0 0 0 0.069940021658486548 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5838].w[0:72]" " -s 73 0.55901975704314388 0.0096683758235719432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.059667883873911108 0 0 0 0 0 0 0.37164398325937315 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5838].w[0:72]" " -s 73 0.55901977616550191 0.0096683763552217195 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.059667916183039856 0 0 0 0 0 0 0.37164393129623657 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5839].w[0:72]" " -s 73 0.90346342200162977 0.010064623751239204 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.082519079026915507 0 0 0 0 0 0 0.003952875220215547 0 0 0 0"
 		
@@ -65377,7 +65523,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5842].w[0:72]" " -s 73 0.21127516423202411 0.0011251139584418906 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.78759972180953397 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5843].w[0:72]" " -s 73 0.078238846903906617 2.5559865674092078e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9217585971095259 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5843].w[0:72]" " -s 73 0.078240201427202782 2.5666849854021378e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.92175723188781178 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5844].w[0:72]" " -s 73 0.057938419491845264 3.5776807405481093e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.94206122274008075 0 0 0 0"
 		
@@ -65567,9 +65713,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5937].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5938].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.1189588037469862e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999288104119621 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5938].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.1237139660277269e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999287628603395 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5939].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.4665804672313282e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99991533419532763 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5939].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.50456786959692e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99991495432130406 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5940].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
@@ -65637,7 +65783,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5972].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.097059065406362e-006 0.99696546687097876 0.0030334360699557582 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5973].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.047699433114201807 0.95223772748947555 6.2839396322696882e-005 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5973].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04769925352732847 0.95223790630565552 6.2840167015925437e-005 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5974].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.059202106343408147 0.94048277864425189 0.00031511495413232281 0"
 		
@@ -65657,7 +65803,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5982].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99644311734437485 0.0035568826556250303 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5983].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.1632119767138842e-005 0.9996897253667576 0.00028864251711319312 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5983].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.1649757497784569e-005 0.99968970768791388 0.00028864255095039889 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5984].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99902931392099548 0.00097068607900453242 0"
 		
@@ -65669,45 +65815,45 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5988].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99659516848623753 0.0034048315137624741 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5989].w[0:72]" " -s 73 0.001528201427257084 1.6323360778244835e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99847178224938204 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5989].w[0:72]" " -s 73 0.0015291440627863706 1.6353567610310088e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99847083958364602 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5990].w[0:72]" " -s 73 0.2973114936547534 0.0023774983209308661 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70031100802431578 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5990].w[0:72]" " -s 73 0.29731115478612158 0.0023774905689966106 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.70031135464488181 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5991].w[0:72]" " -s 73 0.2098023827996795 0.0011005710333963188 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.78909704616692433 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5991].w[0:72]" " -s 73 0.20980276780030663 0.0011005767569969168 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.78909665544269647 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5992].w[0:72]" " -s 73 0.13763914022286153 1.0981610514260805e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86234987816662412 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5992].w[0:72]" " -s 73 0.13763881054731014 1.0977082905801399e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86235021236978393 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5993].w[0:72]" " -s 73 0.080248898667931681 1.8651597485362361e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.91974923617231974 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5994].w[0:72]" " -s 73 0.1414080678487184 0.00038735415390227668 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85820457799737926 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5994].w[0:72]" " -s 73 0.14140846038899818 0.00038735710190296389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.8582041825090988 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5995].w[0:72]" " -s 73 0.19255260446722927 0.00061409064540732337 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80683330488736327 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5995].w[0:72]" " -s 73 0.19255286199663602 0.00061409118984147748 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.80683304681352253 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5996].w[0:72]" " -s 73 0.25504003215040005 0.0010108664578074628 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74394910139179249 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5996].w[0:72]" " -s 73 0.25504085374433866 0.0010108715457650818 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.74394827470989622 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[5997].w[0:72]" " -s 73 0.31970550773049805 0.001446040739910216 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0020876548736190504 0 0 0 0 0 0 0.67676079665597266 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[5997].w[0:72]" " -s 73 0.31970672901762859 0.0014460435320660971 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0020909485015242757 0 0 0 0 0 0 0.67675627894878099 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5998].w[0:72]" " -s 73 0.99997886560663929 2.4996518833560351e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.8634741477313662e-005 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[5999].w[0:72]" " -s 73 0.73063603035453561 0.014924746118690586 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2303208452021733 0 0 0 0 0 0 0.024118378327783838 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6000].w[0:72]" " -s 73 0.42452163039548907 0.0049857365916474439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0018604461065414022 0 0 0 0 0 0 0.56863218690632189 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6000].w[0:72]" " -s 73 0.42452255245678855 0.0049857379241178531 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0018636138775070651 0 0 0 0 0 0 0.56862809574158646 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6001].w[0:72]" " -s 73 0.577178408005106 0.010201495809087429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10707963878780941 0 0 0 0 0 0 0.30554045739799712 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6001].w[0:72]" " -s 73 0.57717864912745165 0.010201484744308058 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10708247759141699 0 0 0 0 0 0 0.30553738853682327 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6002].w[0:72]" " -s 73 0.89607148424990501 0.012060240634604558 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.091867330110209131 0 0 0 0 0 0 9.4500528131978654e-007 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6003].w[0:72]" " -s 73 0.20077646549053824 0.00083983182088180229 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.79838370268857983 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6003].w[0:72]" " -s 73 0.20077663507217697 0.00083983320634420941 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7983835317214788 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6004].w[0:72]" " -s 73 0.2734735755274314 0.0015354751735980304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72499094929897057 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6004].w[0:72]" " -s 73 0.27347390959435275 0.0015354781539844184 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.72499061225166272 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6005].w[0:72]" " -s 73 0.35538788015890016 0.0024734245275914472 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0025791534710682684 0 0 0 0 0 0 0.63955954184244013 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6005].w[0:72]" " -s 73 0.35539022106163654 0.0024734302753941445 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0025861002915407547 0 0 0 0 0 0 0.63955024837142849 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6006].w[0:72]" " -s 73 0.41844890516115191 0.0028173188518541502 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16954834077926884 0 0 0 0 0 0 0.4091854352077251 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6006].w[0:72]" " -s 73 0.41844911692251119 0.0028173076855181173 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16955241333977847 0 0 0 0 0 0 0.40918116205219224 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6007].w[0:72]" " -s 73 0.37424037983481673 0.0016673557295036967 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14357941825590029 0 0 0 0 0 0 0.48051284617977924 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6007].w[0:72]" " -s 73 0.37424093357584687 0.0016673534694692884 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14358446551975779 0 0 0 0 0 0 0.48050724743492595 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6008].w[0:72]" " -s 73 0.41233003026263915 0.0016522231517057881 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43535251379699946 0 0 0 0 0 0 0.15066523278865571 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6008].w[0:72]" " -s 73 0.41233003449400157 0.0016522229911967606 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.43535257630670587 0 0 0 0 0 0 0.15066516620809584 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6009].w[0:72]" " -s 73 0.43161827413088844 0.0014828046825394563 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56689892118657215 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -65737,7 +65883,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6024].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6025].w[0:72]" " -s 73 0.49715580066753856 0.0055244109844155946 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20885696448205182 0 0 0 0 0 0 0.28846282386599398 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6025].w[0:72]" " -s 73 0.49715578690847079 0.0055243976919429937 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.20885855643416795 0 0 0 0 0 0 0.28846125896541835 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6026].w[0:72]" " -s 73 0.9999759901775418 2.8397407440277345e-006 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.1170081714139994e-005 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -65751,7 +65897,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6031].w[0:72]" " -s 73 0.88213562965393066 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11786437034606934 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6032].w[0:72]" " -s 73 0.53640937018446821 0.0050735722448197913 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45307966964677826 0 0 0 0 0 0 0.0054373879239338167 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6032].w[0:72]" " -s 73 0.53640937169912328 0.0050735717025272107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45307975687689928 0 0 0 0 0 0 0.0054372997214502143 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6033].w[0:72]" " -s 73 0.47594739770930927 0.0023632205853055966 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.52167540936018286 0 0 0 0 0 0 1.3972345202233702e-005 0 0 0 0"
 		
@@ -65815,7 +65961,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6067].w[0:72]" " -s 73 0.96474161014193527 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.035258389858064731 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6068].w[0:72]" " -s 73 0.89820471125191703 0.012543544521614654 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.089251744226468352 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6068].w[0:72]" " -s 73 0.89826512160181227 0.012532543102143892 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.089202335296043725 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6070].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
@@ -65823,7 +65969,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6072].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6073].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0077534692804389063 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99224653071956115 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6073].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0078359285502524467 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9921640714497475 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6074].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
@@ -65899,15 +66045,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6110].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.017729953281272727 0.98162422613464173 0.00064582058408557555 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6111].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53043130894294821 0.46955415939722522 1.4531659826517062e-005 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6111].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.53042740913051556 0.46955805860232258 1.4532267161898726e-005 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6112].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6113].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6114].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99942894062352861 0.00057104270108120948 1.6675390205891042e-008 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6114].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99942874288537631 0.00057124043346029347 1.6681163375449503e-008 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6115].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.54934590439939357 0.45065334758962622 7.4801098017873866e-007 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6115].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.54934459748749587 0.45065465424818213 7.4826432192408431e-007 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6116].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
@@ -65917,15 +66063,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6119].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6120].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99550526865984179 0.0044947261024586719 5.2376995116259123e-009 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6120].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99550273252464827 0.0044972622330551387 5.2422966431052959e-009 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6121].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6122].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6123].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98982409034711005 0.010175905798129728 3.8547602138535747e-009 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6123].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.98977340592811625 0.010226590197637135 3.8742466021826828e-009 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6124].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36174757967171484 0.63825206447443128 3.5585385387644246e-007 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6124].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.36174717151970803 0.63825247257205131 3.559082406075188e-007 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6125].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99924143403768539 0.00075856596231460571 0"
 		
@@ -65963,15 +66109,15 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6142].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99987268053311207 0.00012731946688789874 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6143].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99807755467843118 0.0019224089427299666 3.6378838802891247e-008 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6143].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99807693394890395 0.0019230296675526292 3.6383543413980219e-008 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6144].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6145].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99999999999999989 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6146].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96683429333861615 0.033165706661383784 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6146].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9668342497816873 0.033165750218312577 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6147].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83106642961203658 0.16893357038796344 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6147].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.83106613007317431 0.16893386992682577 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6148].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99976920564197802 0.00023079435802204402 0 0"
 		
@@ -65983,9 +66129,9 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6152].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6153].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93288340424843219 0.067116595695747516 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6153].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.93281121776775189 0.067188782175680389 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6154].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27080063075394889 0.72919936822797049 1.0180806466513446e-009 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6154].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.27080062507119185 0.729199373910555 1.0182531877104369e-009 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6155].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.99998694762143714 1.3052378562861122e-005 0"
 		
@@ -66007,7 +66153,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6166].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6167].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06436373072156075 0.93563616144344786 1.0783499145139433e-007 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6167].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.064363730725307211 0.93563616143970951 1.0783498333484781e-007 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6168].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1996053194436444e-008 0.99999998800498358 0 0"
 		
@@ -66015,21 +66161,21 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6171].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6172].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13080912508942319 0.86919087491057678 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6172].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13080921313947244 0.86919078686052764 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6173].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6174].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.96938375357097328 0.030616246429026696 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6175].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9586718185909755 0.041328181409024535 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6175].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9586718765027058 0.041328123497294124 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6176].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.87698991478192689 0.12301008521807318 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6177].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86404610471999355 0.13595389528000656 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6177].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.86404622542011089 0.13595377457988905 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6178].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.54878280020909864 0.45121719979090136 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6179].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51197944933557415 0.4880205506644259 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6179].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51198256507703199 0.48801743492296806 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6180].w[0:72]" " -s 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.2087136842262715e-005 0.99998791286315769 0 0"
 		
@@ -66115,7 +66261,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6656].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6657].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6657].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6658].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -66179,7 +66325,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6736].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6737].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6737].w[0:72]" " -s 73 0 0 0 0 0.99999999999999989 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6738].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -66277,7 +66423,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6833].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6834].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6834].w[0:72]" " -s 73 0 0 0 0 1.0000000000000002 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6835].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -66419,7 +66565,7 @@ createNode reference -n "VendingGuy2IKRN";
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6966].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
-		2 "VendingGuy2IK:skinCluster1" "wl[6980].w[0:72]" " -s 73 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		2 "VendingGuy2IK:skinCluster1" "wl[6980].w[0:72]" " -s 73 0 0 0 0 0.9999999999827196 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		2 "VendingGuy2IK:skinCluster1" "wl[6981].w[0:72]" " -s 73 0 0 0 0 0.99999999997817213 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -66506,7 +66652,7 @@ createNode reference -n "VendingGuy2IKRN";
 		"VendingGuy2IKRN.placeHolderList[29]" ""
 		5 3 "VendingGuy2IKRN" "VendingGuy2IK:skinCluster1.outputGeometry[0]" 
 		"VendingGuy2IKRN.placeHolderList[30]" "VendingGuy2IK:Body_MeshShapeDeformed.i"
-		5 0 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:middleMeta_left|VendingGuy2IK:middleKnuckle_left|VendingGuy2IK:middleMid_left|VendingGuy2IK:middleLast_left.message" 
+		5 0 "VendingGuy2IKRN" "|Body2_grp|VendingGuy2IK:root_jnt|VendingGuy2IK:backBottom_jnt|VendingGuy2IK:backMid_jnt|VendingGuy2IK:backUp_jnt|VendingGuy2IK:shoulders_jnt|VendingGuy2IK:nullRight|VendingGuy2IK:clav_right_jnt|VendingGuy2IK:shoulder_right_jnt|VendingGuy2IK:elbow_right_jnt|VendingGuy2IK:wrist_right_jnt|VendingGuy2IK:indexMeta_left.message" 
 		"VendingGuy2IK:skinCluster1.paintTrans" "VendingGuy2IKRN.placeHolderList[31]" "VendingGuy2IKRN.placeHolderList[32]" 
 		""
 		"VendingGuy2IK:Dude_UV_sRN" 25
@@ -66957,7 +67103,6 @@ select -ne :defaultHardwareRenderGlobals;
 	setAttr -k on ".gh";
 	setAttr -cb on ".sd";
 select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 select -ne :hyperGraphLayout;
 	setAttr -s 16 ".hyp";
 	setAttr ".hyp[34].isc" yes;
@@ -66984,8 +67129,8 @@ connectAttr "skeleton_grp_parentConstraint1.crx" "faceRigRN.phl[5]";
 connectAttr "skeleton_grp_parentConstraint1.cry" "faceRigRN.phl[6]";
 connectAttr "skeleton_grp_parentConstraint1.crz" "faceRigRN.phl[7]";
 connectAttr "faceRigRN.phl[8]" "skeleton_grp_parentConstraint1.cro";
-connectAttr "faceRigRN.phl[9]" "skeleton_grp_parentConstraint1.cpim";
-connectAttr "faceRigRN.phl[10]" "skeleton_grp_scaleConstraint1.cpim";
+connectAttr "faceRigRN.phl[9]" "skeleton_grp_scaleConstraint1.cpim";
+connectAttr "faceRigRN.phl[10]" "skeleton_grp_parentConstraint1.cpim";
 connectAttr "faceRigRN.phl[11]" "skeleton_grp_parentConstraint1.crp";
 connectAttr "faceRigRN.phl[12]" "skeleton_grp_parentConstraint1.crt";
 connectAttr "skeleton_grp_scaleConstraint1.csx" "faceRigRN.phl[13]";
@@ -67010,8 +67155,8 @@ connectAttr "faceRigRN.phl[31]" "Eyebrow_mia_material_x_passes_SG.dsm" -na;
 connectAttr "faceRigRN.phl[32]" ":initialMaterialInfo.t" -na;
 connectAttr "faceRigRN.phl[33]" "groupParts6.ig";
 connectAttr "VendingGuy2IKRN.phl[2]" "skeleton_grp_parentConstraint1.tg[0].tt";
-connectAttr "VendingGuy2IKRN.phl[3]" "skeleton_grp_parentConstraint1.tg[0].ts";
-connectAttr "VendingGuy2IKRN.phl[4]" "skeleton_grp_scaleConstraint1.tg[0].ts";
+connectAttr "VendingGuy2IKRN.phl[3]" "skeleton_grp_scaleConstraint1.tg[0].ts";
+connectAttr "VendingGuy2IKRN.phl[4]" "skeleton_grp_parentConstraint1.tg[0].ts";
 connectAttr "VendingGuy2IKRN.phl[5]" "skeleton_grp_parentConstraint1.tg[0].tis";
 connectAttr "VendingGuy2IKRN.phl[6]" "skeleton_grp_parentConstraint1.tg[0].tr";
 connectAttr "VendingGuy2IKRN.phl[7]" "skeleton_grp_parentConstraint1.tg[0].tsc";
@@ -67019,9 +67164,9 @@ connectAttr "VendingGuy2IKRN.phl[8]" "skeleton_grp_parentConstraint1.tg[0].trp";
 connectAttr "VendingGuy2IKRN.phl[9]" "skeleton_grp_parentConstraint1.tg[0].trt";
 connectAttr "VendingGuy2IKRN.phl[10]" "skeleton_grp_parentConstraint1.tg[0].tro"
 		;
-connectAttr "VendingGuy2IKRN.phl[11]" "skeleton_grp_parentConstraint1.tg[0].tpm"
+connectAttr "VendingGuy2IKRN.phl[11]" "skeleton_grp_scaleConstraint1.tg[0].tpm";
+connectAttr "VendingGuy2IKRN.phl[12]" "skeleton_grp_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "VendingGuy2IKRN.phl[12]" "skeleton_grp_scaleConstraint1.tg[0].tpm";
 connectAttr "VendingGuy2IKRN.phl[13]" "skeleton_grp_parentConstraint1.tg[0].tjo"
 		;
 connectAttr "VendingGuy2IKRN.phl[14]" "Body_Legs_mia_material_x_passes_SG.dsm" -na
@@ -67101,9 +67246,9 @@ connectAttr "SuperMover.pm" "group2_scaleConstraint1.tg[0].tpm";
 connectAttr "group2_scaleConstraint1.w0" "group2_scaleConstraint1.tg[0].tw";
 connectAttr "controls_grp_scaleConstraint1.w0" "controls_grp_scaleConstraint1.tg[0].tw"
 		;
-connectAttr "skeleton_grp_scaleConstraint1.w0" "skeleton_grp_scaleConstraint1.tg[0].tw"
-		;
 connectAttr "skeleton_grp_parentConstraint1.w0" "skeleton_grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "skeleton_grp_scaleConstraint1.w0" "skeleton_grp_scaleConstraint1.tg[0].tw"
 		;
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
