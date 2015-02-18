@@ -1,7 +1,7 @@
 //Maya ASCII 2015 scene
 //Name: airjordannoeffectBob.ma
-//Last modified: Wed, Feb 11, 2015 03:03:14 PM
-//Codeset: UTF-8
+//Last modified: Wed, Feb 11, 2015 04:40:00 PM
+//Codeset: 1252
 file -rdi 1 -ns "finalRenderScene_vending" -rfn "finalRenderScene_vendingRN"
 		 -op "v=0;" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma";
 file -rdi 2 -ns "faceRig" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN"
@@ -22,13 +22,13 @@ file -r -ns "finalRenderScene_vending" -dr 1 -rfn "finalRenderScene_vendingRN" -
 		 "v=0;" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma";
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
-		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
+		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.17 ";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
 fileInfo "version" "2015";
-fileInfo "cutIdentifier" "201405190330-916664";
-fileInfo "osv" "Mac OS X 10.9.1";
+fileInfo "cutIdentifier" "201407071530-922714";
+fileInfo "osv" "Microsoft Windows 7 Enterprise Edition, 64-bit Windows 7 Service Pack 1 (Build 7601)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
@@ -36,6 +36,7 @@ createNode transform -s -n "persp";
 	setAttr ".r" -type "double3" -10.538352729411253 277.40000000012725 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
 	setAttr ".coi" 797.95455416910545;
 	setAttr ".imn" -type "string" "persp";
@@ -100,10 +101,9 @@ createNode nurbsSurface -n "nurbsSphereShape1" -p "nurbsSphere1";
 createNode transform -n "camera1";
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
-	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
-	setAttr ".coi" 1025.9913308936898;
+	setAttr ".coi" 2300.2061442018276;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -150,17 +150,17 @@ createNode nurbsCurve -n "Lighting_Effect:nurbsCircleShape11" -p "Lighting_Effec
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		0.72814828388837916 4.4586223258427024e-17 -0.72814828388837805
-		-1.1748298121887665e-16 6.3054441627062273e-17 -1.0297571784936397
-		-0.72814828388837849 4.4586223258427049e-17 -0.72814828388837849
-		-1.0297571784936397 1.8271599685945599e-32 -2.9839786783694691e-16
-		-0.72814828388837871 -4.4586223258427037e-17 0.72814828388837827
-		-3.1028593474309695e-16 -6.3054441627062285e-17 1.0297571784936399
-		0.72814828388837805 -4.4586223258427055e-17 0.7281482838883786
-		1.0297571784936397 -3.3866663600367669e-32 5.5308458935175362e-16
-		0.72814828388837916 4.4586223258427024e-17 -0.72814828388837805
-		-1.1748298121887665e-16 6.3054441627062273e-17 -1.0297571784936397
-		-0.72814828388837849 4.4586223258427049e-17 -0.72814828388837849
+		0.72814828388837916 4.4586223258427024e-017 -0.72814828388837805
+		-1.1748298121887665e-016 6.3054441627062273e-017 -1.0297571784936397
+		-0.72814828388837849 4.4586223258427049e-017 -0.72814828388837849
+		-1.0297571784936397 1.8271599685945599e-032 -2.9839786783694691e-016
+		-0.72814828388837871 -4.4586223258427037e-017 0.72814828388837827
+		-3.1028593474309695e-016 -6.3054441627062285e-017 1.0297571784936399
+		0.72814828388837805 -4.4586223258427055e-017 0.7281482838883786
+		1.0297571784936397 -3.3866663600367669e-032 5.5308458935175362e-016
+		0.72814828388837916 4.4586223258427024e-017 -0.72814828388837805
+		-1.1748298121887665e-016 6.3054441627062273e-017 -1.0297571784936397
+		-0.72814828388837849 4.4586223258427049e-017 -0.72814828388837849
 		;
 createNode transform -n "Lighting_Effect:nurbsCircle10" -p "Lightining_Controls";
 	setAttr ".r" -type "double3" 0 -106.01719396814582 0 ;
@@ -171,17 +171,17 @@ createNode nurbsCurve -n "Lighting_Effect:nurbsCircleShape10" -p "Lighting_Effec
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		0.72814828388837916 4.4586223258427024e-17 -0.72814828388837805
-		-1.1748298121887665e-16 6.3054441627062273e-17 -1.0297571784936397
-		-0.72814828388837849 4.4586223258427049e-17 -0.72814828388837849
-		-1.0297571784936397 1.8271599685945599e-32 -2.9839786783694691e-16
-		-0.72814828388837871 -4.4586223258427037e-17 0.72814828388837827
-		-3.1028593474309695e-16 -6.3054441627062285e-17 1.0297571784936399
-		0.72814828388837805 -4.4586223258427055e-17 0.7281482838883786
-		1.0297571784936397 -3.3866663600367669e-32 5.5308458935175362e-16
-		0.72814828388837916 4.4586223258427024e-17 -0.72814828388837805
-		-1.1748298121887665e-16 6.3054441627062273e-17 -1.0297571784936397
-		-0.72814828388837849 4.4586223258427049e-17 -0.72814828388837849
+		0.72814828388837916 4.4586223258427024e-017 -0.72814828388837805
+		-1.1748298121887665e-016 6.3054441627062273e-017 -1.0297571784936397
+		-0.72814828388837849 4.4586223258427049e-017 -0.72814828388837849
+		-1.0297571784936397 1.8271599685945599e-032 -2.9839786783694691e-016
+		-0.72814828388837871 -4.4586223258427037e-017 0.72814828388837827
+		-3.1028593474309695e-016 -6.3054441627062285e-017 1.0297571784936399
+		0.72814828388837805 -4.4586223258427055e-017 0.7281482838883786
+		1.0297571784936397 -3.3866663600367669e-032 5.5308458935175362e-016
+		0.72814828388837916 4.4586223258427024e-017 -0.72814828388837805
+		-1.1748298121887665e-016 6.3054441627062273e-017 -1.0297571784936397
+		-0.72814828388837849 4.4586223258427049e-017 -0.72814828388837849
 		;
 createNode transform -n "Lighting_Effect:nurbsCircle2" -p "Lightining_Controls";
 	setAttr ".r" -type "double3" 0 -106.01719396814582 0 ;
@@ -357,7 +357,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint1_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -37.403647428999328 -127.88639371775419 42.622601003657408 ;
+	setAttr ".lr" -type "double3" -31.755177472623807 -101.2338361761428 31.930636318498323 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle1" -p "Lighting_Effect:fromPoint1";
 createNode locator -n "Lighting_Effect:fromDirHandleShape1" -p "Lighting_Effect:fromDirHandle1";
@@ -460,7 +460,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint1_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -29.836842454804163 -138.56780695819475 32.295909185907604 ;
+	setAttr ".lr" -type "double3" -15.154142283071826 -113.09169042470344 14.658917398817687 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle1" -p "Lighting_Effect:toPoint1";
 createNode locator -n "Lighting_Effect:toDirHandleShape1" -p "Lighting_Effect:toDirHandle1";
@@ -533,7 +533,8 @@ createNode particle -n "Lighting_Effect:lightningCurve1ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 28;
+	setAttr ".cst" 28;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -561,12 +562,12 @@ createNode particle -n "Lighting_Effect:lightningCurve1ParticleShape" -p "Lighti
 		10.27463616 0 0
 		;
 	setAttr ".chw" 66;
-	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 ;
+	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 ;
 	setAttr -k on ".lifespan" 1;
 createNode transform -n "Lighting_Effect:nurbsCircle5" -p "Lighting_Effect:controlGeometries1";
 	setAttr ".v" no;
@@ -576,13 +577,13 @@ createNode nurbsCurve -n "Lighting_Effect:nurbsCircleShape5" -p "Lighting_Effect
 		3 4 2 no 3
 		9 -2 -1 0 1 2 3 4 5 6
 		7
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
-		-2.5838196362982495e-17 -0.15000000000000002 0
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
+		-2.5838196362982495e-017 -0.15000000000000002 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
 		;
 createNode transform -n "Lighting_Effect:LightningSurface1" -p "Lighting_Effect:Lightning1";
 	setAttr -l on -k off ".tx";
@@ -739,7 +740,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint4_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -29.836842454804163 -138.56780695819475 32.295909185907604 ;
+	setAttr ".lr" -type "double3" -15.154142283071826 -113.09169042470344 14.658917398817687 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle3" -p "Lighting_Effect:fromPoint4";
 createNode locator -n "Lighting_Effect:fromDirHandleShape3" -p "Lighting_Effect:fromDirHandle3";
@@ -842,7 +843,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint4_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -37.403647428999328 -127.88639371775419 42.622601003657408 ;
+	setAttr ".lr" -type "double3" -31.755177472623807 -101.2338361761428 31.930636318498323 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle3" -p "Lighting_Effect:toPoint4";
 	setAttr ".t" -type "double3" 16.029944477284829 -2.222434202108226 -5.5000024830211167 ;
@@ -925,7 +926,8 @@ createNode particle -n "Lighting_Effect:lightningCurve4ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 28;
+	setAttr ".cst" 28;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -953,12 +955,12 @@ createNode particle -n "Lighting_Effect:lightningCurve4ParticleShape" -p "Lighti
 		-6.2565484959999997 -3.3457075330000001 0
 		;
 	setAttr ".chw" 66;
-	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 ;
+	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 ;
 	setAttr -k on ".lifespan" 1;
 createNode transform -n "Lighting_Effect:nurbsCircle9" -p "Lighting_Effect:controlGeometries4";
 	setAttr ".v" no;
@@ -968,13 +970,13 @@ createNode nurbsCurve -n "Lighting_Effect:nurbsCircleShape9" -p "Lighting_Effect
 		3 4 2 no 3
 		9 -2 -1 0 1 2 3 4 5 6
 		7
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
-		-2.5838196362982495e-17 -0.15000000000000002 0
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
+		-2.5838196362982495e-017 -0.15000000000000002 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
 		;
 createNode transform -n "Lighting_Effect:pointLight4" -p "Lighting_Effect:Lightning4";
 createNode pointLight -n "Lighting_Effect:pointLightShape4" -p "Lighting_Effect:pointLight4";
@@ -1105,7 +1107,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint5_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -29.836842454804163 -138.56780695819475 32.295909185907604 ;
+	setAttr ".lr" -type "double3" -15.154142283071826 -113.09169042470344 14.658917398817687 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle4" -p "Lighting_Effect:fromPoint5";
 createNode locator -n "Lighting_Effect:fromDirHandleShape4" -p "Lighting_Effect:fromDirHandle4";
@@ -1208,7 +1210,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint5_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -37.403647428999328 -127.88639371775419 42.622601003657408 ;
+	setAttr ".lr" -type "double3" -31.755177472623807 -101.2338361761428 31.930636318498323 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle4" -p "Lighting_Effect:toPoint5";
 	setAttr ".t" -type "double3" 6.6098954185234602 0.39244224657497018 2.4203708127484216 ;
@@ -1292,7 +1294,8 @@ createNode particle -n "Lighting_Effect:lightningCurve5ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 28;
+	setAttr ".cst" 28;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -1320,12 +1323,12 @@ createNode particle -n "Lighting_Effect:lightningCurve5ParticleShape" -p "Lighti
 		-6.2565484959999997 -3.3457075330000001 0
 		;
 	setAttr ".chw" 66;
-	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 ;
+	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 ;
 	setAttr -k on ".lifespan" 1;
 createNode transform -n "Lighting_Effect:nurbsCircle12" -p "Lighting_Effect:controlGeometries5";
 	setAttr ".v" no;
@@ -1335,13 +1338,13 @@ createNode nurbsCurve -n "Lighting_Effect:nurbsCircleShape12" -p "Lighting_Effec
 		3 4 2 no 3
 		9 -2 -1 0 1 2 3 4 5 6
 		7
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
-		-2.5838196362982495e-17 -0.15000000000000002 0
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
+		-2.5838196362982495e-017 -0.15000000000000002 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
 		;
 createNode transform -n "Lighting_Effect:LightningSurface4" -p "Lighting_Effect:Lightning5";
 	setAttr -l on -k off ".tx";
@@ -1496,7 +1499,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint6_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -37.403647428999328 -127.88639371775419 42.622601003657408 ;
+	setAttr ".lr" -type "double3" -31.755177472623807 -101.2338361761428 31.930636318498323 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle5" -p "Lighting_Effect:fromPoint6";
 	setAttr ".t" -type "double3" 4.8517638258288702 2.5101767949878067 -1.90841723828993 ;
@@ -1600,7 +1603,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint6_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -29.836842454804163 -138.56780695819475 32.295909185907604 ;
+	setAttr ".lr" -type "double3" -15.154142283071826 -113.09169042470344 14.658917398817687 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle5" -p "Lighting_Effect:toPoint6";
 createNode locator -n "Lighting_Effect:toDirHandleShape5" -p "Lighting_Effect:toDirHandle5";
@@ -1681,7 +1684,8 @@ createNode particle -n "Lighting_Effect:lightningCurve6ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 28;
+	setAttr ".cst" 28;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -1709,12 +1713,12 @@ createNode particle -n "Lighting_Effect:lightningCurve6ParticleShape" -p "Lighti
 		-1.241551394 2.4397579970000001 1.125480577
 		;
 	setAttr ".chw" 66;
-	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38
-		 3.4028234663852886e+38 3.4028234663852886e+38 3.4028234663852886e+38 ;
+	setAttr ".lifespanPP0" -type "doubleArray" 21 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038
+		 3.4028234600000001e+038 3.4028234600000001e+038 3.4028234600000001e+038 ;
 	setAttr -k on ".lifespan" 1;
 createNode transform -n "Lighting_Effect:nurbsCircle13" -p "Lighting_Effect:controlGeometries6";
 	setAttr ".v" no;
@@ -1724,13 +1728,13 @@ createNode nurbsCurve -n "Lighting_Effect:nurbsCircleShape13" -p "Lighting_Effec
 		3 4 2 no 3
 		9 -2 -1 0 1 2 3 4 5 6
 		7
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
-		-2.5838196362982495e-17 -0.15000000000000002 0
-		0.15000000000000002 -3.8328205390015508e-17 0
-		9.1848509936051487e-18 0.15000000000000002 0
-		-0.15000000000000002 1.8344190946762691e-17 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
+		-2.5838196362982495e-017 -0.15000000000000002 0
+		0.15000000000000002 -3.8328205390015508e-017 0
+		9.1848509936051487e-018 0.15000000000000002 0
+		-0.15000000000000002 1.8344190946762691e-017 0
 		;
 createNode transform -n "Lighting_Effect:pointLight6" -p "Lighting_Effect:Lightning6";
 createNode pointLight -n "Lighting_Effect:pointLightShape6" -p "Lighting_Effect:pointLight6";
@@ -1823,7 +1827,8 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
 	setAttr ".fg" yes;
-	setAttr ".miSamplesQualityR" 1;
+	setAttr ".fgpt" 1;
+	setAttr ".miSamplesQualityR" 0.10000000149011612;
 	setAttr -s 48 ".stringOptions";
 	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
 	setAttr ".stringOptions[0].value" -type "string" "1.0";
@@ -1916,7 +1921,7 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[29].value" -type "string" "true";
 	setAttr ".stringOptions[29].type" -type "string" "boolean";
 	setAttr ".stringOptions[30].name" -type "string" "samples quality";
-	setAttr ".stringOptions[30].value" -type "string" "1 1 1 1";
+	setAttr ".stringOptions[30].value" -type "string" "0.1 0.1 0.1 0.1";
 	setAttr ".stringOptions[30].type" -type "string" "color";
 	setAttr ".stringOptions[31].name" -type "string" "samples min";
 	setAttr ".stringOptions[31].value" -type "string" "1";
@@ -1979,7 +1984,7 @@ createNode displayLayerManager -n "layerManager";
 	setAttr -s 3 ".dli";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
-	setAttr -s 5 ".rlmi[1:4]"  5 3 4 1;
+	setAttr -s 5 ".rlmi[1:4]"  2 5 4 1;
 	setAttr -s 3 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
@@ -2428,7 +2433,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
 		"rotateZ" " -av"
-		"finalRenderScene_vendingRN" 487
+		"finalRenderScene_vendingRN" 488
 		1 |finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt 
 		"blendOrient1" "blendOrient1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
 		1 |finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt 
@@ -2442,16 +2447,16 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:copyMachine_grp|finalRenderScene_vending:copier_main_body_grp|finalRenderScene_vending:copierStack_geo4|finalRenderScene_vending:copierStack_geoShape4" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
-		2 "|finalRenderScene_vending:renderCam" "translate" " -type \"double3\" 137.27956687087328191 274.30452609891199245 -278.27563838629436077"
+		2 "|finalRenderScene_vending:renderCam" "translate" " -type \"double3\" 137.27956687087328 274.30452609891199 -278.27563838629436"
 		
-		2 "|finalRenderScene_vending:renderCam" "rotate" " -type \"double3\" -26.54351800789839544 71.68269932753312901 3.82189756458581265"
+		2 "|finalRenderScene_vending:renderCam" "rotate" " -type \"double3\" -26.543518007898395 71.682699327533129 3.8218975645858126"
 		
 		2 "|finalRenderScene_vending:renderCam" "rotatePivot" " -type \"double3\" 0 0 0"
 		
 		2 "|finalRenderScene_vending:renderCam" "rotatePivotTranslate" " -type \"double3\" 0 0 0"
 		
 		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
-		"renderable" " 1"
+		"renderable" " 0"
 		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
 		"focalLength" " 26"
 		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
@@ -2459,9 +2464,9 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
 		"farClipPlane" " 25400"
 		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
-		"centerOfInterest" " 97.92290356700219434"
+		"centerOfInterest" " 97.922903567002194"
 		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
-		"tumblePivot" " -type \"double3\" 57.21866395338403066 225.09908365643411798 -305.80691698117209398"
+		"tumblePivot" " -type \"double3\" 57.218663953384031 225.09908365643412 -305.80691698117209"
 		
 		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:areaLight1" 
 		"visibility" " 0"
@@ -2521,7 +2526,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:wrist_left_jnt" 
-		"rotate" " -type \"double3\" 0 0 0.55763853347607406"
+		"rotate" " -type \"double3\" 0 0 -40.100567751956511"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:wrist_left_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:wrist_left_jnt" 
@@ -2533,9 +2538,9 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
 		"rotateY" " -av 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateZ" " -av 0.38488937807233414"
+		"rotateZ" " -av -28.54256091040326"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
-		"rotate" " -type \"double3\" 17.15524242860707105 0 0"
+		"rotate" " -type \"double3\" 4.7206320413998801 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
@@ -2549,7 +2554,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
 		"blendPoint1" " -k 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
-		"rotate" " -type \"double3\" 0 -47.0150363984221471 -26.06664809489625512"
+		"rotate" " -type \"double3\" 0 23.555805451984604 -47.457980989532608"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
@@ -2557,7 +2562,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
-		"rotate" " -type \"double3\" 0 -0.4257361207181416 0.24461191137566013"
+		"rotate" " -type \"double3\" 0 -23.964336334656693 13.76900345167247"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
@@ -2567,7 +2572,8 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" -0.73820053301696809 8.6925855501139679 8.6925855501139679"
+		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
@@ -2575,9 +2581,9 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateY" " -av -0.42573612071813705"
+		"rotateY" " -av -23.9643363346567"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateZ" " -av 0.24461191137566529"
+		"rotateZ" " -av 13.769003451672479"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
@@ -2587,7 +2593,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0 0 14.276579540637272"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
@@ -2611,7 +2617,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset" 
-		"rotate" " -type \"double3\" 25.92555742118024753 -20.50841350568101973 24.93365490962067454"
+		"rotate" " -type \"double3\" 27.000000737199212 -18.268661986235188 -18.479595270740607"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset" 
 		"rotateX" " -av"
@@ -2622,7 +2628,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control" 
-		"rotate" " -type \"double3\" -19.04136338540229545 5.54412052441954106 -33.84000028282235206"
+		"rotate" " -type \"double3\" -11.703715236039059 5.5102736228340126 -21.571736041061541"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control" 
 		"rotateX" " -av"
@@ -2637,7 +2643,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_control01|finalRenderScene_vending:FullRig_Howard:faceRig:locGrp|finalRenderScene_vending:FullRig_Howard:faceRig:L_cheekBone_loc02|finalRenderScene_vending:FullRig_Howard:faceRig:L_cheekBone_offset02" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 -0.31145071435178773 -0.41476681562590428"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
@@ -2655,7 +2661,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
 		"roll" " -av -k 1 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"translate" " -type \"double3\" 0 0 0.05141212764078737"
+		"translate" " -type \"double3\" 0 -0.28014429783359018 0.05141212764078737"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
@@ -2675,7 +2681,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
 		"Twist" " -av -k 1 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"translate" " -type \"double3\" 0 -0.0036319278170399948 0"
+		"translate" " -type \"double3\" 0 -0.53999349926499984 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
@@ -2683,7 +2689,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 1.4476166232114229 4.6478108491217203 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
@@ -2699,7 +2705,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
-		"rotate" " -type \"double3\" -0.00046783893293020649 0 49.02040760001604269"
+		"rotate" " -type \"double3\" -1.3865770520548517 0 -31.830042162780941"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
@@ -2711,7 +2717,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_hips_jnt|finalRenderScene_vending:FullRig_Howard:CC_Hibs01" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnt_global01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_globalMove01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnts01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_grp_midBend01|finalRenderScene_vending:FullRig_Howard:CC_Mid_Bend01" 
-		"translate" " -type \"double3\" -1.10023130276721304 -4.13420476647638502 0.1858848939595702"
+		"translate" " -type \"double3\" -1.100231302767213 1.0097990195272208 0.26196182964923076"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnt_global01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_globalMove01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnts01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_grp_midBend01|finalRenderScene_vending:FullRig_Howard:CC_Mid_Bend01" 
 		"translateX" " -av"
@@ -2736,15 +2742,15 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:CC_Global01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_control" 
-		"translateY" " -av 0.9942593601281875"
+		"translateY" " -av 0.14648407992683793"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_control" 
-		"translateY" " -av 0.73211281184692267"
+		"translateY" " -av 0.050051801544125474"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_control" 
-		"translateY" " -av -0.99396457451488185"
+		"translateY" " -av -0.10265547900722088"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_control" 
-		"translateY" " -av -0.83121070009518427"
+		"translateY" " -av 0.20273549758238288"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
-		"translate" " -type \"double3\" -0.077192087939618653 -1 0"
+		"translate" " -type \"double3\" -0.19815174684302578 -1 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
@@ -2752,7 +2758,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" 0 0.07387610594747035 0"
+		"translate" " -type \"double3\" 0 -0.56713028729887838 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
 		"translateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
@@ -2760,7 +2766,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" 0 0.041720539460389228 0"
+		"translate" " -type \"double3\" 0 -0.19547515392193254 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
 		"translateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
@@ -2768,22 +2774,21 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
-		"translate" " -type \"double3\" 175.37813808591212705 1.12520962079844367 0"
+		"translate" " -type \"double3\" 175.37813808591213 1.1252096207984437 0"
 		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
 		"translateY" " -av"
+		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
+		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Head02RNfosterParent1|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "finalRenderScene_vending:color_pass" "precompTemplate" " -type \"string\" \"\""
 		
 		2 "finalRenderScene_vending:occlusionPass" "precompTemplate" " -type \"string\" \"\""
 		
-		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh.drawOverride" 
-		""
 		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:VM_sideDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_right_door_mesh.drawOverride" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_left_door_mesh.drawOverride" 
 		""
 		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:clav_right_jnt_orientConstraint1.constraintRotateX" 
 		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt.rotateX" 
@@ -2804,7 +2809,10 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt.translateZ" 
 		""
 		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:VM_sideDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_left_door_mesh.drawOverride" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_right_door_mesh.drawOverride" 
+		""
+		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh.drawOverride" 
 		""
 		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
 		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:leftDoor_mesh.drawOverride" 
@@ -3715,7 +3723,7 @@ createNode animCurveTA -n "CC_Chest01_rotateX";
 createNode animCurveTA -n "CC_Chest01_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  65.532 1.7655625192200634e-30;
+	setAttr ".ktv[0]"  65.532 1.7655625192200634e-030;
 createNode animCurveTA -n "CC_Chest01_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3737,7 +3745,7 @@ createNode animCurveTL -n "CC_Chest01_translateY";
 createNode animCurveTL -n "CC_Chest01_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  65.532 3.9443045261050599e-31;
+	setAttr ".ktv[0]"  65.532 3.9443045261050599e-031;
 createNode animCurveTU -n "CC_Chest01_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3837,7 +3845,7 @@ createNode animCurveTU -n "CC_R_Clavicle01_scaleZ";
 createNode animCurveTL -n "L_eyeBrowsSync_control_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  120 1.7763568394002509e-15;
+	setAttr ".ktv[0]"  120 1.7763568394002509e-015;
 createNode animCurveTL -n "L_eyeBrowsSync_control_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3846,11 +3854,11 @@ createNode animCurveTL -n "L_eyeBrowsSync_control_translateY";
 createNode animCurveTL -n "L_eyeBrowsSync_control_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  120 -3.552713678800508e-15;
+	setAttr ".ktv[0]"  120 -3.552713678800508e-015;
 createNode animCurveTL -n "R_eyeBrowsSync_control_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  120 -4.4408920985006475e-15;
+	setAttr ".ktv[0]"  120 -4.4408920985006475e-015;
 createNode animCurveTL -n "R_eyeBrowsSync_control_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3859,7 +3867,7 @@ createNode animCurveTL -n "R_eyeBrowsSync_control_translateY";
 createNode animCurveTL -n "R_eyeBrowsSync_control_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  120 -7.1054273576010381e-15;
+	setAttr ".ktv[0]"  120 -7.1054273576010381e-015;
 createNode animCurveTL -n "R_upperLidSync_control_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3880,7 +3888,7 @@ createNode animCurveTL -n "pupils_control_translateY";
 createNode animCurveTL -n "pupils_control_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  120 -3.944304526105059e-30;
+	setAttr ".ktv[0]"  120 -3.944304526105059e-030;
 createNode animCurveTL -n "L_lowerLidSync_control_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3893,7 +3901,7 @@ createNode animCurveTL -n "R_lowerLidSync_control_translateY";
 createNode animCurveTL -n "R_lipsSync_control_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  65.532 -1.5777218104420236e-30;
+	setAttr ".ktv[0]"  65.532 -1.5777218104420236e-030;
 createNode animCurveTL -n "R_lipsSync_control_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3905,7 +3913,7 @@ createNode animCurveTL -n "R_lipsSync_control_translateZ";
 createNode animCurveTL -n "L_lipsSync_control_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  65.532 7.1039210975437493e-15;
+	setAttr ".ktv[0]"  65.532 7.1039210975437493e-015;
 createNode animCurveTL -n "L_lipsSync_control_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4010,7 +4018,7 @@ createNode animCurveTL -n "headBase_offset_translateY";
 createNode animCurveTL -n "headBase_offset_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  10.76 4.7327833469704598e-17 65.532 4.7327833469704598e-17;
+	setAttr -s 2 ".ktv[0:1]"  10.76 4.7327833469704598e-017 65.532 4.7327833469704598e-017;
 createNode animCurveTU -n "headBase_offset_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4067,15 +4075,15 @@ createNode pairBlend -n "pairBlend2";
 createNode animCurveTL -n "pairBlend2_inTranslateX1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  5.556 1.3877787807814457e-16 65.532 1.3877787807814457e-16;
+	setAttr -s 2 ".ktv[0:1]"  5.556 1.3877787807814457e-016 65.532 1.3877787807814457e-016;
 createNode animCurveTL -n "pairBlend2_inTranslateY1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  5.556 4.4408920985006262e-16 65.532 4.4408920985006262e-16;
+	setAttr -s 2 ".ktv[0:1]"  5.556 4.4408920985006262e-016 65.532 4.4408920985006262e-016;
 createNode animCurveTL -n "pairBlend2_inTranslateZ1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  5.556 -1.1102230246251565e-16 65.532 -1.1102230246251565e-16;
+	setAttr -s 2 ".ktv[0:1]"  5.556 -1.1102230246251565e-016 65.532 -1.1102230246251565e-016;
 createNode animCurveTU -n "clav_right_jnt_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4653,8 +4661,8 @@ select -ne :time1;
 	setAttr -cb on ".ihi" 0;
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr ".o" 1;
-	setAttr ".unw" 1;
+	setAttr ".o" 28;
+	setAttr ".unw" 28;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -4688,7 +4696,6 @@ select -ne :lightList1;
 	setAttr -s 24 ".l";
 select -ne :defaultTextureList1;
 	setAttr -s 90 ".tx";
-select -ne :lambert1;
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -4746,9 +4753,14 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".esr";
 	setAttr -k on ".ors";
 	setAttr -k on ".gama";
+	setAttr ".an" yes;
+	setAttr ".ef" 66;
 	setAttr -k on ".be";
+	setAttr ".ep" 1;
 	setAttr -k on ".fec";
 	setAttr -k on ".ofc";
+	setAttr ".pff" yes;
+	setAttr ".peie" 0;
 	setAttr -k on ".comp";
 	setAttr -k on ".cth";
 	setAttr -k on ".soll";
@@ -4859,7 +4871,7 @@ select -ne :defaultHardwareRenderGlobals;
 	setAttr -k on ".gh";
 	setAttr -cb on ".sd";
 select -ne :ikSystem;
-	setAttr -s 5 ".sol";
+	setAttr -s 2 ".sol";
 select -ne :hyperGraphLayout;
 	setAttr -s 17 ".hyp";
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[1]";
@@ -6730,6 +6742,6 @@ connectAttr "Lighting_Effect:pointLight4.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Lighting_Effect:pointLight5.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Lighting_Effect:pointLight6.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"/Users/BCBane/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"|Lightning|Lighting_Effect:Lightning1|Lighting_Effect:pointLight1|Lighting_Effect:pointLightShape1\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n2\n\"|Lightning|Lighting_Effect:Lightning4|Lighting_Effect:pointLight4|Lighting_Effect:pointLightShape4\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n3\n\"|Lightning|Lighting_Effect:Lightning5|Lighting_Effect:pointLight5|Lighting_Effect:pointLightShape5\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n4\n\"|Lightning|Lighting_Effect:Lightning6|Lighting_Effect:pointLight6|Lighting_Effect:pointLightShape6\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"C:/Users/10553712/Documents/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"|Lightning|Lighting_Effect:Lightning1|Lighting_Effect:pointLight1|Lighting_Effect:pointLightShape1\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n2\n\"|Lightning|Lighting_Effect:Lightning4|Lighting_Effect:pointLight4|Lighting_Effect:pointLightShape4\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n3\n\"|Lightning|Lighting_Effect:Lightning5|Lighting_Effect:pointLight5|Lighting_Effect:pointLightShape5\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n4\n\"|Lightning|Lighting_Effect:Lightning6|Lighting_Effect:pointLight6|Lighting_Effect:pointLightShape6\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of airjordannoeffectBob.ma
