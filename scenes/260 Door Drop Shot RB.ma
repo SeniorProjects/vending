@@ -1,23 +1,9 @@
 //Maya ASCII 2015 scene
 //Name: 260 Door Drop Shot RB.ma
-//Last modified: Wed, Feb 18, 2015 01:04:52 PM
+//Last modified: Wed, Feb 18, 2015 02:26:42 PM
 //Codeset: 1252
 file -rdi 1 -ns "finalRenderScene_vending" -rfn "finalRenderScene_vendingRN"
 		 -op "v=0;" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma";
-file -rdi 2 -ns "faceRig" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN"
-		 "/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma";
-file -rdi 3 -ns "Head02" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN"
-		 -op "v=0;" "/Users/Samantha/Desktop/Face Rig/scenes/Head02.ma";
-file -rdi 2 -ns "VendingGuy2IK" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IKRN"
-		 "/Users/Samantha/Dropbox/Breakroom_Project/Breakroom_Project/scenes/VendingGuy2IK.ma";
-file -rdi 3 -ns "Dude_UV_s" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_sRN"
-		 -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
-		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
-file -rdi 2 -ns "Dude_UV_s" -rfn "finalRenderScene_vending:FullRig_Howard:Dude_UV_sRN"
-		 -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
-		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
-file -rdi 2 -ns "Head02" -rfn "finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN"
-		 -op "v=0;" "/Users/Samantha/Desktop/Face Rig/scenes/Head02.ma";
 file -rdi 1 -ns "Vending_Machine_TD1" -dr 1 -rfn "Vending_Machine_TD1RN" -op
 		 "v=0;p=17;f=0" "C:/Users/10343101/Documents/vending//scenes/Referenced Scenes/Vending Machine_TD1.ma";
 file -rdi 1 -ns "Vending_Machine_74_RB_Broken" -rfn "Vending_Machine_74_RB_BrokenRN"
@@ -267,13 +253,13 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 1499 ".lnk";
-	setAttr -s 6936 ".ign";
-	setAttr -s 327 ".slnk";
+	setAttr -s 1077 ".lnk";
+	setAttr -s 4090 ".ign";
+	setAttr -s 93 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
-	setAttr -s 5 ".rlmi[1:4]"  5 3 2 4;
+	setAttr -s 5 ".rlmi[1:4]"  6 1 2 4;
 	setAttr -s 3 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
@@ -375,35 +361,124 @@ createNode reference -n "finalRenderScene_vendingRN";
 	setAttr ".phl[5]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"finalRenderScene_vendingRN"
-		"finalRenderScene_vendingRN" 0
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN" 0
+		"finalRenderScene_vendingRN" 1
+		2 "|finalRenderScene_vending:vendingSnacks_grp" "visibility" " 0"
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN" 6
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av 0"
 		"finalRenderScene_vending:FullRig_Howard:Dude_UV_sRN" 0
-		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IKRN" 0
-		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN" 0
+		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IKRN" 19
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt" 
+		"translate" " -type \"double3\" 0 2.592199597378019 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt" 
+		"rotate" " -type \"double3\" -5.228694488273792 0 12.160222711068799"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt" 
+		"segmentScaleCompensate" " 1"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullLeft|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_left_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_left_jnt" 
+		"rotate" " -type \"double3\" 0 0 -60.384248104370499"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullLeft|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_left_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_left_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_left_jnt" 
+		"rotate" " -type \"double3\" 0 -23.794892845231477 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt" 
+		"rotate" " -type \"double3\" 0 57.300584606756523 -44.173594435422373"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt" 
+		"segmentScaleCompensate" " 1"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt" 
+		"rotate" " -type \"double3\" -101.85992494214504 -72.350771255196946 106.26817546308938"
+		
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt" 
+		"rotate" " -type \"double3\" 0 0 -11.051997200196571"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt" 
+		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left" 
+		"rotate" " -type \"double3\" 0 0 40.13169104233689"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left" 
+		"rotate" " -type \"double3\" 0 0 23.155586503525313"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left" 
+		"rotate" " -type \"double3\" 0 0 -20.684893611315676"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left" 
+		"rotate" " -type \"double3\" 0 0 -10.910556710132797"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:hips_jnt" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:hips_jnt" 
+		"segmentScaleCompensate" " 1"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Left_foot_Anim" 
+		"translate" " -type \"double3\" 0.21718413859313346 0 0.29049145682977578"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Right_foot_Anim" 
+		"translate" " -type \"double3\" -0.79511682175589116 0 -0.22185327917153519"
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN" 6
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av 0"
 		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_sRN" 0
 		
 		"finalRenderScene_vending:all_vending_snacksRN" 0
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN" 0
-		"finalRenderScene_vendingRN" 51
-		2 "|finalRenderScene_vending:vendingSnacks_grp" "visibility" " 0"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
-		"visibility" " 1"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
-		"rotate" " -type \"double3\" 0 180 0"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
-		"visibility" " 1"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
-		"rotate" " -type \"double3\" 0 180 0"
-		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:waterStand_geo" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN" 9
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01" 
 		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01" 
+		"segmentScaleCompensate" " 1"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control02" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_control01" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_control01" 
+		"segmentScaleCompensate" " 1"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_control" 
+		"translateY" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
+		"translateX" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
+		"translateY" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		"finalRenderScene_vendingRN" 74
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
+		"visibility" " 1"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo" 
+		"rotate" " -type \"double3\" 0 180 0"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo|finalRenderScene_vending:Blast_Door_v_9:Door_top_geoShape" 
+		"dispResolution" " 3"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_top_geo|finalRenderScene_vending:Blast_Door_v_9:Door_top_geoShape" 
+		"displaySmoothMesh" " 2"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
+		"visibility" " 1"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo" 
+		"rotate" " -type \"double3\" 0 180 0"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geoShape" 
+		"dispResolution" " 3"
+		2 "|finalRenderScene_vending:Blast_Door_grp|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geo|finalRenderScene_vending:Blast_Door_v_9:Door_bottom_geoShape" 
+		"displaySmoothMesh" " 2"
+		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:waterStand_geo" 
+		"rotate" " -type \"double3\" 0 0 0.5"
 		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:waterStand_geo" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:waterStand_geo" 
@@ -453,10 +528,50 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"rotate" " -type \"double3\" 0 180 0"
 		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:SuperMover_Offset_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:SuperMover|finalRenderScene_vending:howard_lightRig_grp" 
 		"visibility" " 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyebrowsShape" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
 		"segmentScaleCompensate" " 1"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyebrowsShape" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl" 
 		"visibility" " 0"
 		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh" 
@@ -473,8 +588,8 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE" 
 		"visibility" " 0"
-		2 "|finalRenderScene_vending:Head02RNfosterParent1|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed" 
-		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "finalRenderScene_vending:blastDoor_diffuse" "fileTextureName" " -type \"string\" \"C:/Users/10343101/Documents/vending//sourceimages/Final_Textures/BlastDoor_Texture.tga\""
+		
 		2 "finalRenderScene_vending:color_pass" "precompTemplate" " -type \"string\" \"\""
 		
 		2 "finalRenderScene_vending:occlusionPass" "precompTemplate" " -type \"string\" \"\""
@@ -488,92 +603,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:copyMachine_grp.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[4]" ""
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:copyMachine_grp.rotateZ" 
-		"finalRenderScene_vendingRN.placeHolderList[5]" ""
-		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN" 6
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateX" " -av 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateY" " -av 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateZ" " -av 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateX" " -av 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateY" " -av 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateZ" " -av 0"
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN" 6
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateX" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateY" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateZ" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateX" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateY" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateZ" " -av 0"
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN" 9
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01" 
-		"segmentScaleCompensate" " 1"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control02" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_control01" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skeleton_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:shoulder_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_offset02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:neck_control02|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:headBase_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:head_control|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_offset01|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_control01" 
-		"segmentScaleCompensate" " 1"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_control" 
-		"translateY" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
-		"translateX" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
-		"translateY" " -av 0"
-		2 "|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RNfosterParent1|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
-		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
-		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IKRN" 19
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt" 
-		"translate" " -type \"double3\" 0 2.592199597378019 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt" 
-		"rotate" " -type \"double3\" -5.228694488273792 0 12.160222711068799"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt" 
-		"segmentScaleCompensate" " 1"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullLeft|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_left_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_left_jnt" 
-		"rotate" " -type \"double3\" 0 0 -60.384248104370499"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullLeft|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_left_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_left_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_left_jnt" 
-		"rotate" " -type \"double3\" 0 -23.794892845231477 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt" 
-		"rotate" " -type \"double3\" 0 57.300584606756523 -44.173594435422373"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt" 
-		"segmentScaleCompensate" " 1"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt" 
-		"rotate" " -type \"double3\" -101.85992494214504 -72.350771255196946 106.26817546308938"
-		
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt" 
-		"rotate" " -type \"double3\" 0 0 -11.051997200196571"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt" 
-		"rotateZ" " -av"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:pinkyMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:pinkyKnuckle_left" 
-		"rotate" " -type \"double3\" 0 0 40.13169104233689"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:ringMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:ringKnuckle_left" 
-		"rotate" " -type \"double3\" 0 0 23.155586503525313"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:middleMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:middleKnuckle_left" 
-		"rotate" " -type \"double3\" 0 0 -20.684893611315676"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backBottom_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backMid_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:backUp_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulders_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:nullRight|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:clav_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:shoulder_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:elbow_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:wrist_right_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:indexMeta_left|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:indexKnuckle_left" 
-		"rotate" " -type \"double3\" 0 0 -10.910556710132797"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:hips_jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:root_jnt|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:hips_jnt" 
-		"segmentScaleCompensate" " 1"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Left_foot_Anim" 
-		"translate" " -type \"double3\" 0.21718413859313346 0 0.29049145682977578"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:Body2_grp_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Right_foot_Anim" 
-		"translate" " -type \"double3\" -0.79511682175589116 0 -0.22185327917153519";
+		"finalRenderScene_vendingRN.placeHolderList[5]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "Vending_Machine_TD1RN";
@@ -702,8 +732,8 @@ select -ne :time1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr ".o" 48;
-	setAttr ".unw" 48;
+	setAttr ".o" 15;
+	setAttr ".unw" 15;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -722,7 +752,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 174 ".s";
+	setAttr -s 91 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -737,7 +767,6 @@ select -ne :lightList1;
 	setAttr -s 20 ".l";
 select -ne :defaultTextureList1;
 	setAttr -s 120 ".tx";
-select -ne :lambert1;
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -908,7 +937,7 @@ select -ne :defaultHardwareRenderGlobals;
 	setAttr -k on ".gh";
 	setAttr -cb on ".sd";
 select -ne :ikSystem;
-	setAttr -s 5 ".sol";
+	setAttr -s 2 ".sol";
 select -ne :hyperGraphLayout;
 	setAttr -s 17 ".hyp";
 connectAttr "Door_top_geo_translateY.o" "finalRenderScene_vendingRN.phl[1]";
@@ -940,6 +969,6 @@ connectAttr "sharedReferenceNode.sr" "Vending_Machine_TD1RN.sr";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr ":perspShape.msg" ":defaultRenderGlobals.sc";
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"C:/Users/10343101/Documents/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"Vending_Machine_TD1RN\" \"\" \"C:/Users/10343101/Documents/vending//scenes/Referenced Scenes/Vending Machine_TD1.ma\" 830351720 \"C:/Users/10343101/Documents/vending/scenes/Referenced Scenes/Vending Machine_TD1.ma\" \"FileRef\"\n2\n\"Vending_Machine_74_RB_BrokenRN\" \"\" \"C:/Users/10343101/Documents/vending/scenes/Referenced Scenes/Vending Machine_74_RB_Broken.ma\" 66986861 \"C:/Users/10343101/Documents/vending/scenes/Referenced Scenes/Vending Machine_74_RB_Broken.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"C:/Users/10343101/Documents/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"Vending_Machine_TD1RN\" \"\" \"C:/Users/10343101/Documents/vending//scenes/Referenced Scenes/Vending Machine_TD1.ma\" 830351720 \"C:/Users/10343101/Documents/vending/scenes/Referenced Scenes/Vending Machine_TD1.ma\" \"FileRef\"\n2\n\"Vending_Machine_74_RB_BrokenRN\" \"\" \"C:/Users/10343101/Documents/vending//scenes/Referenced Scenes/Vending Machine_74_RB_Broken.ma\" 3357497333 \"C:/Users/10343101/Documents/vending/scenes/Referenced Scenes/Vending Machine_74_RB_Broken.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of 260 Door Drop Shot RB.ma
