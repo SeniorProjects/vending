@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: airjordannoeffectBob.ma
-//Last modified: Wed, Feb 25, 2015 03:34:02 PM
+//Last modified: Fri, Feb 27, 2015 02:22:07 PM
 //Codeset: 1252
 file -rdi 1 -ns "finalRenderScene_vending" -rfn "finalRenderScene_vendingRN"
 		 -op "v=0;" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma";
@@ -10,6 +10,7 @@ requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalraySubdivApprox" -nodeType "mentalrayOptions"
 		 -nodeType "mentalrayGlobals" -nodeType "mentalrayItemsList" -nodeType "mia_material_x_passes"
 		 -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.17 ";
+requires "OpenEXRLoader" "2012";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -19,16 +20,18 @@ fileInfo "osv" "Microsoft Windows 7 Enterprise Edition, 64-bit Windows 7 Service
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -975.35628150804359 288.58671918343543 -270.083712520836 ;
-	setAttr ".r" -type "double3" -10.538352729411253 277.40000000012725 0 ;
+	setAttr ".t" -type "double3" 25.579448947194578 254.91937542180935 -62.264205412820083 ;
+	setAttr ".r" -type "double3" 0.26164727059182935 167.800000000068 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
+	setAttr ".ovr" 1.3;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 797.95455416910545;
+	setAttr ".coi" 78.047509465374247;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
 	setAttr ".hc" -type "string" "viewSet -p %camera";
+	setAttr ".dfg" yes;
 createNode transform -s -n "top";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0 100.1 0 ;
@@ -344,7 +347,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint1_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -22.187951256759014 -125.11777152879253 25.594279414018892 ;
+	setAttr ".lr" -type "double3" -55.256990529106425 -79.918144767843785 56.124525939410411 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle1" -p "Lighting_Effect:fromPoint1";
 createNode locator -n "Lighting_Effect:fromDirHandleShape1" -p "Lighting_Effect:fromDirHandle1";
@@ -447,7 +450,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint1_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -17.231423890179496 -137.16872096294452 19.05188649929929 ;
+	setAttr ".lr" -type "double3" 50.034756403629963 -100.81751019010538 -48.242045958756194 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle1" -p "Lighting_Effect:toPoint1";
 createNode locator -n "Lighting_Effect:toDirHandleShape1" -p "Lighting_Effect:toDirHandle1";
@@ -520,7 +523,8 @@ createNode particle -n "Lighting_Effect:lightningCurve1ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 65;
+	setAttr ".cst" 65;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -726,7 +730,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint4_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -17.231423890179496 -137.16872096294452 19.05188649929929 ;
+	setAttr ".lr" -type "double3" 50.034756403629963 -100.81751019010538 -48.242045958756194 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle3" -p "Lighting_Effect:fromPoint4";
 createNode locator -n "Lighting_Effect:fromDirHandleShape3" -p "Lighting_Effect:fromDirHandle3";
@@ -829,7 +833,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint4_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -22.187951256759014 -125.11777152879253 25.594279414018892 ;
+	setAttr ".lr" -type "double3" -55.256990529106425 -79.918144767843785 56.124525939410411 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle3" -p "Lighting_Effect:toPoint4";
 	setAttr ".t" -type "double3" 16.029944477284829 -2.222434202108226 -5.5000024830211167 ;
@@ -912,7 +916,8 @@ createNode particle -n "Lighting_Effect:lightningCurve4ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 65;
+	setAttr ".cst" 65;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -1092,7 +1097,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint5_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -17.231423890179496 -137.16872096294452 19.05188649929929 ;
+	setAttr ".lr" -type "double3" 50.034756403629963 -100.81751019010538 -48.242045958756194 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle4" -p "Lighting_Effect:fromPoint5";
 createNode locator -n "Lighting_Effect:fromDirHandleShape4" -p "Lighting_Effect:fromDirHandle4";
@@ -1195,7 +1200,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint5_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -22.187951256759014 -125.11777152879253 25.594279414018892 ;
+	setAttr ".lr" -type "double3" -55.256990529106425 -79.918144767843785 56.124525939410411 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle4" -p "Lighting_Effect:toPoint5";
 	setAttr ".t" -type "double3" 6.6098954185234602 0.39244224657497018 2.4203708127484216 ;
@@ -1279,7 +1284,8 @@ createNode particle -n "Lighting_Effect:lightningCurve5ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 65;
+	setAttr ".cst" 65;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -1483,7 +1489,7 @@ createNode orientConstraint -n "Lighting_Effect:fromPoint6_orientConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -22.187951256759014 -125.11777152879253 25.594279414018892 ;
+	setAttr ".lr" -type "double3" -55.256990529106425 -79.918144767843785 56.124525939410411 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:fromDirHandle5" -p "Lighting_Effect:fromPoint6";
 	setAttr ".t" -type "double3" 4.8517638258288702 2.5101767949878067 -1.90841723828993 ;
@@ -1587,7 +1593,7 @@ createNode orientConstraint -n "Lighting_Effect:toPoint6_orientConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -17.231423890179496 -137.16872096294452 19.05188649929929 ;
+	setAttr ".lr" -type "double3" 50.034756403629963 -100.81751019010538 -48.242045958756194 ;
 	setAttr -k on ".w0";
 createNode transform -n "Lighting_Effect:toDirHandle5" -p "Lighting_Effect:toPoint6";
 createNode locator -n "Lighting_Effect:toDirHandleShape5" -p "Lighting_Effect:toDirHandle5";
@@ -1668,7 +1674,8 @@ createNode particle -n "Lighting_Effect:lightningCurve6ParticleShape" -p "Lighti
 	setAttr ".irbx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
 	setAttr ".irax" -type "string" "";
 	setAttr ".icx" -type "string" "vector $from = << .I[0], .I[1], .I[2] >>;\nvector $to = << .I[3], .I[4], .I[5] >>;\nvector $diffV = $to - $from;\nfloat $ratio = .I[6] / ( .I[7] - 1 );\n$ratio = .I[8] + ($ratio * (.I[9] - .I[8]));\n//\n// vector $newP = $from + $diffV * $ratio;\n//\nvector $fromDirP = << .I[10], .I[11], .I[12] >>;\nvector $toDirP = << .I[13], .I[14], .I[15] >>;\nvector $fromDir = ( $fromDirP - $from ) * 5.0;\nvector $toDir = ( $to - $toDirP ) * 5.0;\n$newP = hermite($from,$to,$fromDir,$toDir,$ratio);\n// if( ( id != 0 ) && ( id != ( count - 1 ) ) )\n{\n\tfloat $spread = 0;\n\tif( $ratio < .5 )\n\t\t$spread = linstep( 0, .5, $ratio ) * .I[16];\n\telse\n\t\t$spread = ( 1.0 - linstep( .5, 1, $ratio ) ) * .I[16];\n\t$spread = $spread * ( .I[9] - .I[8] );\n\t$newP += sphrand( $spread );\n}\n.O[0] = $newP;";
-	setAttr ".cts" 1;
+	setAttr ".cts" 65;
+	setAttr ".cst" 65;
 	setAttr ".igeo" -type "nurbsCurve" 
 		1 20 0 no 3
 		21 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
@@ -1799,7 +1806,7 @@ createNode camera -n "top2Shape" -p "top2";
 	setAttr ".o" yes;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 	setAttr -s 2 ".opt";
-	setAttr -s 2 ".va";
+	setAttr -s 4 ".va";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
 	addAttr -s false -ci true -h true -sn "sunAndSkyShader" -ln "sunAndSkyShader" -at "message";
 	setAttr ".rvb" 3;
@@ -1959,22 +1966,23 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 1039 ".lnk";
+	setAttr -s 1040 ".lnk";
 	setAttr -s 4090 ".ign";
-	setAttr -s 55 ".slnk";
+	setAttr -s 56 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr -s 3 ".dli[1:2]"  1 2;
 	setAttr -s 3 ".dli";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
-	setAttr -s 5 ".rlmi[1:4]"  3 2 4 1;
+	setAttr -s 5 ".rlmi[1:4]"  5 3 4 1;
 	setAttr -s 3 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
-	setAttr -s 3 ".oajs";
+	setAttr -s 4 ".oajs";
 	setAttr ".oajs[0].oaid" 0;
 	setAttr ".oajs[1].oaid" 1;
 	setAttr ".oajs[2].oaid" 2;
+	setAttr ".oajs[3].oaid" 3;
 createNode mentalrayOptions -s -n "miContourPreset";
 createNode mentalrayOptions -s -n "PreviewImrRayTracyOff";
 	setAttr ".minsp" 0;
@@ -1991,39 +1999,42 @@ createNode mentalrayOptions -s -n "PreviewImrRayTracyOn";
 	setAttr ".shrd" 1;
 createNode hyperGraphInfo -n "nodeEditorPanel1Info";
 createNode hyperView -n "hyperView1";
-	setAttr ".vl" -type "double2" -112.39644751898852 -429.32237946516688 ;
-	setAttr ".vh" -type "double2" 735.88760707412553 -24.84256535454303 ;
+	setAttr ".vl" -type "double2" -41.327750297268075 -710.17836997924292 ;
+	setAttr ".vh" -type "double2" 1394.3970894586787 191.16326264709431 ;
 	setAttr ".dag" no;
 createNode hyperLayout -n "hyperLayout1";
 	setAttr ".ihi" 0;
-	setAttr -s 9 ".hyp";
-	setAttr ".hyp[0].x" 721.4285888671875;
-	setAttr ".hyp[0].y" -144.28572082519531;
+	setAttr -s 10 ".hyp";
+	setAttr ".hyp[0].x" 241.42857360839844;
+	setAttr ".hyp[0].y" -215.71427917480469;
 	setAttr ".hyp[0].nvs" 1920;
-	setAttr ".hyp[1].x" 961.4285888671875;
+	setAttr ".hyp[1].x" 721.4285888671875;
 	setAttr ".hyp[1].y" -144.28572082519531;
 	setAttr ".hyp[1].nvs" 1920;
-	setAttr ".hyp[2].x" 1.4285714626312256;
+	setAttr ".hyp[2].x" 241.42857360839844;
 	setAttr ".hyp[2].y" -72.857139587402344;
 	setAttr ".hyp[2].nvs" 1920;
-	setAttr ".hyp[3].x" 241.42857360839844;
+	setAttr ".hyp[3].x" 1.4285714626312256;
 	setAttr ".hyp[3].y" -72.857139587402344;
 	setAttr ".hyp[3].nvs" 1920;
-	setAttr ".hyp[4].x" 241.42857360839844;
-	setAttr ".hyp[4].y" -215.71427917480469;
+	setAttr ".hyp[4].x" 961.4285888671875;
+	setAttr ".hyp[4].y" -144.28572082519531;
 	setAttr ".hyp[4].nvs" 1920;
 	setAttr ".hyp[5].x" 481.42855834960937;
-	setAttr ".hyp[5].y" -72.857139587402344;
+	setAttr ".hyp[5].y" -215.71427917480469;
 	setAttr ".hyp[5].nvs" 1920;
 	setAttr ".hyp[6].x" 481.42855834960937;
-	setAttr ".hyp[6].y" -215.71427917480469;
+	setAttr ".hyp[6].y" -72.857139587402344;
 	setAttr ".hyp[6].nvs" 1920;
-	setAttr ".hyp[7].x" 314.55447387695312;
-	setAttr ".hyp[7].y" -294.28570556640625;
+	setAttr ".hyp[7].x" 669.6541748046875;
+	setAttr ".hyp[7].y" -381.4383544921875;
 	setAttr ".hyp[7].nvs" 1920;
-	setAttr ".hyp[8].x" 117.41161346435547;
-	setAttr ".hyp[8].y" -350.87158203125;
+	setAttr ".hyp[8].x" 506.81640625;
+	setAttr ".hyp[8].y" -381.4383544921875;
 	setAttr ".hyp[8].nvs" 1920;
+	setAttr ".hyp[9].x" 655.89324951171875;
+	setAttr ".hyp[9].y" -294.28570556640625;
+	setAttr ".hyp[9].nvs" 1920;
 	setAttr ".anf" yes;
 createNode script -n "uiConfigurationScriptNode";
 	setAttr ".b" -type "string" (
@@ -2046,12 +2057,12 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n"
 		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"cameraShape1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
-		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n"
-		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 0\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
-		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"cameraShape1\" \n            -useInteractiveMode 0\n"
-		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n"
-		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 0\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
+		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 0\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n"
+		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 0\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
 		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n"
 		+ "                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n"
 		+ "                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
@@ -2084,24 +2095,17 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n"
 		+ "                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n"
-		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
-		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"cameraShape1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
-		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n"
-		+ "                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n"
-		+ "                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"cameraShape1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n"
-		+ "                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n"
-		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n"
-		+ "                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n"
-		+ "\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"cameraShape1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 0\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"cameraShape1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 0\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
+		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 0\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 0\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 66 -ast 1 -aet 66 ";
 	setAttr ".st" 6;
 createNode reference -n "finalRenderScene_vendingRN";
-	setAttr -s 334 ".phl";
+	setAttr -s 367 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2436,6 +2440,39 @@ createNode reference -n "finalRenderScene_vendingRN";
 	setAttr ".phl[332]" 0;
 	setAttr ".phl[333]" 0;
 	setAttr ".phl[334]" 0;
+	setAttr ".phl[335]" 0;
+	setAttr ".phl[336]" 0;
+	setAttr ".phl[337]" 0;
+	setAttr ".phl[338]" 0;
+	setAttr ".phl[339]" 0;
+	setAttr ".phl[340]" 0;
+	setAttr ".phl[341]" 0;
+	setAttr ".phl[342]" 0;
+	setAttr ".phl[343]" 0;
+	setAttr ".phl[344]" 0;
+	setAttr ".phl[345]" 0;
+	setAttr ".phl[346]" 0;
+	setAttr ".phl[347]" 0;
+	setAttr ".phl[348]" 0;
+	setAttr ".phl[349]" 0;
+	setAttr ".phl[350]" 0;
+	setAttr ".phl[351]" 0;
+	setAttr ".phl[352]" 0;
+	setAttr ".phl[353]" 0;
+	setAttr ".phl[354]" 0;
+	setAttr ".phl[355]" 0;
+	setAttr ".phl[356]" 0;
+	setAttr ".phl[357]" 0;
+	setAttr ".phl[358]" 0;
+	setAttr ".phl[359]" 0;
+	setAttr ".phl[360]" 0;
+	setAttr ".phl[361]" 0;
+	setAttr ".phl[362]" 0;
+	setAttr ".phl[363]" 0;
+	setAttr ".phl[364]" 0;
+	setAttr ".phl[365]" 0;
+	setAttr ".phl[366]" 0;
+	setAttr ".phl[367]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"finalRenderScene_vendingRN"
 		"finalRenderScene_vendingRN" 9
@@ -2504,7 +2541,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"translateY" " -av 0"
 		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
-		"finalRenderScene_vendingRN" 555
+		"finalRenderScene_vendingRN" 607
 		1 |finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:Mesh01|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_Mesh|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_MeshShape 
 		"miSubdivApprox" "miva" " -s 0 -ci 1 -at \"message\""
 		1 |finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:Mesh01|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_Mesh|finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed 
@@ -2632,7 +2669,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:wrist_left_jnt" 
-		"rotate" " -type \"double3\" 0 0 0.55763853347607406"
+		"rotate" " -type \"double3\" 0 0 50.287235517667398"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:wrist_left_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:wrist_left_jnt" 
@@ -2644,9 +2681,9 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
 		"rotateY" " -av 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateZ" " -av 0.38488937807233414"
+		"rotateZ" " -av -0.053296221309809218"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
-		"rotate" " -type \"double3\" 17.155242428607071 0 0"
+		"rotate" " -type \"double3\" 4.7206320413998801 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
@@ -2660,7 +2697,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt" 
 		"blendPoint1" " -k 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
-		"rotate" " -type \"double3\" 0 -47.015036398422147 -26.066648094896255"
+		"rotate" " -type \"double3\" 0 45.672725477921489 -47.80542778593118"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
@@ -2668,7 +2705,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
-		"rotate" " -type \"double3\" 0 -0.42573612071813566 0.2446119113756636"
+		"rotate" " -type \"double3\" 0 -0.0083633144725304628 0.0048052449369469117"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
@@ -2678,7 +2715,8 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" -3.1423777599663287 37.00266565461142 37.00266565461142"
+		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
@@ -2686,9 +2724,9 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateY" " -av -0.42573612071813705"
+		"rotateY" " -av -0.0083633144725310544"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateZ" " -av 0.24461191137566529"
+		"rotateZ" " -av 0.0048052449369538576"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
@@ -2698,7 +2736,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0 0 60.772654624807302"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
@@ -2722,7 +2760,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset" 
-		"rotate" " -type \"double3\" 25.925557421180248 -20.50841350568102 24.933654909620675"
+		"rotate" " -type \"double3\" 27.000000737199212 -18.268661986235188 -18.479595270740607"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset" 
 		"rotateX" " -av"
@@ -2733,7 +2771,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control" 
-		"rotate" " -type \"double3\" -19.041363385402295 5.5441205244195411 -33.840000282822352"
+		"rotate" " -type \"double3\" 12.193594222637147 5.4000407709798504 18.38364218617221"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control" 
 		"rotateX" " -av"
@@ -2748,61 +2786,65 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_control01|finalRenderScene_vending:FullRig_Howard:faceRig:locGrp|finalRenderScene_vending:FullRig_Howard:faceRig:L_cheekBone_loc02|finalRenderScene_vending:FullRig_Howard:faceRig:L_cheekBone_offset02" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"translate" " -type \"double3\" 2.1095588579050837 1.6373044704030242 0.57429232902256699"
+		
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"rotate" " -type \"double3\" 6.165383126585553 52.51004753422405 49.848483499298219"
+		
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
+		"roll" " -av -k 1 0.42163923021428218"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"translate" " -type \"double3\" -2.0379743783270232 1.6093481157236915 0.05141212764078737"
+		
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"rotate" " -type \"double3\" 26.480687122103397 0.66317472190543336 -46.605238519750777"
+		
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"roll" " -av -k 1 0.42449223300227601"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
+		"Twist" " -av -k 1 18.131052109556418"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"translate" " -type \"double3\" 0 -0.00019845011820984748 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"rotate" " -type \"double3\" 6.162225680257766 19.784837305819988 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
+		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"translateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"rotateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"rotateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"rotateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Left_foot_Anim" 
-		"roll" " -av -k 1 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"translate" " -type \"double3\" 0 0 0.05141212764078737"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"translateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"rotateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"rotateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"rotateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"roll" " -av -k 1 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:Right_foot_Anim" 
-		"Twist" " -av -k 1 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"translate" " -type \"double3\" 0 -0.0036319278170399948 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"translateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"rotateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"rotateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"rotateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
-		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
@@ -2810,7 +2852,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
-		"rotate" " -type \"double3\" -0.00046783893293020649 0 49.020407600016043"
+		"rotate" " -type \"double3\" -3.6074838720863784 0 47.794529712162358"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
 		"rotateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_backUp_jnt|finalRenderScene_vending:FullRig_Howard:CC_Chest01" 
@@ -2822,7 +2864,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_hips_jnt|finalRenderScene_vending:FullRig_Howard:CC_Hibs01" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnt_global01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_globalMove01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnts01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_grp_midBend01|finalRenderScene_vending:FullRig_Howard:CC_Mid_Bend01" 
-		"translate" " -type \"double3\" -1.100231302767213 -4.134204766476385 0.1858848939595702"
+		"translate" " -type \"double3\" -1.100231302767213 -2.2863118208134008 -0.49112089303432538"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnt_global01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_globalMove01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnts01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_grp_midBend01|finalRenderScene_vending:FullRig_Howard:CC_Mid_Bend01" 
 		"translateX" " -av"
@@ -2839,7 +2881,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnt_global01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_globalMove01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnts01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_grp_midBend01|finalRenderScene_vending:FullRig_Howard:CC_Mid_Bend01" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:CC_Global01" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 60.012369810838777 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:CC_Global01" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:CC_Global01" 
@@ -2866,16 +2908,20 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
 		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed" 
+		"instObjGroups.objectGroups" " -s 8"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_control" 
-		"translateY" " -av 0.9942593601281875"
+		"translateY" " -av 0.99968632893643483"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_control" 
-		"translateY" " -av 0.73211281184692267"
+		"translateY" " -av 0.99965088962638671"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_control" 
-		"translateY" " -av -0.99396457451488185"
+		"translateY" " -av -0.99967022172209741"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_control" 
-		"translateY" " -av -0.83121070009518427"
+		"translateY" " -av -0.42408353090846485"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
-		"translate" " -type \"double3\" -0.077192087939618653 -1 0"
+		"translate" " -type \"double3\" -0.59084036631805725 -1 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
 		"translateX" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
@@ -2883,7 +2929,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" 0 0.07387610594747035 0"
+		"translate" " -type \"double3\" 0 0.75631020615728806 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
 		"translateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
@@ -2891,7 +2937,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" 0 0.041720539460389228 0"
+		"translate" " -type \"double3\" 0 0.77338208465472591 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
 		"translateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
@@ -2910,32 +2956,91 @@ createNode reference -n "finalRenderScene_vendingRN";
 		
 		2 "finalRenderScene_vending:occlusionPass" "precompTemplate" " -type \"string\" \"\""
 		
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:Curves" "displayType" 
+		" 0"
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:mentalraySubdivApprox1" 
+		"viewDependent" " 1"
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:mentalraySubdivApprox1" 
+		"length" " 0.0099999997764825821"
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:mentalraySubdivApprox1" 
+		"maxSubdivisions" " 6"
 		2 "finalRenderScene_vending:FullRig_Howard:groupParts3" "inputComponents" 
 		" -type \"componentList\" 32 \"f[532:880]\" \"f[1252:1264]\" \"f[1336:1340]\" \"f[1343:1344]\" \"f[1355:1356]\" \"f[1368:1370]\" \"f[1374]\" \"f[1380:1381]\" \"f[1477:1548]\" \"f[1596:1612]\" \"f[1615:1766]\" \"f[2652:2660]\" \"f[2681:2689]\" \"f[3040:3043]\" \"f[3106:3130]\" \"f[3280:3295]\" \"f[3828:4176]\" \"f[4548:4560]\" \"f[4632:4636]\" \"f[4639:4640]\" \"f[4651:4652]\" \"f[4664:4666]\" \"f[4670]\" \"f[4676:4677]\" \"f[4773:4844]\" \"f[4892:4908]\" \"f[4911:5062]\" \"f[5948:5956]\" \"f[5977:5985]\" \"f[6336:6339]\" \"f[6402:6426]\" \"f[6576:6591]\""
 		
 		2 "finalRenderScene_vending:FullRig_Howard:groupParts3" "inputRemoveComponent" 
 		" -type \"componentList\" 33 \"f[0:531]\" \"f[881:1251]\" \"f[1265:1335]\" \"f[1341:1342]\" \"f[1345:1354]\" \"f[1357:1367]\" \"f[1371:1373]\" \"f[1375:1379]\" \"f[1382:1476]\" \"f[1549:1595]\" \"f[1613:1614]\" \"f[1767:2651]\" \"f[2661:2680]\" \"f[2690:3039]\" \"f[3044:3105]\" \"f[3131:3279]\" \"f[3296:3827]\" \"f[4177:4547]\" \"f[4561:4631]\" \"f[4637:4638]\" \"f[4641:4650]\" \"f[4653:4663]\" \"f[4667:4669]\" \"f[4671:4675]\" \"f[4678:4772]\" \"f[4845:4891]\" \"f[4909:4910]\" \"f[5063:5947]\" \"f[5957:5976]\" \"f[5986:6335]\" \"f[6340:6401]\" \"f[6427:6575]\" \"f[6592:6963]\""
 		
-		3 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.instObjGroups" 
-		"finalRenderScene_vending:FinalVendingGuyRig02:howard_face_lambertSG.dagSetMembers" 
+		2 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:minigun:LightSet_Set" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Curves" "displayType" 
+		" 0"
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Mouth" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FullRig_Howard:faceRig:Head02:DuplicateEyebrow" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Mouth" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:DuplicateEyebrow" 
+		"displayType" " 0"
+		2 "finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_s:Body" 
+		"displayType" " 0"
+		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:VM_sideDoors.drawInfo" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_left_door_mesh.drawOverride" 
+		""
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:Mesh01|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_Mesh|finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed.instObjGroups.objectGroups[2]" 
+		"finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na"
+		
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeIris|finalRenderScene_vending:FullRig_Howard:faceRig:EyeIrisShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn2SG.dagSetMembers" 
 		"-na"
-		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:leftDoor_mesh.drawOverride" 
-		""
-		3 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:mentalraySubdivApprox1.message" 
-		"|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_MeshShape.miSubdivApprox" 
-		""
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeIris|finalRenderScene_vending:FullRig_Howard:faceRig:EyeIrisShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn2SG.dagSetMembers" 
+		"-na"
 		3 "finalRenderScene_vending:FinalVendingGuyRig02:howard_face_mia_material_x.message" 
 		"finalRenderScene_vending:FinalVendingGuyRig02:materialInfo2.texture" "-na"
-		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh.drawOverride" 
-		""
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBlackInside|finalRenderScene_vending:FullRig_Howard:faceRig:EyeBlackInsideShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn4SG.dagSetMembers" 
+		"-na"
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeBlackInside|finalRenderScene_vending:FullRig_Howard:faceRig:EyeBlackInsideShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn4SG.dagSetMembers" 
+		"-na"
 		3 "finalRenderScene_vending:FinalVendingGuyRig02:howard_body_mia_material_x.message" 
 		"finalRenderScene_vending:FinalVendingGuyRig02:materialInfo4.texture" "-na"
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeShealth|finalRenderScene_vending:FullRig_Howard:faceRig:EyeShealthShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn1SG.dagSetMembers" 
+		"-na"
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeShealth|finalRenderScene_vending:FullRig_Howard:faceRig:EyeShealthShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn1SG.dagSetMembers" 
+		"-na"
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:mia_material_x1SG.dagSetMembers" 
+		"-na"
+		3 "finalRenderScene_vending:FullRig_Howard:faceRig:mentalraySubdivApprox1.message" 
+		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.miSubdivApprox" 
+		""
+		3 "finalRenderScene_vending:FullRig_Howard:faceRig:skinCluster22.outputGeometry[0]" 
+		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.inMesh" 
+		""
 		3 "finalRenderScene_vending:FullRig_Howard:groupParts5.outputGeometry" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:Mesh01|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_Mesh|finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed.inMesh" 
 		""
 		3 "finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Dude1_blinnSG.memberWireframeColor" 
 		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:Mesh01|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_Mesh|finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:howard_face_lambertSG.dagSetMembers" 
+		"-na"
+		3 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:mentalraySubdivApprox1.message" 
+		"|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_MeshShape.miSubdivApprox" 
+		""
+		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh.drawOverride" 
+		""
+		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:VM_sideDoors.drawInfo" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_right_door_mesh.drawOverride" 
 		""
 		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:clav_right_jnt_orientConstraint1.constraintRotateX" 
 		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt.rotateX" 
@@ -2955,11 +3060,20 @@ createNode reference -n "finalRenderScene_vendingRN";
 		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:clav_right_jnt_pointConstraint1.constraintTranslateZ" 
 		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt.translateZ" 
 		""
-		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:VM_sideDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_right_door_mesh.drawOverride" 
+		3 "finalRenderScene_vending:FullRig_Howard:faceRig:mentalraySubdivApprox1.message" 
+		"|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_MeshShape.miSubdivApprox" 
 		""
-		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:VM_sideDoors.drawInfo" 
-		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_left_door_mesh.drawOverride" 
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeLense|finalRenderScene_vending:FullRig_Howard:faceRig:EyeLenseShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn3SG.dagSetMembers" 
+		"-na"
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeLense|finalRenderScene_vending:FullRig_Howard:faceRig:EyeLenseShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn3SG.dagSetMembers" 
+		"-na"
+		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrow_blinnSG.dagSetMembers" 
+		"-na"
+		3 "finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:VM_topDoors.drawInfo" 
+		"|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:leftDoor_mesh.drawOverride" 
 		""
 		3 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skinCluster22.outputGeometry[0]" 
 		"|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.inMesh" 
@@ -2967,9 +3081,6 @@ createNode reference -n "finalRenderScene_vendingRN";
 		3 "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:mentalraySubdivApprox1.message" 
 		"|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.miSubdivApprox" 
 		""
-		3 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:Mesh01|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Body_Mesh|finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed.instObjGroups.objectGroups[2]" 
-		"finalRenderScene_vending:FullRig_Howard:Dude_UV_s:Dude1_blinnSG.dagSetMembers" "-na"
-		
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:ceiling_pipe_grp|finalRenderScene_vending:ceiling_pipe_down_grp|finalRenderScene_vending:ceiling_pipe_down_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[1]" ""
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:ceiling_pipe_grp|finalRenderScene_vending:ceiling_pipe_down_grp|finalRenderScene_vending:ceiling_pipe_stud_geo29.drawOverride" 
@@ -3297,354 +3408,430 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"finalRenderScene_vendingRN.placeHolderList[159]" ""
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:CC_Global01.rotateZ" 
 		"finalRenderScene_vendingRN.placeHolderList[160]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_control.translateY" 
-		"finalRenderScene_vendingRN.placeHolderList[161]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_control.translateY" 
+		5 3 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed.instObjGroups" 
+		"finalRenderScene_vendingRN.placeHolderList[161]" "finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrow_blinnSG.dsm"
+		
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_MeshShape.miSubdivApprox" 
 		"finalRenderScene_vendingRN.placeHolderList[162]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_control.translateY" 
+		5 3 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[8]" 
 		"finalRenderScene_vendingRN.placeHolderList[163]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_control.translateY" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[8].objectGroupId" 
 		"finalRenderScene_vendingRN.placeHolderList[164]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control.translateX" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[8].objectGrpColor" 
 		"finalRenderScene_vendingRN.placeHolderList[165]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control.translateY" 
+		5 3 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[9]" 
 		"finalRenderScene_vendingRN.placeHolderList[166]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control.translateZ" 
+		5 3 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[9]" 
 		"finalRenderScene_vendingRN.placeHolderList[167]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control.translateY" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[9].objectGroupId" 
 		"finalRenderScene_vendingRN.placeHolderList[168]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control.translateX" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.instObjGroups.objectGroups[9].objectGrpColor" 
 		"finalRenderScene_vendingRN.placeHolderList[169]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control.translateZ" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.inMesh" 
 		"finalRenderScene_vendingRN.placeHolderList[170]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control.translateY" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.miSubdivApprox" 
 		"finalRenderScene_vendingRN.placeHolderList[171]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control.translateX" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
 		"finalRenderScene_vendingRN.placeHolderList[172]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control.translateZ" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[173]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control.translateY" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[174]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control.translateX" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[175]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control.translateZ" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[176]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateY" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control.translateX" 
 		"finalRenderScene_vendingRN.placeHolderList[177]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateX" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[178]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateZ" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_offset|finalRenderScene_vending:FullRig_Howard:faceRig:pupils_control.translateZ" 
 		"finalRenderScene_vendingRN.placeHolderList[179]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_mesh|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:polySurface477.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[180]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_mesh|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:polySurface478.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control.translateX" 
 		"finalRenderScene_vendingRN.placeHolderList[181]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_left_door_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control.translateZ" 
 		"finalRenderScene_vendingRN.placeHolderList[182]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_right_door_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[183]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf5_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control.translateX" 
 		"finalRenderScene_vendingRN.placeHolderList[184]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf4_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control.translateZ" 
 		"finalRenderScene_vendingRN.placeHolderList[185]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf3_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[186]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf2_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control.translateX" 
 		"finalRenderScene_vendingRN.placeHolderList[187]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf1_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control.translateZ" 
 		"finalRenderScene_vendingRN.placeHolderList[188]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateY" 
 		"finalRenderScene_vendingRN.placeHolderList[189]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:screen1_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateX" 
 		"finalRenderScene_vendingRN.placeHolderList[190]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keyPadEye_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateZ" 
 		"finalRenderScene_vendingRN.placeHolderList[191]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_mesh|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:polySurface477.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[192]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_mesh|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:polySurface478.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[193]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_left_door_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[194]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:body_right_door_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[195]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube5.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf5_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[196]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube4.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf4_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[197]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf3_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[198]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf2_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[199]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube9.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelves_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:shelf1_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[200]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube12.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[201]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube15.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:screen1_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[202]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube14.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keyPadEye_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[203]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube11.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[204]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube10.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[205]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube13.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[206]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[207]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:leftDoor_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube5.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[208]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingFeet_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:polySurface29.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube4.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[209]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingFeet_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:polySurface29|finalRenderScene_vending:Vending_Machine_TD1:polySurface8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[210]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingFeet_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:polySurface29|finalRenderScene_vending:Vending_Machine_TD1:polySurface9.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[211]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube9.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[212]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube12.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[213]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube15.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[214]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube14.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[215]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo4.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube11.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[216]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo5.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube10.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[217]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:keypad_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:group1|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:Vending_Machine_Model:vendingMachine6:pCube13.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[218]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:rightDoor_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[219]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:topDoors_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:leftDoor_mesh.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[220]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingFeet_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:polySurface29.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[221]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingFeet_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:polySurface29|finalRenderScene_vending:Vending_Machine_TD1:polySurface8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[222]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingMachineBody_grp|finalRenderScene_vending:Vending_Machine_TD1:vendingFeet_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:bodyAndLegs:polySurface29|finalRenderScene_vending:Vending_Machine_TD1:polySurface9.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[223]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[224]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[225]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[226]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[227]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo4.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[228]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo5.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[229]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo5.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[230]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candybar_geo7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[231]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[232]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[233]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo9.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[234]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo10.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[235]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo4.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[236]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo5.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[237]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[238]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[239]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[240]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[241]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo5.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[242]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo4.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[243]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_candyBar:candybar_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[244]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_candyBox:candyBox_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[245]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipbag_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo9.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[246]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:trailMix_geo10.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[247]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo4.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[248]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo5.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[249]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[250]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[251]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:candyBox_geo8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[252]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[253]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_CookiePackage__tawna_:cookieBag_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[254]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_trailMix:trailMix_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:cookieBag_geo4.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[255]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_candyBar:candybar_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[256]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_candyBox:candyBox_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[257]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipbag_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[258]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_4.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[259]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_5.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[260]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[261]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[262]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[263]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_9.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[264]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_10.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_chipBag:chipBag_grp|finalRenderScene_vending:Vending_Machine_TD1:chipbag_geo8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[265]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_11.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_CookiePackage__tawna_:cookieBag_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[266]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_12.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Candy_grp|finalRenderScene_vending:Vending_Machine_TD1:all_vending_snacks:placeholder_trailMix:trailMix_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[267]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_13.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[268]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_14.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[269]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_15.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[270]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_wrapper_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_4.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[271]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_frosting_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_5.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[272]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_bread_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[273]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface19.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[274]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface18.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[275]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface17.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_9.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[276]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface16.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_10.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[277]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface15.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_11.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[278]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface14.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_12.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[279]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface13.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_13.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[280]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface12.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_14.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[281]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface11.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coils_grp|finalRenderScene_vending:Vending_Machine_TD1:Metal_Coil_geo_15.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[282]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface10.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_wrapper_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[283]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface9.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_frosting_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[284]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface8.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_bread_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[285]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface7.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface19.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[286]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface6.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface18.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[287]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface5.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface17.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[288]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface4.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface16.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[289]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface3.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface15.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[290]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface2.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface14.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[291]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface1.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface13.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[292]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_21_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface12.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[293]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_20_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface11.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[294]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_19_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface10.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[295]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_18_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface9.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[296]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_17_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface8.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[297]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_16_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface7.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[298]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_15_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface6.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[299]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_14_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface5.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[300]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_13_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface4.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[301]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_12_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface3.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[302]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_11_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface2.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[303]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_10_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:cupcake_stars_grp|finalRenderScene_vending:Vending_Machine_TD1:Cupcake_Model:polySurface1.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[304]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_9_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_21_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[305]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_8_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_20_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[306]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_7_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_19_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[307]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_6_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_18_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[308]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_5_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_17_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[309]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_4_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_16_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[310]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_3_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_15_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[311]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_2_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_14_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[312]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_1_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_13_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[313]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Top_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_12_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[314]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_holder_3_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_11_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[315]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_holder_2_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_10_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[316]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_holder_1_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_9_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[317]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Base_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_8_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[318]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_1_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_7_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[319]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_2_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_6_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[320]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_3_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_5_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[321]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_4_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_4_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[322]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_5_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_3_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[323]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_6_geo.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_2_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[324]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:Ctrls_DONOTTOUCH|finalRenderScene_vending:Vending_Machine_TD1:eyeballGroup|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:eye_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_1_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[325]" ""
-		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:Ctrls_DONOTTOUCH|finalRenderScene_vending:Vending_Machine_TD1:eyeballGroup|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:neck_mesh.drawOverride" 
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Top_geo.drawOverride" 
 		"finalRenderScene_vendingRN.placeHolderList[326]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_holder_3_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[327]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_holder_2_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[328]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_holder_1_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[329]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Body_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Base_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[330]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_1_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[331]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_2_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[332]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_3_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[333]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_4_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[334]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_5_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[335]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:vending_Machine_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:weapons_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Rocket_Pod_Wires_grp|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:vendingmachine_newArms:Vending_Machine_Model:RocketPod1:Wire_6_geo.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[336]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:Ctrls_DONOTTOUCH|finalRenderScene_vending:Vending_Machine_TD1:eyeballGroup|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:eye_mesh.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[337]" ""
+		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Vending_Machine_TD1:weaponArmClust_DONOTMOVE|finalRenderScene_vending:Vending_Machine_TD1:Ctrls_DONOTTOUCH|finalRenderScene_vending:Vending_Machine_TD1:eyeballGroup|finalRenderScene_vending:Vending_Machine_TD1:VendingMachine_Model:Vending_Machine_Model:neck_mesh.drawOverride" 
+		"finalRenderScene_vendingRN.placeHolderList[338]" ""
 		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0]" 
 		"finalRenderScene_vending:FinalVendingGuyRig02:howard_face_lambertSG.dagSetMembers" 
-		"finalRenderScene_vendingRN.placeHolderList[327]" "finalRenderScene_vendingRN.placeHolderList[328]" 
+		"finalRenderScene_vendingRN.placeHolderList[339]" "finalRenderScene_vendingRN.placeHolderList[340]" 
 		""
 		5 4 "finalRenderScene_vendingRN" "finalRenderScene_vending:FinalVendingGuyRig02:howard_face_lambertSG.groupNodes" 
-		"finalRenderScene_vendingRN.placeHolderList[329]" ""
+		"finalRenderScene_vendingRN.placeHolderList[341]" ""
 		5 4 "finalRenderScene_vendingRN" "finalRenderScene_vending:FinalVendingGuyRig02:howard_face_lambertSG.groupNodes" 
-		"finalRenderScene_vendingRN.placeHolderList[330]" ""
+		"finalRenderScene_vendingRN.placeHolderList[342]" ""
 		5 0 "finalRenderScene_vendingRN" "finalRenderScene_vending:sheetrock_mat.message" 
-		"finalRenderScene_vending:materialInfo65.texture" "finalRenderScene_vendingRN.placeHolderList[331]" 
-		"finalRenderScene_vendingRN.placeHolderList[332]" ""
+		"finalRenderScene_vending:materialInfo65.texture" "finalRenderScene_vendingRN.placeHolderList[343]" 
+		"finalRenderScene_vendingRN.placeHolderList[344]" ""
+		5 3 "finalRenderScene_vendingRN" "finalRenderScene_vending:FullRig_Howard:faceRig:skinCluster22.outputGeometry[0]" 
+		"finalRenderScene_vendingRN.placeHolderList[345]" "finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.i"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh|finalRenderScene_vending:FullRig_Howard:faceRig:Body_MeshShapeDeformed.compInstObjGroups.compObjectGroups[0]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:mia_material_x1SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[346]" "finalRenderScene_vendingRN.placeHolderList[347]" 
+		""
+		5 4 "finalRenderScene_vendingRN" "finalRenderScene_vending:FullRig_Howard:faceRig:mia_material_x1SG.groupNodes" 
+		"finalRenderScene_vendingRN.placeHolderList[348]" ""
+		5 4 "finalRenderScene_vendingRN" "finalRenderScene_vending:FullRig_Howard:faceRig:mia_material_x1SG.groupNodes" 
+		"finalRenderScene_vendingRN.placeHolderList[349]" ""
 		5 3 "finalRenderScene_vendingRN" "finalRenderScene_vending:FullRig_Howard:groupParts5.outputGeometry" 
-		"finalRenderScene_vendingRN.placeHolderList[333]" "finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed.i"
+		"finalRenderScene_vendingRN.placeHolderList[350]" "finalRenderScene_vending:FullRig_Howard:Body_MeshShapeDeformed.i"
 		
 		5 3 "finalRenderScene_vendingRN" "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:skinCluster22.outputGeometry[0]" 
-		"finalRenderScene_vendingRN.placeHolderList[334]" "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.i";
+		"finalRenderScene_vendingRN.placeHolderList[351]" "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Body_MeshShapeDeformed.i"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeShealth|finalRenderScene_vending:FullRig_Howard:faceRig:EyeShealthShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn1SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[352]" "finalRenderScene_vendingRN.placeHolderList[353]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn1SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeShealth|finalRenderScene_vending:FullRig_Howard:faceRig:EyeShealthShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn1SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[354]" "finalRenderScene_vendingRN.placeHolderList[355]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn1SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeIris|finalRenderScene_vending:FullRig_Howard:faceRig:EyeIrisShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn2SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[356]" "finalRenderScene_vendingRN.placeHolderList[357]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn2SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeIris|finalRenderScene_vending:FullRig_Howard:faceRig:EyeIrisShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn2SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[358]" "finalRenderScene_vendingRN.placeHolderList[359]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn2SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeLense|finalRenderScene_vending:FullRig_Howard:faceRig:EyeLenseShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn3SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[360]" "finalRenderScene_vendingRN.placeHolderList[361]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn3SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeLense|finalRenderScene_vending:FullRig_Howard:faceRig:EyeLenseShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn3SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[362]" "finalRenderScene_vendingRN.placeHolderList[363]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn3SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:R_Eye|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBlackInside|finalRenderScene_vending:FullRig_Howard:faceRig:EyeBlackInsideShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn4SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[364]" "finalRenderScene_vendingRN.placeHolderList[365]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn4SG.dsm"
+		
+		5 0 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:L_Eye1|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:EyeBlackInside|finalRenderScene_vending:FullRig_Howard:faceRig:EyeBlackInsideShapeDeformed.instObjGroups" 
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyeBall:blinn4SG.dagSetMembers" 
+		"finalRenderScene_vendingRN.placeHolderList[366]" "finalRenderScene_vendingRN.placeHolderList[367]" 
+		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyeBall:blinn4SG.dsm";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTL -n "CC_Global01_translateX";
@@ -4851,13 +5038,13 @@ createNode animCurveTL -n "fromDirHandle1_translateZ";
 		 52 -2.5655525071872352;
 createNode mia_material_x_passes -n "Body_Face_mia_material_x_passes";
 	setAttr ".bnm" -type "string" "Howard";
+	setAttr ".S06" 0.25;
 	setAttr ".S08" 0.25;
 createNode shadingEngine -n "Body_Face_mia_material_x_passesSG";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo2";
-	setAttr -s 2 ".t";
 createNode groupId -n "groupId1";
 	setAttr ".ihi" 0;
 createNode groupParts -n "groupParts1";
@@ -4881,10 +5068,10 @@ createNode file -n "file2";
 	setAttr ".cp" 2;
 createNode place2dTexture -n "place2dTexture2";
 createNode bump2d -n "bump2d1";
-	setAttr ".vc1" -type "float3" 0 0.00031999996 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
 createNode mia_material_x_passes -n "Body_Body_mia_material_x_passes";
 	setAttr ".bnm" -type "string" "Howard";
+	setAttr ".S06" 0.25;
 	setAttr ".S08" 0.25;
 createNode shadingEngine -n "Body_Body_mia_material_x_passesSG";
 	setAttr ".ihi" 0;
@@ -4903,7 +5090,7 @@ createNode place2dTexture -n "place2dTexture3";
 	setAttr ".bnm" -type "string" "Howard";
 createNode bump2d -n "bump2d2";
 	setAttr ".bnm" -type "string" "Howard";
-	setAttr ".vc1" -type "float3" 0 0.00063000002 0 ;
+	setAttr ".vc1" -type "float3" 0 5.9999998e-005 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
 createNode file -n "file4";
 	setAttr ".bnm" -type "string" "Howard";
@@ -4920,6 +5107,7 @@ createNode groupParts -n "groupParts2";
 	setAttr ".ic" -type "componentList" 28 "f[442:531]" "f[881:1251]" "f[1341:1342]" "f[1357:1367]" "f[1375:1379]" "f[1382:1476]" "f[1577:1595]" "f[1767:2651]" "f[2661:2680]" "f[2690:2719]" "f[2908]" "f[2919]" "f[3044:3066]" "f[3277:3279]" "f[3738:3827]" "f[4177:4547]" "f[4637:4638]" "f[4653:4663]" "f[4671:4675]" "f[4678:4772]" "f[4873:4891]" "f[5063:5947]" "f[5957:5976]" "f[5986:6015]" "f[6204]" "f[6215]" "f[6340:6362]" "f[6573:6575]";
 createNode mia_material_x_passes -n "Body_Pants_mia_material_x_passes";
 	setAttr ".bnm" -type "string" "Howard";
+	setAttr ".S06" 0.25;
 	setAttr ".S08" 0.25;
 createNode shadingEngine -n "Body_Pants_mia_material_x_passesSG";
 	setAttr ".ihi" 0;
@@ -4946,13 +5134,14 @@ createNode place2dTexture -n "place2dTexture6";
 	setAttr ".bnm" -type "string" "Howard";
 createNode bump2d -n "bump2d3";
 	setAttr ".bnm" -type "string" "Howard";
-	setAttr ".vc1" -type "float3" 0 0.0006700001 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
 createNode mia_material_x_passes -n "Face_Face_mia_material_x_passes";
 	setAttr ".bnm" -type "string" "Howard";
+	setAttr ".S06" 0.25;
 	setAttr ".S08" 0.25;
 createNode shadingEngine -n "Face_Face_mia_material_x_passesSG";
 	setAttr ".ihi" 0;
+	setAttr -s 3 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo5";
 createNode file -n "file7";
@@ -4976,14 +5165,14 @@ createNode place2dTexture -n "place2dTexture8";
 	setAttr ".bnm" -type "string" "Howard";
 createNode bump2d -n "bump2d4";
 	setAttr ".bnm" -type "string" "Howard";
-	setAttr ".vc1" -type "float3" 0 0.00048999977 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
 createNode mia_material_x_passes -n "Face_Hair_mia_material_x_passes";
 	setAttr ".bnm" -type "string" "Howard";
+	setAttr ".S06" 0.25;
 	setAttr ".S08" 0.25;
 createNode shadingEngine -n "Face_Hair_mia_material_x_passesSG";
 	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
+	setAttr -s 3 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo6";
 createNode file -n "file9";
@@ -4999,7 +5188,7 @@ createNode place2dTexture -n "place2dTexture9";
 	setAttr ".bnm" -type "string" "Howard";
 createNode bump2d -n "bump2d5";
 	setAttr ".bnm" -type "string" "Howard";
-	setAttr ".vc1" -type "float3" 0 0.00035999992 0 ;
+	setAttr ".vc1" -type "float3" 0 9.9999997e-006 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-006 9.9999997e-006 0 ;
 createNode file -n "file10";
 	setAttr ".bnm" -type "string" "Howard";
@@ -5032,19 +5221,56 @@ createNode mentalraySubdivApprox -n "Face_Face_mentalraySubdivApprox1";
 	setAttr ".len" 0.0099999997764825821;
 	setAttr ".maxsd" 6;
 	setAttr ".apxm" 2;
+createNode mia_material_x_passes -n "Eyebrow_mia_material_x_passes1";
+	setAttr ".bnm" -type "string" "Howard";
+	setAttr ".S06" 0.25;
+	setAttr ".S08" 0.25;
+createNode shadingEngine -n "mia_material_x_passes1SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo7";
+	setAttr -s 2 ".t";
+createNode file -n "file11";
+	setAttr ".dc" -type "float3" 0 0 0 ;
+	setAttr ".ftn" -type "string" "C:/Users/10584353/Documents/vending//sourceimages/Howard_Diffuse/Eyebrow.png";
+	setAttr ".cp" 3;
+createNode place2dTexture -n "place2dTexture11";
+createNode mentalraySubdivApprox -n "Body_mentalraySubdivApprox1";
+	setAttr ".view" yes;
+	setAttr ".len" 0.0099999997764825821;
+	setAttr ".maxsd" 6;
+	setAttr ".apxm" 2;
+createNode mentalraySubdivApprox -n "Face_mentalraySubdivApprox1";
+	setAttr ".view" yes;
+	setAttr ".len" 0.0099999997764825821;
+	setAttr ".maxsd" 6;
+	setAttr ".apxm" 2;
+createNode groupId -n "groupId6";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts5";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 24 "f[91]" "f[193]" "f[203:204]" "f[220:228]" "f[230]" "f[232]" "f[237:395]" "f[465:466]" "f[474:476]" "f[479:504]" "f[535:543]" "f[663:801]" "f[1053]" "f[1155]" "f[1165:1166]" "f[1182:1190]" "f[1192]" "f[1194]" "f[1199:1357]" "f[1427:1428]" "f[1436:1438]" "f[1441:1466]" "f[1497:1505]" "f[1625:1763]";
+	setAttr ".irc" -type "componentList" 25 "f[0:90]" "f[92:192]" "f[194:202]" "f[205:219]" "f[229]" "f[231]" "f[233:236]" "f[396:464]" "f[467:473]" "f[477:478]" "f[505:534]" "f[544:662]" "f[802:1052]" "f[1054:1154]" "f[1156:1164]" "f[1167:1181]" "f[1191]" "f[1193]" "f[1195:1198]" "f[1358:1426]" "f[1429:1435]" "f[1439:1440]" "f[1467:1496]" "f[1506:1624]" "f[1764:2295]";
+createNode groupId -n "groupId7";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId8";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts6";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 25 "f[0:90]" "f[92:192]" "f[194:202]" "f[205:219]" "f[229]" "f[231]" "f[233:236]" "f[396:464]" "f[467:473]" "f[477:478]" "f[505:534]" "f[544:662]" "f[802:1052]" "f[1054:1154]" "f[1156:1164]" "f[1167:1181]" "f[1191]" "f[1193]" "f[1195:1198]" "f[1358:1426]" "f[1429:1435]" "f[1439:1440]" "f[1467:1496]" "f[1506:1624]" "f[1764:2295]";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi" 0;
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr ".o" 1;
-	setAttr ".unw" 1;
+	setAttr ".o" 65;
+	setAttr ".unw" 65;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 181 ".st";
+	setAttr -s 182 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -5057,7 +5283,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 76 ".s";
+	setAttr -s 77 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -5065,13 +5291,13 @@ select -ne :postProcessList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 142 ".u";
+	setAttr -s 143 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 17 ".r";
 select -ne :lightList1;
 	setAttr -s 24 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 100 ".tx";
+	setAttr -s 101 ".tx";
 select -ne :lambert1;
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
@@ -5263,10 +5489,10 @@ connectAttr "finalRenderScene_vendingRN.phl[12]" "Face_Face_mia_material_x_passe
 connectAttr "groupId3.id" "finalRenderScene_vendingRN.phl[13]";
 connectAttr "Face_Face_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[14]"
 		;
-connectAttr "finalRenderScene_vendingRN.phl[15]" "defaultRenderLayer.oajs[2].opg"
-		;
-connectAttr "finalRenderScene_vendingRN.phl[16]" "Face_Hair_mia_material_x_passesSG.dsm"
+connectAttr "finalRenderScene_vendingRN.phl[15]" "Face_Hair_mia_material_x_passesSG.dsm"
 		 -na;
+connectAttr "finalRenderScene_vendingRN.phl[16]" "defaultRenderLayer.oajs[2].opg"
+		;
 connectAttr "groupId5.id" "finalRenderScene_vendingRN.phl[17]";
 connectAttr "Face_Hair_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[18]"
 		;
@@ -5274,28 +5500,28 @@ connectAttr "groupParts4.og" "finalRenderScene_vendingRN.phl[19]";
 connectAttr "Face_Face_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[20]"
 		;
 connectAttr "groupId4.id" "finalRenderScene_vendingRN.phl[21]";
-connectAttr "Body_Body_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[22]"
+connectAttr "Body_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[22]"
 		;
 connectAttr "finalRenderScene_vendingRN.phl[23]" "Body_Pants_mia_material_x_passesSG.dsm"
 		 -na;
 connectAttr "Body_Pants_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[24]"
 		;
-connectAttr "finalRenderScene_vendingRN.phl[25]" "defaultRenderLayer.oajs[0].opg"
-		;
-connectAttr "finalRenderScene_vendingRN.phl[26]" "Body_Face_mia_material_x_passesSG.dsm"
+connectAttr "finalRenderScene_vendingRN.phl[25]" "Body_Face_mia_material_x_passesSG.dsm"
 		 -na;
+connectAttr "finalRenderScene_vendingRN.phl[26]" "defaultRenderLayer.oajs[0].opg"
+		;
 connectAttr "groupId1.id" "finalRenderScene_vendingRN.phl[27]";
 connectAttr "Body_Face_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[28]"
 		;
-connectAttr "finalRenderScene_vendingRN.phl[29]" "defaultRenderLayer.oajs[1].opg"
-		;
-connectAttr "finalRenderScene_vendingRN.phl[30]" "Body_Body_mia_material_x_passesSG.dsm"
+connectAttr "finalRenderScene_vendingRN.phl[29]" "Body_Body_mia_material_x_passesSG.dsm"
 		 -na;
+connectAttr "finalRenderScene_vendingRN.phl[30]" "defaultRenderLayer.oajs[1].opg"
+		;
 connectAttr "groupId2.id" "finalRenderScene_vendingRN.phl[31]";
 connectAttr "Body_Body_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[32]"
 		;
 connectAttr "groupParts2.og" "finalRenderScene_vendingRN.phl[33]";
-connectAttr "Body_Body_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[34]"
+connectAttr "Body_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[34]"
 		;
 connectAttr "shoulder_left_jnt_rotateY.o" "finalRenderScene_vendingRN.phl[35]";
 connectAttr "shoulder_left_jnt_rotateX.o" "finalRenderScene_vendingRN.phl[36]";
@@ -5429,53 +5655,61 @@ connectAttr "CC_Global01_translateZ.o" "finalRenderScene_vendingRN.phl[157]";
 connectAttr "CC_Global01_rotateY.o" "finalRenderScene_vendingRN.phl[158]";
 connectAttr "CC_Global01_rotateX.o" "finalRenderScene_vendingRN.phl[159]";
 connectAttr "CC_Global01_rotateZ.o" "finalRenderScene_vendingRN.phl[160]";
-connectAttr "L_upperLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[161]"
+connectAttr "finalRenderScene_vendingRN.phl[161]" "mia_material_x_passes1SG.dsm"
+		 -na;
+connectAttr "Face_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[162]"
 		;
-connectAttr "R_upperLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[162]"
+connectAttr "finalRenderScene_vendingRN.phl[163]" "Face_Hair_mia_material_x_passesSG.dsm"
+		 -na;
+connectAttr "groupId6.id" "finalRenderScene_vendingRN.phl[164]";
+connectAttr "Face_Hair_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[165]"
 		;
-connectAttr "L_lowerLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[163]"
+connectAttr "finalRenderScene_vendingRN.phl[166]" "defaultRenderLayer.oajs[3].opg"
 		;
-connectAttr "R_lowerLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[164]"
+connectAttr "finalRenderScene_vendingRN.phl[167]" "Face_Face_mia_material_x_passesSG.dsm"
+		 -na;
+connectAttr "groupId8.id" "finalRenderScene_vendingRN.phl[168]";
+connectAttr "Face_Face_mia_material_x_passesSG.mwc" "finalRenderScene_vendingRN.phl[169]"
 		;
-connectAttr "pupils_control_translateX.o" "finalRenderScene_vendingRN.phl[165]";
-connectAttr "pupils_control_translateY.o" "finalRenderScene_vendingRN.phl[166]";
-connectAttr "pupils_control_translateZ.o" "finalRenderScene_vendingRN.phl[167]";
-connectAttr "L_eyeBrowsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[168]"
+connectAttr "groupParts6.og" "finalRenderScene_vendingRN.phl[170]";
+connectAttr "Face_mentalraySubdivApprox1.msg" "finalRenderScene_vendingRN.phl[171]"
 		;
-connectAttr "L_eyeBrowsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[169]"
+connectAttr "groupId7.id" "finalRenderScene_vendingRN.phl[172]";
+connectAttr "L_upperLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[173]"
 		;
-connectAttr "L_eyeBrowsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[170]"
+connectAttr "R_upperLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[174]"
 		;
-connectAttr "R_eyeBrowsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[171]"
+connectAttr "L_lowerLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[175]"
 		;
-connectAttr "R_eyeBrowsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[172]"
+connectAttr "R_lowerLidSync_control_translateY.o" "finalRenderScene_vendingRN.phl[176]"
 		;
-connectAttr "R_eyeBrowsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[173]"
+connectAttr "pupils_control_translateX.o" "finalRenderScene_vendingRN.phl[177]";
+connectAttr "pupils_control_translateY.o" "finalRenderScene_vendingRN.phl[178]";
+connectAttr "pupils_control_translateZ.o" "finalRenderScene_vendingRN.phl[179]";
+connectAttr "L_eyeBrowsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[180]"
 		;
-connectAttr "L_lipsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[174]"
+connectAttr "L_eyeBrowsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[181]"
 		;
-connectAttr "L_lipsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[175]"
+connectAttr "L_eyeBrowsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[182]"
 		;
-connectAttr "L_lipsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[176]"
+connectAttr "R_eyeBrowsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[183]"
 		;
-connectAttr "R_lipsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[177]"
+connectAttr "R_eyeBrowsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[184]"
 		;
-connectAttr "R_lipsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[178]"
+connectAttr "R_eyeBrowsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[185]"
 		;
-connectAttr "R_lipsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[179]"
+connectAttr "L_lipsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[186]"
 		;
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[180]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[181]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[182]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[183]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[184]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[185]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[186]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[187]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[188]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[189]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[190]";
-connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[191]";
+connectAttr "L_lipsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[187]"
+		;
+connectAttr "L_lipsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[188]"
+		;
+connectAttr "R_lipsSync_control_translateY.o" "finalRenderScene_vendingRN.phl[189]"
+		;
+connectAttr "R_lipsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[190]"
+		;
+connectAttr "R_lipsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[191]"
+		;
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[192]";
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[193]";
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[194]";
@@ -5611,14 +5845,47 @@ connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[323]";
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[324]";
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[325]";
 connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[326]";
-connectAttr "finalRenderScene_vendingRN.phl[327]" "finalRenderScene_vendingRN.phl[328]"
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[327]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[328]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[329]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[330]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[331]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[332]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[333]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[334]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[335]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[336]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[337]";
+connectAttr "layer2.di" "finalRenderScene_vendingRN.phl[338]";
+connectAttr "finalRenderScene_vendingRN.phl[339]" "finalRenderScene_vendingRN.phl[340]"
 		;
-connectAttr "groupId3.msg" "finalRenderScene_vendingRN.phl[329]";
-connectAttr "groupId4.msg" "finalRenderScene_vendingRN.phl[330]";
-connectAttr "finalRenderScene_vendingRN.phl[331]" "finalRenderScene_vendingRN.phl[332]"
+connectAttr "groupId3.msg" "finalRenderScene_vendingRN.phl[341]";
+connectAttr "groupId4.msg" "finalRenderScene_vendingRN.phl[342]";
+connectAttr "finalRenderScene_vendingRN.phl[343]" "finalRenderScene_vendingRN.phl[344]"
 		;
-connectAttr "finalRenderScene_vendingRN.phl[333]" "groupParts1.ig";
-connectAttr "finalRenderScene_vendingRN.phl[334]" "groupParts3.ig";
+connectAttr "finalRenderScene_vendingRN.phl[345]" "groupParts5.ig";
+connectAttr "finalRenderScene_vendingRN.phl[346]" "finalRenderScene_vendingRN.phl[347]"
+		;
+connectAttr "groupId6.msg" "finalRenderScene_vendingRN.phl[348]";
+connectAttr "groupId7.msg" "finalRenderScene_vendingRN.phl[349]";
+connectAttr "finalRenderScene_vendingRN.phl[350]" "groupParts1.ig";
+connectAttr "finalRenderScene_vendingRN.phl[351]" "groupParts3.ig";
+connectAttr "finalRenderScene_vendingRN.phl[352]" "finalRenderScene_vendingRN.phl[353]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[354]" "finalRenderScene_vendingRN.phl[355]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[356]" "finalRenderScene_vendingRN.phl[357]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[358]" "finalRenderScene_vendingRN.phl[359]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[360]" "finalRenderScene_vendingRN.phl[361]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[362]" "finalRenderScene_vendingRN.phl[363]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[364]" "finalRenderScene_vendingRN.phl[365]"
+		;
+connectAttr "finalRenderScene_vendingRN.phl[366]" "finalRenderScene_vendingRN.phl[367]"
+		;
 connectAttr "nurbsSphere1_translateX.o" "nurbsSphere1.tx";
 connectAttr "nurbsSphere1_translateY.o" "nurbsSphere1.ty";
 connectAttr "nurbsSphere1_translateZ.o" "nurbsSphere1.tz";
@@ -6863,6 +7130,8 @@ connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
 connectAttr "Body_Body_mentalraySubdivApprox1.msg" ":mentalrayItemsList.va" -na;
 connectAttr "Face_Face_mentalraySubdivApprox1.msg" ":mentalrayItemsList.va" -na;
+connectAttr "Body_mentalraySubdivApprox1.msg" ":mentalrayItemsList.va" -na;
+connectAttr "Face_mentalraySubdivApprox1.msg" ":mentalrayItemsList.va" -na;
 connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -6883,6 +7152,7 @@ relationship "link" ":lightLinker1" "Body_Body_mia_material_x_passesSG.message" 
 relationship "link" ":lightLinker1" "Body_Pants_mia_material_x_passesSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Face_Face_mia_material_x_passesSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Face_Hair_mia_material_x_passesSG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "mia_material_x_passes1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "fluidShape1SG.message" ":defaultLightSet.message";
@@ -6901,19 +7171,20 @@ relationship "shadowLink" ":lightLinker1" "Body_Body_mia_material_x_passesSG.mes
 relationship "shadowLink" ":lightLinker1" "Body_Pants_mia_material_x_passesSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Face_Face_mia_material_x_passesSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Face_Hair_mia_material_x_passesSG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "mia_material_x_passes1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "hyperView1.msg" "nodeEditorPanel1Info.b[0]";
 connectAttr "hyperLayout1.msg" "hyperView1.hl";
-connectAttr "Body_Body_mia_material_x_passes.msg" "hyperLayout1.hyp[0].dn";
-connectAttr "Body_Body_mia_material_x_passesSG.msg" "hyperLayout1.hyp[1].dn";
-connectAttr "place2dTexture3.msg" "hyperLayout1.hyp[2].dn";
-connectAttr "file3.msg" "hyperLayout1.hyp[3].dn";
-connectAttr "place2dTexture4.msg" "hyperLayout1.hyp[4].dn";
-connectAttr "bump2d2.msg" "hyperLayout1.hyp[5].dn";
-connectAttr "file4.msg" "hyperLayout1.hyp[6].dn";
-connectAttr "Body_Body_mentalraySubdivApprox1.msg" "hyperLayout1.hyp[7].dn";
-connectAttr "Face_Face_mentalraySubdivApprox1.msg" "hyperLayout1.hyp[8].dn";
+connectAttr "place2dTexture5.msg" "hyperLayout1.hyp[0].dn";
+connectAttr "Body_Pants_mia_material_x_passes.msg" "hyperLayout1.hyp[1].dn";
+connectAttr "file6.msg" "hyperLayout1.hyp[2].dn";
+connectAttr "place2dTexture6.msg" "hyperLayout1.hyp[3].dn";
+connectAttr "Body_Pants_mia_material_x_passesSG.msg" "hyperLayout1.hyp[4].dn";
+connectAttr "file5.msg" "hyperLayout1.hyp[5].dn";
+connectAttr "bump2d3.msg" "hyperLayout1.hyp[6].dn";
+connectAttr "Body_mentalraySubdivApprox1.msg" "hyperLayout1.hyp[7].dn";
+connectAttr "Face_mentalraySubdivApprox1.msg" "hyperLayout1.hyp[8].dn";
 connectAttr "pairBlend1_inRotateX1.o" "pairBlend1.irx1";
 connectAttr "pairBlend1_inRotateY1.o" "pairBlend1.iry1";
 connectAttr "pairBlend1_inRotateZ1.o" "pairBlend1.irz1";
@@ -7156,6 +7427,8 @@ connectAttr "Lighting_Effect:LigntningShader6.msg" "Lighting_Effect:materialInfo
 connectAttr "file1.oc" "Body_Face_mia_material_x_passes.S04";
 connectAttr "file1.oa" "Body_Face_mia_material_x_passes.S04A";
 connectAttr "bump2d1.o" "Body_Face_mia_material_x_passes.S71";
+connectAttr "defaultRenderLayer.oajs[0].ovl" "Body_Face_mia_material_x_passesSG.dsm"
+		 -na;
 connectAttr "Body_Face_mia_material_x_passes.msg" "Body_Face_mia_material_x_passesSG.mims"
 		;
 connectAttr "Body_Face_mia_material_x_passes.msg" "Body_Face_mia_material_x_passesSG.mips"
@@ -7163,8 +7436,6 @@ connectAttr "Body_Face_mia_material_x_passes.msg" "Body_Face_mia_material_x_pass
 connectAttr "Body_Face_mia_material_x_passes.msg" "Body_Face_mia_material_x_passesSG.miss"
 		;
 connectAttr "groupId1.msg" "Body_Face_mia_material_x_passesSG.gn" -na;
-connectAttr "defaultRenderLayer.oajs[0].ovl" "Body_Face_mia_material_x_passesSG.dsm"
-		 -na;
 connectAttr "Body_Face_mia_material_x_passesSG.msg" "materialInfo2.sg";
 connectAttr "Body_Face_mia_material_x_passes.msg" "materialInfo2.m";
 connectAttr "Body_Face_mia_material_x_passes.msg" "materialInfo2.t" -na;
@@ -7209,6 +7480,8 @@ connectAttr "file2.oa" "bump2d1.bv";
 connectAttr "bump2d2.o" "Body_Body_mia_material_x_passes.S71";
 connectAttr "file4.oc" "Body_Body_mia_material_x_passes.S04";
 connectAttr "file4.oa" "Body_Body_mia_material_x_passes.S04A";
+connectAttr "defaultRenderLayer.oajs[1].ovl" "Body_Body_mia_material_x_passesSG.dsm"
+		 -na;
 connectAttr "Body_Body_mia_material_x_passes.msg" "Body_Body_mia_material_x_passesSG.mims"
 		;
 connectAttr "Body_Body_mia_material_x_passes.msg" "Body_Body_mia_material_x_passesSG.mips"
@@ -7216,8 +7489,6 @@ connectAttr "Body_Body_mia_material_x_passes.msg" "Body_Body_mia_material_x_pass
 connectAttr "Body_Body_mia_material_x_passes.msg" "Body_Body_mia_material_x_passesSG.miss"
 		;
 connectAttr "groupId2.msg" "Body_Body_mia_material_x_passesSG.gn" -na;
-connectAttr "defaultRenderLayer.oajs[1].ovl" "Body_Body_mia_material_x_passesSG.dsm"
-		 -na;
 connectAttr "Body_Body_mia_material_x_passesSG.msg" "materialInfo3.sg";
 connectAttr "Body_Body_mia_material_x_passes.msg" "materialInfo3.m";
 connectAttr "file4.msg" "materialInfo3.t" -na;
@@ -7312,12 +7583,15 @@ connectAttr "file6.oa" "bump2d3.bv";
 connectAttr "file7.oc" "Face_Face_mia_material_x_passes.S04";
 connectAttr "file7.oa" "Face_Face_mia_material_x_passes.S04A";
 connectAttr "bump2d4.o" "Face_Face_mia_material_x_passes.S71";
+connectAttr "defaultRenderLayer.oajs[3].ovl" "Face_Face_mia_material_x_passesSG.dsm"
+		 -na;
 connectAttr "Face_Face_mia_material_x_passes.msg" "Face_Face_mia_material_x_passesSG.mims"
 		;
 connectAttr "Face_Face_mia_material_x_passes.msg" "Face_Face_mia_material_x_passesSG.mips"
 		;
 connectAttr "Face_Face_mia_material_x_passes.msg" "Face_Face_mia_material_x_passesSG.miss"
 		;
+connectAttr "groupId8.msg" "Face_Face_mia_material_x_passesSG.gn" -na;
 connectAttr "Face_Face_mia_material_x_passesSG.msg" "materialInfo5.sg";
 connectAttr "Face_Face_mia_material_x_passes.msg" "materialInfo5.m";
 connectAttr "file7.msg" "materialInfo5.t" -na;
@@ -7361,6 +7635,8 @@ connectAttr "file8.oa" "bump2d4.bv";
 connectAttr "bump2d5.o" "Face_Hair_mia_material_x_passes.S71";
 connectAttr "file10.oc" "Face_Hair_mia_material_x_passes.S04";
 connectAttr "file10.oa" "Face_Hair_mia_material_x_passes.S04A";
+connectAttr "defaultRenderLayer.oajs[2].ovl" "Face_Hair_mia_material_x_passesSG.dsm"
+		 -na;
 connectAttr "Face_Hair_mia_material_x_passes.msg" "Face_Hair_mia_material_x_passesSG.mims"
 		;
 connectAttr "Face_Hair_mia_material_x_passes.msg" "Face_Hair_mia_material_x_passesSG.mips"
@@ -7368,8 +7644,6 @@ connectAttr "Face_Hair_mia_material_x_passes.msg" "Face_Hair_mia_material_x_pass
 connectAttr "Face_Hair_mia_material_x_passes.msg" "Face_Hair_mia_material_x_passesSG.miss"
 		;
 connectAttr "groupId5.msg" "Face_Hair_mia_material_x_passesSG.gn" -na;
-connectAttr "defaultRenderLayer.oajs[2].ovl" "Face_Hair_mia_material_x_passesSG.dsm"
-		 -na;
 connectAttr "Face_Hair_mia_material_x_passesSG.msg" "materialInfo6.sg";
 connectAttr "Face_Hair_mia_material_x_passes.msg" "materialInfo6.m";
 connectAttr "file10.msg" "materialInfo6.t" -na;
@@ -7413,6 +7687,38 @@ connectAttr "place2dTexture10.ofs" "file10.fs";
 connectAttr "groupId3.id" "groupParts3.gi";
 connectAttr "groupParts3.og" "groupParts4.ig";
 connectAttr "groupId5.id" "groupParts4.gi";
+connectAttr "file11.oc" "Eyebrow_mia_material_x_passes1.S04";
+connectAttr "file11.oa" "Eyebrow_mia_material_x_passes1.S04A";
+connectAttr "Eyebrow_mia_material_x_passes1.msg" "mia_material_x_passes1SG.mims"
+		;
+connectAttr "Eyebrow_mia_material_x_passes1.msg" "mia_material_x_passes1SG.mips"
+		;
+connectAttr "Eyebrow_mia_material_x_passes1.msg" "mia_material_x_passes1SG.miss"
+		;
+connectAttr "mia_material_x_passes1SG.msg" "materialInfo7.sg";
+connectAttr "Eyebrow_mia_material_x_passes1.msg" "materialInfo7.m";
+connectAttr "Eyebrow_mia_material_x_passes1.msg" "materialInfo7.t" -na;
+connectAttr "place2dTexture11.c" "file11.c";
+connectAttr "place2dTexture11.tf" "file11.tf";
+connectAttr "place2dTexture11.rf" "file11.rf";
+connectAttr "place2dTexture11.mu" "file11.mu";
+connectAttr "place2dTexture11.mv" "file11.mv";
+connectAttr "place2dTexture11.s" "file11.s";
+connectAttr "place2dTexture11.wu" "file11.wu";
+connectAttr "place2dTexture11.wv" "file11.wv";
+connectAttr "place2dTexture11.re" "file11.re";
+connectAttr "place2dTexture11.of" "file11.of";
+connectAttr "place2dTexture11.r" "file11.ro";
+connectAttr "place2dTexture11.n" "file11.n";
+connectAttr "place2dTexture11.vt1" "file11.vt1";
+connectAttr "place2dTexture11.vt2" "file11.vt2";
+connectAttr "place2dTexture11.vt3" "file11.vt3";
+connectAttr "place2dTexture11.vc1" "file11.vc1";
+connectAttr "place2dTexture11.o" "file11.uv";
+connectAttr "place2dTexture11.ofs" "file11.fs";
+connectAttr "groupId6.id" "groupParts5.gi";
+connectAttr "groupParts5.og" "groupParts6.ig";
+connectAttr "groupId8.id" "groupParts6.gi";
 connectAttr "fluidShape1SG.pa" ":renderPartition.st" -na;
 connectAttr "Lighting_Effect:LigntningShaderSG.pa" ":renderPartition.st" -na;
 connectAttr "Lighting_Effect:phongE1SG.pa" ":renderPartition.st" -na;
@@ -7429,6 +7735,7 @@ connectAttr "Body_Body_mia_material_x_passesSG.pa" ":renderPartition.st" -na;
 connectAttr "Body_Pants_mia_material_x_passesSG.pa" ":renderPartition.st" -na;
 connectAttr "Face_Face_mia_material_x_passesSG.pa" ":renderPartition.st" -na;
 connectAttr "Face_Hair_mia_material_x_passesSG.pa" ":renderPartition.st" -na;
+connectAttr "mia_material_x_passes1SG.pa" ":renderPartition.st" -na;
 connectAttr "Lighting_Effect:LigntningShader.msg" ":defaultShaderList1.s" -na;
 connectAttr "Lighting_Effect:phongE1.msg" ":defaultShaderList1.s" -na;
 connectAttr "Lighting_Effect:LigntningShader1.msg" ":defaultShaderList1.s" -na;
@@ -7445,6 +7752,7 @@ connectAttr "Body_Body_mia_material_x_passes.msg" ":defaultShaderList1.s" -na;
 connectAttr "Body_Pants_mia_material_x_passes.msg" ":defaultShaderList1.s" -na;
 connectAttr "Face_Face_mia_material_x_passes.msg" ":defaultShaderList1.s" -na;
 connectAttr "Face_Hair_mia_material_x_passes.msg" ":defaultShaderList1.s" -na;
+connectAttr "Eyebrow_mia_material_x_passes1.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "bump2d1.msg" ":defaultRenderUtilityList1.u" -na;
@@ -7460,6 +7768,7 @@ connectAttr "bump2d4.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture9.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "bump2d5.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture11.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Lighting_Effect:pointLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "Lighting_Effect:pointLightShape4.ltd" ":lightList1.l" -na;
@@ -7475,6 +7784,7 @@ connectAttr "file7.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file8.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file9.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file10.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file11.msg" ":defaultTextureList1.tx" -na;
 connectAttr "nurbsSphereShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr ":perspShape.msg" ":defaultRenderGlobals.sc";
 connectAttr "Lighting_Effect:pointLight1.iog" ":defaultLightSet.dsm" -na;
@@ -7482,6 +7792,6 @@ connectAttr "Lighting_Effect:pointLight4.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Lighting_Effect:pointLight5.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Lighting_Effect:pointLight6.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"C:/Users/10584353/Documents/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"|Lightning|Lighting_Effect:Lightning1|Lighting_Effect:pointLight1|Lighting_Effect:pointLightShape1\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n2\n\"|Lightning|Lighting_Effect:Lightning4|Lighting_Effect:pointLight4|Lighting_Effect:pointLightShape4\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n3\n\"|Lightning|Lighting_Effect:Lightning5|Lighting_Effect:pointLight5|Lighting_Effect:pointLightShape5\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n4\n\"|Lightning|Lighting_Effect:Lightning6|Lighting_Effect:pointLight6|Lighting_Effect:pointLightShape6\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n5\n\"file1\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" 4077493601 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" \"sourceImages\"\n6\n\"file2\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" 3589503474 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" \"sourceImages\"\n7\n\"file4\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" 2254718289 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" \"sourceImages\"\n8\n\"file5\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v2.png\" 3250864001 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v2.png\" \"sourceImages\"\n9\n\"file6\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Pants_1.exr\" 1109753274 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Pants_1.exr\" \"sourceImages\"\n10\n\"file7\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" 4077493601 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" \"sourceImages\"\n11\n\"file8\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" 3589503474 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" \"sourceImages\"\n12\n\"file9\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Hair_1.exr\" 4169398217 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Hair_1.exr\" \"sourceImages\"\n13\n\"file10\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" 2254718289 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"C:/Users/10584353/Documents/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"|Lightning|Lighting_Effect:Lightning1|Lighting_Effect:pointLight1|Lighting_Effect:pointLightShape1\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n2\n\"|Lightning|Lighting_Effect:Lightning4|Lighting_Effect:pointLight4|Lighting_Effect:pointLightShape4\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n3\n\"|Lightning|Lighting_Effect:Lightning5|Lighting_Effect:pointLight5|Lighting_Effect:pointLightShape5\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n4\n\"|Lightning|Lighting_Effect:Lightning6|Lighting_Effect:pointLight6|Lighting_Effect:pointLightShape6\" \"dmapName\" \"depthmap\" 2097411553 \"\" \"sourceImages\"\n5\n\"file1\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" 4077493601 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" \"sourceImages\"\n6\n\"file2\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" 3589503474 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" \"sourceImages\"\n7\n\"file4\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" 2254718289 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" \"sourceImages\"\n8\n\"file5\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v2.png\" 3250864001 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v2.png\" \"sourceImages\"\n9\n\"file6\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Pants_1.exr\" 1109753274 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Pants_1.exr\" \"sourceImages\"\n10\n\"file7\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" 4077493601 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Face_u0_v0.png\" \"sourceImages\"\n11\n\"file8\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" 3589503474 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Face_1.exr\" \"sourceImages\"\n12\n\"file9\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Hair_1.exr\" 4169398217 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Displacement/Body_Mesh_Hair_1.exr\" \"sourceImages\"\n13\n\"file10\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" 2254718289 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/PNG/Body_Mesh_u0_v1.png\" \"sourceImages\"\n14\n\"file11\" \"fileTextureName\" \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/Eyebrow.png\" 2692596760 \"C:/Users/10584353/Documents/vending/sourceimages/Howard_Diffuse/Eyebrow.png\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of airjordannoeffectBob.ma
