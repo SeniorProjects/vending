@@ -2,7 +2,7 @@
 
 workspace -fr "fluidCache" "cache/nCache/fluid";
 workspace -fr "JT_DC" "data";
-workspace -fr "images" "images/introscene_damon_hold318-330";
+workspace -fr "images" "images/Render_Ballerina";
 workspace -fr "CATIAV4_DC" "data";
 workspace -fr "offlineEdit" "scenes/edits";
 workspace -fr "STEP_DC" "data";
