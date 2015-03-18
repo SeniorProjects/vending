@@ -2,7 +2,7 @@
 
 workspace -fr "fluidCache" "cache/nCache/fluid";
 workspace -fr "JT_DC" "data";
-workspace -fr "images" "images/AirJordan_Lightning_CharacterMatte_IFF";
+workspace -fr "images" "images/EpicSidePunch_MachineMatte_1-2hold";
 workspace -fr "CATIAV4_DC" "data";
 workspace -fr "offlineEdit" "scenes/edits";
 workspace -fr "STEP_DC" "data";
