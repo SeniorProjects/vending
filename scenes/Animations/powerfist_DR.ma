@@ -1,25 +1,9 @@
 //Maya ASCII 2015 scene
 //Name: powerfist_DR.ma
-//Last modified: Fri, Jan 23, 2015 02:46:47 PM
+//Last modified: Mon, Mar 23, 2015 02:10:53 PM
 //Codeset: 1252
 file -rdi 1 -ns "finalRenderScene_vending" -rfn "finalRenderScene_vendingRN"
 		 -op "v=0;" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma";
-file -rdi 2 -ns "all_vending_snacks1" -rfn "finalRenderScene_vending:all_vending_snacksRN"
-		 "C:/Users/10528607/Desktop/Breakroom_Project_Recent//scenes/Vending_Snack_Models/all_vending_snacks.ma";
-file -rdi 2 -ns "faceRig" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN"
-		 "/Users/martyclayton/Desktop/VendingMachineGuy/faceRig.ma";
-file -rdi 3 -ns "Head02" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN"
-		 -op "v=0;" "/Users/Samantha/Desktop/Face Rig/scenes/Head02.ma";
-file -rdi 2 -ns "VendingGuy2IK" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IKRN"
-		 "/Users/Samantha/Dropbox/Breakroom_Project/Breakroom_Project/scenes/VendingGuy2IK.ma";
-file -rdi 3 -ns "Dude_UV_s" -rfn "finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_sRN"
-		 -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
-		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
-file -rdi 2 -ns "Dude_UV_s" -rfn "finalRenderScene_vending:FullRig_Howard:Dude_UV_sRN"
-		 -op "VERS|2015|UVER|undef|MADE|undef|CHNG|Sun, Sep 14, 2014 08:52:44 AM|ICON|undef|INFO|undef|OBJN|113|INCL|undef(|LUNI|cm|TUNI|film|AUNI|deg|"
-		 "/Users/Samantha/Desktop/Breakroom_Project/scenes/Dude_UV_s.ma";
-file -rdi 2 -ns "Head02" -rfn "finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN"
-		 -op "v=0;" "/Users/Samantha/Desktop/Face Rig/scenes/Head02.ma";
 file -r -ns "finalRenderScene_vending" -dr 1 -rfn "finalRenderScene_vendingRN" -op
 		 "v=0;" "C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma";
 requires maya "2015";
@@ -34,10 +18,11 @@ fileInfo "osv" "Microsoft Windows 7 Enterprise Edition, 64-bit Windows 7 Service
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -586.25884607615762 192.00465256105713 -94.101369364828599 ;
-	setAttr ".r" -type "double3" -10.53835272957879 262.99999999992502 0 ;
+	setAttr ".t" -type "double3" -373.60185526230049 176.89016874609626 -380.33571680094553 ;
+	setAttr ".r" -type "double3" -8.1383527295784308 206.59999999992445 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
 	setAttr ".coi" 603.37604040304223;
 	setAttr ".imn" -type "string" "persp";
@@ -86,19 +71,172 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "camera1";
-	setAttr ".t" -type "double3" 6.3790073682784145 181.19251176180481 -80.120782467908541 ;
-	setAttr ".r" -type "double3" 0 -180 0 ;
+	setAttr -l on ".v";
+	setAttr ".t" -type "double3" 8.3924967720595269 183.18678055189901 -97.824302342002781 ;
+	setAttr -l on ".tx";
+	setAttr -l on ".ty";
+	setAttr -l on ".tz";
+	setAttr ".r" -type "double3" -2.3999999999998507 -181.99999999999866 0 ;
+	setAttr -l on ".rx";
+	setAttr -l on ".ry";
+	setAttr -l on ".rz";
 	setAttr ".s" -type "double3" 14.890151148993064 14.890151148993064 14.890151148993064 ;
+	setAttr -l on ".sx";
+	setAttr -l on ".sy";
+	setAttr -l on ".sz";
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
-	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
-	setAttr ".coi" 8.5137899528115142;
+	setAttr ".coi" 27.142682426250484;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
 	setAttr ".man" -type "string" "camera1_mask";
+createNode transform -n "group1";
+	setAttr ".t" -type "double3" 0 0 209.81860244492233 ;
+	setAttr ".s" -type "double3" 12.168350276261348 12.168350276261348 12.168350276261348 ;
+createNode transform -n "bestExplosion_MV:fluid1" -p "group1";
+	setAttr ".t" -type "double3" 0 7.8272204692941241 0 ;
+createNode fluidShape -n "bestExplosion_MV:fluidShape1" -p "bestExplosion_MV:fluid1";
+	setAttr -k off ".v";
+	setAttr ".rt" 1;
+	setAttr ".iss" yes;
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".stf" 25;
+	setAttr ".bres" 60;
+	setAttr ".sqvx" yes;
+	setAttr ".rw" 71;
+	setAttr ".rh" 68;
+	setAttr ".rd" 59;
+	setAttr ".dw" 20;
+	setAttr ".dh" 15;
+	setAttr ".dd" 20;
+	setAttr ".aure" yes;
+	setAttr ".rcbd" no;
+	setAttr ".aurt" 9.9999999747524271e-007;
+	setAttr ".mres" 600;
+	setAttr ".rste" no;
+	setAttr ".armg" 5;
+	setAttr ".dofx" -2.1666667461395264;
+	setAttr ".dofy" 3.8333332538604736;
+	setAttr ".dofz" 0.5;
+	setAttr -s 2 ".ifc";
+	setAttr ".sli" 1;
+	setAttr ".bod" 4;
+	setAttr ".ots" 9.5;
+	setAttr ".sql" 35;
+	setAttr ".sbst" 3;
+	setAttr ".eiss" yes;
+	setAttr ".hds" 3;
+	setAttr ".bndx" 0;
+	setAttr ".bndy" 2;
+	setAttr ".bndz" 0;
+	setAttr ".dds" 0.2;
+	setAttr ".vsw" 20;
+	setAttr ".vdp" 0.0060000000521540642;
+	setAttr ".tmet" 2;
+	setAttr ".tmsc" 4;
+	setAttr ".tds" 0.65;
+	setAttr ".tdf" 1;
+	setAttr ".ttb" 5;
+	setAttr ".tmns" 0.25;
+	setAttr ".tmpr" 15;
+	setAttr ".tmpt" 1;
+	setAttr ".fmet" 2;
+	setAttr ".resp" 1;
+	setAttr ".fuit" 0.079999998211860657;
+	setAttr ".mxrt" 0.5;
+	setAttr ".afrt" 15;
+	setAttr ".hre" 2;
+	setAttr ".lre" 1;
+	setAttr ".ss" yes;
+	setAttr -s 2 ".cl";
+	setAttr ".cl[0].clp" 0;
+	setAttr ".cl[0].clc" -type "float3" 0.2 0.2 0.2 ;
+	setAttr ".cl[0].cli" 1;
+	setAttr ".cl[1].clp" 1;
+	setAttr ".cl[1].clc" -type "float3" 0 0 0 ;
+	setAttr ".cl[1].cli" 1;
+	setAttr ".coi" 5;
+	setAttr -s 7 ".opa[0:6]"  0.019354839 0 1 1 1 1 0.032258064
+		 0.33112583 1 0.050000001 0.62251657 1 0.077419356 0.73509932 1 0.11129032
+		 0.82119203 1 0.16451614 0.8874172 1;
+	setAttr ".oib" 0.15000000596046448;
+	setAttr ".t" -type "float3" 0.15000001 0.15000001 0.15000001 ;
+	setAttr ".shp" 1;
+	setAttr ".abrt" 0.25;
+	setAttr ".ambc" -type "float3" 0.89300001 0.93580002 1 ;
+	setAttr -s 5 ".i";
+	setAttr ".i[0].ip" 0.57903224229812622;
+	setAttr ".i[0].ic" -type "float3" 0 0 0 ;
+	setAttr ".i[0].ii" 1;
+	setAttr ".i[1].ip" 0.69838708639144897;
+	setAttr ".i[1].ic" -type "float3" 0.89999998 0.2 0 ;
+	setAttr ".i[1].ii" 1;
+	setAttr ".i[2].ip" 0.7661290168762207;
+	setAttr ".i[2].ic" -type "float3" 1.5 1 0 ;
+	setAttr ".i[2].ii" 1;
+	setAttr ".i[3].ip" 1;
+	setAttr ".i[3].ic" -type "float3" 1.5 1.3594999 1.0785 ;
+	setAttr ".i[3].ii" 1;
+	setAttr ".i[4].ip" 0.63548386096954346;
+	setAttr ".i[4].ic" -type "float3" 0.2 0.044443335 0 ;
+	setAttr ".i[4].ii" 1;
+	setAttr ".iib" 0.80000001192092896;
+	setAttr ".env[0].envp" 0;
+	setAttr ".env[0].envc" -type "float3" 0 0 0 ;
+	setAttr ".env[0].envi" 1;
+	setAttr ".dos" 0;
+	setAttr ".rl" no;
+	setAttr ".dl" -type "float3" 0.89999998 0.2 0.5 ;
+createNode fluidEmitter -n "bestExplosion_MV:fluidEmitter1" -p "bestExplosion_MV:fluid1";
+	setAttr ".t" -type "double3" 0 -6.1691047900689941 0 ;
+	setAttr -k off ".sro";
+	setAttr -l on -k off ".urpp";
+	setAttr -k off ".npuv";
+	setAttr ".max" 1;
+	setAttr -k off ".spr";
+	setAttr -k off ".spd";
+	setAttr -k off ".srnd";
+	setAttr ".vol" 1;
+	setAttr -k off ".afc";
+	setAttr -k off ".afa";
+	setAttr -k off ".rnd";
+	setAttr -k off ".ssz";
+	setAttr -k off ".dss";
+createNode volumeAxisField -n "bestExplosion_MV:volumeAxisField1" -p "group1";
+	setAttr ".t" -type "double3" -4.2603818173768211 11.846153485709626 0 ;
+	setAttr ".s" -type "double3" 6 6 6 ;
+	setAttr -k off ".apv";
+	setAttr ".vol" 2;
+	setAttr -k off ".vex";
+	setAttr ".fc[0]"  0 1 1;
+	setAttr ".amag[0]"  0 1 1;
+	setAttr ".crad[0]"  0 1 1;
+	setAttr ".afc" 0;
+	setAttr ".afa" 0;
+	setAttr ".trb" 0.6;
+	setAttr ".trs" 0.1;
+	setAttr ".tf" -type "double3" 0.01 0.01 0.01 ;
+	setAttr ".dtr" 1;
+createNode volumeAxisField -n "bestExplosion_MV:volumeAxisField2" -p "group1";
+	setAttr ".t" -type "double3" 5.1525931342428768 10.784956946730704 0 ;
+	setAttr ".r" -type "double3" 0 0 -29.344518865813345 ;
+	setAttr ".s" -type "double3" 4 4 4 ;
+	setAttr -k off ".apv";
+	setAttr ".vol" 2;
+	setAttr -k off ".vex";
+	setAttr ".fc[0]"  0 1 1;
+	setAttr ".amag[0]"  0 1 1;
+	setAttr ".crad[0]"  0 1 1;
+	setAttr ".afc" 0;
+	setAttr ".afa" 0;
+	setAttr ".alx" 2;
+	setAttr ".trb" 0.6;
+	setAttr ".tf" -type "double3" 0.1 0.1 0.1 ;
+	setAttr ".dtr" 1;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 	setAttr -s 2 ".opt";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
@@ -111,6 +249,7 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
+	setAttr ".gi" yes;
 	setAttr ".fg" yes;
 	setAttr ".miSamplesQualityR" 1;
 	setAttr -s 48 ".stringOptions";
@@ -260,14 +399,15 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 125 ".lnk";
-	setAttr -s 7 ".ign";
-	setAttr -s 124 ".slnk";
+	setAttr -s 1024 ".lnk";
+	setAttr -s 4090 ".ign";
+	setAttr -s 40 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
-	setAttr -s 5 ".rlmi[1:4]"  3 2 4 1;
-	setAttr -s 3 ".rlmi";
+	setAttr ".crl" 2;
+	setAttr -s 5 ".rlmi[1:4]"  5 3 2 1;
+	setAttr -s 4 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
 createNode mentalrayOptions -s -n "miContourPreset";
@@ -313,10 +453,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n"
 		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
 		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n"
 		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
-		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
 		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n"
 		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
 		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n"
@@ -356,12 +496,9 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n"
 		+ "                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n"
 		+ "                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n"
-		+ "                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n"
-		+ "                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n"
-		+ "\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 0\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -469,15 +606,27 @@ createNode reference -n "finalRenderScene_vendingRN";
 	setAttr ".phl[98]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"finalRenderScene_vendingRN"
-		"finalRenderScene_vendingRN" 0
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN" 0
+		"finalRenderScene_vendingRN" 1
+		2 "|finalRenderScene_vending:vendingSnacks_grp" "visibility" " 0"
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN" 8
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av"
 		"finalRenderScene_vending:FullRig_Howard:Dude_UV_sRN" 0
 		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IKRN" 0
-		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN" 0
-		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_sRN" 0
-		
-		"finalRenderScene_vending:all_vending_snacksRN" 0
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN" 0
 		"finalRenderScene_vending:FullRig_Howard:faceRig:Head02RN" 8
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
 		"translate" " -type \"double3\" 0 0 0"
@@ -495,30 +644,73 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
 		"rotateZ" " -av"
-		"finalRenderScene_vendingRN" 232
-		2 "|finalRenderScene_vending:vendingSnacks_grp" "visibility" " 0"
+		"finalRenderScene_vending:FinalVendingGuyRig02:VendingGuy2IK:Dude_UV_sRN" 0
+		
+		"finalRenderScene_vending:all_vending_snacksRN" 0
+		"finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN" 4
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_control" 
+		"translateY" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
+		"translateX" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
+		"translateY" " -av 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		"finalRenderScene_vendingRN" 256
 		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:copyMachine_grp|finalRenderScene_vending:copier_main_body_grp|finalRenderScene_vending:copierStack_geo1|finalRenderScene_vending:copierStack_geoShape1" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:copyMachine_grp|finalRenderScene_vending:copier_main_body_grp|finalRenderScene_vending:copierStack_geo3|finalRenderScene_vending:copierStack_geoShape3" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|finalRenderScene_vending:hallwayProps_grp|finalRenderScene_vending:copyMachine_grp|finalRenderScene_vending:copier_main_body_grp|finalRenderScene_vending:copierStack_geo4|finalRenderScene_vending:copierStack_geoShape4" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:renderCam|finalRenderScene_vending:renderCamShape" 
+		"renderable" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:areaLight1" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:areaLight2" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:areaLight3" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:areaLight4" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:areaLight5" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:spotLight1" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:hallLight_grp|finalRenderScene_vending:hallLights:spotLight2" 
+		"visibility" " 0"
 		2 "|finalRenderScene_vending:roomLight_grp" "visibility" " 0"
-		2 "|finalRenderScene_vending:howard_lightRig_grp" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:areaLight1" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:areaLight2" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:areaLight3" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:areaLight4" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:areaLight5" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:spotLight1" "visibility" " 0"
-		2 "|finalRenderScene_vending:hallLights:spotLight2" "visibility" " 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH" "visibility" " 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:SuperMover_Offset_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:SuperMover|finalRenderScene_vending:howard_lightRig_grp" 
+		"visibility" " 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:EyebrowsShape" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE" "visibility" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:root_jnt|finalRenderScene_vending:FullRig_Howard:hips_jnt|finalRenderScene_vending:FullRig_Howard:hip_right_jnt|finalRenderScene_vending:FullRig_Howard:knee_right_jnt" 
-		"rotate" " -type \"double3\" -1.8616191705312417 18.693759425006121 2.141655504109711"
+		"rotate" " -type \"double3\" -1.9214548072685145 19.294608952081756 2.2104919894601069"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:root_jnt|finalRenderScene_vending:FullRig_Howard:hips_jnt|finalRenderScene_vending:FullRig_Howard:hip_right_jnt|finalRenderScene_vending:FullRig_Howard:knee_right_jnt" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt" 
-		"rotate" " -type \"double3\" 3.3878333077115568 -0.43247251442024642 -47.671853125068651"
+		"rotate" " -type \"double3\" 7.7959942474168917 -3.8322897821687101 -54.378962390561512"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt" 
 		"rotateX" " -av"
@@ -530,11 +722,11 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"rotate" " -type \"double3\" 41.89077117686837 24.167755158229522 -21.514897537625142"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateY" " -av -50.963613816295144"
+		"rotateY" " -av -52.071044897494858"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullLeft|finalRenderScene_vending:FullRig_Howard:clav_left_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_left_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateZ" " -av -103.92107942980448"
+		"rotateZ" " -av -121.81182841062021"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
-		"rotate" " -type \"double3\" -34.11763005785749 -5.0910039530976281 -51.558012462484314"
+		"rotate" " -type \"double3\" -114.17716948516623 -40.395671074071196 49.933677484140091"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
 		"rotateX" " -av"
@@ -545,7 +737,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
-		"rotate" " -type \"double3\" -68.291591907732624 -40.668320571518286 4.24491005822465"
+		"rotate" " -type \"double3\" -75.027994957992604 -19.939016278170993 17.218945249178091"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
 		"rotateX" " -av"
@@ -556,15 +748,15 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:pinkyMeta_left|finalRenderScene_vending:FullRig_Howard:pinkyKnuckle_left" 
-		"rotate" " -type \"double3\" 0 0 -85.988061933508476"
+		"rotate" " -type \"double3\" 0 0 -83.319764486689323"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:pinkyMeta_left|finalRenderScene_vending:FullRig_Howard:pinkyKnuckle_left" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:ringMeta_left|finalRenderScene_vending:FullRig_Howard:ringKnuckle_left" 
-		"rotate" " -type \"double3\" 0 0 -85.988061933508476"
+		"rotate" " -type \"double3\" 0 0 -83.319764486689323"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:ringMeta_left|finalRenderScene_vending:FullRig_Howard:ringKnuckle_left" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:middleMeta_left|finalRenderScene_vending:FullRig_Howard:middleKnuckle_left" 
-		"rotate" " -type \"double3\" -6.4680960278730391 -7.827664760906492 -86.182566855685394"
+		"rotate" " -type \"double3\" -6.7057321235081115 -7.6255519311366902 -84.415695633968639"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:middleMeta_left|finalRenderScene_vending:FullRig_Howard:middleKnuckle_left" 
 		"rotateZ" " -av"
@@ -573,7 +765,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:middleMeta_left|finalRenderScene_vending:FullRig_Howard:middleKnuckle_left" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:indexMeta_left|finalRenderScene_vending:FullRig_Howard:indexKnuckle_left" 
-		"rotate" " -type \"double3\" -25.883116992879831 -14.165683217658859 -79.288761578221767"
+		"rotate" " -type \"double3\" -26.27160036269543 -13.39099096582598 -77.658725345560214"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:indexMeta_left|finalRenderScene_vending:FullRig_Howard:indexKnuckle_left" 
 		"rotateZ" " -av"
@@ -582,7 +774,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:indexMeta_left|finalRenderScene_vending:FullRig_Howard:indexKnuckle_left" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:thumbMeta_left|finalRenderScene_vending:FullRig_Howard:thumbKnuckle_left" 
-		"rotate" " -type \"double3\" 9.51216772976397 -50.562110099884841 -60.057928277758542"
+		"rotate" " -type \"double3\" 4.6168643426225433 -51.060770799808402 -53.744516692344149"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:thumbMeta_left|finalRenderScene_vending:FullRig_Howard:thumbKnuckle_left" 
 		"rotateZ" " -av"
@@ -591,7 +783,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:wrist_right_jnt|finalRenderScene_vending:FullRig_Howard:thumbMeta_left|finalRenderScene_vending:FullRig_Howard:thumbKnuckle_left" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
-		"rotateY" " -av -126.1363247738885"
+		"rotateY" " -av -45.626556002173906"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:nullRight|finalRenderScene_vending:FullRig_Howard:clav_right_jnt|finalRenderScene_vending:FullRig_Howard:shoulder_right_jnt|finalRenderScene_vending:FullRig_Howard:locOri_elbow_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Arm_Bend01" 
 		"rotateZ" " -av 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_left_jnt|finalRenderScene_vending:FullRig_Howard:CC_L_Clavicle01" 
@@ -611,7 +803,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:locOri_clav_right_jnt|finalRenderScene_vending:FullRig_Howard:CC_R_Clavicle01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
-		"rotate" " -type \"double3\" 3.6356662537099855 10.801354568156571 2.8850775945448834"
+		"rotate" " -type \"double3\" -10.332110910947206 1.3032077029013958 -0.52381681295515903"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
 		"rotateX" " -av"
@@ -622,7 +814,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01" 
 		"segmentScaleCompensate" " 1"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control" 
-		"rotate" " -type \"double3\" 9.2691693828042148 0.22089534155449578 -2.2247353878717511"
+		"rotate" " -type \"double3\" -7.0972334945704389 7.128459116309612 -20.034646314648761"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control" 
 		"rotateX" " -av"
@@ -633,7 +825,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control" 
-		"rotate" " -type \"double3\" 15.821584413305956 2.6157205727800501 -6.6197010993624747"
+		"rotate" " -type \"double3\" -4.7657057758191259 0.097467528693197136 0.026760063514616017"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control" 
 		"rotateX" " -av"
@@ -642,7 +834,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control" 
 		"rotateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc01|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset01" 
-		"translate" " -type \"double3\" -3.0264801122288848e-005 -0.0038692018750607869 -0.00015997318721625421"
+		"translate" " -type \"double3\" -6.9714602178040664e-006 -0.00089126595736239251 -3.6849629577512782e-005"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc01|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset01" 
 		"translateX" " -av"
@@ -651,7 +843,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc01|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset01" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc02|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset02" 
-		"translate" " -type \"double3\" -4.4298533356293472e-005 -0.0056633436192697582 -0.00023415245787909581"
+		"translate" " -type \"double3\" -1.0204113410579401e-005 -0.001304544331283143 -5.3936734571930498e-005"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc02|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset02" 
 		"translateX" " -av"
@@ -660,7 +852,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc02|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset02" 
 		"translateZ" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc03|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset03" 
-		"translate" " -type \"double3\" -5.7185870098442991e-005 -0.007310924493359499 -0.00030227213013599673"
+		"translate" " -type \"double3\" -1.3172695792743934e-005 -0.0016840625865963243 -6.9628018425737015e-005"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc03|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset03" 
 		"translateX" " -av"
@@ -671,7 +863,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc03|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset03|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_control03" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc04|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset04|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_control04" 
-		"translate" " -type \"double3\" -4.4298533356293472e-005 -0.0056633436192697582 -0.00023415245787909581"
+		"translate" " -type \"double3\" -1.0204113410579401e-005 -0.001304544331283143 -5.3936734571930498e-005"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc04|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset04|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_control04" 
 		"translateX" " -av"
@@ -683,7 +875,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"translate" " -type \"double3\" -0.00014092920084941184 -0.025214939032041167 0.00032364355702900038"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc05|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset05|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_control05" 
-		"translate" " -type \"double3\" 0.00076733292696893772 -0.0011653049355939476 -8.1255416736759813e-005"
+		"translate" " -type \"double3\" 0.00017675420871130244 -0.0002684265780329551 -1.8717086656955748e-005"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_loc05|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_offset05|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_control05" 
 		"translateX" " -av"
@@ -694,7 +886,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_crease_loc03|finalRenderScene_vending:FullRig_Howard:faceRig:L_crease_offset03" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_crease_loc03|finalRenderScene_vending:FullRig_Howard:faceRig:R_crease_offset03" 
-		"translate" " -type \"double3\" -0.00017086577151713197 -0.021844325388611922 -0.00090315948039079784"
+		"translate" " -type \"double3\" -1.0204113410579407e-005 -0.0013045443312831426 -5.3936734571930498e-005"
 		
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Joints01|finalRenderScene_vending:FullRig_Howard:backUp_jnt|finalRenderScene_vending:FullRig_Howard:shoulders_jnt|finalRenderScene_vending:FullRig_Howard:faceRig:skeleton_grp|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_offset|finalRenderScene_vending:FullRig_Howard:faceRig:shoulder_control|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control01|finalRenderScene_vending:FullRig_Howard:faceRig:neck_offset02|finalRenderScene_vending:FullRig_Howard:faceRig:neck_control02|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_offset|finalRenderScene_vending:FullRig_Howard:faceRig:headBase_control|finalRenderScene_vending:FullRig_Howard:faceRig:head_offset|finalRenderScene_vending:FullRig_Howard:faceRig:head_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_offset|finalRenderScene_vending:FullRig_Howard:faceRig:lowerJaw_control|finalRenderScene_vending:FullRig_Howard:faceRig:lowerLip_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_crease_loc03|finalRenderScene_vending:FullRig_Howard:faceRig:R_crease_offset03" 
 		"translateX" " -av"
@@ -722,7 +914,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
 		"translate" " -type \"double3\" 0 -0.079975308335724554 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
-		"rotate" " -type \"double3\" 0 148.07107608581873 0"
+		"rotate" " -type \"double3\" 0 144.37922628140677 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01" 
 		"rotateY" " -av"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:CC_CoG01|finalRenderScene_vending:FullRig_Howard:locOri_hips_jnt|finalRenderScene_vending:FullRig_Howard:CC_Hibs01" 
@@ -731,44 +923,70 @@ createNode reference -n "finalRenderScene_vendingRN";
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:Guy|finalRenderScene_vending:FullRig_Howard:GlobalControls01|finalRenderScene_vending:FullRig_Howard:Controls01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnt_global01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_globalMove01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_cnts01|finalRenderScene_vending:FullRig_Howard:FlexiPlane01:flexiPlane_grp_midBend01|finalRenderScene_vending:FullRig_Howard:CC_Mid_Bend01" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_control" 
-		"translateY" " -av 0.77792361503614882"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_control" 
-		"translateY" " -av 0.75050477433279217"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_control" 
-		"translateY" " -av -0.71587752646390113"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_control" 
-		"translateY" " -av -0.71587752646390113"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" -0.23072313494414387 -1 0.1919483815528733"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
-		"translateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
-		"translate" " -type \"double3\" -0.23072313494414387 -1 0.1919483815528733"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
-		"translateZ" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control" 
-		"translate" " -type \"double3\" -0.40562917719904024 -0.79000961359896693 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control" 
-		"translate" " -type \"double3\" -0.40562917719904024 -0.79000961359896693 0"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:Head02RNfosterParent1|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed" 
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:EyebrowsShape" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Eyebrows|finalRenderScene_vending:FullRig_Howard:faceRig:EyebrowsShapeDeformed" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:geoGrp|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FullRig_Howard:faceRig:Head02:Full_Body:Body_Mesh" 
+		"rotateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_upperLidSync_control" 
+		"translateY" " -av 0.84385843480785816"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_upperLidSync_control" 
+		"translateY" " -av 0.86918968604850677"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lowerLidSync_control" 
+		"translateY" " -av -0.018005946570473594"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lowerLidSync_control" 
+		"translateY" " -av -0.018005946570473594"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
+		"translate" " -type \"double3\" -0.010833442222513229 -0.04695429535116153 0.0090128009996110568"
+		
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_eyeBrowsSync_control" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
+		"translate" " -type \"double3\" -0.0090311131855389058 -0.039142642491075984 0.0075133668758647658"
+		
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:upperJaw_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_eyeBrowsSync_control" 
+		"translateZ" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control" 
+		"translate" " -type \"double3\" -0.010202495569525861 -0.011349025084265713 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:L_lipsSync_control" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control" 
+		"translate" " -type \"double3\" -0.010202495569525861 -0.011349025084265713 0"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control" 
+		"translateY" " -av"
+		2 "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
+		"translate" " -type \"double3\" 175.37813808591213 1.1252096207984437 0"
+		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
+		"translateX" " -av"
+		2 "|finalRenderScene_vending:Vending_Machine_TD1:vendingMachine_BaseCtrl|finalRenderScene_vending:Vending_Machine_TD1:Working_Ctrls|finalRenderScene_vending:Vending_Machine_TD1:flamethrowerCluster_ctrl" 
+		"translateY" " -av"
 		2 "finalRenderScene_vending:color_pass" "precompTemplate" " -type \"string\" \"\""
 		
 		2 "finalRenderScene_vending:occlusionPass" "precompTemplate" " -type \"string\" \"\""
@@ -968,33 +1186,7 @@ createNode reference -n "finalRenderScene_vendingRN";
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateX" 
 		"finalRenderScene_vendingRN.placeHolderList[97]" ""
 		5 4 "finalRenderScene_vendingRN" "|finalRenderScene_vending:Howard_Rig_New_USE|finalRenderScene_vending:FullRig_Howard:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FullRig_Howard:faceRig:controls_grp|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_offset|finalRenderScene_vending:FullRig_Howard:faceRig:R_lipsSync_control.translateZ" 
-		"finalRenderScene_vendingRN.placeHolderList[98]" ""
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RN" 8
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateX" " -av"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateY" " -av"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"translateZ" " -av"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateX" " -av"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateY" " -av"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:howard_mesh_grp_old_DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:geoGrp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:bodyMesh_group|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02:Full_Body:Body_Mesh" 
-		"rotateZ" " -av"
-		"finalRenderScene_vending:FinalVendingGuyRig02:faceRigRN" 4
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:upperJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:L_upperLidSync_control" 
-		"translateY" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
-		"translateX" " -av 0"
-		2 "|finalRenderScene_vending:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:DO_NOT_TOUCH|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:controls_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:lowerJaw_grp|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_offset|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:jawSync_control" 
-		"translateY" " -av 0"
-		2 "|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:Head02RNfosterParent1|finalRenderScene_vending:FinalVendingGuyRig02:faceRig:EyebrowsShapeDeformed" 
-		"uvSet[0].uvSetName" " -type \"string\" \"map1\"";
+		"finalRenderScene_vendingRN.placeHolderList[98]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTL -n "R_upperLidSync_control_translateY";
@@ -1378,7 +1570,7 @@ createNode animCurveTA -n "shoulder_right_jnt_rotateY";
 createNode animCurveTA -n "shoulder_right_jnt_rotateZ";
 	setAttr ".tan" 16;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 52.552288127096865 120 -56.311047594197127;
+	setAttr -s 2 ".ktv[0:1]"  1 52.552288127096872 120 -56.311047594197127;
 createNode animCurveTA -n "CC_L_Arm_Bend01_rotateY1";
 	setAttr ".tan" 16;
 	setAttr ".wgt" no;
@@ -1411,19 +1603,146 @@ createNode animCurveTA -n "CC_CoG01_rotateZ";
 	setAttr ".tan" 16;
 	setAttr ".wgt" no;
 	setAttr ".ktv[0]"  1 0;
+createNode shadingEngine -n "bestExplosion_MV:fluidShape1SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "bestExplosion_MV:materialInfo1";
+createNode animCurveTU -n "bestExplosion_MV:fluidShape1_simulationRateScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 6 15 3 16 0.5;
+createNode animCurveTU -n "bestExplosion_MV:fluidEmitter1_fluidDensityEmission";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 60 10 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  0.0023054042831063271;
+	setAttr -s 2 ".kiy[1]"  -0.99999737739562988;
+	setAttr -s 2 ".kox[1]"  0.0023054059129208326;
+	setAttr -s 2 ".koy[1]"  -0.99999737739562988;
+createNode animCurveTU -n "bestExplosion_MV:fluidEmitter1_fluidHeatEmission";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 60 12 0.33061241284493548;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  0.0032119322568178177;
+	setAttr -s 2 ".kiy[1]"  -0.99999487400054932;
+	setAttr -s 2 ".kox[1]"  0.0032119306270033121;
+	setAttr -s 2 ".koy[1]"  -0.99999481439590454;
+createNode animCurveTU -n "bestExplosion_MV:fluidEmitter1_fluidFuelEmission";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 60 10 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  0.0023054042831063271;
+	setAttr -s 2 ".kiy[1]"  -0.99999737739562988;
+	setAttr -s 2 ".kox[1]"  0.0023054059129208326;
+	setAttr -s 2 ".koy[1]"  -0.99999737739562988;
+createNode animCurveTU -n "bestExplosion_MV:fluidShape1_densityBuoyancy";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  39 0 68 0 78 30;
+createNode animCurveTU -n "bestExplosion_MV:volumeAxisField1_magnitude";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  55 100 69 1;
+createNode animCurveTU -n "bestExplosion_MV:volumeAxisField2_magnitude";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  55 100 69 1;
+createNode animCurveTU -n "bestExplosion_MV:fluidShape1_buoyancy";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  39 1 53 150;
+createNode cacheFile -n "bestExplosion_MV:fluidShape1Cache1";
+	setAttr -s 6 ".ocd";
+	setAttr ".cn" -type "string" "fluidShape1";
+	setAttr ".cp" -type "string" "C:/Users/10565855/Downloads/vending//scenes/VFX/";
+	setAttr -s 6 ".ch";
+	setAttr ".ch[0]" -type "string" "fluidShape1_density";
+	setAttr ".ch[1]" -type "string" "fluidShape1_velocity";
+	setAttr ".ch[2]" -type "string" "fluidShape1_temperature";
+	setAttr ".ch[3]" -type "string" "fluidShape1_fuel";
+	setAttr ".ch[4]" -type "string" "fluidShape1_resolution";
+	setAttr ".ch[5]" -type "string" "fluidShape1_offset";
+	setAttr ".os" 1;
+	setAttr ".oe" 120;
+	setAttr ".ss" 1;
+	setAttr ".se" 120;
+	setAttr ".sf" 1;
+	setAttr ".en" no;
+	setAttr ".tr" 1;
+createNode diskCache -n "bestExplosion_MV:initialState_fluidShape1";
+	setAttr ".cn" -type "string" "powerfist_DR.ma_fluidShape1.mcfi";
+	setAttr ".ct" -type "string" "mcfi";
+	setAttr ".hcn" -type "string" "hidden1_fluidShape1.mcfi";
+createNode cacheBlend -n "bestExplosion_MV:cacheBlend1";
+	setAttr -s 6 ".ocd";
+	setAttr -s 6 ".ic";
+	setAttr -s 3 ".ic[0].va";
+	setAttr -s 3 ".ic[1].va";
+	setAttr -s 3 ".ic[2].va";
+	setAttr -s 3 ".ic[3].va";
+	setAttr -s 3 ".ic[4].va";
+	setAttr -s 3 ".ic[5].va";
+	setAttr -s 3 ".cd[0:2]" 1 120 no 1 1 67 no 1 1 121 yes 1;
+	setAttr -s 3 ".cd";
+	setAttr -k on ".cd[0].w";
+	setAttr -k on ".cd[1].w";
+	setAttr -k on ".cd[2].w";
+createNode cacheFile -n "bestExplosion_MV:fluidShape1Cache2";
+	setAttr -s 6 ".ocd";
+	setAttr ".cn" -type "string" "fluidShape1";
+	setAttr ".cp" -type "string" "C:/Users/10565855/Downloads/vending//scenes/VFX/";
+	setAttr -s 6 ".ch";
+	setAttr ".ch[0]" -type "string" "fluidShape1_density";
+	setAttr ".ch[1]" -type "string" "fluidShape1_velocity";
+	setAttr ".ch[2]" -type "string" "fluidShape1_temperature";
+	setAttr ".ch[3]" -type "string" "fluidShape1_fuel";
+	setAttr ".ch[4]" -type "string" "fluidShape1_resolution";
+	setAttr ".ch[5]" -type "string" "fluidShape1_offset";
+	setAttr ".os" 1;
+	setAttr ".oe" 67;
+	setAttr ".ss" 1;
+	setAttr ".se" 67;
+	setAttr ".sf" 1;
+	setAttr ".en" no;
+	setAttr ".tr" 2;
+createNode cacheFile -n "bestExplosion_MV_fluidShape1Cache1";
+	setAttr -s 6 ".ocd";
+	setAttr ".cn" -type "string" "bestExplosion_MV_fluidShape1";
+	setAttr ".cp" -type "string" "C:/Users/10565855/Downloads/vending//cache/nCache/fluid/powerfist_DR/";
+	setAttr -s 6 ".ch";
+	setAttr ".ch[0]" -type "string" "bestExplosion_MV:fluidShape1_density";
+	setAttr ".ch[1]" -type "string" "bestExplosion_MV:fluidShape1_velocity";
+	setAttr ".ch[2]" -type "string" "bestExplosion_MV:fluidShape1_temperature";
+	setAttr ".ch[3]" -type "string" "bestExplosion_MV:fluidShape1_fuel";
+	setAttr ".ch[4]" -type "string" "bestExplosion_MV:fluidShape1_resolution";
+	setAttr ".ch[5]" -type "string" "bestExplosion_MV:fluidShape1_offset";
+	setAttr ".os" 1;
+	setAttr ".oe" 121;
+	setAttr ".ss" 1;
+	setAttr ".se" 121;
+	setAttr ".sf" 1;
+	setAttr ".tr" 3;
+createNode renderLayer -n "explosionFistPump";
+	setAttr ".do" 3;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr ".o" 105;
-	setAttr ".unw" 105;
+	setAttr ".o" 12;
+	setAttr ".unw" 12;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 124 ".st";
+	setAttr -s 166 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -1436,7 +1755,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 117 ".s";
+	setAttr -s 62 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -1448,23 +1767,23 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 99 ".u";
+	setAttr -s 127 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 13 ".r";
+	setAttr -s 18 ".r";
 select -ne :lightList1;
-	setAttr -s 17 ".l";
+	setAttr -s 20 ".l";
 select -ne :defaultTextureList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 69 ".tx";
+	setAttr -s 90 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 8 ".dsm";
+	setAttr -s 58 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -1473,6 +1792,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr ".ro" yes;
+	setAttr -s 46 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -1519,13 +1839,21 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".nds";
 	setAttr -k on ".clip";
 	setAttr -k on ".edm";
+	setAttr ".edl" no;
 	setAttr ".ren" -type "string" "mentalRay";
 	setAttr -k on ".esr";
 	setAttr -k on ".ors";
+	setAttr ".outf" 51;
+	setAttr ".imfkey" -type "string" "hdr";
 	setAttr -k on ".gama";
+	setAttr ".an" yes;
+	setAttr ".ef" 121;
 	setAttr -k on ".be";
 	setAttr -k on ".fec";
 	setAttr -k on ".ofc";
+	setAttr ".pff" yes;
+	setAttr ".peie" 2;
+	setAttr ".ifp" -type "string" "<Scene><RenderLayer>";
 	setAttr -k on ".comp";
 	setAttr -k on ".cth";
 	setAttr -k on ".soll";
@@ -1557,6 +1885,7 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".tlwd";
 	setAttr -k on ".tlht";
 	setAttr -k on ".jfc";
+	setAttr ".cpe" yes;
 	setAttr ".hbl" -type "string" "Vending_2IK_Rig_Shaders;Room;Props;Eyeball;Head_Disappearing_Act;RIGGING_NoTouch;Mouth";
 select -ne :defaultResolution;
 	setAttr -k on ".cch";
@@ -1573,7 +1902,7 @@ select -ne :defaultResolution;
 select -ne :defaultLightSet;
 	setAttr -k on ".cch";
 	setAttr -k on ".nds";
-	setAttr -s 9 ".dsm";
+	setAttr -s 12 ".dsm";
 	setAttr -k on ".mwc";
 select -ne :hardwareRenderGlobals;
 	setAttr -k on ".cch";
@@ -1660,7 +1989,7 @@ select -ne :ikSystem;
 	setAttr -k on ".gsv";
 	setAttr -s 2 ".sol";
 select -ne :hyperGraphLayout;
-	setAttr -s 12 ".hyp";
+	setAttr -s 17 ".hyp";
 connectAttr "shoulder_left_jnt_rotateX.o" "finalRenderScene_vendingRN.phl[1]";
 connectAttr "shoulder_left_jnt_rotateY.o" "finalRenderScene_vendingRN.phl[2]";
 connectAttr "shoulder_left_jnt_rotateZ.o" "finalRenderScene_vendingRN.phl[3]";
@@ -1814,6 +2143,68 @@ connectAttr "R_lipsSync_control_translateX.o" "finalRenderScene_vendingRN.phl[97
 		;
 connectAttr "R_lipsSync_control_translateZ.o" "finalRenderScene_vendingRN.phl[98]"
 		;
+connectAttr "explosionFistPump.ri" "group1.rlio[0]";
+connectAttr "explosionFistPump.ri" "bestExplosion_MV:fluid1.rlio[0]";
+connectAttr ":time1.o" "bestExplosion_MV:fluidShape1.cti";
+connectAttr "bestExplosion_MV:fluidShape1_simulationRateScale.o" "bestExplosion_MV:fluidShape1.srs"
+		;
+connectAttr "bestExplosion_MV:fluidEmitter1.ef" "bestExplosion_MV:fluidShape1.eml[0].emfr"
+		;
+connectAttr "bestExplosion_MV:fluidEmitter1.efc" "bestExplosion_MV:fluidShape1.fce[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1_densityBuoyancy.o" "bestExplosion_MV:fluidShape1.dsb"
+		;
+connectAttr "bestExplosion_MV:volumeAxisField1.of[0]" "bestExplosion_MV:fluidShape1.ifc[0]"
+		;
+connectAttr "bestExplosion_MV:volumeAxisField2.of[0]" "bestExplosion_MV:fluidShape1.ifc[1]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1_buoyancy.o" "bestExplosion_MV:fluidShape1.buo"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ocd[0]" "bestExplosion_MV:fluidShape1.idns"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ocd[1]" "bestExplosion_MV:fluidShape1.ivel"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ocd[2]" "bestExplosion_MV:fluidShape1.itmp"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ocd[3]" "bestExplosion_MV:fluidShape1.irea"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ocd[4]" "bestExplosion_MV:fluidShape1.ires"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ocd[5]" "bestExplosion_MV:fluidShape1.ioff"
+		;
+connectAttr "bestExplosion_MV:cacheBlend1.ir" "bestExplosion_MV:fluidShape1.pfch"
+		;
+connectAttr "bestExplosion_MV:initialState_fluidShape1.dc" "bestExplosion_MV:fluidShape1.dcic"
+		;
+connectAttr ":time1.o" "bestExplosion_MV:fluidEmitter1.ct";
+connectAttr "bestExplosion_MV:fluidShape1.ifl" "bestExplosion_MV:fluidEmitter1.full[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1.ots" "bestExplosion_MV:fluidEmitter1.dt[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1.inh" "bestExplosion_MV:fluidEmitter1.inh[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1.sti" "bestExplosion_MV:fluidEmitter1.stt[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1.sd[0]" "bestExplosion_MV:fluidEmitter1.sd[0]"
+		;
+connectAttr "bestExplosion_MV:fluidEmitter1_fluidDensityEmission.o" "bestExplosion_MV:fluidEmitter1.fde"
+		;
+connectAttr "bestExplosion_MV:fluidEmitter1_fluidHeatEmission.o" "bestExplosion_MV:fluidEmitter1.fhe"
+		;
+connectAttr "bestExplosion_MV:fluidEmitter1_fluidFuelEmission.o" "bestExplosion_MV:fluidEmitter1.ffe"
+		;
+connectAttr "bestExplosion_MV:fluidShape1.fd" "bestExplosion_MV:volumeAxisField1.ind[0]"
+		;
+connectAttr ":time1.o" "bestExplosion_MV:volumeAxisField1.tim";
+connectAttr "bestExplosion_MV:volumeAxisField1_magnitude.o" "bestExplosion_MV:volumeAxisField1.mag"
+		;
+connectAttr "explosionFistPump.ri" "bestExplosion_MV:volumeAxisField1.rlio[0]";
+connectAttr "bestExplosion_MV:fluidShape1.fd" "bestExplosion_MV:volumeAxisField2.ind[0]"
+		;
+connectAttr ":time1.o" "bestExplosion_MV:volumeAxisField2.tim";
+connectAttr "bestExplosion_MV:volumeAxisField2_magnitude.o" "bestExplosion_MV:volumeAxisField2.mag"
+		;
+connectAttr "explosionFistPump.ri" "bestExplosion_MV:volumeAxisField2.rlio[0]";
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
@@ -1821,15 +2212,84 @@ connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "bestExplosion_MV:fluidShape1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "bestExplosion_MV:fluidShape1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "hyperView1.msg" "nodeEditorPanel1Info.b[0]";
 connectAttr "hyperLayout1.msg" "hyperView1.hl";
+connectAttr "bestExplosion_MV:fluidShape1.ocl" "bestExplosion_MV:fluidShape1SG.vs"
+		;
+connectAttr "bestExplosion_MV:fluidShape1.iog" "bestExplosion_MV:fluidShape1SG.dsm"
+		 -na;
+connectAttr "bestExplosion_MV:fluidShape1SG.msg" "bestExplosion_MV:materialInfo1.sg"
+		;
+connectAttr ":time1.o" "bestExplosion_MV:fluidShape1Cache1.tim";
+connectAttr "bestExplosion_MV:fluidShape1Cache1.st" "bestExplosion_MV:cacheBlend1.cd[0].st"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.e" "bestExplosion_MV:cacheBlend1.cd[0].e"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ir" "bestExplosion_MV:cacheBlend1.cd[0].ra"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.st" "bestExplosion_MV:cacheBlend1.cd[1].st"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.e" "bestExplosion_MV:cacheBlend1.cd[1].e"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ir" "bestExplosion_MV:cacheBlend1.cd[1].ra"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.st" "bestExplosion_MV:cacheBlend1.cd[2].st"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.e" "bestExplosion_MV:cacheBlend1.cd[2].e"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ir" "bestExplosion_MV:cacheBlend1.cd[2].ra"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ocd[0]" "bestExplosion_MV:cacheBlend1.ic[0].va[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ocd[0]" "bestExplosion_MV:cacheBlend1.ic[0].va[1]"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ocd[0]" "bestExplosion_MV:cacheBlend1.ic[0].va[2]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ocd[1]" "bestExplosion_MV:cacheBlend1.ic[1].va[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ocd[1]" "bestExplosion_MV:cacheBlend1.ic[1].va[1]"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ocd[1]" "bestExplosion_MV:cacheBlend1.ic[1].va[2]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ocd[2]" "bestExplosion_MV:cacheBlend1.ic[2].va[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ocd[2]" "bestExplosion_MV:cacheBlend1.ic[2].va[1]"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ocd[2]" "bestExplosion_MV:cacheBlend1.ic[2].va[2]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ocd[3]" "bestExplosion_MV:cacheBlend1.ic[3].va[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ocd[3]" "bestExplosion_MV:cacheBlend1.ic[3].va[1]"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ocd[3]" "bestExplosion_MV:cacheBlend1.ic[3].va[2]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ocd[4]" "bestExplosion_MV:cacheBlend1.ic[4].va[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ocd[4]" "bestExplosion_MV:cacheBlend1.ic[4].va[1]"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ocd[4]" "bestExplosion_MV:cacheBlend1.ic[4].va[2]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache1.ocd[5]" "bestExplosion_MV:cacheBlend1.ic[5].va[0]"
+		;
+connectAttr "bestExplosion_MV:fluidShape1Cache2.ocd[5]" "bestExplosion_MV:cacheBlend1.ic[5].va[1]"
+		;
+connectAttr "bestExplosion_MV_fluidShape1Cache1.ocd[5]" "bestExplosion_MV:cacheBlend1.ic[5].va[2]"
+		;
+connectAttr ":time1.o" "bestExplosion_MV:fluidShape1Cache2.tim";
+connectAttr ":time1.o" "bestExplosion_MV_fluidShape1Cache1.tim";
+connectAttr "renderLayerManager.rlmi[3]" "explosionFistPump.rlid";
+connectAttr "bestExplosion_MV:fluidShape1SG.pa" ":renderPartition.st" -na;
+connectAttr "bestExplosion_MV:fluidShape1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "explosionFistPump.msg" ":defaultRenderingList1.r" -na;
 connectAttr ":perspShape.msg" ":defaultRenderGlobals.sc";
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"E:/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"finalRenderScene_vendingRN\" \"\" \"C:/Users/Michael/Documents/maya/projects/Vending_Animation//scenes/finalRenderScene_vending.ma\" 2523924796 \"C:/Users/10565855/Downloads/vending/scenes/finalRenderScene_vending.ma\" \"FileRef\"\n1\n\"bestExplosion_MV:initialState_fluidShape1\" \"hiddenCacheName\" \"hidden1_fluidShape1.mcfi\" 944959918 \"\" \"\"\n2\n\"bestExplosion_MV:initialState_fluidShape1\" \"cacheName\" \"powerfist_DR.ma_fluidShape1.mcfi\" 3917512593 \"\" \"\"\n3\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-119\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame119.mcx\" 1594093183 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame119.mcx\" \"diskCache\"\n4\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-114\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame114.mcx\" 2811439822 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame114.mcx\" \"diskCache\"\n5\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-113\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame113.mcx\" 364115678 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame113.mcx\" \"diskCache\"\n6\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-112\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame112.mcx\" 684973934 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame112.mcx\" \"diskCache\"\n7\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-107\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame107.mcx\" 728728507 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame107.mcx\" \"diskCache\"\n8\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-108\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame108.mcx\" 2839483498 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame108.mcx\" \"diskCache\"\n9\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-105\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame105.mcx\" 1370476763 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame105.mcx\" \"diskCache\"\n10\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-104\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame104.mcx\" 1825569131 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame104.mcx\" \"diskCache\"\n11\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-100\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame100.mcx\" 2572115883 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame100.mcx\" \"diskCache\"\n12\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-99\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame99.mcx\" 2128311830 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame99.mcx\" \"diskCache\"\n13\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-111\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame111.mcx\" 1869850046 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame111.mcx\" \"diskCache\"\n14\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-97\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame97.mcx\" 3253454967 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame97.mcx\" \"diskCache\"\n15\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-94\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame94.mcx\" 2253107879 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame94.mcx\" \"diskCache\"\n16\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-115\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame115.mcx\" 2599617406 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame115.mcx\" \"diskCache\"\n17\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-93\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame93.mcx\" 879455927 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame93.mcx\" \"diskCache\"\n18\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-92\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame92.mcx\" 151734023 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame92.mcx\" \"diskCache\"\n19\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-106\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame106.mcx\" 370125323 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame106.mcx\" \"diskCache\"\n20\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-90\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame90.mcx\" 1942688871 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame90.mcx\" \"diskCache\"\n21\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-89\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame89.mcx\" 3045565875 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame89.mcx\" \"diskCache\"\n22\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-88\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame88.mcx\" 2296876035 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame88.mcx\" \"diskCache\"\n23\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-87\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame87.mcx\" 179772370 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame87.mcx\" \"diskCache\"\n24\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-86\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame86.mcx\" 936850018 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame86.mcx\" \"diskCache\"\n25\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-95\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame95.mcx\" 3140197143 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame95.mcx\" \"diskCache\"\n26\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-82\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame82.mcx\" 3260519586 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame82.mcx\" \"diskCache\"\n27\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-81\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame81.mcx\" 2247618162 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame81.mcx\" \"diskCache\"\n28\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-80\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame80.mcx\" 3096954818 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame80.mcx\" \"diskCache\"\n29\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-103\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame103.mcx\" 3740214651 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame103.mcx\" \"diskCache\"\n30\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-78\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame78.mcx\" 2041659094 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame78.mcx\" \"diskCache\"\n31\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-77\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame77.mcx\" 4225870087 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame77.mcx\" \"diskCache\"\n32\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-118\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame118.mcx\" 1650706383 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame118.mcx\" \"diskCache\"\n33\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-79\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame79.mcx\" 1154553702 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame79.mcx\" \"diskCache\"\n34\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-76\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame76.mcx\" 3330375863 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame76.mcx\" \"diskCache\"\n35\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-101\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame101.mcx\" 2754573851 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame101.mcx\" \"diskCache\"\n36\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-75\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame75.mcx\" 2166487655 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame75.mcx\" \"diskCache\"\n37\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-96\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame96.mcx\" 4237025735 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame96.mcx\" \"diskCache\"\n38\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-70\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame70.mcx\" 1237415191 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame70.mcx\" \"diskCache\"\n39\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-69\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame69.mcx\" 2408432835 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame69.mcx\" \"diskCache\"\n40\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-102\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame102.mcx\" 3817802955 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame102.mcx\" \"diskCache\"\n41\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-67\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame67.mcx\" 817724066 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame67.mcx\" \"diskCache\"\n42\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-116\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame116.mcx\" 3713235374 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame116.mcx\" \"diskCache\"\n43\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-65\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame65.mcx\" 1249716674 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame65.mcx\" \"diskCache\"\n44\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-64\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame64.mcx\" 1998389362 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame64.mcx\" \"diskCache\"\n45\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-68\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame68.mcx\" 3001937267 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame68.mcx\" \"diskCache\"\n46\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-58\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame58.mcx\" 880386013 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame58.mcx\" \"diskCache\"\n47\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-57\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame57.mcx\" 3056142348 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame57.mcx\" \"diskCache\"\n48\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-54\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame54.mcx\" 4052316892 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame54.mcx\" \"diskCache\"\n49\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-84\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame84.mcx\" 1293377794 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame84.mcx\" \"diskCache\"\n50\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-71\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame71.mcx\" 1956732071 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame71.mcx\" \"diskCache\"\n51\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-53\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame53.mcx\" 1135193804 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame53.mcx\" \"diskCache\"\n52\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-52\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame52.mcx\" 2127136636 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame52.mcx\" \"diskCache\"\n53\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-49\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame49.mcx\" 3259327944 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame49.mcx\" \"diskCache\"\n54\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-63\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame63.mcx\" 3309165666 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame63.mcx\" \"diskCache\"\n55\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-47\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame47.mcx\" 2104875945 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame47.mcx\" \"diskCache\"\n56\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-48\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame48.mcx\" 4280634488 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame48.mcx\" \"diskCache\"\n57\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-44\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame44.mcx\" 987079033 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame44.mcx\" \"diskCache\"\n58\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-66\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame66.mcx\" 232608530 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame66.mcx\" \"diskCache\"\n59\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-43\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame43.mcx\" 2297789801 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame43.mcx\" \"diskCache\"\n60\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-42\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame42.mcx\" 3046462681 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame42.mcx\" \"diskCache\"\n61\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-74\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame74.mcx\" 3158430679 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame74.mcx\" \"diskCache\"\n62\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-35\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame35.mcx\" 447789169 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame35.mcx\" \"diskCache\"\n63\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-34\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame34.mcx\" 667980225 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame34.mcx\" \"diskCache\"\n64\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-73\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame73.mcx\" 241242055 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame73.mcx\" \"diskCache\"\n65\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-59\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame59.mcx\" 152680045 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame59.mcx\" \"diskCache\"\n66\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-33\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame33.mcx\" 2515553745 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame33.mcx\" \"diskCache\"\n67\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-32\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame32.mcx\" 2828035169 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame32.mcx\" \"diskCache\"\n68\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-83\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame83.mcx\" 4281842962 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame83.mcx\" \"diskCache\"\n69\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-56\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame56.mcx\" 2336825788 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame56.mcx\" \"diskCache\"\n70\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-110\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame110.mcx\" 1377012750 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame110.mcx\" \"diskCache\"\n71\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-98\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame98.mcx\" 1136353190 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame98.mcx\" \"diskCache\"\n72\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-30\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame30.mcx\" 3528472321 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame30.mcx\" \"diskCache\"\n73\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-45\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame45.mcx\" 129337545 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame45.mcx\" \"diskCache\"\n74\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-27\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame27.mcx\" 2871802036 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame27.mcx\" \"diskCache\"\n75\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-39\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame39.mcx\" 3745535344 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame39.mcx\" \"diskCache\"\n76\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-62\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame62.mcx\" 4166907346 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame62.mcx\" \"diskCache\"\n77\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-25\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame25.mcx\" 3521932244 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame25.mcx\" \"diskCache\"\n78\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-29\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame29.mcx\" 337413845 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame29.mcx\" \"diskCache\"\n79\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-61\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame61.mcx\" 3221065474 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame61.mcx\" \"diskCache\"\n80\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-24\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame24.mcx\" 3968615012 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame24.mcx\" \"diskCache\"\n81\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-46\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame46.mcx\" 1075180057 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame46.mcx\" \"diskCache\"\n82\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-21\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame21.mcx\" 611110164 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame21.mcx\" \"diskCache\"\n83\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-19\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame19.mcx\" 2458449019 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame19.mcx\" \"diskCache\"\n84\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-41\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame41.mcx\" 4063571465 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame41.mcx\" \"diskCache\"\n85\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-60\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame60.mcx\" 2191369906 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame60.mcx\" \"diskCache\"\n86\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-18\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame18.mcx\" 2951273931 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame18.mcx\" \"diskCache\"\n87\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-16\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame16.mcx\" 282616746 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame16.mcx\" \"diskCache\"\n88\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-13\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame13.mcx\" 3627609306 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame13.mcx\" \"diskCache\"\n89\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-17\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame17.mcx\" 767052314 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame17.mcx\" \"diskCache\"\n90\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-12\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame12.mcx\" 3847800170 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame12.mcx\" \"diskCache\"\n91\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-14\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame14.mcx\" 1779970250 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame14.mcx\" \"diskCache\"\n92\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-15\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame15.mcx\" 1467488634 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame15.mcx\" \"diskCache\"\n93\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-11\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame11.mcx\" 2734211002 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame11.mcx\" \"diskCache\"\n94\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-9\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame9.mcx\" 3465831310 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame9.mcx\" \"diskCache\"\n95\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-8\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame8.mcx\" 4092873278 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame8.mcx\" \"diskCache\"\n96\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-23\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame23.mcx\" 1588371060 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame23.mcx\" \"diskCache\"\n97\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-37\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame37.mcx\" 1618012945 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame37.mcx\" \"diskCache\"\n98\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-91\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame91.mcx\" 1319845335 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame91.mcx\" \"diskCache\"\n99\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-7\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame7.mcx\" 1906630127 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame7.mcx\" \"diskCache\"\n100\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-6\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame6.mcx\" 1287976031 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame6.mcx\" \"diskCache\"\n101\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-20\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame20.mcx\" 420275364 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame20.mcx\" \"diskCache\"\n102\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-72\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame72.mcx\" 855713399 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame72.mcx\" \"diskCache\"\n103\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-31\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame31.mcx\" 4012908209 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame31.mcx\" \"diskCache\"\n104\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-10\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame10.mcx\" 2677577226 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame10.mcx\" \"diskCache\"\n105\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-55\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame55.mcx\" 3437845356 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame55.mcx\" \"diskCache\"\n106\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-109\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame109.mcx\" 2489269722 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame109.mcx\" \"diskCache\"\n107\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-4\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame4.mcx\" 906274623 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame4.mcx\" \"diskCache\"\n108\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-85\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame85.mcx\" 1886865586 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame85.mcx\" \"diskCache\"\n109\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-22\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame22.mcx\" 1674360772 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame22.mcx\" \"diskCache\"\n110\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-117\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame117.mcx\" 3761459230 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame117.mcx\" \"diskCache\"\n111\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-51\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame51.mcx\" 963247532 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame51.mcx\" \"diskCache\"\n112\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-5\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame5.mcx\" 191139471 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame5.mcx\" \"diskCache\"\n113\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-40\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame40.mcx\" 3478456249 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame40.mcx\" \"diskCache\"\n114\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-50\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame50.mcx\" 67752988 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame50.mcx\" \"diskCache\"\n115\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-26\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame26.mcx\" 2521567492 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame26.mcx\" \"diskCache\"\n116\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-3\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame3.mcx\" 2216983343 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame3.mcx\" \"diskCache\"\n117\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-38\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame38.mcx\" 3793779904 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame38.mcx\" \"diskCache\"\n118\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-120\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame120.mcx\" 3565682336 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame120.mcx\" \"diskCache\"\n119\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-36\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame36.mcx\" 1561379489 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame36.mcx\" \"diskCache\"\n120\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-2\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame2.mcx\" 3108262559 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame2.mcx\" \"diskCache\"\n121\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-1\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame1.mcx\" 4276365391 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame1.mcx\" \"diskCache\"\n122\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-28\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame28.mcx\" 696037221 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame28.mcx\" \"diskCache\"\n123\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-data-121\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame121.mcx\" 3924285200 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1Frame121.mcx\" \"diskCache\"\n124\n\"bestExplosion_MV_fluidShape1Cache1\" \"cache-description\" \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1.xml\" 739999172 \"C:/Users/10565855/Downloads/vending/cache/nCache/fluid/powerfist_DR/bestExplosion_MV_fluidShape1.xml\" \"diskCache\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of powerfist_DR.ma
